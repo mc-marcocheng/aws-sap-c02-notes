@@ -557,3 +557,33 @@ blockquote.callout.is-collapsed .callout-title {
 article {
   line-height: 1.6;
 }
+
+// ============================================
+// Sidebar Text Wrapping & Readability
+// ============================================
+
+// Allow text to wrap but tighten line height within items
+.explorer-content ul li > a,
+.folder-container div > a,
+.folder-container div > button > span,
+ul.toc-content.overflow > li > a,
+.backlinks > ul.overflow > li > a {
+  white-space: normal;
+  line-height: 1.3;
+  display: inline-block;
+}
+
+// Add vertical spacing between individual list items so wrapping is clear
+.explorer-content ul li,
+ul.toc-content.overflow > li,
+.backlinks > ul.overflow > li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+// Slightly reduce font size for links to help them fit better
+.explorer-content ul li > a,
+ul.toc-content.overflow > li > a,
+.backlinks > ul.overflow > li > a {
+  font-size: 0.9em;
+}
