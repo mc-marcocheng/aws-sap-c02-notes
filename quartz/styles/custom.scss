@@ -1,0 +1,443 @@
+@use "./base.scss";
+
+// ============================================
+// Dracula / Alucard Theme for Quartz
+// ============================================
+
+@use "./variables.scss" as *;
+
+// Dracula palette
+$dracula-bg: #282a36;
+$dracula-current: #44475a;
+$dracula-fg: #f8f8f2;
+$dracula-comment: #6272a4;
+$dracula-cyan: #8be9fd;
+$dracula-green: #50fa7b;
+$dracula-orange: #ffb86c;
+$dracula-pink: #ff79c6;
+$dracula-purple: #bd93f9;
+$dracula-red: #ff5555;
+$dracula-yellow: #f1fa8c;
+
+// ============================================
+// Callout Colors
+// ============================================
+
+blockquote.callout {
+  &[data-callout="note"] {
+    --color: #{$dracula-purple};
+    --border: #{$dracula-purple};
+    --callout-icon-color: #{$dracula-purple};
+  }
+
+  &[data-callout="exam"],
+  &[data-callout="info"] {
+    --color: #{$dracula-cyan};
+    --border: #{$dracula-cyan};
+    --callout-icon-color: #{$dracula-cyan};
+  }
+
+  &[data-callout="question"],
+  &[data-callout="help"],
+  &[data-callout="faq"] {
+    --color: #{$dracula-orange};
+    --border: #{$dracula-orange};
+    --callout-icon-color: #{$dracula-orange};
+  }
+
+  &[data-callout="tip"],
+  &[data-callout="hint"],
+  &[data-callout="important"] {
+    --color: #{$dracula-cyan};
+    --border: #{$dracula-cyan};
+    --callout-icon-color: #{$dracula-cyan};
+  }
+
+  &[data-callout="success"],
+  &[data-callout="check"],
+  &[data-callout="done"] {
+    --color: #{$dracula-green};
+    --border: #{$dracula-green};
+    --callout-icon-color: #{$dracula-green};
+  }
+
+  &[data-callout="warning"],
+  &[data-callout="caution"],
+  &[data-callout="attention"] {
+    --color: #{$dracula-orange};
+    --border: #{$dracula-orange};
+    --callout-icon-color: #{$dracula-orange};
+  }
+
+  &[data-callout="failure"],
+  &[data-callout="fail"],
+  &[data-callout="missing"] {
+    --color: #{$dracula-red};
+    --border: #{$dracula-red};
+    --callout-icon-color: #{$dracula-red};
+  }
+
+  &[data-callout="danger"],
+  &[data-callout="error"] {
+    --color: #{$dracula-red};
+    --border: #{$dracula-red};
+    --callout-icon-color: #{$dracula-red};
+  }
+
+  &[data-callout="bug"] {
+    --color: #{$dracula-red};
+    --border: #{$dracula-red};
+    --callout-icon-color: #{$dracula-red};
+  }
+
+  &[data-callout="example"] {
+    --color: #{$dracula-purple};
+    --border: #{$dracula-purple};
+    --callout-icon-color: #{$dracula-purple};
+  }
+
+  &[data-callout="quote"],
+  &[data-callout="cite"] {
+    --color: #{$dracula-comment};
+    --border: #{$dracula-comment};
+    --callout-icon-color: #{$dracula-comment};
+  }
+
+  &[data-callout="abstract"],
+  &[data-callout="summary"],
+  &[data-callout="tldr"] {
+    --color: #{$dracula-cyan};
+    --border: #{$dracula-cyan};
+    --callout-icon-color: #{$dracula-cyan};
+  }
+}
+
+// ============================================
+// Code Blocks
+// ============================================
+
+:root[saved-theme="dark"] {
+  pre {
+    background-color: #1e1f29 !important;
+    border: 1px solid $dracula-current;
+  }
+
+  code {
+    color: $dracula-fg;
+  }
+
+  // Inline code
+  :not(pre) > code {
+    background-color: $dracula-current;
+    color: $dracula-cyan;
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+  }
+}
+
+:root[saved-theme="light"] {
+  pre {
+    background-color: #e8e8e2 !important;
+    border: 1px solid #d8d8d2;
+  }
+
+  // Inline code
+  :not(pre) > code {
+    background-color: #e0e0da;
+    color: #6c3fc2;
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+  }
+}
+
+// ============================================
+// Links
+// ============================================
+
+:root[saved-theme="dark"] {
+  a.internal {
+    color: $dracula-purple;
+
+    &:hover {
+      color: $dracula-pink;
+    }
+  }
+
+  a.external {
+    color: $dracula-cyan;
+
+    &:hover {
+      color: $dracula-green;
+    }
+  }
+}
+
+:root[saved-theme="light"] {
+  a.internal {
+    color: #7c3aed;
+
+    &:hover {
+      color: #d63384;
+    }
+  }
+
+  a.external {
+    color: #0d96a6;
+
+    &:hover {
+      color: #2a8e49;
+    }
+  }
+}
+
+// ============================================
+// Tags
+// ============================================
+
+a.tag-link {
+  border-radius: 12px;
+  padding: 0.2em 0.6em;
+  font-size: 0.85em;
+}
+
+:root[saved-theme="dark"] {
+  a.tag-link {
+    background-color: rgba($dracula-comment, 0.2);
+    color: $dracula-comment;
+    border: 1px solid rgba($dracula-comment, 0.4);
+
+    &:hover {
+      background-color: rgba($dracula-comment, 0.35);
+      color: $dracula-fg;
+    }
+  }
+}
+
+:root[saved-theme="light"] {
+  a.tag-link {
+    background-color: rgba(#6272a4, 0.1);
+    color: #6272a4;
+    border: 1px solid rgba(#6272a4, 0.25);
+
+    &:hover {
+      background-color: rgba(#6272a4, 0.2);
+      color: #282a36;
+    }
+  }
+}
+
+// ============================================
+// Tables
+// ============================================
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 0.6em 1em;
+  }
+}
+
+:root[saved-theme="dark"] {
+  table {
+    th {
+      background-color: $dracula-current;
+      color: $dracula-purple;
+      border-bottom: 2px solid $dracula-purple;
+    }
+
+    td {
+      border-bottom: 1px solid $dracula-current;
+    }
+
+    tr:hover td {
+      background-color: rgba($dracula-current, 0.5);
+    }
+  }
+}
+
+:root[saved-theme="light"] {
+  table {
+    th {
+      background-color: #e6e6e6;
+      color: #7c3aed;
+      border-bottom: 2px solid #7c3aed;
+    }
+
+    td {
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    tr:hover td {
+      background-color: rgba(#e6e6e6, 0.5);
+    }
+  }
+}
+
+// ============================================
+// Blockquotes (non-callout)
+// ============================================
+
+:root[saved-theme="dark"] {
+  blockquote:not(.callout) {
+    border-left: 3px solid $dracula-comment;
+    background-color: rgba($dracula-current, 0.3);
+    padding: 0.5em 1em;
+  }
+}
+
+:root[saved-theme="light"] {
+  blockquote:not(.callout) {
+    border-left: 3px solid $dracula-comment;
+    background-color: rgba(#e6e6e6, 0.5);
+    padding: 0.5em 1em;
+  }
+}
+
+// ============================================
+// Explorer
+// ============================================
+
+:root[saved-theme="dark"] {
+  .explorer {
+    ul > li > a {
+      &:hover {
+        color: $dracula-pink;
+      }
+    }
+
+    .folder-title:hover {
+      color: $dracula-cyan;
+    }
+  }
+}
+
+// ============================================
+// Graph
+// ============================================
+
+:root[saved-theme="dark"] {
+  .graph-view-container {
+    --graph-node: #{$dracula-purple};
+    --graph-node-active: #{$dracula-pink};
+    --graph-link: #{$dracula-comment};
+  }
+}
+
+:root[saved-theme="light"] {
+  .graph-view-container {
+    --graph-node: #7c3aed;
+    --graph-node-active: #d63384;
+    --graph-link: #{$dracula-comment};
+  }
+}
+
+// ============================================
+// Search
+// ============================================
+
+:root[saved-theme="dark"] {
+  #search-container {
+    input {
+      background-color: $dracula-current;
+      color: $dracula-fg;
+      border: 1px solid $dracula-comment;
+
+      &:focus {
+        border-color: $dracula-purple;
+      }
+    }
+
+    .search-result-card {
+      &:hover {
+        background-color: $dracula-current;
+      }
+    }
+  }
+}
+
+// ============================================
+// Scrollbar
+// ============================================
+
+:root[saved-theme="dark"] {
+  * {
+    scrollbar-color: $dracula-current $dracula-bg;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $dracula-bg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $dracula-current;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $dracula-comment;
+    }
+  }
+}
+
+// ============================================
+// Selection highlight
+// ============================================
+
+:root[saved-theme="dark"] {
+  ::selection {
+    background-color: rgba($dracula-purple, 0.35);
+    color: $dracula-fg;
+  }
+}
+
+:root[saved-theme="light"] {
+  ::selection {
+    background-color: rgba(#7c3aed, 0.2);
+    color: #282a36;
+  }
+}
+
+// ============================================
+// Horizontal rule
+// ============================================
+
+hr {
+  border: none;
+  height: 1px;
+}
+
+:root[saved-theme="dark"] hr {
+  background: linear-gradient(
+    to right,
+    transparent,
+    $dracula-comment,
+    transparent
+  );
+}
+
+:root[saved-theme="light"] hr {
+  background: linear-gradient(to right, transparent, #c0c0c0, transparent);
+}
+
+// ============================================
+// Practice Questions: improve list readability
+// ============================================
+
+.callout-content ol {
+  li {
+    margin-bottom: 0.3em;
+    padding-left: 0.2em;
+  }
+}
+
+// Collapsed answer callout indicator
+blockquote.callout.is-collapsed .callout-title {
+  cursor: pointer;
+}

@@ -1,0 +1,39 @@
+---
+tags: [aws, sap-c02, opensearch]
+---
+# Amazon OpenSearch Service
+
+Amazon OpenSearch Service (successor to Amazon Elasticsearch Service) is a managed service that makes it easy to deploy, operate, and scale OpenSearch clusters in the AWS Cloud for log analytics, real-time application monitoring, and full-text search.
+
+## Core Features
+- **Managed Clusters**: Automates backups, monitoring, and software patching.
+- **Storage Tiers**:
+    - **Hot**: Fast storage (EBS) for indexing and frequent access.
+    - **UltraWarm**: Low-cost, read-only storage backed by S3 for older data.
+    - **Cold**: Lowest cost, data is detached from compute until needed for analysis.
+- **Dedicated Master Nodes**: Offload cluster management tasks from data nodes to improve stability.
+- **Multi-AZ**: Supports deployment across 2 or 3 Availability Zones for high availability.
+
+## Security and Access Control
+- **Network Isolation**: Deploy within a **VPC** for private connectivity.
+- **Authentication**: Integrates with **Amazon Cognito** and SAML for dashboard access.
+- **Fine-Grained Access Control (FGAC)**: Document and field-level security.
+- **Encryption**: Supports encryption at rest (KMS) and node-to-node encryption (TLS).
+
+## Advanced Capabilities
+- **Cross-Cluster Replication**: Low-latency synchronization between clusters in different regions.
+- **Integration**: Ingest data via **Kinesis Data Firehose**, **Logstash**, or **AWS IoT**.
+- **Trace Analytics**: Analyze distributed trace data for application performance monitoring.
+
+| Tier | Storage | Best Use Case |
+| --- | --- | --- |
+| **Hot** | EBS (SSD) | Active indexing and high-frequency queries. |
+| **UltraWarm** | S3-backed | Large volumes of logs for long-term retention. |
+| **Cold** | S3 (Detached) | Historical logs rarely accessed, but must be preserved. |
+
+> [!important] Blue/Green Deployments
+> OpenSearch Service uses a blue/green deployment process for configuration updates and patches to ensure zero downtime.
+
+> [!exam]
+> **SAP-C02 Tip**: For centralized logging across multiple accounts, the recommended pattern is:
+> **CloudWatch Logs** -> **Kinesis Data Firehose** -> **Amazon OpenSearch**.
