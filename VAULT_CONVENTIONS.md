@@ -38,7 +38,6 @@ This file defines the strict style guide and standard operating procedures for g
   - `# <Service> - Practice Questions` (H1) for the title.
   - **Question Block**: Use the `> [!question]` callout. Options must be numbered (1. 2. 3. 4.).
   - **Answer Block**: Must be *nested* within the question block using `> > [!success]- Answer & Rationale`.
-  - **Blank line**: A blank `> >` line is **required** after the nested callout title.
 
 **Example Practice Question Format:**
 ```markdown
@@ -51,7 +50,6 @@ This file defines the strict style guide and standard operating procedures for g
 > 4. Option four.
 >
 > > [!success]- Answer & Rationale
-> >
 > > **Answer: 2**
 > > **Rationale:** Detailed explanation of why 2 is correct and the others are incorrect. Include internal links to topic notes like [[Topic Name]].
 ```

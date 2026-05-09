@@ -28,7 +28,7 @@ Thank you for your interest in contributing to the AWS SAP-C02 Study Notes! This
 
 ```bash
 git clone https://github.com/mc-marcocheng/aws-sap-c02-notes.git
-cd aws-study-notes
+cd aws-sap-c02-notes
 npm ci
 ```
 
@@ -141,7 +141,6 @@ tags: [aws, sap-c02, <service-tag>, practice-questions]
 > 4. Fourth option with specific AWS services and configurations.
 >
 > > [!success]- Answer & Rationale
-> >
 > > **Answer: 2**
 > > **Rationale:** Explanation of why option 2 is correct. [[Related Service]] provides [capability] which satisfies the [requirement]. Option 1 is incorrect because [reason]. Option 3 fails due to [reason]. Option 4 would work but [does not meet constraint].
 ```
@@ -182,27 +181,11 @@ When adding questions to an **existing** practice questions file:
 > 4. Option text.
 >
 > > [!success]- Answer & Rationale
-> >
 > > **Answer: X**
 > > **Rationale:** Explanation with [[Links to Topic Notes]].
 ```
 
-> [!IMPORTANT]
-> The blank `> >` line after `> > [!success]- Answer & Rationale` is **required**.
-> Without it, the answer content leaks into the callout title on the web version.
-
 ### Common mistakes to avoid
-
-```markdown
-<!-- ❌ WRONG: Missing blank line after nested callout title -->
-> > [!success]- Answer & Rationale
-> > **Answer: 2**
-
-<!-- ✅ CORRECT: Blank line separates title from content -->
-> > [!success]- Answer & Rationale
-> >
-> > **Answer: 2**
-```
 
 ```markdown
 <!-- ❌ WRONG: Using lettered options -->
@@ -284,22 +267,6 @@ docs: update README with new section
 style: fix callout formatting in <service>
 ```
 
-### PR checklist
-
-Include this in your PR description:
-
-```markdown
-## Checklist
-
-- [ ] Topic note follows vault conventions (frontmatter, structure, footer)
-- [ ] Practice questions file created/updated with correct format
-- [ ] Blank line present after all nested collapsible callout titles
-- [ ] Note linked from `index.md`
-- [ ] Cross-links added to/from related notes
-- [ ] Built and verified locally with `npx quartz build --serve`
-- [ ] No broken wikilinks
-```
-
 ---
 
 ## Local Development
@@ -321,7 +288,7 @@ npx quartz build
 ```bash
 # Find potential broken wikilinks
 grep -roh '\[\[[^]]*\]\]' content/ | sort -u | while read link; do
-  target=$(echo "$link" | sed 's/\[\[//;s/\]\]//;s/|.*//')
+  target=$$(echo "$$link" | sed 's/\[\[//;s/\]\]//;s/|.*//')
   if ! find content/ -name "${target}.md" | grep -q .; then
     echo "⚠️  Broken: $link"
   fi

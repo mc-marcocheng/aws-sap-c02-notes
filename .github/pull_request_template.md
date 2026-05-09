@@ -20,8 +20,7 @@
 
 - [ ] Topic note follows [Vault Conventions](../VAULT_CONVENTIONS.md) (frontmatter, structure, footer)
 - [ ] Practice questions file created/updated with correct format
-- [ ] Blank `> >` line present after all nested collapsible callout titles
-- [ ] Note linked from `content/00 - Index.md`
+- [ ] Note linked from `content/index.md`
 - [ ] Cross-links added to/from related notes
 - [ ] Built and verified locally with `npx quartz build --serve`
 - [ ] Callouts collapse/expand correctly
