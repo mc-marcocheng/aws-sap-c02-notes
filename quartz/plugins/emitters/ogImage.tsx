@@ -14,7 +14,7 @@ import fs from "node:fs/promises"
 import { styleText } from "util"
 
 const defaultOptions: SocialImageOptions = {
-  colorScheme: "lightMode",
+  colorScheme: "darkMode",
   width: 1200,
   height: 630,
   imageStructure: defaultImage,
@@ -39,6 +39,15 @@ async function generateSocialImage(
     console.warn(styleText("yellow", `Warning: Could not find icon at ${iconPath}`))
   }
 
+  const ogImagePath = joinSegments(QUARTZ, "static", "og-image.png")
+  let ogImageBase64: string | undefined = undefined
+  try {
+    const ogImageData = await fs.readFile(ogImagePath)
+    ogImageBase64 = `data:image/png;base64,${ogImageData.toString("base64")}`
+  } catch (err) {
+    console.warn(styleText("yellow", `Warning: Could not find og-image at ${ogImagePath}`))
+  }
+
   const imageComponent = userOpts.imageStructure({
     cfg,
     userOpts,
@@ -47,6 +56,7 @@ async function generateSocialImage(
     fonts,
     fileData,
     iconBase64,
+    ogImageBase64,
   })
 
   const svg = await satori(imageComponent, {

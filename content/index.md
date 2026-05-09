@@ -1,6 +1,7 @@
 ---
 title: SAP-C02 Study Notes
 tags: [aws, sap-c02, index]
+socialImage: og-image.png
 ---
 # AWS SAP-C02 Exam Index
 ## Domain 1: Design for Organizational Complexity (26%)

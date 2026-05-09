@@ -141,6 +141,7 @@ export type SocialImageOptions = {
     options: ImageOptions & {
       userOpts: UserOpts
       iconBase64?: string
+      ogImageBase64?: string
     },
   ) => JSXInternal.Element
 }
@@ -178,6 +179,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
   description,
   fileData,
   iconBase64,
+  ogImageBase64,
 }) => {
   const { colorScheme } = userOpts
   const fontBreakPoint = 32
@@ -247,6 +249,9 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
           display: "flex",
           marginTop: "1rem",
           marginBottom: "1.5rem",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flex: 1,
         }}
       >
         <h1
@@ -259,37 +264,24 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
             lineHeight: 1.2,
             display: "-webkit-box",
             WebkitBoxOrient: "vertical",
-            WebkitLineClamp: 2,
+            WebkitLineClamp: 3,
             overflow: "hidden",
             textOverflow: "ellipsis",
+            flex: 1,
+            paddingRight: "2rem",
           }}
         >
           {title}
         </h1>
-      </div>
-
-      {/* Description Section */}
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          fontSize: 36,
-          color: cfg.theme.colors[colorScheme].darkgray,
-          lineHeight: 1.4,
-        }}
-      >
-        <p
-          style={{
-            margin: 0,
-            display: "-webkit-box",
-            WebkitBoxOrient: "vertical",
-            WebkitLineClamp: 5,
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-          }}
-        >
-          {description}
-        </p>
+        {ogImageBase64 && (
+          <img
+            src={ogImageBase64}
+            width={400}
+            style={{
+              objectFit: "contain",
+            }}
+          />
+        )}
       </div>
 
       {/* Footer with Metadata */}
