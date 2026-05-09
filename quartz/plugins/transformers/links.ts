@@ -83,12 +83,14 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   })
                 }
 
-                // Check if the link has alias text
-                if (
+                // Check if the link has an explicit alias
+                const isExplicitAlias =
                   node.children.length === 1 &&
                   node.children[0].type === "text" &&
-                  node.children[0].value !== dest
-                ) {
+                  node.children[0].value !== dest &&
+                  node.children[0].value !== dest.split("#")[0]
+
+                if (isExplicitAlias) {
                   // Add the 'alias' class if the text content is not the same as the href
                   classes.push("alias")
                 }
@@ -131,7 +133,8 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   isInternal &&
                   node.children.length === 1 &&
                   node.children[0].type === "text" &&
-                  !node.children[0].value.startsWith("#")
+                  !node.children[0].value.startsWith("#") &&
+                  !isExplicitAlias
                 ) {
                   node.children[0].value = path.basename(node.children[0].value)
                 }

@@ -303,3 +303,47 @@ window.addEventListener("resize", function () {
 function setFolderState(folderElement: HTMLElement, collapsed: boolean) {
   return collapsed ? folderElement.classList.remove("open") : folderElement.classList.add("open")
 }
+
+// Mobile top navigation scroll behavior
+let currentTranslateY = 0
+let lastScrollY = window.scrollY
+
+window.addEventListener(
+  "scroll",
+  () => {
+    const sidebar = document.querySelector(".sidebar.left") as HTMLElement
+    if (!sidebar) return
+
+    const isMobile = window.innerWidth <= 800
+    const isTabletReaderMode = window.innerWidth > 800 && window.innerWidth <= 1200 && document.documentElement.getAttribute("reader-mode") === "on"
+
+    if (!isMobile && !isTabletReaderMode) {
+      sidebar.style.transform = ""
+      return
+    }
+
+    const explorer = sidebar.querySelector(".explorer")
+    if (explorer && !explorer.classList.contains("collapsed")) {
+      // Menu is open, ensure bar is fully visible
+      currentTranslateY = 0
+      sidebar.style.transform = `translateY(${currentTranslateY}px)`
+      lastScrollY = window.scrollY
+      return
+    }
+
+    const currentScrollY = window.scrollY
+    const dy = currentScrollY - lastScrollY
+
+    if (currentScrollY <= 0) {
+      currentTranslateY = 0
+    } else {
+      const barHeight = sidebar.offsetHeight
+      currentTranslateY -= dy
+      currentTranslateY = Math.max(-barHeight, Math.min(0, currentTranslateY))
+    }
+
+    sidebar.style.transform = `translateY(${currentTranslateY}px)`
+    lastScrollY = currentScrollY
+  },
+  { passive: true },
+)

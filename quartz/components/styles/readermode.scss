@@ -1,3 +1,5 @@
+@use "../../styles/variables.scss" as *;
+
 .readermode {
   cursor: pointer;
   padding: 0;
@@ -29,6 +31,118 @@
 
     &:hover {
       opacity: 1;
+    }
+  }
+
+  .page > #quartz-body {
+    @media all and ($tablet) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "grid-sidebar-left"
+        "grid-header"
+        "grid-center"
+        "grid-sidebar-right"
+        "grid-footer";
+      
+      .sidebar.left {
+         opacity: 1; // Override the opacity: 0 above
+         flex-direction: row;
+         align-items: center;
+         box-sizing: border-box;
+         position: sticky;
+         top: 0;
+         background-color: var(--light);
+         padding: 1rem 0 1rem 0;
+         margin: 0;
+         z-index: 10;
+         will-change: transform;
+         height: unset;
+
+         & > .page-title {
+           display: block;
+           z-index: 101;
+           position: relative;
+         }
+
+         & > .explorer {
+           order: -1;
+           margin: 0;
+           padding: 0;
+           display: flex;
+           height: initial;
+           flex-shrink: 0;
+           align-self: center;
+
+           button.mobile-explorer {
+             display: flex;
+             margin: 0;
+             padding: 5px;
+             z-index: 101;
+             position: relative;
+
+             .lucide-menu {
+               stroke: var(--darkgray);
+             }
+           }
+
+           button.desktop-explorer {
+             display: none;
+           }
+
+           &.collapsed {
+             flex: 0 0 34px;
+             & > .explorer-content {
+               transform: translateX(-100vw);
+               visibility: hidden;
+             }
+           }
+
+           &:not(.collapsed) {
+             flex: 0 0 34px;
+             & > .explorer-content {
+               transform: translateX(0);
+               visibility: visible;
+             }
+           }
+           
+           .explorer-content {
+             box-sizing: border-box;
+             z-index: 100;
+             position: absolute;
+             top: 0;
+             left: 0;
+             margin-top: 0;
+             background-color: var(--light);
+             max-width: 100vw;
+             width: 100vw;
+             transform: translateX(-100vw);
+             transition: transform 200ms ease, visibility 200ms ease;
+             overflow: hidden;
+             padding: 8rem 0 2rem 0;
+             height: 100dvh;
+             max-height: 100dvh;
+             visibility: hidden;
+             
+             & > .explorer-ul {
+               overscroll-behavior: contain;
+             }
+           }
+         }
+
+         & > .flex-component {
+           display: flex;
+           margin-left: auto;
+           z-index: 101;
+           position: relative;
+         }
+      }
+      .sidebar.right {
+         display: none;
+      }
+
+      .page-header {
+         margin-top: 0;
+      }
     }
   }
 }

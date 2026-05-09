@@ -32,7 +32,5 @@ AWS Identity and Access Management (IAM) is a web service that helps you securel
 > [!exam]
 > For SAP-C02, understand that **Resource-based policies** (like S3 Bucket policies) allow the resource to define who can access it, whereas **Identity-based policies** define what a user can access. In cross-account scenarios, you often need **both** an Allow in the identity policy (Account A) and an Allow in the resource policy (Account B).
 
-## Related
-
 ---
 **Practice:** [[IAM - Practice Questions|IAM Practice Questions]]
