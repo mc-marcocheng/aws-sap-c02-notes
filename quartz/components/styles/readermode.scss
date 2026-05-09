@@ -25,7 +25,8 @@
 
 :root[reader-mode="on"] {
   & .sidebar.left,
-  & .sidebar.right {
+  & .sidebar.right,
+  & footer {
     opacity: 0;
     transition: opacity 0.2s ease;
 
