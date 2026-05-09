@@ -254,7 +254,7 @@ When adding questions to an **existing** practice questions file:
 ### Pull request process
 
 1. **Fork** the repository (or create a branch if you have write access)
-2. **Create** your branch from `main`:
+2. **Create** your branch from `master`:
    ```bash
    git checkout -b feat/add-service-name
    ```
@@ -272,7 +272,7 @@ When adding questions to an **existing** practice questions file:
    ```bash
    git commit -m "feat: add AWS Service Name topic and practice questions"
    ```
-6. **Push** and open a Pull Request against `main`
+6. **Push** and open a Pull Request against `master`
 
 ### Commit message format
 

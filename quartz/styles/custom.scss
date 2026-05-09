@@ -6,109 +6,218 @@
 
 @use "./variables.scss" as *;
 
-// Dracula palette
+// ============================================
+// Dracula palette (for dark mode)
+// ============================================
 $dracula-bg: #282a36;
 $dracula-current: #44475a;
 $dracula-fg: #f8f8f2;
-$dracula-comment: #6272a4;
-$dracula-cyan: #8be9fd;
-$dracula-green: #50fa7b;
-$dracula-orange: #ffb86c;
-$dracula-pink: #ff79c6;
 $dracula-purple: #bd93f9;
+$dracula-pink: #ff79c6;
+$dracula-green: #50fa7b;
+$dracula-cyan: #8be9fd;
+$dracula-orange: #ffb86c;
 $dracula-red: #ff5555;
 $dracula-yellow: #f1fa8c;
+$dracula-comment: #6272a4;
 
 // ============================================
-// Callout Colors
+// Alucard palette (darkened for light mode)
 // ============================================
+$alucard-purple: #7c3aed;
+$alucard-pink: #be185d;
+$alucard-green: #16a34a;
+$alucard-cyan: #0891b2;
+$alucard-orange: #d97706;
+$alucard-red: #dc2626;
+$alucard-yellow: #ca8a04;
+$alucard-comment: #475569;
 
-blockquote.callout {
-  &[data-callout="note"] {
-    --color: #{$dracula-purple};
-    --border: #{$dracula-purple};
-    --callout-icon-color: #{$dracula-purple};
+// ============================================
+// Callout Colors — Dark Mode (Dracula)
+// ============================================
+:root[saved-theme="dark"] {
+  blockquote.callout {
+    &[data-callout="note"] {
+      --color: #{$dracula-purple};
+      --border: #{$dracula-purple};
+      --callout-icon-color: #{$dracula-purple};
+    }
+
+    &[data-callout="exam"],
+    &[data-callout="info"] {
+      --color: #{$dracula-cyan};
+      --border: #{$dracula-cyan};
+      --callout-icon-color: #{$dracula-cyan};
+    }
+
+    &[data-callout="question"],
+    &[data-callout="help"],
+    &[data-callout="faq"] {
+      --color: #{$dracula-orange};
+      --border: #{$dracula-orange};
+      --callout-icon-color: #{$dracula-orange};
+    }
+
+    &[data-callout="tip"],
+    &[data-callout="hint"],
+    &[data-callout="important"] {
+      --color: #{$dracula-cyan};
+      --border: #{$dracula-cyan};
+      --callout-icon-color: #{$dracula-cyan};
+    }
+
+    &[data-callout="success"],
+    &[data-callout="check"],
+    &[data-callout="done"] {
+      --color: #{$dracula-green};
+      --border: #{$dracula-green};
+      --callout-icon-color: #{$dracula-green};
+    }
+
+    &[data-callout="warning"],
+    &[data-callout="caution"],
+    &[data-callout="attention"] {
+      --color: #{$dracula-orange};
+      --border: #{$dracula-orange};
+      --callout-icon-color: #{$dracula-orange};
+    }
+
+    &[data-callout="failure"],
+    &[data-callout="fail"],
+    &[data-callout="missing"] {
+      --color: #{$dracula-red};
+      --border: #{$dracula-red};
+      --callout-icon-color: #{$dracula-red};
+    }
+
+    &[data-callout="danger"],
+    &[data-callout="error"] {
+      --color: #{$dracula-red};
+      --border: #{$dracula-red};
+      --callout-icon-color: #{$dracula-red};
+    }
+
+    &[data-callout="bug"] {
+      --color: #{$dracula-red};
+      --border: #{$dracula-red};
+      --callout-icon-color: #{$dracula-red};
+    }
+
+    &[data-callout="example"] {
+      --color: #{$dracula-purple};
+      --border: #{$dracula-purple};
+      --callout-icon-color: #{$dracula-purple};
+    }
+
+    &[data-callout="quote"],
+    &[data-callout="cite"] {
+      --color: #{$dracula-comment};
+      --border: #{$dracula-comment};
+      --callout-icon-color: #{$dracula-comment};
+    }
+
+    &[data-callout="abstract"],
+    &[data-callout="summary"],
+    &[data-callout="tldr"] {
+      --color: #{$dracula-cyan};
+      --border: #{$dracula-cyan};
+      --callout-icon-color: #{$dracula-cyan};
+    }
   }
+}
 
-  &[data-callout="exam"],
-  &[data-callout="info"] {
-    --color: #{$dracula-cyan};
-    --border: #{$dracula-cyan};
-    --callout-icon-color: #{$dracula-cyan};
-  }
+// ============================================
+// Callout Colors — Light Mode (Alucard)
+// ============================================
+:root[saved-theme="light"] {
+  blockquote.callout {
+    &[data-callout="note"] {
+      --color: #{$alucard-purple};
+      --border: #{$alucard-purple};
+      --callout-icon-color: #{$alucard-purple};
+    }
 
-  &[data-callout="question"],
-  &[data-callout="help"],
-  &[data-callout="faq"] {
-    --color: #{$dracula-orange};
-    --border: #{$dracula-orange};
-    --callout-icon-color: #{$dracula-orange};
-  }
+    &[data-callout="exam"],
+    &[data-callout="info"] {
+      --color: #{$alucard-cyan};
+      --border: #{$alucard-cyan};
+      --callout-icon-color: #{$alucard-cyan};
+    }
 
-  &[data-callout="tip"],
-  &[data-callout="hint"],
-  &[data-callout="important"] {
-    --color: #{$dracula-cyan};
-    --border: #{$dracula-cyan};
-    --callout-icon-color: #{$dracula-cyan};
-  }
+    &[data-callout="question"],
+    &[data-callout="help"],
+    &[data-callout="faq"] {
+      --color: #{$alucard-orange};
+      --border: #{$alucard-orange};
+      --callout-icon-color: #{$alucard-orange};
+    }
 
-  &[data-callout="success"],
-  &[data-callout="check"],
-  &[data-callout="done"] {
-    --color: #{$dracula-green};
-    --border: #{$dracula-green};
-    --callout-icon-color: #{$dracula-green};
-  }
+    &[data-callout="tip"],
+    &[data-callout="hint"],
+    &[data-callout="important"] {
+      --color: #{$alucard-cyan};
+      --border: #{$alucard-cyan};
+      --callout-icon-color: #{$alucard-cyan};
+    }
 
-  &[data-callout="warning"],
-  &[data-callout="caution"],
-  &[data-callout="attention"] {
-    --color: #{$dracula-orange};
-    --border: #{$dracula-orange};
-    --callout-icon-color: #{$dracula-orange};
-  }
+    &[data-callout="success"],
+    &[data-callout="check"],
+    &[data-callout="done"] {
+      --color: #{$alucard-green};
+      --border: #{$alucard-green};
+      --callout-icon-color: #{$alucard-green};
+    }
 
-  &[data-callout="failure"],
-  &[data-callout="fail"],
-  &[data-callout="missing"] {
-    --color: #{$dracula-red};
-    --border: #{$dracula-red};
-    --callout-icon-color: #{$dracula-red};
-  }
+    &[data-callout="warning"],
+    &[data-callout="caution"],
+    &[data-callout="attention"] {
+      --color: #{$alucard-orange};
+      --border: #{$alucard-orange};
+      --callout-icon-color: #{$alucard-orange};
+    }
 
-  &[data-callout="danger"],
-  &[data-callout="error"] {
-    --color: #{$dracula-red};
-    --border: #{$dracula-red};
-    --callout-icon-color: #{$dracula-red};
-  }
+    &[data-callout="failure"],
+    &[data-callout="fail"],
+    &[data-callout="missing"] {
+      --color: #{$alucard-red};
+      --border: #{$alucard-red};
+      --callout-icon-color: #{$alucard-red};
+    }
 
-  &[data-callout="bug"] {
-    --color: #{$dracula-red};
-    --border: #{$dracula-red};
-    --callout-icon-color: #{$dracula-red};
-  }
+    &[data-callout="danger"],
+    &[data-callout="error"] {
+      --color: #{$alucard-red};
+      --border: #{$alucard-red};
+      --callout-icon-color: #{$alucard-red};
+    }
 
-  &[data-callout="example"] {
-    --color: #{$dracula-purple};
-    --border: #{$dracula-purple};
-    --callout-icon-color: #{$dracula-purple};
-  }
+    &[data-callout="bug"] {
+      --color: #{$alucard-red};
+      --border: #{$alucard-red};
+      --callout-icon-color: #{$alucard-red};
+    }
 
-  &[data-callout="quote"],
-  &[data-callout="cite"] {
-    --color: #{$dracula-comment};
-    --border: #{$dracula-comment};
-    --callout-icon-color: #{$dracula-comment};
-  }
+    &[data-callout="example"] {
+      --color: #{$alucard-purple};
+      --border: #{$alucard-purple};
+      --callout-icon-color: #{$alucard-purple};
+    }
 
-  &[data-callout="abstract"],
-  &[data-callout="summary"],
-  &[data-callout="tldr"] {
-    --color: #{$dracula-cyan};
-    --border: #{$dracula-cyan};
-    --callout-icon-color: #{$dracula-cyan};
+    &[data-callout="quote"],
+    &[data-callout="cite"] {
+      --color: #{$alucard-comment};
+      --border: #{$alucard-comment};
+      --callout-icon-color: #{$alucard-comment};
+    }
+
+    &[data-callout="abstract"],
+    &[data-callout="summary"],
+    &[data-callout="tldr"] {
+      --color: #{$alucard-cyan};
+      --border: #{$alucard-cyan};
+      --callout-icon-color: #{$alucard-cyan};
+    }
   }
 }
 

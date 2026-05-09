@@ -23,7 +23,7 @@ Then open the `content/` folder as an Obsidian vault:
 ### Option B: Download only the notes
 
 1. Go to the [`content/`](./content) folder
-2. Download it as a ZIP ([direct link](https://download-directory.github.io/?url=https://github.com/mc-marcocheng/aws-sap-c02-notes/tree/main/content))
+2. Download it as a ZIP ([direct link](https://download-directory.github.io/?url=https://github.com/mc-marcocheng/aws-sap-c02-notes/tree/master/content))
 3. Extract and open in Obsidian
 
 > The notes use standard Obsidian features (wikilinks, callouts, tags). No community plugins are required.
