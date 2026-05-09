@@ -4,27 +4,42 @@ ul.section-ul {
   list-style: none;
   margin-top: 2em;
   padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 li.section-li {
-  margin-bottom: 1em;
-
   & > .section {
-    display: grid;
-    grid-template-columns: fit-content(8em) 3fr 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1.2rem;
+    border: 1px solid var(--lightgray);
+    border-radius: 8px;
+    background-color: var(--light);
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: var(--secondary);
+    }
 
     @media all and ($mobile) {
+      padding: 1rem;
       & > .tags {
         display: none;
       }
     }
 
-    & > .desc > h3 > a {
-      background-color: transparent;
+    & > .desc > h3 {
+      margin: 0;
+      & > a {
+        background-color: transparent;
+      }
     }
 
     & .meta {
-      margin: 0 1em 0 0;
+      margin: 0;
       opacity: 0.6;
     }
   }
@@ -32,7 +47,14 @@ li.section-li {
 
 // modifications in popover context
 .popover .section {
-  grid-template-columns: fit-content(8em) 1fr !important;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+
+  &:hover {
+    border-color: transparent;
+  }
 
   & > .tags {
     display: none;

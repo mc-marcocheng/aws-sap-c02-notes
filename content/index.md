@@ -1,4 +1,5 @@
 ---
+title: SAP-C02 Study Notes
 tags: [aws, sap-c02, index]
 ---
 # AWS SAP-C02 Exam Index
