@@ -6,7 +6,7 @@ tags: [aws, sap-c02, detective]
 Amazon Detective simplifies the investigative process to help security teams conduct faster and more effective root cause analysis. It automatically extracts time-based events and creates an interactive visual graph.
 
 ## Architectural Patterns & Key Facts
-- **Data Sources:** Automatically ingests [[VPC Overview|VPC Flow Logs]], [[CloudTrail Overview|AWS CloudTrail]], EKS audit logs, and findings from [[GuardDuty|Amazon GuardDuty]] and [[Security Hub|AWS Security Hub]].
+- **Data Sources:** Automatically ingests [[VPC Overview|VPC Flow Logs]], [[CloudTrail|AWS CloudTrail]], EKS audit logs, and findings from [[GuardDuty|Amazon GuardDuty]] and [[Security Hub|AWS Security Hub]].
 - **Purpose:** Used for *investigation* and *root cause analysis*, not for generating alerts. It helps answer "What happened?", "Who did it?", and "What else did they touch?"
 - **Behavior Graph:** Uses machine learning and statistical analysis to build a behavior graph that links users, IP addresses, and AWS accounts over time (up to a year of data retention).
 - **Organizations Integration:** Integrates with [[Organizations Overview|AWS Organizations]] to allow a delegated administrator account to view behavior graphs across the organization.

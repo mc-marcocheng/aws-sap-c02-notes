@@ -14,7 +14,7 @@ tags: [aws, sap-c02, global-accelerator, networking, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 3, 5**
 > > **Rationale:**
-> > * **Improved performance:** [[Global Accelerator Overview|AWS Global Accelerator]] optimizes the path to applications by using the AWS global network, reducing packet loss, jitter, and latency compared to the public internet. It also uses TCP termination at the edge.
+> > * **Improved performance:** [[Global Accelerator|AWS Global Accelerator]] optimizes the path to applications by using the AWS global network, reducing packet loss, jitter, and latency compared to the public internet. It also uses TCP termination at the edge.
 > > * **Improved availability:** It provides two global static anycast public IPs that serve as fixed entry points. It continuously monitors the health of endpoints and automatically re-routes traffic to the nearest healthy available endpoint.
 
 > [!question]
@@ -26,4 +26,4 @@ tags: [aws, sap-c02, global-accelerator, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[Global Accelerator Overview|AWS Global Accelerator]] provides two static anycast IP addresses that act as a fixed entry point to applications. By registering all the [[ALB Overview|ALB]]s as endpoints, the company only needs to allow these two static IPs on their firewall, regardless of how many ALBs are added or moved behind the accelerator. This is a one-time, highly available configuration. Options 1, 2, and 4 are either too complex to maintain or do not provide the same level of global availability and simplicity.
+> > **Rationale:** [[Global Accelerator|AWS Global Accelerator]] provides two static anycast IP addresses that act as a fixed entry point to applications. By registering all the [[ALB Overview|ALB]]s as endpoints, the company only needs to allow these two static IPs on their firewall, regardless of how many ALBs are added or moved behind the accelerator. This is a one-time, highly available configuration. Options 1, 2, and 4 are either too complex to maintain or do not provide the same level of global availability and simplicity.

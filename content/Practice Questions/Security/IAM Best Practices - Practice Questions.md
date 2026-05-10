@@ -68,6 +68,6 @@ tags: [aws, sap-c02, iam, security, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** 
-> > [[CloudTrail Overview|CloudTrail]] records AWS API calls for the account. 
-> > [[AWS Config]] provides a detailed inventory of your AWS resources and their configuration history. 
+> > [[CloudTrail|CloudTrail]] records AWS API calls for the account. 
+> > [[Config]] provides a detailed inventory of your AWS resources and their configuration history. 
 > > [[IAM Best Practices|IAM Credential Report]] lists all users in your account and the status of their various credentials, including passwords, access keys, and MFA devices.

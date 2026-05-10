@@ -23,4 +23,4 @@ tags: [aws, sap-c02, guardduty, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[GuardDuty|Amazon GuardDuty]] supports exporting findings directly to an [[S3 Overview|Amazon S3]] bucket, even if the bucket is in a different region. You must enable GuardDuty in all regions (it's a regional service) and configure the export in each region to point to the central S3 bucket, secured with an [[KMS Overview|AWS KMS]] key. Option 1 is false (no native cross-region monitoring). Option 3 adds unnecessary Lambda overhead. Option 4 is incorrect because GuardDuty findings are not CloudTrail events.
+> > **Rationale:** [[GuardDuty|Amazon GuardDuty]] supports exporting findings directly to an [[S3 Overview|Amazon S3]] bucket, even if the bucket is in a different region. You must enable GuardDuty in all regions (it's a regional service) and configure the export in each region to point to the central S3 bucket, secured with an [[KMS|AWS KMS]] key. Option 1 is false (no native cross-region monitoring). Option 3 adds unnecessary Lambda overhead. Option 4 is incorrect because GuardDuty findings are not CloudTrail events.

@@ -23,4 +23,4 @@ tags: [aws, sap-c02, firewall-manager, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** To centrally manage and automatically deploy [[AWS WAF]] across multiple accounts, you must use [[Firewall Manager|AWS Firewall Manager]]. The strict prerequisites for Firewall Manager are: 1) AWS Organizations with all features enabled, 2) [[AWS Config]] enabled on all accounts/regions, and 3) a designated delegated administrator. Once setup, a WAF policy targeting ALBs with auto-remediation will instantly attach the WebACL to new and existing ALBs.
+> > **Rationale:** To centrally manage and automatically deploy [[WAF]] across multiple accounts, you must use [[Firewall Manager|AWS Firewall Manager]]. The strict prerequisites for Firewall Manager are: 1) AWS Organizations with all features enabled, 2) [[Config]] enabled on all accounts/regions, and 3) a designated delegated administrator. Once setup, a WAF policy targeting ALBs with auto-remediation will instantly attach the WebACL to new and existing ALBs.

@@ -51,4 +51,4 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > > **Rationale:** This approach meets all requirements:
 > > - **SLA (2-hour retrieval)**: Storing in [[S3 Overview|Amazon S3]] for the first 7 days provides immediate retrieval. [[S3 Storage Classes|Glacier]] standard retrieval takes 3-5 hours, which would fail the SLA if data was sent there immediately (Option 1).
 > > - **Indefinite Hold**: [[S3 Lifecycle Management|Lifecycle Policies]] can transition data to Glacier after 7 days for low-cost, long-term archival.
-> > - **Cost-Effectiveness**: S3 and Glacier are significantly cheaper than maintaining large [[EBS Overview|Amazon EBS]] volumes or [[Storage Gateway Overview|AWS Storage Gateway]] for archival purposes.
+> > - **Cost-Effectiveness**: S3 and Glacier are significantly cheaper than maintaining large [[EBS Overview|Amazon EBS]] volumes or [[Storage Gateway|AWS Storage Gateway]] for archival purposes.

@@ -34,7 +34,7 @@ tags: [aws, sap-c02, vpc, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale**: **Inter-region [[VPC Peering]]** is a highly cost-effective solution for connecting VPCs across different regions and accounts. It uses the AWS global backbone, ensuring high performance and security without the overhead of managing [[VPN Overview|VPN connections]] or the high cost of [[Direct Connect Overview|Direct Connect]]. There is no hourly charge for the peering connection itself, only standard inter-region data transfer rates.
+> > **Rationale**: **Inter-region [[VPC Peering]]** is a highly cost-effective solution for connecting VPCs across different regions and accounts. It uses the AWS global backbone, ensuring high performance and security without the overhead of managing [[VPN|VPN connections]] or the high cost of [[Direct Connect Overview|Direct Connect]]. There is no hourly charge for the peering connection itself, only standard inter-region data transfer rates.
 
 > [!question]
 > A company needs to connect 15 VPCs across multiple AWS accounts and regions with centralized routing and management. Which solution is most appropriate?
@@ -45,7 +45,7 @@ tags: [aws, sap-c02, vpc, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale**: For connecting a large number of VPCs (15 in this case), [[Transit Gateway Overview|AWS Transit Gateway]] is the best choice. It acts as a network hub, simplifying the topology into a **hub-and-spoke** model and supporting **transitive routing**. While [[VPC Peering]] is possible, a full mesh for 15 VPCs would require 105 separate connections, making it extremely difficult to manage.
+> > **Rationale**: For connecting a large number of VPCs (15 in this case), [[Transit Gateway|AWS Transit Gateway]] is the best choice. It acts as a network hub, simplifying the topology into a **hub-and-spoke** model and supporting **transitive routing**. While [[VPC Peering]] is possible, a full mesh for 15 VPCs would require 105 separate connections, making it extremely difficult to manage.
 
 > [!question]
 > A SaaS provider wants to expose their application running in their VPC to multiple customer VPCs without requiring VPC peering or overlapping CIDR concerns. Which solution should they use?

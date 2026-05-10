@@ -8,7 +8,7 @@ AWS Firewall Manager is a security management service that allows you to central
 ## Architectural Patterns & Key Facts
 - **Prerequisites:** 
   1. Must use [[Organizations Overview|AWS Organizations]] with all features enabled.
-  2. Must configure [[AWS Config]] across all accounts.
+  2. Must configure [[Config]] across all accounts.
   3. Must designate a delegated administrator account.
 - **Supported Protections:**
   - **AWS WAF:** Centrally deploy WAF rules to Application Load Balancers, API Gateways, and CloudFront distributions.

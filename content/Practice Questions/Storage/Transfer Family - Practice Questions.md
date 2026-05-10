@@ -14,8 +14,8 @@ tags: [aws, sap-c02, transfer-family, storage, practice-questions]
 > > **Answer: 1**
 > > **Rationale:** 
 > > - [[Transfer Family|AWS Transfer Family]] (formerly AWS Transfer for SFTP) provides a fully managed, highly available, and scalable SFTP, FTPS, and FTP service.
-> > - It allows users to securely exchange files with [[S3 Overview|Amazon S3]] or [[EFS Overview|Amazon EFS]] without needing to manage infrastructure.
+> > - It allows users to securely exchange files with [[S3 Overview|Amazon S3]] or [[EFS|Amazon EFS]] without needing to manage infrastructure.
 > > - It is ideal for external partners and remote employees as it uses standard protocols that are widely supported.
 > > - (2) [[Snow Family|AWS Snowball Edge]] is for physical data migration or edge computing, not for ongoing file exchange.
 > > - (3) [[FSx for Lustre|Amazon FSx]] is a file system service, but it doesn't natively provide the managed SFTP interface needed for external partner exchange as easily as Transfer Family.
-> > - (4) [[Storage Gateway Overview|AWS Storage Gateway]] (Volume Gateway) is designed to provide on-premises applications with low-latency access to data in AWS, but it's not the primary tool for "exchanging files" with external partners via standard protocols.
+> > - (4) [[Storage Gateway|AWS Storage Gateway]] (Volume Gateway) is designed to provide on-premises applications with low-latency access to data in AWS, but it's not the primary tool for "exchanging files" with external partners via standard protocols.

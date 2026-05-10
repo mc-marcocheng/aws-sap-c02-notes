@@ -14,7 +14,7 @@ AWS RAM allows you to easily and securely share AWS resources across AWS account
     - The participant accounts manage their own resources (EC2 instances) deployed in those shared subnets.
 
 ## SAP-C02 Key Facts & Architectural Patterns
-- **VPC Peering vs. Shared VPCs:** Sharing subnets via RAM reduces the number of VPCs needed and eliminates complex [[VPC Peering]] or [[Transit Gateway Overview|Transit Gateway]] routing requirements for intra-environment communication (e.g., Dev accounts sharing a Dev VPC).
+- **VPC Peering vs. Shared VPCs:** Sharing subnets via RAM reduces the number of VPCs needed and eliminates complex [[VPC Peering]] or [[Transit Gateway|Transit Gateway]] routing requirements for intra-environment communication (e.g., Dev accounts sharing a Dev VPC).
 - **Security Groups:** When using shared subnets, participant accounts create and manage their own Security Groups. However, you can reference Security Group IDs across accounts if they are in the same shared VPC.
 - **Tagging:** Tags on shared resources are not automatically propagated to participant accounts. Participant accounts can tag the shared resources in their own accounts without affecting the owner's tags.
 

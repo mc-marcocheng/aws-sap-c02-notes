@@ -11,7 +11,7 @@ tags: [aws, sap-c02, iam, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale**: [[IAM Overview|IAM]] is the standard service for managing users, groups, and roles, and their permissions to access AWS resources.
+> > **Rationale**: [[IAM|IAM]] is the standard service for managing users, groups, and roles, and their permissions to access AWS resources.
 
 > [!question]
 > IAM provides several policy templates you can use to automatically assign permissions to the groups you create. The _____ policy template gives the Admins group permission to access all account resources, except your AWS account information.
@@ -32,7 +32,7 @@ tags: [aws, sap-c02, iam, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale**: By default, new [[IAM Overview#Core Components|IAM users]] have no permissions (Implicit Deny). Permissions must be explicitly granted via [[IAM Overview#Policy Types|policies]].
+> > **Rationale**: By default, new [[IAM#Core Components|IAM users]] have no permissions (Implicit Deny). Permissions must be explicitly granted via [[IAM#Policy Types|policies]].
 
 > [!question]
 > Groups can’t _____.
@@ -43,7 +43,7 @@ tags: [aws, sap-c02, iam, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale**: [[IAM Overview#Core Components|IAM groups]] cannot be nested. You can only add users to groups, not groups to other groups.
+> > **Rationale**: [[IAM#Core Components|IAM groups]] cannot be nested. You can only add users to groups, not groups to other groups.
 
 > [!question]
 > The _____ service is targeted at organizations with multiple users or systems that use AWS products such as Amazon EC2, Amazon SimpleDB, and the AWS Management Console.
@@ -54,7 +54,7 @@ tags: [aws, sap-c02, iam, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale**: [[IAM Overview|IAM]] is specifically designed to manage multiple identities and their access to AWS services.
+> > **Rationale**: [[IAM|IAM]] is specifically designed to manage multiple identities and their access to AWS services.
 
 > [!question]
 > An AWS customer is deploying an application that is composed of an AutoScaling group of EC2 Instances. The customer's security policy requires that every outbound connection from these instances to any other service within the VPC must be authenticated using a unique x.509 certificate that contains the specific instance-id. In addition, x.509 certificates must be signed by the customer’s Key management service in order to be trusted for authentication. Which of the following configurations will support these requirements?
@@ -99,7 +99,7 @@ tags: [aws, sap-c02, iam, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale**: [[IAM Overview#Core Components|IAM Groups]] are the recommended way to manage permissions for multiple users. By attaching the policy to the group, all users in that group automatically inherit the permissions.
+> > **Rationale**: [[IAM#Core Components|IAM Groups]] are the recommended way to manage permissions for multiple users. By attaching the policy to the group, all users in that group automatically inherit the permissions.
 
 > [!question]
 > Your organization’s security policy requires that all privileged users either use frequently rotated passwords or one-time access credentials in addition to username/password. Which two of the following options would allow an organization to enforce this policy for AWS users? (Choose 2)
@@ -110,7 +110,7 @@ tags: [aws, sap-c02, iam, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 2**
-> > **Rationale**: [[IAM Overview#Key Features|MFA]] provides the "one-time access credentials" (TOTP). [[IAM Best Practices|IAM User Password Policies]] allow enforcing frequent rotation by setting a password expiration period.
+> > **Rationale**: [[IAM#Key Features|MFA]] provides the "one-time access credentials" (TOTP). [[IAM Best Practices|IAM User Password Policies]] allow enforcing frequent rotation by setting a password expiration period.
 
 > [!question]
 > Your organization is preparing for a security assessment of your use of AWS. In preparation for this assessment, which two IAM best practices should you consider implementing? (Choose 2)
@@ -132,7 +132,7 @@ tags: [aws, sap-c02, iam, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale**: [[IAM Overview#Key Features|IAM is a global service]]. Roles, Users, Groups, and Policies created in one region are available for use in all other AWS regions.
+> > **Rationale**: [[IAM#Key Features|IAM is a global service]]. Roles, Users, Groups, and Policies created in one region are available for use in all other AWS regions.
 
 > [!question]
 > After creating a new IAM user which of the following must be done before they can successfully make API calls?
@@ -165,7 +165,7 @@ tags: [aws, sap-c02, iam, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale**: An [[IAM Overview#Core Components|IAM Group]] is simply a collection of IAM users.
+> > **Rationale**: An [[IAM#Core Components|IAM Group]] is simply a collection of IAM users.
 
 > [!question]
 > Is there a limit to the number of groups you can have?
@@ -187,7 +187,7 @@ tags: [aws, sap-c02, iam, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale**: Historically, only one [[IAM Overview#Key Features|MFA]] device could be associated with the root user. (Note: AWS has recently updated this to allow up to 8 MFA devices for root and IAM users, but for exam purposes, 1 was the long-standing default).
+> > **Rationale**: Historically, only one [[IAM#Key Features|MFA]] device could be associated with the root user. (Note: AWS has recently updated this to allow up to 8 MFA devices for root and IAM users, but for exam purposes, 1 was the long-standing default).
 
 > [!question]
 > When you use the AWS Management Console to delete an IAM user, IAM also deletes any signing certificates and any access keys belonging to the user.
@@ -220,7 +220,7 @@ tags: [aws, sap-c02, iam, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale**: Using [[IAM Overview#Core Components|IAM Groups]] to group users by department and applying permissions at the group level is the most scalable and manageable solution.
+> > **Rationale**: Using [[IAM#Core Components|IAM Groups]] to group users by department and applying permissions at the group level is the most scalable and manageable solution.
 
 > [!question]
 > Which of the below mentioned pointers will NOT help the organization achieve better security arrangement for EC2 instances?

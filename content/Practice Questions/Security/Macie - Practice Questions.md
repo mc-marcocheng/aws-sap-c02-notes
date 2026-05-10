@@ -12,7 +12,7 @@ tags: [aws, sap-c02, macie, security, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale:** [[Amazon Macie]] is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect sensitive data in AWS. It automatically provides an inventory of [[S3 Overview|Amazon S3]] buckets and evaluates them for security risks like public accessibility.
-> > - [[AWS Shield]] provides protection against DDoS attacks.
-> > - [[AWS WAF]] is a web application firewall that protects web applications from common web exploits.
+> > **Rationale:** [[Macie]] is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect sensitive data in AWS. It automatically provides an inventory of [[S3 Overview|Amazon S3]] buckets and evaluates them for security risks like public accessibility.
+> > - [[Shield]] provides protection against DDoS attacks.
+> > - [[WAF]] is a web application firewall that protects web applications from common web exploits.
 > > - [[Index|AWS GuardDuty]] is a threat detection service that continuously monitors for malicious activity and unauthorized behavior across your AWS accounts and workloads.

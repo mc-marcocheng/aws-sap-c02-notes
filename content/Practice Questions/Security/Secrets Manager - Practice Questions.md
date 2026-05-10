@@ -12,7 +12,7 @@ tags: [aws, sap-c02, secrets-manager, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[Secrets Manager Overview|AWS Secrets Manager]] is specifically designed to manage the lifecycle of secrets, including database credentials and API keys. It provides native support for [[KMS Overview|KMS]] encryption and automatic rotation.
+> > **Rationale:** [[Secrets Manager|AWS Secrets Manager]] is specifically designed to manage the lifecycle of secrets, including database credentials and API keys. It provides native support for [[KMS|KMS]] encryption and automatic rotation.
 
 > [!question]
 > A company uses Amazon RDS for PostgreSQL databases for its data tier. The company must implement password rotation for the databases. Which solution meets this requirement with the LEAST operational overhead?
@@ -23,4 +23,4 @@ tags: [aws, sap-c02, secrets-manager, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** [[Secrets Manager Overview|AWS Secrets Manager]] provides native, built-in integration for rotating [[RDS Overview|RDS]] credentials automatically. Using [[Secrets Manager Overview|Systems Manager Parameter Store]] would require writing and maintaining a custom [[Lambda Overview|Lambda]] function for rotation, increasing operational overhead. [[KMS Overview|KMS]] CMK rotation refers to the backing key, not the secret data itself.
+> > **Rationale:** [[Secrets Manager|AWS Secrets Manager]] provides native, built-in integration for rotating [[RDS Overview|RDS]] credentials automatically. Using [[Secrets Manager|Systems Manager Parameter Store]] would require writing and maintaining a custom [[Lambda|Lambda]] function for rotation, increasing operational overhead. [[KMS|KMS]] CMK rotation refers to the backing key, not the secret data itself.

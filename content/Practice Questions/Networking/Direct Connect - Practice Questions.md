@@ -12,7 +12,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[Direct Connect Overview|Direct Connect]] Hosted Connections support sub-1Gbps speeds, including 50 Mbps, 100 Mbps, up to 500 Mbps, provided by AWS Direct Connect Partners. A [[VPN Overview|Virtual Private Gateway]] (VGW) is needed to terminate the connection, but the product itself is Direct Connect.
+> > **Rationale:** [[Direct Connect Overview|Direct Connect]] Hosted Connections support sub-1Gbps speeds, including 50 Mbps, 100 Mbps, up to 500 Mbps, provided by AWS Direct Connect Partners. A [[VPN|Virtual Private Gateway]] (VGW) is needed to terminate the connection, but the product itself is Direct Connect.
 
 > [!question]
 > Is there any way to own a direct connection to Amazon Web Services?
@@ -34,7 +34,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[Direct Connect Overview|Direct Connect]] provides significantly higher bandwidth (up to 100 Gbps) and more consistent network performance than Internet-based [[VPN Overview|Site-to-Site VPN]], which is limited by the public internet's variable performance and typically lower bandwidth.
+> > **Rationale:** [[Direct Connect Overview|Direct Connect]] provides significantly higher bandwidth (up to 100 Gbps) and more consistent network performance than Internet-based [[VPN|Site-to-Site VPN]], which is limited by the public internet's variable performance and typically lower bandwidth.
 
 > [!question]
 > Does AWS Direct Connect allow you access to all Availabilities Zones within a Region?
@@ -57,7 +57,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 5**
-> > **Rationale:** For traffic to flow back to on-premises, the VPC [[VPC Overview - Route Tables|Route Table]] must have a path. This can be achieved either by enabling **Route Propagation** on the [[VPN Overview|Virtual Private Gateway]] (VGW) so it automatically adds BGP-learned routes, or by manually adding a static route pointing to the VGW.
+> > **Rationale:** For traffic to flow back to on-premises, the VPC [[VPC Overview - Route Tables|Route Table]] must have a path. This can be achieved either by enabling **Route Propagation** on the [[VPN|Virtual Private Gateway]] (VGW) so it automatically adds BGP-learned routes, or by manually adding a static route pointing to the VGW.
 
 > [!question]
 > A company has configured and peered two VPCs: VPC-1 and VPC-2. VPC-1 contains only private subnets, and VPC-2 contains only public subnets. The company uses a single AWS Direct Connect connection and private virtual interface to connect their on-premises network with VPC-1. Which two methods increase the fault tolerance of the connection to VPC-1? (Choose 2 answers)
@@ -69,7 +69,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 5**
-> > **Rationale:** [[VPC Peering]] does not support "edge-to-edge" routing (transitive routing). Therefore, a connection to VPC-2 cannot be used to reach VPC-1. To increase fault tolerance for VPC-1, you must establish a secondary path directly to VPC-1, such as a [[VPN Overview|Site-to-Site VPN]] (2) or another [[Direct Connect Overview|Direct Connect]] connection (5).
+> > **Rationale:** [[VPC Peering]] does not support "edge-to-edge" routing (transitive routing). Therefore, a connection to VPC-2 cannot be used to reach VPC-1. To increase fault tolerance for VPC-1, you must establish a secondary path directly to VPC-1, such as a [[VPN|Site-to-Site VPN]] (2) or another [[Direct Connect Overview|Direct Connect]] connection (5).
 
 > [!question]
 > Your company previously configured a heavily used, dynamically routed VPN connection between your on-premises data center and AWS. You recently provisioned a Direct Connect connection and would like to start using the new connection. After configuring Direct Connect settings in the AWS Console, which of the following options will provide the most seamless transition for your users?
@@ -91,7 +91,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** A [[VPC Overview - Route Tables|Route Table]] can only have one default route (0.0.0.0/0). To allow internet access, the default route must point to the [[VPC Overview|Internet Gateway]] (IGW). To reach on-premises, specific routes (e.g., 10.0.0.0/8) should be propagated via [[Direct Connect Overview|BGP]] to the [[VPN Overview|Virtual Private Gateway]] (VGW) from the [[Direct Connect Overview|Direct Connect]] connection.
+> > **Rationale:** A [[VPC Overview - Route Tables|Route Table]] can only have one default route (0.0.0.0/0). To allow internet access, the default route must point to the [[VPC Overview|Internet Gateway]] (IGW). To reach on-premises, specific routes (e.g., 10.0.0.0/8) should be propagated via [[Direct Connect Overview|BGP]] to the [[VPN|Virtual Private Gateway]] (VGW) from the [[Direct Connect Overview|Direct Connect]] connection.
 
 > [!question]
 > You are implementing AWS Direct Connect. You intend to use AWS public service endpoints such as Amazon S3, across the AWS Direct Connect link. You want other Internet traffic to use your existing link to an Internet Service Provider. What is the correct way to configure AWS Direct Connect for access to services such as Amazon S3?
@@ -113,7 +113,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[VPN Overview|Site-to-Site VPN]] can be set up in minutes, allowing for quick time-to-market. [[Direct Connect Overview|Direct Connect]] takes weeks or months to provision but provides the high bandwidth (10s of Gbps) required for the long term.
+> > **Rationale:** [[VPN|Site-to-Site VPN]] can be set up in minutes, allowing for quick time-to-market. [[Direct Connect Overview|Direct Connect]] takes weeks or months to provision but provides the high bandwidth (10s of Gbps) required for the long term.
 
 > [!question]
 > You are tasked with moving a legacy application from a virtual machine to an Amazon VPC. This app requires access to on-premises services, but there is no documentation. What will allow the application to reach back without being reconfigured? (Choose 3 answers)

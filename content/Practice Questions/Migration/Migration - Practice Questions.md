@@ -14,7 +14,7 @@ tags: [aws, sap-c02, migration, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 4, 5**
 > > **Rationale:** 
-> > - **Option 4**: [[EC2 Overview|Elastic Beanstalk]] supports [[ECS Overview|Docker]] containers and can be configured to use `awslogs` for log streaming and rotation to [[S3 Overview|Amazon S3]].
+> > - **Option 4**: [[EC2 Overview|Elastic Beanstalk]] supports [[ECS|Docker]] containers and can be configured to use `awslogs` for log streaming and rotation to [[S3 Overview|Amazon S3]].
 > > - **Option 5**: Using [[EC2 Overview|AWS VM Import/Export]] allows you to migrate the legacy environment exactly as it is into an [[EC2 Overview|Amazon EC2]] AMI. Installing the [[CloudWatch Logs|Amazon CloudWatch Logs]] agent ensures logs are durably stored, and using this as a custom AMI in [[EC2 Overview|Elastic Beanstalk]] provides a managed deployment environment.
 > > - Option 1 is incorrect because Elastic Beanstalk doesn't support custom executables directly without a specific platform or Docker. Option 2 requires application code changes to use the SDK for S3/CloudWatch. Option 3 adds unnecessary complexity with Kinesis.
 
@@ -27,7 +27,7 @@ tags: [aws, sap-c02, migration, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** 900GB over 45Mbps takes at least 48 hours, making a full weekend transfer extremely risky. By using a synchronization approach to [[S3 Overview|Amazon S3]] (similar to [[Migration Readiness Assessment|AWS DataSync]] or `aws s3 sync`), you can transfer the bulk of the data ahead of time. The final delta sync (only 5-10% of data) will easily complete within the weekend window, minimizing downtime. [[Storage Gateway Overview|AWS Storage Gateway]] or direct S3 copies over the weekend would still be bottlenecked by the 45Mbps bandwidth for the initial full load.
+> > **Rationale:** 900GB over 45Mbps takes at least 48 hours, making a full weekend transfer extremely risky. By using a synchronization approach to [[S3 Overview|Amazon S3]] (similar to [[Migration Readiness Assessment|AWS DataSync]] or `aws s3 sync`), you can transfer the bulk of the data ahead of time. The final delta sync (only 5-10% of data) will easily complete within the weekend window, minimizing downtime. [[Storage Gateway|AWS Storage Gateway]] or direct S3 copies over the weekend would still be bottlenecked by the 45Mbps bandwidth for the initial full load.
 
 > [!question]
 > You are tasked with moving a legacy application from a virtual machine running inside your datacenter to an Amazon VPC. Unfortunately this app requires access to a number of on-premises services and no one who configured the app still works for your company. Even worse there’s no documentation for it. What will allow the application running inside the VPC to reach back and access its internal dependencies without being reconfigured? (Choose 3 answers)
@@ -55,4 +55,4 @@ tags: [aws, sap-c02, migration, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** [[EC2 Overview|Elastic Beanstalk]] in a single-instance configuration is the most cost-effective for 103 low-traffic apps. It avoids the fixed cost of an [[ELB Overview|Application Load Balancer (ALB)]] for each app. [[ECS Overview|Amazon ECS]] with an ALB would likely be more expensive due to ALB costs per application (or complexity of shared ALB routing). Using custom images (Option 4) or plain [[EC2 Overview|Amazon EC2]] (Option 2) increases management overhead compared to the standard Beanstalk platforms.
+> > **Rationale:** [[EC2 Overview|Elastic Beanstalk]] in a single-instance configuration is the most cost-effective for 103 low-traffic apps. It avoids the fixed cost of an [[ELB Overview|Application Load Balancer (ALB)]] for each app. [[ECS|Amazon ECS]] with an ALB would likely be more expensive due to ALB costs per application (or complexity of shared ALB routing). Using custom images (Option 4) or plain [[EC2 Overview|Amazon EC2]] (Option 2) increases management overhead compared to the standard Beanstalk platforms.

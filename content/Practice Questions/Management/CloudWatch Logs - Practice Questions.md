@@ -12,7 +12,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 2, 3**
-> > **Rationale:** CloudWatch Logs enables real-time processing of log data through [[CloudWatch Logs|Subscription Filters]]. These filters can stream data to [[Lambda Overview|AWS Lambda]] for custom logic, [[Kinesis Overview|Amazon Kinesis Data Streams]] or [[Kinesis Overview|Amazon Kinesis Data Firehose]] for downstream processing, and [[OpenSearch|Amazon OpenSearch Service]] for indexing and search. The option regarding recording API calls refers to the primary function of [[CloudTrail Overview|AWS CloudTrail]], which can deliver logs to [[S3 Overview|Amazon S3]] independently of CloudWatch Logs.
+> > **Rationale:** CloudWatch Logs enables real-time processing of log data through [[CloudWatch Logs|Subscription Filters]]. These filters can stream data to [[Lambda|AWS Lambda]] for custom logic, [[Kinesis Overview|Amazon Kinesis Data Streams]] or [[Kinesis Overview|Amazon Kinesis Data Firehose]] for downstream processing, and [[OpenSearch|Amazon OpenSearch Service]] for indexing and search. The option regarding recording API calls refers to the primary function of [[CloudTrail|AWS CloudTrail]], which can deliver logs to [[S3 Overview|Amazon S3]] independently of CloudWatch Logs.
 
 > [!question]
 > You have decided to set the threshold for errors on your application to a certain number and once that threshold is reached you need to alert the Senior DevOps engineer. What is the best way to do this? (Choose 3)

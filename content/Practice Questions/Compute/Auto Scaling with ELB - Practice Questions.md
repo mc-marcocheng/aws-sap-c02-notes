@@ -63,7 +63,7 @@ tags: [aws, sap-c02, ec2, auto-scaling, elb, practice-questions]
 > 4. A, C, B
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > [[Lambda Overview|Lambda]] is designed to scale almost instantly in response to events. [[EC2 Overview|EC2]] instances managed by [[Auto Scaling Overview|Auto Scaling]] typically take a few minutes to boot and pass health checks. [[RDS Overview|RDS]] scaling (such as vertical scaling or storage expansion) is the slowest, often taking 15 minutes or more and potentially requiring a maintenance window.
+> > [[Lambda|Lambda]] is designed to scale almost instantly in response to events. [[EC2 Overview|EC2]] instances managed by [[Auto Scaling Overview|Auto Scaling]] typically take a few minutes to boot and pass health checks. [[RDS Overview|RDS]] scaling (such as vertical scaling or storage expansion) is the slowest, often taking 15 minutes or more and potentially requiring a maintenance window.
 
 > [!question]
 > A user has hosted an application on EC2 instances. The EC2 instances are configured with ELB and Auto Scaling. The application server session time out is 2 hours. The user wants to configure connection draining to ensure that all in-flight requests are supported by ELB even though the instance is being deregistered. What time out period should the user specify for connection draining?

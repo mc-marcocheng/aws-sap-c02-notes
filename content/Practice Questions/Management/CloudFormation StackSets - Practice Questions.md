@@ -41,4 +41,4 @@ tags: [aws, sap-c02, cloudformation, stacksets, practice-questions]
 > > - C is incorrect because deploying an execution role only in the Management account would not allow deployment to all member accounts. Self-managed StackSets would require execution roles in *every* target account.
 > > - D is incorrect because Delegated Administrator functionality specifically exists to solve this problem.
 > > 
-> > **Links:** [[CloudFormation StackSets]], [[AWS Organizations Advanced]]
+> > **Links:** [[CloudFormation StackSets]], [[Organizations Advanced]]

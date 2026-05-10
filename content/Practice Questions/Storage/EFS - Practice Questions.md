@@ -12,7 +12,7 @@ tags: [aws, sap-c02, efs, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[EFS Overview|Amazon EFS]] (Elastic File System) provides a simple, fully managed, scalable, and serverless NFS (Network File System) for use with AWS Cloud and on-premises resources. It is **POSIX compliant**, allowing it to be mounted on multiple [[EC2 Overview|EC2]] instances simultaneously across multiple Availability Zones, making it ideal for highly available applications that require a shared file storage layer.
+> > **Rationale:** [[EFS|Amazon EFS]] (Elastic File System) provides a simple, fully managed, scalable, and serverless NFS (Network File System) for use with AWS Cloud and on-premises resources. It is **POSIX compliant**, allowing it to be mounted on multiple [[EC2 Overview|EC2]] instances simultaneously across multiple Availability Zones, making it ideal for highly available applications that require a shared file storage layer.
 > > 
 > > - [[EBS Overview|Amazon EBS]] is a block storage service designed for use with a single EC2 instance and is not inherently shared across multiple instances in different AZs.
 > > - [[S3 Overview|Amazon S3]] is object storage, not a POSIX-compliant file system.

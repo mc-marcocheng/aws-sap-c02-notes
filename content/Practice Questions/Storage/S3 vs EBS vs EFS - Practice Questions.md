@@ -12,7 +12,7 @@ tags: [aws, sap-c02, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** The requirement to use "standard API calls" for writing log files and the need for concurrent access from multiple [[EC2 Overview|Amazon EC2]] instances points to a shared file system. [[EFS Overview|Amazon EFS]] provides a [[EFS Overview|POSIX]]-compliant interface that allows multiple instances to mount the same file system and write logs simultaneously. While [[S3 Overview|Amazon S3]] is more cost-effective for "indefinite retention," it is object storage and does not support standard file system APIs (like `fwrite` or `open`) without an intermediate agent or SDK.
+> > **Rationale:** The requirement to use "standard API calls" for writing log files and the need for concurrent access from multiple [[EC2 Overview|Amazon EC2]] instances points to a shared file system. [[EFS|Amazon EFS]] provides a [[EFS|POSIX]]-compliant interface that allows multiple instances to mount the same file system and write logs simultaneously. While [[S3 Overview|Amazon S3]] is more cost-effective for "indefinite retention," it is object storage and does not support standard file system APIs (like `fwrite` or `open`) without an intermediate agent or SDK.
 
 > [!question]
 > A new application is being deployed on Amazon EC2. The Application needs to read write up to 3 TB of data to an external data store and requires read-after-write consistency across all AWS regions for writing new objects into this data store.
@@ -42,7 +42,7 @@ tags: [aws, sap-c02, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[S3 Overview|Amazon S3]] is the only service that satisfies all these requirements. It is a pay-as-you-go service with unlimited capacity. It supports complex security via [[S3 Permissions|S3 Bucket Policies]] and [[IAM Overview|IAM]], allows public access (e.g., for static website hosting), and provides immediate retrieval (unlike [[S3 Storage Classes|Amazon S3 Glacier]] which has retrieval latencies).
+> > **Rationale:** [[S3 Overview|Amazon S3]] is the only service that satisfies all these requirements. It is a pay-as-you-go service with unlimited capacity. It supports complex security via [[S3 Permissions|S3 Bucket Policies]] and [[IAM|IAM]], allows public access (e.g., for static website hosting), and provides immediate retrieval (unlike [[S3 Storage Classes|Amazon S3 Glacier]] which has retrieval latencies).
 
 > [!question]
 > An administrator runs a highly available application in AWS. A file storage layer is needed that can share between instances and scale the platform more easily. The storage should also be POSIX compliant. Which AWS service can perform this action?
@@ -54,4 +54,4 @@ tags: [aws, sap-c02, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[EFS Overview|Amazon EFS]] is a managed [[EFS Overview|NFS]] file system that is [[EFS Overview|POSIX]] compliant and can be mounted by thousands of [[EC2 Overview|Amazon EC2]] instances simultaneously. It scales automatically as data is added or removed, making it the perfect choice for a scalable shared storage layer.
+> > **Rationale:** [[EFS|Amazon EFS]] is a managed [[EFS|NFS]] file system that is [[EFS|POSIX]] compliant and can be mounted by thousands of [[EC2 Overview|Amazon EC2]] instances simultaneously. It scales automatically as data is added or removed, making it the perfect choice for a scalable shared storage layer.

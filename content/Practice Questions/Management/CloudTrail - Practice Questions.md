@@ -12,7 +12,7 @@ tags: [aws, sap-c02, cloudtrail, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** Creating a new [[S3 Overview|S3]] bucket ensures a dedicated environment for log storage, supporting confidentiality. The **Global Services** option is mandatory to capture [[IAM Overview|IAM]] events, as IAM is a global service. Using [[IAM Overview|IAM]] roles and bucket policies ensures confidentiality by restricting access, while [[S3 Security|S3 MFA Delete]] prevents accidental or malicious deletion of the log files, ensuring the integrity and durability of the data.
+> > **Rationale:** Creating a new [[S3 Overview|S3]] bucket ensures a dedicated environment for log storage, supporting confidentiality. The **Global Services** option is mandatory to capture [[IAM|IAM]] events, as IAM is a global service. Using [[IAM|IAM]] roles and bucket policies ensures confidentiality by restricting access, while [[S3 Security|S3 MFA Delete]] prevents accidental or malicious deletion of the log files, ensuring the integrity and durability of the data.
 
 > [!question]
 > Which of the following are true regarding AWS CloudTrail? (Choose 3 answers)
@@ -27,7 +27,7 @@ tags: [aws, sap-c02, cloudtrail, management, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 3, 5**
 > > **Rationale:** 
-> > - **Enabled by default:** Per recent [[CloudTrail Overview|AWS enhancements]], CloudTrail is now enabled for all accounts to provide the last 90 days of management events.
+> > - **Enabled by default:** Per recent [[CloudTrail|AWS enhancements]], CloudTrail is now enabled for all accounts to provide the last 90 days of management events.
 > > - **Per-region basis:** While you can configure a "multi-region" trail, CloudTrail technically operates on a per-region basis.
 > > - **Single S3 bucket:** You can aggregate logs from multiple regions and multiple accounts into a single [[S3 Overview|S3]] bucket for centralized auditing.
 > > *Note: CloudTrail is not per-service (it's for all supported services) and global service events are specifically handled (not "globally enabled" in a simple toggle sense).*
@@ -41,7 +41,7 @@ tags: [aws, sap-c02, cloudtrail, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[CloudTrail Overview|CloudTrail]] is specifically designed to record AWS API calls. Whenever an employee uses the CLI or SDK to interact with [[CloudWatch Overview|CloudWatch]] (e.g., `PutMetricData`), CloudTrail captures the request details, including the identity of the caller and the timestamp.
+> > **Rationale:** [[CloudTrail|CloudTrail]] is specifically designed to record AWS API calls. Whenever an employee uses the CLI or SDK to interact with [[CloudWatch Overview|CloudWatch]] (e.g., `PutMetricData`), CloudTrail captures the request details, including the identity of the caller and the timestamp.
 
 > [!question]
 > Your CTO thinks your AWS account was hacked. What is the only way to know for certain if there was unauthorized access and what they did, assuming your hackers are very sophisticated AWS engineers and doing everything they can to cover their tracks?
@@ -52,7 +52,7 @@ tags: [aws, sap-c02, cloudtrail, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** [[CloudTrail Overview|CloudTrail Log File Integrity Validation]] is the key feature for forensic auditing. It uses SHA-256 for hashing and RSA for digital signing. If a hacker attempts to modify or delete log files to hide their tracks, the digest files will fail the validation check, providing proof of tampering.
+> > **Rationale:** [[CloudTrail|CloudTrail Log File Integrity Validation]] is the key feature for forensic auditing. It uses SHA-256 for hashing and RSA for digital signing. If a hacker attempts to modify or delete log files to hide their tracks, the digest files will fail the validation check, providing proof of tampering.
 
 > [!question]
 > Your CTO has asked you to make sure that you know what all users of your AWS account are doing to change resources at all times. She wants a report of who is doing what over time, reported to her once per week, for as broad a resource type group as possible. How should you do this?
@@ -63,4 +63,4 @@ tags: [aws, sap-c02, cloudtrail, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** A global (multi-region) [[CloudTrail Overview|CloudTrail]] trail is the most comprehensive way to track "who, what, when, and where" for API calls across all AWS services and regions. Aggregating these logs from [[S3 Overview|S3]] allows you to generate the required weekly reports. While [[AWS Config]] tracks "what" changed, CloudTrail is the primary source for "who" made the change.
+> > **Rationale:** A global (multi-region) [[CloudTrail|CloudTrail]] trail is the most comprehensive way to track "who, what, when, and where" for API calls across all AWS services and regions. Aggregating these logs from [[S3 Overview|S3]] allows you to generate the required weekly reports. While [[Config]] tracks "what" changed, CloudTrail is the primary source for "who" made the change.

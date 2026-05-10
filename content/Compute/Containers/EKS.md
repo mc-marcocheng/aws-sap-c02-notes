@@ -6,7 +6,7 @@ tags: [aws, sap-c02, eks]
 Amazon EKS is a managed Kubernetes service that makes it easy for you to run Kubernetes on AWS without needing to stand up or maintain your own Kubernetes control plane.
 
 ## Architectural Patterns
-- **Integration with AWS:** Integrates natively with [[IAM Overview|IAM]] via IAM Roles for Service Accounts (IRSA), [[VPC Overview|VPC]] via the Amazon VPC CNI plugin, and [[ELB Overview|ELB]] for load balancing.
+- **Integration with AWS:** Integrates natively with [[IAM|IAM]] via IAM Roles for Service Accounts (IRSA), [[VPC Overview|VPC]] via the Amazon VPC CNI plugin, and [[ELB Overview|ELB]] for load balancing.
 - **Compute Options:** Supports EC2 managed node groups, self-managed nodes, and serverless compute via [[Fargate]].
 - **High Availability:** The EKS control plane is highly available and spans multiple Availability Zones.
 

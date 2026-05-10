@@ -89,7 +89,7 @@ tags: [aws, sap-c02, cloudfront, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale**: [[CloudFront Overview|CloudFront]] supports **PUT/POST** methods, which optimizes the "upload" path by utilizing the AWS backbone from the nearest edge location to the origin ([[S3 Overview|S3]]). This reduces latency and improves stability for mobile users compared to uploading directly to S3 over the public internet. [[Global Accelerator Overview|AWS Global Accelerator]] could also assist with non-HTTP traffic, but CloudFront is ideal for content delivery.
+> > **Rationale**: [[CloudFront Overview|CloudFront]] supports **PUT/POST** methods, which optimizes the "upload" path by utilizing the AWS backbone from the nearest edge location to the origin ([[S3 Overview|S3]]). This reduces latency and improves stability for mobile users compared to uploading directly to S3 over the public internet. [[Global Accelerator|AWS Global Accelerator]] could also assist with non-HTTP traffic, but CloudFront is ideal for content delivery.
 
 > [!question]
 > To enable end-to-end HTTPS from the browser to the origin via CloudFront, which options are valid? (Choose 2)

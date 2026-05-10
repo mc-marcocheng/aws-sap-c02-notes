@@ -1,35 +1,35 @@
 ---
 tags: [aws, sap-c02, storage, index]
 ---
-# Storage Services Index
+# Storage Index
 
-> [!exam] **Storage Selection**
-> - **Block**: EBS (High performance, single-AZ).
-> - **File**: EFS (Linux, multi-AZ), FSx (Windows/Lustre/NetApp).
-> - **Object**: S3 (Infinite scale, global, cost tiers).
-> - **Hybrid**: Storage Gateway (File/Volume/Tape), DataSync, Transfer Family.
-
-## Amazon S3 (Simple Storage Service)
+## S3
 - [[S3 Overview]]
 - [[S3 Storage Classes]]
-- [[S3 Lifecycle Management]]
-- [[S3 Encryption]]
-- [[S3 Security]]
-- [[S3 Data Protection]]
+- [[S3 Subresources]]
 - [[S3 Permissions]]
+- [[S3 Security]]
+- [[S3 Encryption]]
+- [[S3 Data Protection]]
+- [[S3 Lifecycle Management]]
 
-## Block Storage
+## EBS
 - [[EBS Overview]]
 - [[EBS Snapshots]]
 
-## File Storage
-- [[EFS Overview]]
+## EFS
+- [[EFS]]
+
+## FSx
+- [[FSx]]
 - [[FSx for Lustre]]
 
-## Data Transfer & Hybrid
-- [[Storage Gateway Overview]]
+## Storage Gateway
+- [[Storage Gateway]]
+
+## Transfer & Backup
 - [[Transfer Family]]
-- [[Snow Family|Snow Family]]
+- [[Backup]]
 
 ## Comparisons
-- [[S3 vs EBS vs EFS|S3 vs EBS vs EFS]]
+- [[S3 vs EBS vs EFS]]

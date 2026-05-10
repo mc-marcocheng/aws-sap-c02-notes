@@ -12,7 +12,7 @@ tags: [aws, sap-c02, shield, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** [[AWS Shield|AWS Shield]] is a managed Distributed Denial of Service (DDoS) protection service that safeguards applications running on AWS. Shield Standard provides automatic protection for all AWS customers at no additional charge.
+> > **Rationale:** [[Shield|AWS Shield]] is a managed Distributed Denial of Service (DDoS) protection service that safeguards applications running on AWS. Shield Standard provides automatic protection for all AWS customers at no additional charge.
 
 > [!question]
 > A media company has monetized their APIs to external third parties. During the last month, the platform has come under DDoS attacks multiple times leading to scaling of underlying instances and cost incurred. Which AWS service would help provide cost protection against such spikes, if such situations do occur in the future?
@@ -23,7 +23,7 @@ tags: [aws, sap-c02, shield, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[AWS Shield|AWS Shield Advanced]] provides DDoS cost protection to safeguard against scaling charges resulting from DDoS-related usage spikes on protected resources such as EC2, ELB, and CloudFront.
+> > **Rationale:** [[Shield|AWS Shield Advanced]] provides DDoS cost protection to safeguard against scaling charges resulting from DDoS-related usage spikes on protected resources such as EC2, ELB, and CloudFront.
 
 > [!question]
 > A company is hosting an important revenue generating application. On the last few occasions, the application has come under large DDoS attacks. As a result of this, a lot of users were complaining about the slowness of the application. You need to now avoid these situations in the future and now require 24/7 support from AWS if such situations do occur in the future. Which of the following service can help in this regard?
@@ -34,4 +34,4 @@ tags: [aws, sap-c02, shield, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** [[AWS Shield|AWS Shield Advanced]] provides 24/7 access to the AWS Shield Response Team (SRT) for assistance during attacks and offers more sophisticated detection and mitigation capabilities than the Standard tier.
+> > **Rationale:** [[Shield|AWS Shield Advanced]] provides 24/7 access to the AWS Shield Response Team (SRT) for assistance during attacks and offers more sophisticated detection and mitigation capabilities than the Standard tier.

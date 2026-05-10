@@ -12,4 +12,4 @@ tags: [aws, sap-c02, security-hub, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** [[Security Hub]] is a cloud security posture management (CSPM) service that automatically runs continuous, account-level configuration and security checks based on standards like the [[Security Hub|CIS AWS Foundations]] Benchmark. It leverages [[AWS Config]] rules under the hood to perform these checks and identify security issues.
+> > **Rationale:** [[Security Hub]] is a cloud security posture management (CSPM) service that automatically runs continuous, account-level configuration and security checks based on standards like the [[Security Hub|CIS AWS Foundations]] Benchmark. It leverages [[Config]] rules under the hood to perform these checks and identify security issues.

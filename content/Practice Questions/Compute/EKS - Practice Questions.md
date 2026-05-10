@@ -12,7 +12,7 @@ tags: [aws, sap-c02, eks, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[IAM Overview|IRSA (IAM Roles for Service Accounts)]] is the AWS-recommended method to provide granular, least-privilege IAM permissions to individual Kubernetes pods in [[EKS]]. Attaching a role to the EC2 node (Option 1) grants all pods on that node the same permissions. Using IAM users and access keys (Option 2) introduces credential management overhead and security risks.
+> > **Rationale:** [[IAM|IRSA (IAM Roles for Service Accounts)]] is the AWS-recommended method to provide granular, least-privilege IAM permissions to individual Kubernetes pods in [[EKS]]. Attaching a role to the EC2 node (Option 1) grants all pods on that node the same permissions. Using IAM users and access keys (Option 2) introduces credential management overhead and security risks.
 
 > [!question]
 > An organization is running an EKS cluster in a VPC with limited available IPv4 space. As the cluster scales, they frequently run out of IP addresses because each pod consumes an IP address from the VPC subnets. What is the best architectural solution to prevent IP exhaustion without significantly refactoring the VPC?
