@@ -46,5 +46,12 @@ tags: [aws, sap-c02, database, analytics]
 | **[[Redshift]]** | Large volumes of structured data, OLAP | Complex analytics, BI reporting, petabyte-scale |
 | **[[EMR]]** | Unstructured/Semi-structured data | Big data processing (Hadoop/Spark), transitory data |
 
+## Related Services
+- [[_Database Index|Database Index]]
+- [[RDS Overview]]
+- [[Aurora Overview]]
+- [[S3 Overview]]
+- [[EMR]]
+
 ---
 **Practice:** [[Redshift - Practice Questions|Redshift Practice Questions]]

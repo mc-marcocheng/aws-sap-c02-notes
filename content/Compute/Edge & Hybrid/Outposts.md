@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, outposts]
+tags: [compute, aws, sap-c02, outposts]
 ---
 # AWS Outposts
 
@@ -17,6 +17,12 @@ AWS Outposts brings native AWS services, infrastructure, and operating models to
 
 > [!exam]
 > Whenever a scenario mentions "ultra-low latency to on-premises machinery/factory equipment" or "data must remain on-premises due to legal compliance," the answer is almost always **AWS Outposts**. Use the **Local Gateway** to route traffic directly to local networks without traversing the AWS Region.
+
+## Related Services
+- [[_Compute Index|Compute Index]]
+- [[EC2 Overview|EC2]]
+- [[Lambda]]
+- [[VPC Overview|VPC]]
 
 ---
 **Practice:** [[Outposts - Practice Questions|Outposts Practice Questions]]

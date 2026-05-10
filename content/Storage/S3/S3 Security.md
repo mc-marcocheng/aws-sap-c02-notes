@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, s3]
+tags: [aws, sap-c02, storage, s3]
 ---
 # S3 Security
 
@@ -8,7 +8,7 @@ S3 security is a shared responsibility. AWS manages the infrastructure, while yo
 ## 1. Access Control
 
 ### IAM Policies & Bucket Policies
-- **IAM Policies**: Attached to users/roles. Best for internal access.
+- **[[IAM]] Policies**: Attached to users/roles. Best for internal access.
 - **Bucket Policies**: Attached to the bucket. Best for cross-account access, public access, or enforcing encryption (e.g., `Deny` if `s3:x-amz-server-side-encryption` is null).
 
 ### S3 Block Public Access
@@ -24,7 +24,7 @@ S3 security is a shared responsibility. AWS manages the infrastructure, while yo
 
 ### Data at Rest
 - **SSE-S3**: S3 manages keys (AES-256). No extra charge.
-- **SSE-KMS**: Keys managed in AWS KMS. Provides audit trails and key rotation.
+- **SSE-KMS**: Keys managed in AWS [[KMS]]. Provides audit trails and key rotation.
 - **SSE-C**: Customer manages keys. AWS handles the encryption/decryption but doesn't store the key.
 - **Client-Side Encryption**: Encrypt data before uploading.
 
@@ -51,15 +51,22 @@ S3 security is a shared responsibility. AWS manages the infrastructure, while yo
 
 | Requirement | Solution |
 | :--- | :--- |
-| **Audit Compliance** | Use **SSE-KMS** for encryption (CloudTrail logs) + **S3 Access Logs**. |
+| **Audit Compliance** | Use **SSE-KMS** for encryption ([[CloudTrail]] logs) + **S3 Access Logs**. |
 | **Ransomware Protection** | Enable **Versioning** + **S3 Object Lock (Compliance Mode)**. |
 | **Least Privilege** | Use **S3 Access Points** for complex multi-tenant environments. |
 | **Privacy** | Use **VPC Gateway Endpoints** to keep S3 traffic off the public internet. |
 
 > [!exam]
 > - **VPC Gateway Endpoints** are free and don't require an IGW.
-> - **S3 Macie** can be used to scan buckets for PII (Personally Identifiable Information).
+> - **S3 [[Macie]]** can be used to scan buckets for PII (Personally Identifiable Information).
 > - **S3 Cross-Region Replication (CRR)** can be used for compliance-mandated offsite backups.
+
+## Related Services
+- [[_Storage Index|Storage Index]]
+- [[S3 Overview|S3]]
+- [[IAM]]
+- [[KMS]]
+- [[Macie]]
 
 ---
 **Practice:** [[S3 Security - Practice Questions|S3 Security Practice Questions]]

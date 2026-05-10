@@ -1,5 +1,5 @@
 ---
-tags: ['aws', 'sap-c02', 'lambda']
+tags: [compute, aws, sap-c02, lambda]
 ---
 # Lambda Overview
 
@@ -62,7 +62,8 @@ AWS Lambda is a serverless, event-driven compute service that lets you run code 
 > Don't chain Lambda functions directly. Use **AWS Step Functions** to manage state, retries, and error handling for multi-step processes.
 
 ---
-## Related Links
+## Related Services
+- [[_Compute Index|Compute Index]]
 - [[VPC Overview]]
 - [[S3 Overview]]
 - [[DynamoDB Overview]]

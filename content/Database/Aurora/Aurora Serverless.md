@@ -1,9 +1,9 @@
 ---
-tags: [aws, sap-c02, aurora]
+tags: [aws, sap-c02, database, aurora]
 ---
 # Aurora Serverless
 
-Amazon Aurora Serverless is an on-demand, auto-scaling configuration for Aurora. It automatically starts up, shuts down, and scales capacity based on application needs, providing a cost-effective solution for intermittent or unpredictable workloads.
+Amazon [[Aurora Serverless]] is an on-demand, auto-scaling configuration for [[Aurora Overview|Aurora]]. It automatically starts up, shuts down, and scales capacity based on application needs, providing a cost-effective solution for intermittent or unpredictable workloads.
 
 > [!important]
 > - **Scaling**: Scales capacity in **Aurora Capacity Units (ACUs)**.
@@ -16,7 +16,7 @@ Amazon Aurora Serverless is an on-demand, auto-scaling configuration for Aurora.
 
 - **Separation of Compute and Storage**: Compute is separate from the storage volume. Storage remains spread across 3 AZs (6 copies) regardless of compute status.
 - **Proxy Fleet**: Database endpoints connect to a proxy fleet that routes traffic to a fleet of resources that scale automatically.
-- **VPC Access**: Aurora Serverless does not have a public IP and must be accessed from within a VPC.
+- **VPC Access**: Aurora Serverless does not have a public IP and must be accessed from within a [[VPC Overview|VPC]].
 
 ## Scaling Mechanism
 
@@ -45,6 +45,11 @@ Amazon Aurora Serverless is an on-demand, auto-scaling configuration for Aurora.
 > - **Scaling to Zero**: Unique to Aurora Serverless v1 (v2 scales to 0.5 ACU min but not zero).
 > - **Scaling Points**: Scaling can be blocked by long-running queries or table locks.
 > - **Multi-AZ**: While storage is Multi-AZ, the compute is technically in one AZ at a time, but fails over automatically.
+
+## Related Services
+- [[_Database Index|Database Index]]
+- [[Aurora Overview]]
+- [[RDS Proxy]]
 
 ---
 **Practice:** [[Aurora - Practice Questions|Aurora Practice Questions]]

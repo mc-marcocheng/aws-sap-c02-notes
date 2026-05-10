@@ -1,17 +1,17 @@
 ---
-tags: [aws, sap-c02, service-catalog]
+tags: [aws, sap-c02, management, service-catalog]
 ---
 # AWS Service Catalog
 
 AWS Service Catalog allows organizations to create and manage catalogs of IT services that are approved for use on AWS. These IT services can include everything from virtual machine images, servers, software, and databases to complete multi-tier application architectures. It helps achieve consistent governance and compliance while enabling users to self-serve approved resources.
 
 ## Key Concepts
-- **Product**: An IT service that you want to make available for deployment on AWS. A product consists of one or more AWS CloudFormation templates.
+- **Product**: An IT service that you want to make available for deployment on AWS. A product consists of one or more AWS [[CloudFormation Overview|CloudFormation templates]].
 - **Portfolio**: A collection of products with configuration information. Portfolios are used to manage who can use specific products and how they can use them.
 - **Provisioned Product**: An instance of a product that has been deployed.
 - **Constraints**: Rules applied to portfolios or products to control how they can be deployed.
-    - **Launch Constraints**: Specify an IAM role that Service Catalog assumes when an end-user launches the product. This allows users to deploy resources they don't natively have IAM permissions to create.
-    - **Template Constraints**: Limit the parameters that users can input when launching a product (e.g., restricting EC2 instance types to `t3.micro`).
+    - **Launch Constraints**: Specify an [[IAM Roles and Policies|IAM role]] that Service Catalog assumes when an end-user launches the product. This allows users to deploy resources they don't natively have IAM permissions to create.
+    - **Template Constraints**: Limit the parameters that users can input when launching a product (e.g., restricting [[EC2 Overview|EC2]] instance types to `t3.micro`).
 
 ## Architecture & Workflow
 1. **Administrator** creates a CloudFormation template defining the product.
@@ -41,8 +41,15 @@ AWS Service Catalog allows organizations to create and manage catalogs of IT ser
 > [!important]
 > **Service Catalog vs CloudFormation StackSets**
 > - **Service Catalog** is for **self-service provisioning** within a single account or shared across accounts. It is driven by the *end user*.
-> - **StackSets** is for **fleet management** and centralized deployment across multiple accounts/regions, driven by an *administrator*.
+> - **[[CloudFormation StackSets|StackSets]]** is for **fleet management** and centralized deployment across multiple accounts/regions, driven by an *administrator*.
 > Portfolios can be shared across an AWS Organization to allow member accounts to consume centrally managed products.
+
+---
+## Related Services
+- [[_Management Index|Management Index]]
+- [[CloudFormation Overview|AWS CloudFormation]]
+- [[CloudFormation StackSets]]
+- [[IAM Roles and Policies|AWS IAM]]
 
 ---
 **Practice:** [[Service Catalog - Practice Questions|Service Catalog Practice Questions]]

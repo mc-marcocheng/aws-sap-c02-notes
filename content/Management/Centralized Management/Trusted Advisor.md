@@ -9,10 +9,10 @@ AWS Trusted Advisor is an online tool that provides real-time guidance to help y
 
 | Category | Description |
 | --- | --- |
-| **Cost Optimization** | Highlights unused resources and opportunities to reduce your bill (e.g., idle Load Balancers, unassociated EIPs). |
+| **Cost Optimization** | Highlights unused resources and opportunities to reduce your bill (e.g., idle [[ELB Overview|Load Balancers]], unassociated EIPs). |
 | **Security** | Identifies security gaps (e.g., S3 buckets with public access, unrestricted SSH access, MFA not enabled on root). |
 | **Fault Tolerance** | Increases resiliency by highlighting redundancy shortfalls (e.g., single-AZ deployments, missing snapshots). |
-| **Performance** | Improves speed and responsiveness (e.g., overutilized EBS volumes, high CloudFront header usage). |
+| **Performance** | Improves speed and responsiveness (e.g., overutilized [[EBS Overview|EBS]] volumes, high [[CloudFront Overview|CloudFront]] header usage). |
 | **Service Limits** | Checks usage that is more than 80% of your service limits (quotas). |
 
 ## Support Plans and Access
@@ -22,12 +22,19 @@ AWS Trusted Advisor is an online tool that provides real-time guidance to help y
 
 ## Automation
 - **AWS Support API**: Programmatic access to Trusted Advisor recommendations.
-- **Amazon EventBridge**: Can trigger automated actions based on Trusted Advisor status changes.
+- **[[EventBridge|Amazon EventBridge]]**: Can trigger automated actions based on Trusted Advisor status changes.
 
 ![[trusted-advisor-categories.png]]
 
 > [!exam]
-> **SAP-C02 Key Point**: Trusted Advisor is a **reactive/consultative** tool. For **proactive/governance** controls, use **AWS Organizations SCPs** or **AWS Control Tower**. For **automated compliance auditing**, use **AWS Config**.
+> **SAP-C02 Key Point**: Trusted Advisor is a **reactive/consultative** tool. For **proactive/governance** controls, use **[[Organizations Overview|AWS Organizations]] SCPs** or **[[Control Tower|AWS Control Tower]]**. For **automated compliance auditing**, use **[[Config|AWS Config]]**.
+
+## Related Services
+- [[_Management Index|Management Index]]
+- [[Control Tower]]
+- [[Config]]
+- [[Organizations Overview|AWS Organizations]]
+- [[EventBridge]]
 
 ---
 **Practice:** [[Trusted Advisor - Practice Questions|Trusted Advisor Practice Questions]]

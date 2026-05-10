@@ -9,9 +9,9 @@ AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises
 
 | Type | Protocol | Backend Storage | Use Case |
 | :--- | :--- | :--- | :--- |
-| **S3 File Gateway** | NFS, SMB | Amazon S3 | Flat files, content repositories, backups to S3. |
-| **FSx File Gateway** | SMB | Amazon FSx for Windows | Native Windows file systems (NTLM, ACLs). |
-| **Volume Gateway (Cached)**| iSCSI | S3 / EBS Snapshots | Primary data in S3, cache frequently used data locally. |
+| **S3 File Gateway** | NFS, SMB | Amazon [[S3 Overview|S3]] | Flat files, content repositories, backups to S3. |
+| **FSx File Gateway** | SMB | Amazon [[FSx]] for Windows | Native Windows file systems (NTLM, ACLs). |
+| **Volume Gateway (Cached)**| iSCSI | S3 / [[EBS Overview|EBS]] Snapshots | Primary data in S3, cache frequently used data locally. |
 | **Volume Gateway (Stored)**| iSCSI | S3 / EBS Snapshots | Primary data locally, asynchronous backup to S3. |
 | **Tape Gateway (VTL)** | iSCSI | S3 / Glacier | Replace physical tapes with virtual tapes. |
 
@@ -53,7 +53,14 @@ Provides cloud-backed iSCSI block storage volumes.
 > - **Scaling**: Cached volumes scale more easily as you don't need to provision all storage on-premises.
 
 > [!info] 
-> For SAP-C02, focus on when to use File Gateway (NFS/SMB to S3) vs. FSx File Gateway (Windows File Server integration) vs. DataSync (for one-time or scheduled migrations).
+> For SAP-C02, focus on when to use File Gateway (NFS/SMB to S3) vs. FSx File Gateway (Windows File Server integration) vs. [[DataSync]] (for one-time or scheduled migrations).
+
+## Related Services
+- [[_Storage Index|Storage Index]]
+- [[S3 Overview|S3]]
+- [[FSx]]
+- [[EBS Overview|EBS]]
+- [[DataSync]]
 
 ---
 **Practice:** [[Storage Gateway - Practice Questions|Storage Gateway Practice Questions]]

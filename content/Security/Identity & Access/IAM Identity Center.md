@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, iam-identity-center]
+tags: [aws, sap-c02, iam-identity-center, security]
 ---
 # AWS IAM Identity Center (formerly AWS SSO)
 
@@ -20,6 +20,12 @@ AWS IAM Identity Center is the recommended service for centrally managing workfo
 > If you have a multi-account structure via [[Organizations Overview|Organizations]] and need centralized user access, **IAM Identity Center** is the correct answer.
 > For mapping Active Directory users to AWS accounts, use IAM Identity Center + AD Connector.
 > Differentiate between IAM Identity Center (workforce access/SSO) and [[Cognito]] (customer/app user authentication).
+
+## Related Services
+- [[_Security Index|Security Index]]
+- [[Organizations Overview]]
+- [[Cognito]]
+- [[Directory Service]]
 
 ---
 **Practice:** [[IAM Identity Center - Practice Questions|IAM Identity Center Practice Questions]]

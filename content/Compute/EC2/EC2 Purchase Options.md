@@ -1,5 +1,5 @@
 ---
-tags: ['aws', 'sap-c02', 'ec2']
+tags: [compute, aws, sap-c02, ec2]
 ---
 # EC2 Purchase Options
 
@@ -70,7 +70,8 @@ AWS provides several purchasing options to optimize costs based on workload requ
 > - **Solution**: Use **Compute Savings Plans** or **Regional Reserved Instances** for the baseline, and On-Demand for spikes.
 
 ---
-## Related Links
+## Related Services
+- [[_Compute Index|Compute Index]]
 - [[EC2 Overview]]
 - [[EC2 Instance Types]]
 - [[Auto Scaling Overview]]

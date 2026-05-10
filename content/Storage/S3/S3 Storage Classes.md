@@ -1,5 +1,5 @@
 ---
-tags: ['aws', 'sap-c02', 's3']
+tags: [aws, sap-c02, storage, s3]
 ---
 # S3 Storage Classes
 
@@ -82,7 +82,8 @@ tags: ['aws', 'sap-c02', 's3']
 > - **Min Storage Duration**: Remember the minimum durations (Standard-IA/One Zone-IA: 30 days, Glacier: 90 days, Deep Archive: 180 days). Deleting before this earns a pro-rated charge.
 
 ---
-**References:**
+## Related Services
+- [[_Storage Index|Storage Index]]
 - [[S3 Overview]]
 - [[S3 Lifecycle Management]]
 - [[S3 Data Protection]]

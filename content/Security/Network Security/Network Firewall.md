@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, network-firewall]
+tags: [aws, sap-c02, network-firewall, security]
 ---
 # AWS Network Firewall
 
@@ -15,6 +15,13 @@ AWS Network Firewall is a managed, stateful network firewall and intrusion preve
 > [!exam] SAP-C02 Exam Tip
 > If an exam question requires **deep packet inspection (DPI)**, **Intrusion Prevention (IPS)**, or filtering outbound traffic by **domain name (FQDN)** in a VPC, the answer is **AWS Network Firewall** (or sometimes a third-party appliance on EC2, but AWS prefers its native service).
 > Understand the routing: In an edge deployment, traffic from IGW -> Edge Association Route Table -> Firewall Subnet -> Public Subnet (ALB/EC2).
+
+## Related Services
+- [[_Security Index|Security Index]]
+- [[VPC Overview]]
+- [[Transit Gateway]]
+- [[WAF]]
+- [[Firewall Manager]]
 
 ---
 **Practice:** [[Network Firewall - Practice Questions|Network Firewall Practice Questions]]

@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, appsync] 
+tags: [aws, sap-c02, integration, appsync] 
 ---
 # Amazon AppSync
 
@@ -15,6 +15,12 @@ Managed GraphQL service that simplifies application development by letting you c
 
 > [!exam]
 > When asked to combine multiple microservices or data sources into a single API endpoint with minimal latency and minimal client requests, always choose AppSync (GraphQL).
+
+## Related Services
+- [[_Integration Index|Integration Index]]
+- [[DynamoDB Overview|DynamoDB]]
+- [[Lambda]]
+- [[OpenSearch]]
 
 ---
 **Practice:** [[AppSync - Practice Questions|AppSync Practice Questions]]

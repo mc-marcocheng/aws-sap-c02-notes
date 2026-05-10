@@ -3,7 +3,7 @@ tags: [aws, sap-c02, networking, security]
 ---
 # Security Groups vs NACLs
 
-AWS provides two layers of security to control network traffic in a VPC: Security Groups and Network ACLs (NACLs).
+AWS provides two layers of security to control network traffic in a [[VPC Overview|VPC]]: Security Groups and Network ACLs (NACLs).
 
 ## Comparison Table
 
@@ -33,6 +33,12 @@ AWS provides two layers of security to control network traffic in a VPC: Securit
 > [!exam]
 > **SAP-C02 Scenario: Blocking a specific IP**
 > If you need to block a single malicious IP address, you **must use a NACL** because Security Groups do not support Deny rules.
+
+## Related Services
+- [[_Security Index|Security Index]]
+- [[VPC Overview]]
+- [[WAF]]
+- [[Network Firewall]]
 
 ---
 **Practice:** [[SG vs NACL - Practice Questions|SG vs NACL Practice Questions]]

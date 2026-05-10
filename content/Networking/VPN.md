@@ -52,7 +52,7 @@ tags: ['aws', 'sap-c02', 'vpn']
 ## VPN Route Priority
 
 When multiple routes exist for the same prefix, VGW prioritizes them as follows:
-1. **Direct Connect (DX)**: BGP propagated routes from an AWS Direct Connect connection.
+1. **Direct Connect (DX)**: BGP propagated routes from an AWS [[Direct Connect Overview|Direct Connect]] connection.
 2. **Static Routes**: Manually added static routes for a Site-to-Site VPN connection.
 3. **VPN BGP**: BGP propagated routes from a Site-to-Site VPN connection.
 
@@ -110,6 +110,13 @@ When multiple routes exist for the same prefix, VGW prioritizes them as follows:
 > For **SAP-C02**, remember that you can combine VPN and Direct Connect:
 > - **VPN over Direct Connect**: For private, high-bandwidth, *and* encrypted connectivity.
 > - **VPN as Backup for DX**: Use a VPN connection as a lower-cost failover for a Direct Connect link.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[Direct Connect Overview|Direct Connect]]
+- [[Transit Gateway]]
+- [[VPC Overview|VPC]]
 
 ---
 **Practice:** [[VPN - Practice Questions|VPN Practice Questions]]

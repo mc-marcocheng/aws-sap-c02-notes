@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, wavelength]
+tags: [compute, aws, sap-c02, wavelength]
 ---
 # AWS Wavelength
 
@@ -13,6 +13,12 @@ AWS Wavelength embeds AWS compute and storage services within telecommunications
 
 > [!exam]
 > If a scenario asks for single-digit millisecond latency specifically for **mobile devices, 5G networks, connected vehicles, or cellular IoT devices**, the answer is **AWS Wavelength**. Use a **Carrier Gateway** for inbound/outbound mobile network traffic.
+
+## Related Services
+- [[_Compute Index|Compute Index]]
+- [[EC2 Overview|EC2]]
+- [[Lambda]]
+- [[VPC Overview|VPC]]
 
 ---
 **Practice:** [[Wavelength - Practice Questions|Wavelength Practice Questions]]

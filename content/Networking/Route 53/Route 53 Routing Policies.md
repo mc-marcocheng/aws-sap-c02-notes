@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, route53]
+tags: [aws, sap-c02, networking, route53]
 ---
 # Route 53 Routing Policies
 
@@ -54,5 +54,10 @@ Route 53 uses routing policies to determine how it responds to DNS queries. Choo
 
 > [!important]
 > Always enable **Evaluate Target Health** on Alias records so Route 53 can failover to other regions/resources if the target (like an ALB) is unhealthy.
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[Route 53 Overview]]
+
 ---
 **Practice:** [[Route 53 Routing - Practice Questions|Route 53 Routing Practice Questions]]

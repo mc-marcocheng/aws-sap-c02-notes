@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, nlb]
+tags: [aws, sap-c02, networking, nlb]
 ---
 # Network Load Balancer (NLB) Overview
 
@@ -34,6 +34,13 @@ The Network Load Balancer (NLB) operates at the connection level (Layer 4), rout
 > - **Static IP addresses** for whitelisting.
 > - **UDP** traffic (gaming, streaming).
 > - **PrivateLink** for exposing a service privately to other VPCs.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[ELB Overview]]
+- [[ALB Overview]]
+- [[VPC Endpoints]]
 
 ---
 **Practice:** [[NLB - Practice Questions|NLB Practice Questions]]

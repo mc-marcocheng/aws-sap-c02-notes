@@ -1,5 +1,5 @@
 ---
-tags: ['aws', 'sap-c02', 's3']
+tags: [aws, sap-c02, storage, s3]
 ---
 # S3 Overview
 
@@ -32,7 +32,7 @@ tags: ['aws', 'sap-c02', 's3']
 - **Parts**: Supports 1 to 10,000 parts; each part from 5 MB to 5 GB (last part can be < 5 MB).
 
 ### S3 Transfer Acceleration
-- Uses **CloudFront's** globally distributed edge locations to accelerate data uploads to S3 over an optimized network path.
+- Uses **[[CloudFront Overview|CloudFront]]'s** globally distributed edge locations to accelerate data uploads to S3 over an optimized network path.
 - Ideal for customers transferring large objects across continents.
 
 ### Pre-Signed URLs
@@ -73,7 +73,7 @@ tags: ['aws', 'sap-c02', 's3']
 > - **Durability vs Availability**: S3 is designed for 11 9's durability. Availability varies by storage class (e.g., S3 Standard is 99.99%).
 > - **Consistency**: S3 provides **strong read-after-write consistency** for all applications.
 > - **Security**: Use **Bucket Policies** for cross-account access and **IAM Policies** for user-level access. Use **S3 Block Public Access** at the account level for maximum security.
-> - **Large Scale Migration**: For petabytes of data, consider **AWS Snowball** or **AWS DataSync**.
+> - **Large Scale Migration**: For petabytes of data, consider **AWS [[Snow Family]]** or **AWS [[DataSync]]**.
 
 ---
 ## Comparison: Single PUT vs. Multipart Upload
@@ -86,7 +86,8 @@ tags: ['aws', 'sap-c02', 's3']
 | **Use Case** | Small objects (< 100 MB) | Large objects (> 100 MB) or unstable networks |
 
 ---
-**References:**
+## Related Services
+- [[_Storage Index|Storage Index]]
 - [[S3 Storage Classes]]
 - [[S3 Data Protection]]
 - [[S3 Lifecycle Management]]

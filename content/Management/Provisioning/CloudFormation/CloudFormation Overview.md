@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, cloudformation]
+tags: [aws, sap-c02, management, cloudformation]
 ---
 # CloudFormation Overview
 
@@ -21,7 +21,7 @@ AWS CloudFormation provides a common language for you to describe and provision 
 
 ## Advanced Features
 - **Nested Stacks**: Stacks created as part of other stacks using the `AWS::CloudFormation::Stack` resource. Best practice for modularizing templates.
-- **Custom Resources**: Allow you to include resources not natively supported by CloudFormation, often backed by **Lambda**.
+- **Custom Resources**: Allow you to include resources not natively supported by CloudFormation, often backed by **[[Lambda]]**.
 - **Drift Detection**: Identifies if resources have been modified outside of CloudFormation.
 - **Stack Policies**: Prevents stack resources from being unintentionally updated or deleted during a stack update.
 
@@ -29,13 +29,21 @@ AWS CloudFormation provides a common language for you to describe and provision 
 - **CreationPolicy**: Waits for success signals (e.g., from an EC2 user-data script).
 - **DeletionPolicy**: Determines what happens to a resource when the stack is deleted (`Delete`, `Retain`, or `Snapshot`).
 - **DependsOn**: Explicitly defines a dependency order for resource creation.
-- **UpdatePolicy**: Defines how CloudFormation handles updates to resources like Auto Scaling groups (e.g., `AutoScalingRollingUpdate`).
+- **UpdatePolicy**: Defines how CloudFormation handles updates to resources like [[Auto Scaling Overview|Auto Scaling]] groups (e.g., `AutoScalingRollingUpdate`).
 
 > [!exam]
 > **SAP-C02 Deployment Strategies**:
 > - **Rolling Updates**: Use `UpdatePolicy` on ASGs.
-> - **Blue/Green**: Create a new stack, swap DNS (Route 53), then delete the old stack.
-> - **Cross-Account/Region**: Always use **StackSets**.
+> - **Blue/Green**: Create a new stack, swap DNS ([[Route 53 Overview|Route 53]]), then delete the old stack.
+> - **Cross-Account/Region**: Always use **[[CloudFormation StackSets|StackSets]]**.
+
+---
+## Related Services
+- [[_Management Index|Management Index]]
+- [[CloudFormation StackSets]]
+- [[Service Catalog]]
+- [[Auto Scaling Overview|AWS Auto Scaling]]
+- [[Lambda|AWS Lambda]]
 
 ---
 ## Related Practice Questions

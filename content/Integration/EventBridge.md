@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, eventbridge] 
+tags: [aws, sap-c02, integration, eventbridge] 
 ---
 # Amazon EventBridge
 
@@ -16,6 +16,12 @@ A serverless event bus that makes it easy to connect applications together using
 
 > [!exam]
 > If a scenario mentions decoupling microservices asynchronously where multiple unknown targets might need to react to a single state change, or routing events based on JSON content (content-based filtering), choose EventBridge over [[SNS]] or [[SQS Overview|SQS]].
+
+## Related Services
+- [[_Integration Index|Integration Index]]
+- [[SNS]]
+- [[SQS Overview|SQS]]
+- [[Lambda]]
 
 ---
 **Practice:** [[EventBridge - Practice Questions|EventBridge Practice Questions]]

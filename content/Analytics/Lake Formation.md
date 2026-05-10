@@ -7,8 +7,7 @@ tags: [aws, sap-c02, analytics, lake-formation]
 > A service that makes it easy to set up a secure data lake in days. It helps you collect, catalog, clean, and secure data in Amazon S3, making it available for analytics and machine learning.
 
 ## Key Features
-- **Centralized Access Control:** Define fine-grained access controls (table, column, row, and cell level) centrally for data in S3.
-- **Blueprints:** Use built-in blueprints to ingest data from relational databases and log sources.
+ - **Centralized Access Control:** Define fine-grained access controls (table, column, row, and cell level) centrally for data in S3.- **Blueprints:** Use built-in blueprints to ingest data from relational databases and log sources.
 - **Data Catalog:** Builds on the AWS Glue Data Catalog.
 - **Data Filtering:** Restrict access to specific rows and columns.
 - **Cross-Account Access:** Share data across AWS accounts securely.
@@ -16,7 +15,7 @@ tags: [aws, sap-c02, analytics, lake-formation]
 ## Use Cases
 - Building secure data lakes on Amazon S3.
 - Centralizing data governance and access control.
-- Enforcing fine-grained permissions for Amazon Athena, Amazon Redshift Spectrum, and Amazon EMR.
+- Enforcing fine-grained permissions for [[Athena|Amazon Athena]], Amazon Redshift Spectrum, and [[EMR|Amazon EMR]].
 
 ## Architecture
 
@@ -36,6 +35,13 @@ tags: [aws, sap-c02, analytics, lake-formation]
 > [!exam] SAP-C02 Exam Scenario
 > **Scenario:** A company has a multi-tenant data lake on Amazon S3. Different departments (HR, Finance, Marketing) need access to specific columns and rows within the same datasets using Amazon Athena.
 > **Solution:** Implement **AWS Lake Formation** to define row-level and column-level security policies. Register the S3 path in Lake Formation, grant fine-grained permissions to IAM roles/users representing the departments, and have users query via Athena. This avoids data duplication and complex S3 bucket policies.
+
+## Related Services
+- [[_Analytics Index|Analytics Index]]
+- [[Athena]]
+- [[EMR]]
+- [[Glue]]
+- [[S3 Overview|S3]]
 
 ---
 **Practice:** [[Lake Formation - Practice Questions|AWS Lake Formation Practice Questions]]

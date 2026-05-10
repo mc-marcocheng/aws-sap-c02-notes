@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, kinesis]
+tags: [aws, sap-c02, analytics, kinesis]
 ---
 # Kinesis Data Streams vs. Kinesis Data Firehose
 
@@ -7,8 +7,7 @@ Understanding the differences between Kinesis Data Streams (KDS) and Kinesis Dat
 
 ## Key Differences Summary
 
-| Feature | Kinesis Data Streams (KDS) | Kinesis Data Firehose (KDF) |
-| --- | --- | --- |
+ | Feature | Kinesis Data Streams (KDS) | Kinesis Data Firehose (KDF) || --- | --- | --- |
 | **Capacity Mode** | Provisioned or On-Demand | Fully managed (automatic) |
 | **Latency** | Real-time (~70-200 ms) | Near real-time (60s default, ~5s min) |
 | **Data Retention** | 24 hours to 365 days | No storage (transient) |
@@ -27,8 +26,8 @@ Understanding the differences between Kinesis Data Streams (KDS) and Kinesis Dat
 
 ## Kinesis Data Firehose (KDF)
 - **Zero Management**: No shards to manage; scales automatically.
-- **Built-in Transformations**: Use Lambda to transform/convert data format (e.g., JSON to Parquet/Orc) before delivery.
-- **Destinations**: Native delivery to S3, Redshift, OpenSearch, HTTP endpoints, and Snowflake.
+- **Built-in Transformations**: Use [[Lambda]] to transform/convert data format (e.g., JSON to Parquet/Orc) before delivery.
+- **Destinations**: Native delivery to [[S3 Overview|S3]], [[Redshift]], [[OpenSearch]], HTTP endpoints, and Snowflake.
 - **Buffering**: Delivers data based on time (60-900s) or size (1-128MB).
 
 > [!exam]
@@ -36,6 +35,13 @@ Understanding the differences between Kinesis Data Streams (KDS) and Kinesis Dat
 > - If you need **sub-second latency** or need to **replay** data: Choose **KDS**.
 > - If you need to **load data into S3 or Redshift** with minimal management: Choose **KDF**.
 > - If you need to **transform data** on the fly before storing it: Use **KDF with a Lambda function**.
+
+## Related Services
+- [[_Analytics Index|Analytics Index]]
+- [[Kinesis Overview|Kinesis]]
+- [[Lambda]]
+- [[S3 Overview|S3]]
+- [[Redshift]]
 
 ---
 **Practice:** [[Kinesis Comparison - Practice Questions|Kinesis Comparison Practice Questions]]

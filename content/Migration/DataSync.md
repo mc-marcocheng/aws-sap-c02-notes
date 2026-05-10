@@ -17,5 +17,11 @@ AWS DataSync is an online data transfer service that simplifies, automates, and 
 > [!exam]
 > DataSync is ideal for migrating active datasets, replicating data for disaster recovery, or transferring data for processing. Use AWS Snowball Edge for massive offline transfers, and DataSync for ongoing online replication or incremental transfers over VPN/Direct Connect.
 
+## Related Services
+- [[_Migration Index|Migration Index]]
+- [[Storage Gateway]]
+- [[Direct Connect Overview|Direct Connect]]
+- [[Snow Family]]
+
 ---
 **Practice:** [[DataSync - Practice Questions|DataSync Practice Questions]]

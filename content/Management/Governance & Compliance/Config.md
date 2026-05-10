@@ -16,7 +16,7 @@ tags: [aws, sap-c02, management, compliance]
 - **Auditing & Compliance**: Retrieve historical configurations for audits and ensure compliance with internal policies.
 - **Troubleshooting**: Compare the last working configuration to a recent change to identify root causes.
 
-## Core Concepts
+## Components
 
 - **Configuration Items (CI)**: A point-in-time view of a supported AWS resource (metadata, attributes, relationships).
 - **Configuration Recorder**: Stores configurations as CIs. It must be created and started to begin recording.
@@ -48,6 +48,12 @@ Remediation is applied using **[[Systems Manager Overview|Systems Manager]] Auto
 | **Focus** | **WHAT** has changed (Resource configuration) | **WHO** made the change (API calls/Events) |
 | **Details** | Point-in-time snapshots and historical states | User, application, and activity performed |
 | **Use Case** | Compliance, auditing, change management | Security auditing, operational troubleshooting |
+
+## Related Services
+- [[_Management Index|Management Index]]
+- [[CloudTrail]]
+- [[Organizations Overview|AWS Organizations]]
+- [[Systems Manager Overview|Systems Manager]]
 
 ---
 **Practice:** [[Config - Practice Questions|AWS Config Practice Questions]]

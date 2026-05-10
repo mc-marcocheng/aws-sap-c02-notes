@@ -7,8 +7,7 @@ tags: [aws, sap-c02, analytics, big-data]
 
 ## Architecture & Node Types
 
-An EMR cluster consists of several node types:
-
+ An EMR cluster consists of several node types:
 - **Master Node (Primary Node)**: Coordinates the distribution of data and tasks among other nodes. It tracks task status and monitors cluster health. 
   - > [!warning]
     > If the Master node fails, the cluster is terminated and the job must be re-executed (unless using multi-master support, though not explicitly detailed in raw content).
@@ -40,7 +39,14 @@ An EMR cluster consists of several node types:
 - **Security Configuration**: A reusable template for encryption settings (at rest in S3/Local disk, in transit).
 - **Encryption**: Supports S3 SSE (SSE-S3, SSE-KMS) and CSE (CSE-KMS, CSE-Custom).
 - **IAM Runtime Roles**: Manage access control for each job or query individually.
-- **VPC**: EMR clusters should be launched in a VPC for network isolation.
+- **VPC**: EMR clusters should be launched in a [[VPC Overview|VPC]] for network isolation.
+
+## Related Services
+- [[_Analytics Index|Analytics Index]]
+- [[S3 Overview|S3]]
+- [[Lake Formation]]
+- [[EC2 Overview|EC2]]
+- [[Athena]]
 
 ---
 **Practice:** [[EMR - Practice Questions|EMR Practice Questions]]

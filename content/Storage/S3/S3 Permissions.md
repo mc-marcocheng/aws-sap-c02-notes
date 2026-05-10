@@ -1,12 +1,12 @@
 ---
-tags: [aws, sap-c02, s3]
+tags: [aws, sap-c02, storage, s3]
 ---
 # S3 Permissions
 
 Understanding S3 permission evaluation is critical for the SAP-C02 exam, especially in cross-account scenarios.
 
 ## 1. Evaluation Logic
-When S3 receives a request, it evaluates all applicable policies (IAM, Bucket Policy, ACLs).
+When S3 receives a request, it evaluates all applicable policies ([[IAM]], Bucket Policy, ACLs).
 - **Explicit Deny**: Always wins.
 - **Explicit Allow**: Wins if there is no explicit deny.
 - **Default**: Deny.
@@ -51,7 +51,13 @@ By default, an object is owned by the AWS account that uploaded it, NOT necessar
 | **Uploader owns object issue** | Enable **S3 Object Ownership (Bucket Owner Enforced)**. |
 
 > [!exam]
-> If a user can list objects but cannot download them, check if the object is encrypted with **KMS** and whether the user has `kms:Decrypt` permissions.
+> If a user can list objects but cannot download them, check if the object is encrypted with **[[KMS]]** and whether the user has `kms:Decrypt` permissions.
+
+## Related Services
+- [[_Storage Index|Storage Index]]
+- [[S3 Overview|S3]]
+- [[IAM]]
+- [[KMS]]
 
 ---
 **Practice:** [[S3 Permissions - Practice Questions|S3 Permissions Practice Questions]]

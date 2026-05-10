@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, direct-connect]
+tags: [aws, sap-c02, networking, direct-connect]
 ---
 # Direct Connect Overview
 
@@ -38,5 +38,12 @@ AWS Direct Connect (DX) provides a dedicated physical network connection between
 
 > [!exam]
 > **SAP-C02 Key Point**: To reach VPCs in multiple regions over one DX connection, you **must** use a **Direct Connect Gateway**. To reach thousands of VPCs, use a **Transit VIF** with a **Transit Gateway**.
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[Direct Connect Gateway]]
+- [[Transit Gateway]]
+- [[VPN]]
+
 ---
 **Practice:** [[Direct Connect - Practice Questions|Direct Connect Practice Questions]]

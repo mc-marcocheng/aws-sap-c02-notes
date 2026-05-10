@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, msk] 
+tags: [aws, sap-c02, integration, msk] 
 ---
 # Amazon MSK (Managed Streaming for Apache Kafka)
 
@@ -16,6 +16,12 @@ A fully managed service that makes it easy to build and run applications that us
 
 > [!exam]
 > Choose MSK when an application already uses Apache Kafka and needs to migrate, or when you need the specific streaming capabilities, massive throughput, and long-term retention of Kafka over Amazon [[Kinesis Overview|Kinesis]].
+
+## Related Services
+- [[_Integration Index|Integration Index]]
+- [[Kinesis Overview|Kinesis]]
+- [[Redshift]]
+- [[OpenSearch]]
 
 ---
 **Practice:** [[MSK - Practice Questions|MSK Practice Questions]]

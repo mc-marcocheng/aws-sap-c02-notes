@@ -49,5 +49,9 @@ The Migration Readiness Assessment (MRA) is a process of gaining an understandin
 
 ![[migration-process-1024x387.png]]
 
+## Related Services
+- [[_Migration Index|Migration Index]]
+- [[Control Tower]]
+
 ---
 **Practice:** [[Migration Readiness - Practice Questions|Migration Readiness Practice Questions]]

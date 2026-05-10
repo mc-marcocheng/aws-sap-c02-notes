@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, alb]
+tags: [aws, sap-c02, networking, alb]
 ---
 # Application Load Balancer (ALB) Overview
 
@@ -58,6 +58,12 @@ Rules define how traffic is routed to target groups based on conditions:
 > [!exam]
 > - ALB does **NOT** support Static IPs. It provides a DNS name that resolves to dynamic IPs. If you need static IPs, use **NLB** or **Global Accelerator** in front of the ALB.
 > - ALB is **Regional** but requires subnets in at least two Availability Zones for high availability.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[ELB Overview]]
+- [[NLB Overview]]
 
 ---
 **Practice:** [[ALB - Practice Questions|ALB Practice Questions]]

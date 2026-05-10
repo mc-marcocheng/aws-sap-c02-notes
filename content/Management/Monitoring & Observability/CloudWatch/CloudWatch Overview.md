@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, cloudwatch]
+tags: [aws, sap-c02, management, cloudwatch]
 ---
 # CloudWatch Overview
 
@@ -15,9 +15,9 @@ Amazon CloudWatch is a monitoring and observability service that provides data a
 Alarms watch a single metric (or math expression) and perform actions based on thresholds.
 - **States**: `OK`, `ALARM`, `INSUFFICIENT_DATA`.
 - **Actions**:
-    - SNS Notifications.
-    - Auto Scaling Policies.
-    - EC2 Actions (Stop, Terminate, Reboot, Recover).
+    - [[SNS]] Notifications.
+    - [[Auto Scaling Overview|Auto Scaling]] Policies.
+    - [[EC2 Overview|EC2]] Actions (Stop, Terminate, Reboot, Recover).
 
 ## CloudWatch Agent
 - A unified agent that collects **metrics** and **logs** from both EC2 instances and on-premises servers.
@@ -36,6 +36,15 @@ Alarms watch a single metric (or math expression) and perform actions based on t
 ![[cw-overview.png]]
 
 > [!exam]
-> **EC2 Custom Metrics**: Standard EC2 metrics include CPU, Network, and Disk I/O. **Memory utilization** and **Disk swap** are NOT standard metrics and require the **CloudWatch Agent**.
+> **EC2 Custom Metrics**: Standard [[EC2 Overview|EC2]] metrics include CPU, Network, and Disk I/O. **Memory utilization** and **Disk swap** are NOT standard metrics and require the **CloudWatch Agent**.
+
+---
+## Related Services
+- [[_Management Index|Management Index]]
+- [[CloudWatch Logs]]
+- [[EventBridge|Amazon EventBridge]]
+- [[SNS|Amazon SNS]]
+- [[Auto Scaling Overview|AWS Auto Scaling]]
+
 ---
 **Practice:** [[CloudWatch - Practice Questions|CloudWatch Practice Questions]]

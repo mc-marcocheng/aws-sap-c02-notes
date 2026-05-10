@@ -1,9 +1,9 @@
 ---
-tags: [aws, sap-c02, ebs]
+tags: [aws, sap-c02, storage, ebs]
 ---
 # Amazon EBS Overview
 
-Amazon Elastic Block Store (EBS) provides block-level storage volumes for use with EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance in the same Availability Zone.
+Amazon Elastic Block Store (EBS) provides block-level storage volumes for use with [[EC2 Overview|EC2]] instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance in the same Availability Zone.
 
 ## EBS Volume Types
 
@@ -16,9 +16,9 @@ Amazon Elastic Block Store (EBS) provides block-level storage volumes for use wi
 
 ## Key Features
 - **High Availability**: Data is automatically replicated within its Availability Zone.
-- **Snapshots**: Incremental backups stored in S3. Can be used to create new volumes or replicate data across regions.
+- **Snapshots**: Incremental backups stored in [[S3 Overview|S3]]. Can be used to create new volumes or replicate data across regions.
 - **Elastic Volumes**: Dynamically increase volume size, change performance (IOPS), or change volume type with no downtime.
-- **Encryption**: Supports encryption at rest using AWS KMS. Encryption is transparent to the EC2 instance.
+- **Encryption**: Supports encryption at rest using AWS [[KMS]]. Encryption is transparent to the EC2 instance.
 - **Multi-Attach**: Allows a single Provisioned IOPS volume to be attached to multiple Nitro-based EC2 instances in the same AZ.
 
 ## EBS vs. Instance Store
@@ -36,5 +36,12 @@ Amazon Elastic Block Store (EBS) provides block-level storage volumes for use wi
 - Snapshots are **incremental** and stored in S3.
 - Use **Data Lifecycle Manager (DLM)** to automate snapshot creation, retention, and deletion.
 - **Fast Snapshot Restore (FSR)**: Eliminates the latency of the first access to data when a volume is created from a snapshot.
+
+## Related Services
+- [[_Storage Index|Storage Index]]
+- [[EC2 Overview|EC2]]
+- [[S3 Overview|S3]]
+- [[KMS]]
+
 ---
 **Practice:** [[EBS - Practice Questions|EBS Practice Questions]]

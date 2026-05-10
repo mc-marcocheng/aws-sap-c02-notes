@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, transit]
+tags: [aws, sap-c02, networking, transit]
 ---
 # Transit Gateway Overview
 
@@ -93,7 +93,8 @@ A TGW attachment is the connection between a resource and the TGW. Supported typ
 > **Solution**: Create a central Egress VPC with the firewalls and enable **Appliance Mode** on the TGW attachment to ensure symmetric traffic flow.
 
 ---
-**References:**
+## Related Services
+- [[_Networking Index|Networking Index]]
 - [[VPC Overview]]
 - [[VPN]]
 - [[Direct Connect Overview]]

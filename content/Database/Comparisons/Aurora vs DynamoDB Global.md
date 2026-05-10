@@ -1,9 +1,9 @@
 ---
-tags: [aws, sap-c02, aurora, dynamodb]
+tags: [aws, sap-c02, database, aurora, dynamodb]
 ---
 # Aurora vs DynamoDB Global
 
-Comparison between Amazon Aurora Global Database and Amazon DynamoDB Global Tables for multi-region architectures.
+Comparison between Amazon [[Aurora Overview|Aurora]] Global Database and Amazon [[DynamoDB Overview|DynamoDB]] Global Tables for multi-region architectures.
 
 > [!important]
 > - **Aurora Global**: Relational (SQL), Single-master (writes in one region), Manual failover.
@@ -66,6 +66,12 @@ Comparison between Amazon Aurora Global Database and Amazon DynamoDB Global Tabl
 > - **RTO**: DynamoDB has better RTO because it doesn't require manual promotion or endpoint changes.
 
 ![[aws-aurora-global-database-vs-dynamodb-global-tables.jpg]]
+
+## Related Services
+- [[_Database Index|Database Index]]
+- [[Aurora Overview]]
+- [[DynamoDB Overview]]
+- [[High Availability]]
 
 ---
 **Practice:** [[Aurora vs DynamoDB Global - Practice Questions|Aurora vs DynamoDB Global Practice Questions]]

@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, ec2]
+tags: [compute, aws, sap-c02, ec2]
 ---
 # EC2 Instance Types
 
@@ -49,6 +49,12 @@ Placement groups determine how instances are distributed across the underlying h
 - **CPU Credits**: One CPU credit equals one vCPU running at 100% utilization for one minute.
 - **Baseline Performance**: The level at which an instance can run continuously without consuming credits.
 - **Unlimited Mode**: Allows instances to sustain high CPU performance for as long as needed, with additional charges if credits are exhausted.
+
+## Related Services
+- [[_Compute Index|Compute Index]]
+- [[EC2 Overview|EC2]]
+- [[Lambda]]
+- [[VPC Overview|VPC]]
 
 ---
 **Practice:** [[EC2 Types - Practice Questions|EC2 Types Practice Questions]]

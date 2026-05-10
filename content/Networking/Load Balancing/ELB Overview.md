@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, elb]
+tags: [aws, sap-c02, networking, elb]
 ---
 # ELB Overview
 
@@ -41,6 +41,12 @@ Elastic Load Balancing (ELB) automatically distributes incoming application traf
 > - Use **ALB** for complex HTTP/HTTPS routing.
 > - Use **NLB** if you need a **Static IP** or support for **UDP**.
 > - Use **GWLB** to inspect all incoming/outgoing traffic with a firewall appliance.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[ALB Overview]]
+- [[NLB Overview]]
 
 ---
 **Practice:** [[ELB - Practice Questions|ELB Practice Questions]]

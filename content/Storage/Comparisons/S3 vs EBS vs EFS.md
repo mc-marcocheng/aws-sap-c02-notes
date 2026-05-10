@@ -31,7 +31,7 @@ Choosing the right storage service is fundamental to AWS architecture. Each serv
 ## Amazon EFS (Elastic File System)
 - **Best For**: Content management systems, dev tools, and shared data that needs to be accessed by hundreds of instances simultaneously.
 - **Key Advantage**: Fully managed, scales automatically, and provides regional resilience.
-- **Limitation**: Linux-based (NFS) only; not supported natively by Windows (use FSx for Windows).
+- **Limitation**: Linux-based (NFS) only; not supported natively by Windows (use [[FSx]] for Windows).
 
 > [!exam]
 > **SAP-C02 Selection Logic**:
@@ -39,6 +39,12 @@ Choosing the right storage service is fundamental to AWS architecture. Each serv
 > - If you need **shared storage** for Windows instances: **FSx for Windows**.
 > - If you need **high-performance** for a database on a single instance: **EBS**.
 > - If you need to **store static web assets** or perform **big data analytics**: **S3**.
+
+## Related Services
+- [[_Storage Index|Storage Index]]
+- [[S3 Overview|S3]]
+- [[EBS Overview|EBS]]
+- [[EFS]]
 
 ---
 **Practice:** [[S3 vs EBS vs EFS - Practice Questions|S3 vs EBS vs EFS Practice Questions]]

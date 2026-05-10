@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, audit-manager]
+tags: [aws, sap-c02, management, audit-manager]
 ---
 # AWS Audit Manager
 
@@ -21,6 +21,13 @@ AWS Audit Manager helps you continuously audit your AWS usage to simplify how yo
 > - **[[Artifact]]**: Get AWS's compliance documents (AWS is compliant).
 > - **Audit Manager**: Automate evidence collection for *your* configuration/workloads to prove *you* are compliant.
 > - **[[Security Hub]]**: Continuous security posture management and standard checks (e.g., CIS Foundations), but Audit Manager is specifically for generating formal audit reports/evidence.
+
+## Related Services
+- [[_Management Index|Management Index]]
+- [[Artifact]]
+- [[Config]]
+- [[Security Hub]]
+- [[CloudTrail]]
 
 ---
 **Practice:** [[Audit Manager - Practice Questions|Audit Manager Practice Questions]]

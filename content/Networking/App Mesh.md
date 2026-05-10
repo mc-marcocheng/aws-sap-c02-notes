@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, app-mesh]
+tags: [aws, sap-c02, networking, app-mesh]
 ---
 # AWS App Mesh
 
@@ -17,6 +17,14 @@ AWS App Mesh is a service mesh that provides application-level networking to mak
 
 > [!exam]
 > If a question asks for a way to implement mutual TLS (mTLS), complex traffic routing (canary/blue-green), or centralized observability for microservices across ECS/EKS *without changing application code*, the answer is [[App Mesh]].
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[Cloud Map]]
+- [[ECS]]
+- [[EKS]]
+- [[CloudWatch Overview]]
 
 ---
 **Practice:** [[App Mesh - Practice Questions|App Mesh Practice Questions]]

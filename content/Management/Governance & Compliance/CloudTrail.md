@@ -1,13 +1,13 @@
 ---
-tags: [aws, sap-c02, cloudtrail]
+tags: [aws, sap-c02, management, cloudtrail]
 ---
 # CloudTrail Overview
 
 AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. It records API calls and related events made by or on behalf of your account.
 
 ## Event Types
-1. **Management Events**: (Logged by default) Operations performed on resources, such as creating an EC2 instance or an S3 bucket.
-2. **Data Events**: (Not logged by default) High-volume operations performed *within* a resource, such as S3 object-level actions or Lambda function executions.
+1. **Management Events**: (Logged by default) Operations performed on resources, such as creating an [[EC2 Overview|EC2]] instance or an [[S3 Overview|S3]] bucket.
+2. **Data Events**: (Not logged by default) High-volume operations performed *within* a resource, such as S3 object-level actions or [[Lambda]] function executions.
 3. **CloudTrail Insights**: (Optional) Detects unusual API activity (e.g., a sudden spike in `TerminateInstances` calls).
 
 ## Trail Configurations
@@ -29,7 +29,15 @@ AWS CloudTrail is a service that enables governance, compliance, operational aud
 > [!exam]
 > **CloudTrail vs. Config**:
 > - **CloudTrail**: "Who made the call?" (API call history).
-> - **AWS Config**: "What does the resource look like now, and how has it changed over time?" (Configuration state).
+> - **[[Config|AWS Config]]**: "What does the resource look like now, and how has it changed over time?" (Configuration state).
+
+---
+## Related Services
+- [[_Management Index|Management Index]]
+- [[Config|AWS Config]]
+- [[Organizations Overview|AWS Organizations]]
+- [[S3 Overview|Amazon S3]]
+- [[KMS|AWS KMS]]
 
 ---
 **Practice:** [[CloudTrail - Practice Questions|CloudTrail Practice Questions]]

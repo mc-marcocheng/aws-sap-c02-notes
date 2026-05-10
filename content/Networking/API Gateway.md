@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, api-gateway]
+tags: [aws, sap-c02, networking, api-gateway]
 ---
 # API Gateway Overview
 
@@ -34,6 +34,12 @@ AWS API Gateway is a fully managed service that makes it easy for developers to 
 > [!exam]
 > **SAP-C02 Scenario: Private API**
 > If you need to expose an internal API to other VPCs or on-premises without going over the public internet, use a **Private API Gateway** endpoint and access it via an **Interface VPC Endpoint**.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[CloudFront Overview]]
+- [[VPC Endpoints]]
 
 ---
 **Practice:** [[API Gateway - Practice Questions|API Gateway Practice Questions]]

@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, route53]
+tags: [aws, sap-c02, networking, route53]
 ---
 # Route 53 Resolver
 
@@ -45,6 +45,14 @@ To bridge DNS between on-premises and AWS, you use Resolver Endpoints over VPN o
 
 > [!exam]
 > Resolver Endpoints are **Regional**. To have hybrid DNS in multiple regions, you must deploy endpoints in each region or use a Transit Gateway with peered TGWs and centralized DNS.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[Route 53 Overview]]
+- [[VPC Overview|VPC]]
+- [[Direct Connect Overview|Direct Connect]]
+- [[VPN]]
 
 ---
 **Practice:** [[Route 53 Resolver - Practice Questions|Route 53 Resolver Practice Questions]]

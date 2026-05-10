@@ -1,12 +1,12 @@
 ---
-tags: [aws, sap-c02, waf]
+tags: [aws, sap-c02, waf, security]
 ---
 # AWS Web Application Firewall (WAF)
 
 AWS WAF is a web application firewall that helps protect your web applications or APIs against common web exploits and bots that may affect availability, compromise security, or consume excessive resources.
 
 ## Key Features
-- **Integration**: Tightly integrates with **CloudFront**, **ALB**, **API Gateway**, and **AWS AppSync**.
+- **Integration**: Tightly integrates with **[[CloudFront Overview|CloudFront]]**, **[[ALB Overview|ALB]]**, **[[API Gateway]]**, and **AWS [[AppSync]]**.
 - **Managed Rules**: Pre-configured rules provided by AWS and Marketplace sellers (e.g., OWASP Top 10, IP reputation lists).
 - **Custom Rules**: Define rules based on IP addresses, HTTP headers, HTTP body, URI strings, SQL injection, and XSS.
 - **Actions**: `Allow`, `Block`, `Count` (Monitor), `CAPTCHA`, and `Challenge`.
@@ -46,6 +46,13 @@ Rate-based rules track the number of requests from each originating IP address a
 > - Blocking specific countries (Geo-match).
 > - Rate-limiting per IP.
 > - Managed rules for common vulnerabilities.
+
+## Related Services
+- [[_Security Index|Security Index]]
+- [[CloudFront Overview]]
+- [[ALB Overview]]
+- [[API Gateway]]
+- [[AppSync]]
 
 ---
 **Practice:** [[WAF - Practice Questions|WAF Practice Questions]]

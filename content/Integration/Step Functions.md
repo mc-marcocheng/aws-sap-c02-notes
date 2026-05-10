@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, step-functions] 
+tags: [aws, sap-c02, integration, step-functions] 
 ---
 # AWS Step Functions
 
@@ -17,6 +17,12 @@ A serverless visual workflow service used to orchestrate AWS services, automate 
 
 > [!exam]
 > Choose Step Functions over [[SQS Overview|SQS]] or [[EventBridge]] when you need complex orchestration, state management, complex branching/looping, or manual approval steps (Task Tokens).
+
+## Related Services
+- [[_Integration Index|Integration Index]]
+- [[EventBridge]]
+- [[SQS Overview|SQS]]
+- [[Lambda]]
 
 ---
 **Practice:** [[Step Functions - Practice Questions|Step Functions Practice Questions]]

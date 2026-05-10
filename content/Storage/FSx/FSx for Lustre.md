@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, fsx]
+tags: [aws, sap-c02, storage, fsx]
 ---
 # FSx for Lustre
 
@@ -8,7 +8,7 @@ Amazon FSx for Lustre is a high-performance file system optimized for workloads 
 ## 1. Key Characteristics
 - **Performance**: Sub-millisecond latencies, hundreds of GB/s of throughput, and millions of IOPS.
 - **Protocol**: Lustre (Native Linux client).
-- **Integration**: Deeply integrated with **Amazon S3**.
+- **Integration**: Deeply integrated with **Amazon [[S3 Overview|S3]]**.
 
 ## 2. Deployment Options
 
@@ -43,13 +43,19 @@ Throughput is determined by the storage capacity and the deployment type.
 
 | Requirement | Recommended Service |
 | :--- | :--- |
-| **Shared Linux File System (General)** | Amazon EFS |
+| **Shared Linux File System (General)** | Amazon [[EFS]] |
 | **Windows File System (SMB)** | Amazon FSx for Windows |
 | **Extreme Performance (Lustre)** | Amazon FSx for Lustre |
 | **High Performance ONTAP** | Amazon FSx for NetApp ONTAP |
 
 > [!important]
 > FSx for Lustre is **Single-AZ** for its storage. For multi-AZ high availability of the data itself (not just the server), you would typically use **NetApp ONTAP** or **FSx for Windows File Server**.
+
+## Related Services
+- [[_Storage Index|Storage Index]]
+- [[S3 Overview|S3]]
+- [[EFS]]
+- [[FSx]]
 
 ---
 **Practice:** [[FSx for Lustre - Practice Questions|FSx for Lustre Practice Questions]]

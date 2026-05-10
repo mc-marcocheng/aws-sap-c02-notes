@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, amazon-mq] 
+tags: [aws, sap-c02, integration, amazon-mq] 
 ---
 # Amazon MQ
 
@@ -18,6 +18,12 @@ A managed message broker service for Apache ActiveMQ and RabbitMQ.
 
 > [!exam]
 > If a question mentions "JMS", "AMQP", "migrating legacy application without rewriting code", or "ActiveMQ/RabbitMQ", the answer is almost always Amazon MQ.
+
+## Related Services
+- [[_Integration Index|Integration Index]]
+- [[SQS Overview|SQS]]
+- [[SNS]]
+- [[EventBridge]]
 
 ---
 **Practice:** [[MQ - Practice Questions|Amazon MQ Practice Questions]]

@@ -1,9 +1,9 @@
 ---
-tags: [aws, sap-c02, aurora]
+tags: [aws, sap-c02, database, aurora]
 ---
 # Aurora Overview
 
-Amazon Aurora is a fully managed, MySQL and PostgreSQL-compatible relational database engine. It combines the speed and reliability of commercial databases with the simplicity and cost-effectiveness of open-source databases.
+Amazon [[Aurora Overview|Aurora]] is a fully managed, MySQL and PostgreSQL-compatible relational database engine. It combines the speed and reliability of commercial databases with the simplicity and cost-effectiveness of open-source databases.
 
 > [!important]
 > - **Performance**: Up to 5x faster than standard MySQL and 3x faster than standard PostgreSQL.
@@ -32,7 +32,7 @@ An Aurora DB cluster consists of one or more DB instances and a cluster volume t
 
 - **Self-Healing Storage**: Data blocks and disks are continuously scanned for errors and repaired automatically.
 - **Fault Tolerance**: Can handle the loss of up to 2 copies of data without affecting write availability and up to 3 copies without affecting read availability.
-- **Auto Scaling**: Aurora Auto Scaling automatically adds/removes replicas based on CloudWatch metrics (CPU utilization or average connections).
+- **Auto Scaling**: Aurora Auto Scaling automatically adds/removes replicas based on [[CloudWatch Overview|CloudWatch]] metrics (CPU utilization or average connections).
 
 ### Failover Priority
 Aurora automatically fails over to a replica if the primary instance fails.
@@ -68,6 +68,12 @@ Aurora automatically fails over to a replica if the primary instance fails.
 > - **Replication**: 6 copies across 3 AZs.
 > - **Endpoints**: Use the Reader Endpoint for load-balancing read traffic.
 > - **Backtrack** is unique to Aurora MySQL and does not create a new instance (in-place).
+
+## Related Services
+- [[_Database Index|Database Index]]
+- [[RDS Overview]]
+- [[DynamoDB Overview]]
+- [[ElastiCache]]
 
 ---
 **Practice:** [[Aurora - Practice Questions|Aurora Practice Questions]]

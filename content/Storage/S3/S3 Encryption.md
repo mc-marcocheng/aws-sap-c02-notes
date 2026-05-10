@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, s3]
+tags: [aws, sap-c02, storage, s3]
 ---
 # S3 Encryption
 
@@ -17,10 +17,10 @@ S3 provides multiple options for protecting data at rest and in transit. Underst
 - **Cons**: Cannot be used for granular audit trails of key usage.
 
 ### SSE-KMS (AWS KMS-Managed Keys)
-- **Mechanism**: Keys are managed in AWS KMS.
+- **Mechanism**: Keys are managed in AWS [[KMS]].
 - **Pros**: 
     - Separate permissions for the object and the key.
-    - Audit trail in CloudTrail showing when a key was used.
+    - Audit trail in [[CloudTrail]] showing when a key was used.
     - Automatic rotation of keys.
 - **Cons**: KMS API costs and request rate limits.
 
@@ -50,6 +50,12 @@ S3 provides multiple options for protecting data at rest and in transit. Underst
 
 > [!important]
 > When downloading an object encrypted with **SSE-C**, you must provide the same key used during the upload. If you don't, S3 returns a `403 Forbidden` error (or `400 Bad Request` if headers are missing).
+
+## Related Services
+- [[_Storage Index|Storage Index]]
+- [[S3 Overview|S3]]
+- [[KMS]]
+- [[CloudTrail]]
 
 ---
 **Practice:** [[S3 Encryption - Practice Questions|S3 Encryption Practice Questions]]

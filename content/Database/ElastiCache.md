@@ -1,9 +1,9 @@
 ---
-tags: [aws, sap-c02, elasticache]
+tags: [aws, sap-c02, database, elasticache]
 ---
 # Amazon ElastiCache
 
-Amazon ElastiCache is a fully managed in-memory data store and cache service, supporting Redis (and Valkey) and Memcached. It is primarily used to improve the performance of web applications by retrieving information from fast, managed, in-memory caches, instead of relying entirely on slower disk-based databases.
+Amazon [[ElastiCache]] is a fully managed in-memory data store and cache service, supporting Redis (and Valkey) and Memcached. It is primarily used to improve the performance of web applications by retrieving information from fast, managed, in-memory caches, instead of relying entirely on slower disk-based databases.
 
 ## Redis vs Memcached
 - **Redis/Valkey:** Multi-AZ with auto-failover, Read Replicas, data persistence (AOF/snapshots), complex data types (sets, hashes), pub/sub, Lua scripts, Redis Global Datastore (cross-region replication).
@@ -16,6 +16,12 @@ Amazon ElastiCache is a fully managed in-memory data store and cache service, su
 
 > [!exam]
 > For cross-region disaster recovery with ElastiCache, use **Redis Global Datastore**. It allows one primary region for writes and up to two secondary regions for low-latency reads and cross-region DR. Memcached does NOT support cross-region replication or persistence.
+
+## Related Services
+- [[_Database Index|Database Index]]
+- [[DynamoDB DAX]]
+- [[RDS Overview]]
+- [[DynamoDB Overview]]
 
 ---
 **Practice:** [[ElastiCache - Practice Questions|ElastiCache Practice Questions]]

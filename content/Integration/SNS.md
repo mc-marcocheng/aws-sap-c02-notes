@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, sns]
+tags: [aws, sap-c02, integration, sns]
 ---
 # Amazon Simple Notification Service (SNS)
 
@@ -25,7 +25,7 @@ Amazon SNS is a fully managed pub/sub messaging service that enables you to deco
 ## Key Features
 - **Message Filtering**: Subscribers can define filter policies so they only receive the messages they are interested in, rather than every message sent to the topic.
 - **Message Fan-out**: One-to-many communication pattern.
-- **Encryption**: Supports encryption at rest (KMS) and in transit (HTTPS).
+- **Encryption**: Supports encryption at rest ([[KMS]]) and in transit (HTTPS).
 - **Message Redrive (DLQ)**: Assign a Dead Letter Queue to a subscription to capture messages that couldn't be delivered.
 
 ## SNS vs. SQS
@@ -38,6 +38,12 @@ Amazon SNS is a fully managed pub/sub messaging service that enables you to deco
 
 > [!exam]
 > **Fan-out Architecture**: For SAP-C02, if you need to perform multiple independent actions in response to a single event (e.g., an S3 upload triggering a thumbnail generation AND an image analysis), use an **SNS Topic** with multiple **SQS Queues** subscribed to it.
+
+## Related Services
+- [[_Integration Index|Integration Index]]
+- [[SQS Overview|SQS]]
+- [[Lambda]]
+- [[EventBridge]]
 
 ---
 **Practice:** [[SNS - Practice Questions|SNS Practice Questions]]

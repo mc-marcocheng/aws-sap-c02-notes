@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, sqs]
+tags: [aws, sap-c02, integration, sqs]
 ---
 # Amazon Simple Queue Service (SQS)
 
@@ -44,6 +44,12 @@ Scale a fleet of EC2 workers based on the number of messages in the queue using 
 > **SAP-C02 Decision: SQS vs. Kinesis**
 > - Use **SQS** for simple decoupling, worker/job queues, and when you want a message to be deleted after processing.
 > - Use **Kinesis Data Streams** for large-scale data ingestion, real-time analytics, and when multiple consumers need to read the same stream independently.
+
+## Related Services
+- [[_Integration Index|Integration Index]]
+- [[SNS]]
+- [[EventBridge]]
+- [[Lambda]]
 
 ---
 **Practice:** [[SQS - Practice Questions|SQS Practice Questions]]

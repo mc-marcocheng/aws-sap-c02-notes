@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, shield]
+tags: [aws, sap-c02, shield, security]
 ---
 # AWS Shield
 
@@ -13,13 +13,13 @@ AWS Shield is a managed Distributed Denial of Service (DDoS) protection service 
 - **Optimized with**: Use with **[[CloudFront Overview|CloudFront]]** and **[[Route 53 Overview|Route 53]]** for comprehensive availability protection against all known infrastructure attacks.
 
 ### 2. AWS Shield Advanced
-- **Target Resources**: EC2, ELB, CloudFront, Global Accelerator, and Route 53.
+- **Target Resources**: [[EC2 Overview|EC2]], [[ELB Overview|ELB]], CloudFront, [[Global Accelerator]], and Route 53.
 - **Advanced Mitigation**: Protects against large and sophisticated DDoS attacks, including Layer 7 (Application Layer) attacks like HTTP floods.
 - **Key Benefits**:
     - **24/7 Access to SRT**: Access to the AWS Shield Response Team (SRT).
     - **DDoS Cost Protection**: Safeguards against scaling charges resulting from DDoS-related usage spikes.
-    - **AWS WAF Included**: Advanced customers get AWS WAF at no extra cost for protected resources.
-    - **Centralized Management**: Uses **AWS Firewall Manager** to automatically apply policies across multiple accounts and resources.
+    - **AWS WAF Included**: Advanced customers get AWS [[WAF]] at no extra cost for protected resources.
+    - **Centralized Management**: Uses **AWS [[Firewall Manager]]** to automatically apply policies across multiple accounts and resources.
 
 ## Comparison of Shield Tiers
 
@@ -41,6 +41,13 @@ AWS Shield is a managed Distributed Denial of Service (DDoS) protection service 
 - **Application Layer (Layer 7)**: Flood application with valid queries (e.g., web request floods).
 
 ![[aws-high-availability-and-fault-tolerance.png]]
+
+## Related Services
+- [[_Security Index|Security Index]]
+- [[CloudFront Overview]]
+- [[Route 53 Overview]]
+- [[WAF]]
+- [[Firewall Manager]]
 
 ---
 **Practice:** [[Shield - Practice Questions|Shield Practice Questions]]

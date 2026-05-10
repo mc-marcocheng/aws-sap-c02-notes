@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, cognito]
+tags: [aws, sap-c02, cognito, security]
 ---
 # Amazon Cognito
 
@@ -20,6 +20,13 @@ Amazon Cognito provides authentication, authorization, and user management for w
 > When integrating [[ALB Overview|ALB]] or [[API Gateway|API Gateway]] for authentication, use Cognito **User Pools**, not Identity Pools.
 > If you need to give users direct access to AWS resources (e.g., mobile app directly uploading to an [[S3 Overview|S3]] bucket), you MUST use **Identity Pools**.
 > For seamless migration of users to Cognito with existing passwords, use the **User Migration Lambda trigger**.
+
+## Related Services
+- [[_Security Index|Security Index]]
+- [[S3 Overview]]
+- [[DynamoDB Overview]]
+- [[ALB Overview]]
+- [[API Gateway]]
 
 ---
 **Practice:** [[Cognito - Practice Questions|Cognito Practice Questions]]

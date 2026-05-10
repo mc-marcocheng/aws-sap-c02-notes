@@ -1,5 +1,5 @@
 ---
-tags: ['aws', 'sap-c02', 'ecs']
+tags: [compute, aws, sap-c02, ecs]
 ---
 # ECS Overview
 
@@ -55,7 +55,8 @@ Amazon Elastic Container Service (Amazon ECS) is a highly scalable, high-perform
 > Use **ECS with EC2 Launch Type** and **Spot Instances** via Capacity Providers to minimize costs while maintaining high compute power.
 
 ---
-## Related Links
+## Related Services
+- [[_Compute Index|Compute Index]]
 - [[EC2 Overview]]
 - [[Lambda]]
 - [[ALB Overview]]

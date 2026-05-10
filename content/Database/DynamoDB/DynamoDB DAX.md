@@ -1,9 +1,9 @@
 ---
-tags: [aws, sap-c02, dynamodb]
+tags: [aws, sap-c02, database, dynamodb]
 ---
 # DynamoDB Accelerator (DAX)
 
-Amazon DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memory cache for DynamoDB that reduces response times from milliseconds to **microseconds**.
+Amazon [[DynamoDB DAX|DynamoDB Accelerator (DAX)]] is a fully managed, highly available, in-memory cache for [[DynamoDB Overview|DynamoDB]] that reduces response times from milliseconds to **microseconds**.
 
 > [!important]
 > - **Performance**: Up to 10x performance improvement for read-heavy workloads.
@@ -14,7 +14,7 @@ Amazon DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memor
 
 - **Nodes**: A cluster consists of 1 Primary node and up to 9 Read Replicas (10 nodes total).
 - **Fault Tolerance**: Minimum of 3 nodes across different AZs is recommended for production.
-- **VPC**: DAX clusters run inside your VPC.
+- **VPC**: DAX clusters run inside your [[VPC Overview|VPC]].
 - **Scaling**: Horizontal scaling by adding read replicas.
 
 ## Caching Mechanisms
@@ -38,7 +38,7 @@ DAX maintains two separate caches:
 
 ## Security and Connectivity
 
-- **Encryption at Rest**: Supported using **AWS-owned keys** only (Customer-managed KMS keys are NOT supported).
+- **Encryption at Rest**: Supported using **AWS-owned keys** only (Customer-managed [[KMS]] keys are NOT supported).
 - **Encryption in Transit**: Supported via TLS.
 - **PrivateLink**: DAX supports AWS PrivateLink for **Management APIs** (e.g., `CreateCluster`). Data plane operations (Get/Put) are already private within the VPC.
 
@@ -53,6 +53,11 @@ DAX maintains two separate caches:
 > - **Encryption**: Remember that DAX does NOT support Customer Managed Keys (CMK) for encryption at rest.
 
 ![[dynamodb-accelerator-dax.png]]
+
+## Related Services
+- [[_Database Index|Database Index]]
+- [[DynamoDB Overview]]
+- [[ElastiCache]]
 
 ---
 **Practice:** [[DynamoDB DAX - Practice Questions|DynamoDB DAX Practice Questions]]

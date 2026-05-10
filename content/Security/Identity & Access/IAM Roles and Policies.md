@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, iam]
+tags: [aws, sap-c02, iam, security]
 ---
 # IAM Roles and Policies
 
@@ -9,7 +9,7 @@ IAM Roles are the preferred way to delegate permissions to AWS services, cross-a
 Unlike a user, a role does not have long-term credentials. Instead, it provides **temporary security credentials** (via AWS STS) when assumed.
 
 ### Common Use Cases
-- **AWS Service Roles**: Allowing EC2 to access S3 or Lambda to access DynamoDB.
+- **AWS Service Roles**: Allowing [[EC2 Overview|EC2]] to access [[S3 Overview|S3]] or [[Lambda]] to access [[DynamoDB Overview|DynamoDB]].
 - **Cross-Account Access**: Allowing a user in Account A to manage resources in Account B without creating a new user in Account B.
 - **Identity Federation**: Allowing users authenticated by an external IdP (like Okta or Google) to access AWS.
 
@@ -40,6 +40,14 @@ The global service that issues temporary credentials.
 ## Service-Linked Roles
 - Specialized roles linked directly to an AWS service.
 - The service defines the permissions, and you cannot edit them. These allow services (like Auto Scaling or Lex) to call other services on your behalf.
+
+## Related Services
+- [[_Security Index|Security Index]]
+- [[IAM]]
+- [[EC2 Overview]]
+- [[S3 Overview]]
+- [[Lambda]]
+- [[DynamoDB Overview]]
 
 ---
 **Practice:** [[IAM Roles - Practice Questions|IAM Roles Practice Questions]]

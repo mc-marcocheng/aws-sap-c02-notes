@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, cloudfront]
+tags: [aws, sap-c02, networking, cloudfront]
 ---
 # CloudFront Edge Functions: Functions vs. Lambda@Edge
 
@@ -40,5 +40,10 @@ CloudFront offers two ways to run code at the edge to customize content delivery
 2. **Origin Request**: If there is a cache miss, before CloudFront forwards to origin.
 3. **Origin Response**: After origin responds, before CloudFront caches the result.
 4. **Viewer Response**: Before CloudFront delivers the result to the user.
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[CloudFront Overview]]
+
 ---
 **Practice:** [[CloudFront Edge - Practice Questions|CloudFront Edge Practice Questions]]

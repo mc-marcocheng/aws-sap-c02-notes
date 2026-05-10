@@ -1,9 +1,9 @@
 ---
-tags: [aws, sap-c02, dynamodb]
+tags: [aws, sap-c02, database, dynamodb]
 ---
 # DynamoDB Overview
 
-Amazon DynamoDB is a fully managed NoSQL database service that provides fast, predictable performance with seamless scalability.
+Amazon [[DynamoDB Overview|DynamoDB]] is a fully managed NoSQL database service that provides fast, predictable performance with seamless scalability.
 
 > [!important]
 > - **Scale**: Handles any level of request traffic with single-digit millisecond latency.
@@ -55,7 +55,13 @@ DynamoDB supports two types of primary keys:
 > - **Hot Partitions**: Occur when a single PK receives a disproportionate amount of traffic. Choose a PK with high cardinality (e.g., User ID, Device ID).
 > - **Cost Optimization**: Use **Standard-IA** for infrequently accessed data. Use **Reserved Capacity** for significant savings on provisioned throughput.
 > - **Throttling**: If you exceed provisioned capacity, you receive a `400 ProvisionedThroughputExceededException`.
-> - **S3 Metadata**: A classic exam pattern is storing large files in S3 and their metadata in DynamoDB.
+> - **S3 Metadata**: A classic exam pattern is storing large files in [[S3 Overview|S3]] and their metadata in DynamoDB.
+
+## Related Services
+- [[_Database Index|Database Index]]
+- [[DynamoDB Advanced Features]]
+- [[DynamoDB Throughput and Scaling]]
+- [[S3 Overview]]
 
 ---
 **Practice:** [[DynamoDB - Practice Questions|DynamoDB Practice Questions]]

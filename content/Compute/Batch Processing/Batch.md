@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, aws-batch]
+tags: [compute, aws, sap-c02, aws-batch]
 ---
 # AWS Batch
 
@@ -18,6 +18,12 @@ AWS Batch enables developers, scientists, and engineers to easily and efficientl
 
 > [!exam]
 > Choose [[Batch]] over standard ECS when the scenario involves complex job dependencies, array jobs, job queues, or requiring multi-node parallel execution for HPC workloads.
+
+## Related Services
+- [[_Compute Index|Compute Index]]
+- [[EC2 Overview|EC2]]
+- [[Lambda]]
+- [[VPC Overview|VPC]]
 
 ---
 **Practice:** [[Batch - Practice Questions|AWS Batch Practice Questions]]

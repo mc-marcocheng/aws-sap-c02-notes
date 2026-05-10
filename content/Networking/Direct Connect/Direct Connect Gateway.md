@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, direct-connect]
+tags: [aws, sap-c02, networking, direct-connect]
 ---
 # Direct Connect Gateway (DXGW)
 
@@ -48,6 +48,13 @@ Direct Connect Gateway is a global network resource that simplifies the connecti
 
 > [!exam]
 > DXGW does **not** support **Public VIFs**. Public VIFs connect directly to the AWS public service endpoints (like S3) without using a gateway.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[Direct Connect Overview]]
+- [[Transit Gateway]]
+- [[VPC Overview|VPC]]
 
 ---
 **Practice:** [[Direct Connect Gateway - Practice Questions|Direct Connect Gateway Practice Questions]]

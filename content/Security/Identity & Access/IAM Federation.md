@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, iam, federation]
+tags: [aws, sap-c02, iam, federation, security]
 ---
 # IAM Federation
 
@@ -9,12 +9,12 @@ Identity Federation allows external identities (users from your corporate direct
 Used for integrating with corporate directories like Active Directory (via AD FS), Okta, or Ping Identity.
 - **Flow**: User authenticates with IdP -> IdP sends SAML Assertion to browser -> Browser posts assertion to AWS SAML endpoint -> AWS STS returns temporary credentials.
 - **API**: Uses `AssumeRoleWithSAML`.
-- **SSO**: Recommended to use **AWS IAM Identity Center** (formerly AWS SSO) for modern SAML-based federation.
+- **SSO**: Recommended to use **[[IAM Identity Center|AWS IAM Identity Center]]** (formerly AWS SSO) for modern SAML-based federation.
 
 ## 2. Web Identity Federation (OIDC)
 Used for social logins (Google, Facebook, Amazon) or any OpenID Connect compatible provider.
 - **API**: Uses `AssumeRoleWithWebIdentity`.
-- **Cognito**: **Amazon Cognito** is the recommended identity broker for mobile and web applications. It handles the handshake with multiple IdPs and provides a consistent identity ID.
+- **Cognito**: **[[Cognito|Amazon Cognito]]** is the recommended identity broker for mobile and web applications. It handles the handshake with multiple IdPs and provides a consistent identity ID.
 
 ## 3. Custom Identity Broker
 Used when the identity store is not SAML or OIDC compatible (e.g., custom LDAP).
@@ -37,6 +37,12 @@ Used when the identity store is not SAML or OIDC compatible (e.g., custom LDAP).
 
 > [!exam]
 > **Confused Deputy Problem**: Occurs when a service (the deputy) is tricked by another party into using its privileges to access a resource it shouldn't. Using an **External ID** in the trust policy is the standard AWS solution for this when granting cross-account access to third-party SaaS providers.
+
+## Related Services
+- [[_Security Index|Security Index]]
+- [[IAM Identity Center]]
+- [[Cognito]]
+- [[IAM]]
 
 ---
 **Practice:** [[IAM Federation - Practice Questions|IAM Federation Practice Questions]]

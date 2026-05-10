@@ -1,9 +1,9 @@
 ---
-tags: [aws, sap-c02, dynamodb]
+tags: [aws, sap-c02, database, dynamodb]
 ---
 # DynamoDB Throughput and Scaling
 
-Detailed overview of read/write capacity modes and how DynamoDB handles scaling and partitions.
+Detailed overview of read/write capacity modes and how [[DynamoDB Overview|DynamoDB]] handles scaling and partitions.
 
 ## Capacity Modes
 
@@ -60,6 +60,11 @@ Throttling occurs when you exceed provisioned capacity or hit a hot partition.
 > - **Exponential Backoff**: The first line of defense for throttling.
 > - **Hot Partitions**: Caused by poor PK design (low cardinality).
 > - **Calculation Tip**: Always round UP the item size to the nearest 4 KB for reads and 1 KB for writes.
+
+## Related Services
+- [[_Database Index|Database Index]]
+- [[DynamoDB Overview]]
+- [[Auto Scaling Overview|Auto Scaling]]
 
 ---
 **Practice:** [[DynamoDB Throughput - Practice Questions|DynamoDB Throughput Practice Questions]]

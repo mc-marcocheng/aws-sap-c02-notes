@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, elb]
+tags: [aws, sap-c02, networking, elb]
 ---
 # ELB Advanced Configuration
 
@@ -86,6 +86,13 @@ This note covers specialized features, networking requirements, and advanced con
 > - If you need to **Whitelist a specific IP** on a back-end server, you must use an **NLB** with **EIPs**.
 > - For **WebSocket** or **Long Polling**, ensure **Sticky Sessions** are enabled or use **NLB**.
 > - If an application needs the **Client's Source IP** and uses **TCP** (non-HTTP), use **Proxy Protocol**.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[ELB Overview]]
+- [[ALB Overview]]
+- [[NLB Overview]]
 
 ---
 **Practice:** [[ELB - Practice Questions|ELB Practice Questions]]

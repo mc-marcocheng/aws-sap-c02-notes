@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, vpc]
+tags: [aws, sap-c02, networking, vpc]
 ---
 # VPC Limitations & Quotas
 
@@ -35,6 +35,13 @@ Most VPC limits can be increased by contacting AWS Support.
 > - **Exhausting IP addresses**: If you run out of IPs in a VPC, you can add **Secondary CIDR blocks** (must be within allowed ranges and not overlap).
 > - **Reaching Peering Limits**: If you exceed the 125 peering limit, migrate to **AWS Transit Gateway**, which supports thousands of VPC attachments.
 > - **Security Group Rule Limits**: If you hit the 60-rule limit, consider using **Security Group Referencing** (allowing a security group ID instead of individual IPs) or **AWS Network Firewall**.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[VPC Overview|VPC]]
+- [[Transit Gateway]]
+- [[VPC Peering]]
 
 ---
 **Practice:** [[VPC - Practice Questions|VPC Practice Questions]]

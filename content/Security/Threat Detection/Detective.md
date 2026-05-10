@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, detective]
+tags: [aws, sap-c02, detective, security]
 ---
 # Amazon Detective
 
@@ -17,6 +17,13 @@ Amazon Detective simplifies the investigative process to help security teams con
 > **Security Hub** = Aggregation and Posture Management.
 > **Detective** = Deep Investigation and Root Cause Analysis.
 > If a scenario mentions a security analyst needing to "visualize", "investigate the root cause", or "see the historical activity of an IAM user/IP address" over the last several months, the answer is **Amazon Detective**.
+
+## Related Services
+- [[_Security Index|Security Index]]
+- [[VPC Overview]]
+- [[CloudTrail]]
+- [[GuardDuty]]
+- [[Security Hub]]
 
 ---
 **Practice:** [[Detective - Practice Questions|Detective Practice Questions]]

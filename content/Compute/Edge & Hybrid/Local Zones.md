@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, local-zones]
+tags: [compute, aws, sap-c02, local-zones]
 ---
 # AWS Local Zones
 
@@ -13,6 +13,12 @@ AWS Local Zones are a type of AWS infrastructure deployment that places compute,
 
 > [!exam]
 > If a scenario demands single-digit millisecond latency to **end-users in a specific large metropolitan city** (like Los Angeles) and they don't have their own data center (Outposts) or rely exclusively on 5G (Wavelength), the answer is **AWS Local Zones**.
+
+## Related Services
+- [[_Compute Index|Compute Index]]
+- [[EC2 Overview|EC2]]
+- [[Lambda]]
+- [[VPC Overview|VPC]]
 
 ---
 **Practice:** [[Local Zones - Practice Questions|Local Zones Practice Questions]]

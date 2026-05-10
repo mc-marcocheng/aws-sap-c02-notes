@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, codecommit]
+tags: [aws, sap-c02, developer-tools, codecommit]
 ---
 # CodeCommit
 
@@ -23,7 +23,7 @@ AWS CodeCommit is a fully managed source control service that hosts secure Git-b
 
 ## Strategic Scenarios (SAP-C02)
 - **Cross-Account Access**: To allow a CI/CD pipeline in Account A to access a CodeCommit repo in Account B, Account A's pipeline role must assume a role in Account B that has read permissions on the CodeCommit repository.
-- **Federated Access**: Users authenticating via AWS IAM Identity Center (SSO) cannot use SSH keys or standard Git HTTP credentials generated in IAM. They **must** use the AWS CLI credential helper `git-remote-codecommit` to access repositories using temporary STS tokens.
+- **Federated Access**: Users authenticating via AWS [[IAM Identity Center]] (SSO) cannot use SSH keys or standard Git HTTP credentials generated in IAM. They **must** use the AWS CLI credential helper `git-remote-codecommit` to access repositories using temporary STS tokens.
 - **Enforcing Code Reviews**: Use IAM policies to deny `codecommit:GitPush` to the `main` or `master` branch. Require developers to use Pull Requests. Combine this with Approval Rule Templates to enforce a minimum number of approvals before merging.
 
 > [!important]
@@ -31,6 +31,13 @@ AWS CodeCommit is a fully managed source control service that hosts secure Git-b
 
 > [!exam]
 > Watch for questions about securing the `main` branch. The answer usually involves setting IAM policies with a `Condition` block checking the branch name, or using CodeCommit Approval Rule Templates.
+
+## Related Services
+- [[_Developer Tools Index|Developer Tools Index]]
+- [[CodeBuild]]
+- [[CodeDeploy]]
+- [[CodePipeline]]
+- [[IAM Identity Center]]
 
 ---
 **Practice:** [[CodeCommit - Practice Questions|CodeCommit Practice Questions]]

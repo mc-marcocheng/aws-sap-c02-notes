@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, organizations]
+tags: [aws, sap-c02, management, organizations]
 ---
 # Organizations Overview
 
@@ -14,9 +14,9 @@ AWS Organizations is an account management service that enables you to consolida
 ## Key Features
 - **Consolidated Billing**: Pay for all accounts from the management account and benefit from volume discounts.
 - **Service Control Policies (SCPs)**: JSON policies that specify the maximum available permissions for an OU or account. **SCPs do not grant permissions; they filter them.**
-- **Trusted Access**: Allows other AWS services (like CloudTrail, Config, GuardDuty) to integrate with Organizations to perform actions across all accounts.
+- **Trusted Access**: Allows other AWS services (like [[CloudTrail]], [[Config]], [[GuardDuty]]) to integrate with Organizations to perform actions across all accounts.
 - **Tag Policies**: Enforce consistent tagging across resources.
-- **Backup Policies**: Centrally manage AWS Backup schedules.
+- **Backup Policies**: Centrally manage [[Backup|AWS Backup]] schedules.
 
 ## Feature Sets
 1. **Consolidated Billing only**: Only provides billing features.
@@ -33,6 +33,13 @@ AWS Organizations is an account management service that enables you to consolida
 > [!exam]
 > **SAP-C02 Scenario: Restricting Regions**
 > To ensure no accounts in your organization can launch resources in unapproved regions, use an **SCP** with a `Deny` action on all services where `aws:RequestedRegion` is not in the approved list. This applies even to the root user of the member accounts.
+
+## Related Services
+- [[_Management Index|Management Index]]
+- [[CloudTrail]]
+- [[Config]]
+- [[GuardDuty]]
+- [[Backup]]
 
 ---
 **Practice:** [[Organizations - Practice Questions|Organizations Practice Questions]]

@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, iam]
+tags: [aws, sap-c02, iam, security]
 ---
 # IAM Overview
 
@@ -13,9 +13,9 @@ AWS Identity and Access Management (IAM) is a web service that helps you securel
 
 ## Policy Types
 1. **Identity-based Policies**: Attached to users, groups, or roles.
-2. **Resource-based Policies**: Attached to resources (e.g., S3 Bucket Policies, KMS Key Policies).
+2. **Resource-based Policies**: Attached to resources (e.g., [[S3 Overview|S3]] Bucket Policies, [[KMS]] Key Policies).
 3. **Permissions Boundaries**: Sets the maximum permissions an identity can have.
-4. **Service Control Policies (SCPs)**: Applied at the AWS Organizations level to restrict accounts.
+4. **Service Control Policies (SCPs)**: Applied at the [[Organizations Overview|AWS Organizations]] level to restrict accounts.
 
 ## Key Features
 - **Shared Access**: Grant permissions without sharing passwords/keys.
@@ -31,6 +31,13 @@ AWS Identity and Access Management (IAM) is a web service that helps you securel
 
 > [!exam]
 > For SAP-C02, understand that **Resource-based policies** (like S3 Bucket policies) allow the resource to define who can access it, whereas **Identity-based policies** define what a user can access. In cross-account scenarios, you often need **both** an Allow in the identity policy (Account A) and an Allow in the resource policy (Account B).
+
+## Related Services
+- [[_Security Index|Security Index]]
+- [[Organizations Overview]]
+- [[KMS]]
+- [[S3 Overview]]
+- [[Cognito]]
 
 ---
 **Practice:** [[IAM - Practice Questions|IAM Practice Questions]]

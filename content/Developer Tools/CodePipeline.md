@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, codepipeline]
+tags: [aws, sap-c02, developer-tools, codepipeline]
 ---
 # CodePipeline
 
@@ -35,6 +35,12 @@ AWS CodePipeline is a fully managed continuous delivery service that helps you a
 
 > [!exam]
 > Look out for scenarios requiring multi-region deployments. CodePipeline can deploy to multiple regions by specifying the region in the deployment action provider settings.
+
+## Related Services
+- [[_Developer Tools Index|Developer Tools Index]]
+- [[CodeBuild]]
+- [[CodeCommit]]
+- [[CodeDeploy]]
 
 ---
 **Practice:** [[CodePipeline - Practice Questions|CodePipeline Practice Questions]]

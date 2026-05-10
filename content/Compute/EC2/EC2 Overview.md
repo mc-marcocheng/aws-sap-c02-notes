@@ -1,5 +1,5 @@
 ---
-tags: ['aws', 'sap-c02', 'ec2']
+tags: [compute, aws, sap-c02, ec2]
 ---
 # EC2 Overview
 
@@ -36,6 +36,7 @@ Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity i
 Instances can be managed via the **AWS Management Console**, **AWS CLI**, **AWS Tools for PowerShell**, or **AWS SDKs**. The **Instance Metadata Service (IMDS)** provides data about the instance (e.g., public IP, IAM role) at `http://169.254.169.254/latest/meta-data/`.
 
 ## Related Services
+- [[_Compute Index|Compute Index]]
 - [[EC2 Instance Types]]
 - [[EC2 Purchase Options]]
 - [[Placement Groups]]

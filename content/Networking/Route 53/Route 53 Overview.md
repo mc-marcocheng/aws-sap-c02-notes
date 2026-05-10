@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, route53]
+tags: [aws, sap-c02, networking, route53]
 ---
 # Route 53 Overview
 
@@ -109,7 +109,8 @@ tags: [aws, sap-c02, route53]
 > - **Security**: Prevent DNS tunneling and data exfiltration using **Route 53 Resolver DNS Firewall**.
 
 ---
-**References:**
+## Related Services
+- [[_Networking Index|Networking Index]]
 - [[Route 53 Routing Policies]]
 - [[Route 53 Resolver]]
 - [[VPC Overview]]

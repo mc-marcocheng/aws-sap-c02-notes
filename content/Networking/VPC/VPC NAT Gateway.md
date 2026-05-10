@@ -1,5 +1,5 @@
 ---
-tags: ['aws', 'sap-c02', 'vpc']
+tags: [aws, sap-c02, networking, vpc]
 ---
 # VPC NAT Gateway
 
@@ -88,7 +88,8 @@ tags: ['aws', 'sap-c02', 'vpc']
 5. **EIP**: Does the Public NAT Gateway have an Elastic IP attached?
 
 ---
-**References:**
+## Related Services
+- [[_Networking Index|Networking Index]]
 - [[VPC Overview]]
 - [[Security Groups vs NACLs]]
 - [[VPC Endpoints]]

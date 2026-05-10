@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, sqs]
+tags: [aws, sap-c02, integration, sqs]
 ---
 # SQS Queue Types: Standard vs. FIFO
 
@@ -44,6 +44,11 @@ Choosing the right SQS queue type is critical for balancing performance, cost, a
 
 > [!exam]
 > **SAP-C02 Scenario**: If a question mentions "Exactly-once processing" or "Strict ordering" of messages for a backend workflow, the answer is almost always **SQS FIFO**.
+
+## Related Services
+- [[_Integration Index|Integration Index]]
+- [[SQS Overview|SQS]]
+- [[SNS]]
 
 ---
 **Practice:** [[SQS Queue Types - Practice Questions|SQS Queue Types Practice Questions]]

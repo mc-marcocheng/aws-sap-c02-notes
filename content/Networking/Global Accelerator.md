@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, global-accelerator]
+tags: [aws, sap-c02, networking, global-accelerator]
 ---
 # Global Accelerator Overview
 
@@ -36,6 +36,13 @@ AWS Global Accelerator is a networking service that improves the availability an
 > [!exam]
 > **SAP-C02 Scenario: Fixed IPs**
 > If a client firewall requires a **fixed IP address** to access your global application, use **Global Accelerator**. ALB and CloudFront use dynamic IP addresses that change over time.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[CloudFront Overview]]
+- [[ALB Overview]]
+- [[NLB Overview]]
 
 ---
 **Practice:** [[Global Accelerator - Practice Questions|Global Accelerator Practice Questions]]

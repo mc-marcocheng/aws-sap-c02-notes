@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, ec2, auto-scaling, elb]
+tags: [compute, aws, sap-c02, ec2, auto-scaling, elb]
 ---
 # Auto Scaling with ELB
 
@@ -34,6 +34,12 @@ Auto Scaling with [[ELB Overview|Elastic Load Balancing]] makes it easy to route
 ## Monitoring
 - ELB sends data about load balancers and instances to [[CloudWatch Overview|CloudWatch]].
 - Auto Scaling groups can be configured to use ELB metrics (like request latency or count) to scale the application automatically.
+
+## Related Services
+- [[_Compute Index|Compute Index]]
+- [[EC2 Overview|EC2]]
+- [[Lambda]]
+- [[VPC Overview|VPC]]
 
 ---
 **Practice:** [[Auto Scaling with ELB - Practice Questions|Auto Scaling with ELB Practice Questions]]

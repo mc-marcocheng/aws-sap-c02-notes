@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, cloudfront]
+tags: [aws, sap-c02, networking, cloudfront]
 ---
 # CloudFront Overview
 
@@ -41,6 +41,14 @@ Amazon CloudFront is a fast content delivery network (CDN) service that securely
 > **SAP-C02 Decision**:
 > - If you need to **cache** content: **CloudFront**.
 > - If you need **static IPs** for whitelisting or **fast failover** for non-HTTP apps: **Global Accelerator**.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[CloudFront Edge Functions]]
+- [[ALB Overview]]
+- [[Global Accelerator]]
+- [[S3 Overview]]
 
 ---
 **Practice:** [[CloudFront - Practice Questions|CloudFront Practice Questions]]

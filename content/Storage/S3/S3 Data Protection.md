@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, s3]
+tags: [aws, sap-c02, storage, s3]
 ---
 # S3 Data Protection
 
@@ -56,6 +56,12 @@ S3 is designed for 99.999999999% (11 9's) of durability by redundantly storing o
 
 > [!info] 
 > Remember that **S3 Intelligent-Tiering** also provides the same 11 9's durability as S3 Standard while optimizing for cost.
+
+## Related Services
+- [[_Storage Index|Storage Index]]
+- [[S3 Overview|S3]]
+- [[KMS]]
+- [[Backup]]
 
 ---
 **Practice:** [[S3 Data Protection - Practice Questions|S3 Data Protection Practice Questions]]

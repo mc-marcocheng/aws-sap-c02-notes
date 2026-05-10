@@ -27,7 +27,7 @@ Disaster Recovery (DR) is the process of preparing for and recovering from a dis
 ---
 ### 1. Backup & Restore
 - **Mechanism**: Use S3 for storage, AWS Backup for automation, and EBS Snapshots.
-- **Tools**: AWS Storage Gateway, AWS Snowball (for large data migration).
+- **Tools**: AWS [[Storage Gateway]], AWS Snowball (for large data migration).
 - **Process**: Restore data first, then provision infrastructure (CloudFormation/Terraform).
 
 ### 2. Pilot Light
@@ -55,6 +55,12 @@ Disaster Recovery (DR) is the process of preparing for and recovering from a dis
 > - **Cost vs. Performance**: Backup & Restore is cheapest/slowest; Multi-Site is most expensive/fastest.
 > - **RTO/RPO 15 mins**: Usually requires **Warm Standby** or **Pilot Light** with frequent snapshots/replication.
 > - **Data Corruption**: Replication won't help if corruption is replicated. You need **Point-in-Time recovery (PITR)** using snapshots or S3 Versioning.
+
+## Related Services
+- [[_Disaster Recovery Index|Disaster Recovery Index]]
+- [[Route 53 Overview|Route 53]]
+- [[CloudFormation Overview|CloudFormation]]
+- [[S3 Overview|S3]]
 
 ---
 **Practice:** [[Disaster Recovery - Practice Questions|Disaster Recovery Practice Questions]]

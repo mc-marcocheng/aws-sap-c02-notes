@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, systems-manager]
+tags: [aws, sap-c02, management, systems-manager]
 ---
 # Systems Manager Overview
 
@@ -12,7 +12,7 @@ AWS Systems Manager (SSM) provides a unified user interface so you can view oper
 - **Explorer**: Operations dashboard providing a view of your AWS resource data.
 
 ### 2. Application Management
-- **Parameter Store**: Secure, hierarchical storage for configuration data (AMI IDs, license keys) and secrets. Integrates with **KMS**.
+- **Parameter Store**: Secure, hierarchical storage for configuration data (AMI IDs, license keys) and secrets. Integrates with **[[KMS]]**.
 - **AppConfig**: Helps you create, manage, and quickly deploy application configurations.
 
 ### 3. Change Management
@@ -41,6 +41,11 @@ AWS Systems Manager (SSM) provides a unified user interface so you can view oper
 > [!exam]
 > **SAP-C02 Tip: Bastion Hosts vs. Session Manager**
 > If the requirement is to provide secure access to instances without the overhead of managing SSH keys or bastion hosts, **Session Manager** is the correct answer.
+
+## Related Services
+- [[_Management Index|Management Index]]
+- [[KMS]]
+- [[Secrets Manager]]
 
 ---
 **Practice:** [[Systems Manager - Practice Questions|Systems Manager Practice Questions]]

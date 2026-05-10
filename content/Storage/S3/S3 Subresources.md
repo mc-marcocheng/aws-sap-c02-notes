@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, s3]
+tags: [aws, sap-c02, storage, s3]
 ---
 # S3 Subresources
 
@@ -11,7 +11,7 @@ S3 Subresources are used to manage bucket and object configurations. They do not
 - Allows S3 to serve static content (HTML, JS, CSS, images).
 - **Endpoint**: `<bucket-name>.s3-website-<region>.amazonaws.com`.
 - **Requirements**:
-    - Bucket must be public (or use CloudFront OAI).
+    - Bucket must be public (or use [[CloudFront Overview|CloudFront]] OAI).
     - `index.html` and `error.html` documents must be configured.
 - > [!important]
   > S3 Website endpoints do **NOT** support HTTPS. Use CloudFront for HTTPS.
@@ -30,7 +30,7 @@ S3 Subresources are used to manage bucket and object configurations. They do not
 ### 4. Logging & Monitoring
 - **S3 Access Logs**: Detailed records for requests made to the bucket. Delivered to a target bucket.
 - **S3 Inventory**: Scheduled reports (CSV, ORC, Parquet) of all objects and metadata.
-- **Event Notifications**: Triggers actions (Lambda, SQS, SNS) when events occur (e.g., `s3:ObjectCreated:*`).
+- **Event Notifications**: Triggers actions ([[Lambda]], [[SQS Overview|SQS]], [[SNS]]) when events occur (e.g., `s3:ObjectCreated:*`).
 
 ### 5. Replication
 - **CRR (Cross-Region Replication)**: Compliance, lower latency, account separation.
@@ -55,7 +55,7 @@ S3 Subresources are used to manage bucket and object configurations. They do not
 
 | Method | Best For | SAP-C02 Tip |
 | :--- | :--- | :--- |
-| **IAM Policy** | Internal users/roles | Centralized management. |
+| **[[IAM]] Policy** | Internal users/roles | Centralized management. |
 | **Bucket Policy** | Cross-account access, IP restrictions | Granting access to anyone outside the owner's account. |
 | **Object ACL** | Fine-grained object control | Needed for cross-account uploads where uploader owns object. |
 | **Access Points** | Large datasets with many teams | Simplifies managing access for complex shared buckets. |
@@ -63,6 +63,13 @@ S3 Subresources are used to manage bucket and object configurations. They do not
 > [!exam] 
 > - **Requester Pays**: The requester (instead of the owner) pays for the download/transfer costs. The owner still pays for storage.
 > - **S3 Select**: Allows retrieving only a subset of data from an object (CSV, JSON, Parquet) using SQL, reducing latency and cost.
+
+## Related Services
+- [[_Storage Index|Storage Index]]
+- [[S3 Overview|S3]]
+- [[CloudFront Overview|CloudFront]]
+- [[Lambda]]
+- [[SQS Overview|SQS]]
 
 ---
 **Practice:** [[S3 Subresources - Practice Questions|S3 Subresources Practice Questions]]

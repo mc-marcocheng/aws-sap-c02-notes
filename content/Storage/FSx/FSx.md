@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, fsx]
+tags: [aws, sap-c02, storage, fsx]
 ---
 # Amazon FSx
 
@@ -15,7 +15,7 @@ Amazon FSx for NetApp ONTAP is a fully managed service that provides highly reli
   - **Storage Efficiencies**: Native deduplication, compression, and compaction to reduce storage costs.
   - **Snapshots & Clones**: Instantaneous, space-efficient snapshots and FlexClone volumes.
   - **SnapMirror & SnapVault**: Native replication to/from on-premises ONTAP or other FSx for ONTAP file systems for disaster recovery and backup.
-  - **Tiering**: Automatically tier infrequently accessed data to a lower-cost capacity pool (similar to S3).
+  - **Tiering**: Automatically tier infrequently accessed data to a lower-cost capacity pool (similar to [[S3 Overview|S3]]).
 - **Use Cases**: Migrating existing NetApp ONTAP environments, multi-protocol file sharing, EDA workloads, and disaster recovery for on-premises NetApp.
 
 ## Amazon FSx for Windows File Server
@@ -59,6 +59,12 @@ Amazon FSx for Windows File Server provides a fully managed, highly reliable, an
 ### Scenario 2: Legacy Windows Application Migration
 **Requirement**: A legacy Windows application is being migrated to AWS. It relies heavily on strict NTFS permissions, SMB file shares, and DFS Namespaces. The application needs high availability across multiple AZs.
 **Solution**: Deploy Amazon FSx for Windows File Server in a Multi-AZ configuration. Join the file system to the company's AWS Managed Microsoft AD. Use DFS-N to provide a consistent namespace for the application.
+
+## Related Services
+- [[_Storage Index|Storage Index]]
+- [[EFS]]
+- [[EBS Overview|EBS]]
+- [[S3 Overview|S3]]
 
 ---
 **Practice:** [[FSx - Practice Questions|Amazon FSx Practice Questions]]

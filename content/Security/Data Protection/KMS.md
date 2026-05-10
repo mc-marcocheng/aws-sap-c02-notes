@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, kms]
+tags: [aws, sap-c02, kms, security]
 ---
 # KMS Overview
 
@@ -28,7 +28,7 @@ KMS uses envelope encryption to protect data:
 
 ## Access Control
 - **Key Policies**: Resource-based policies that are the primary way to control access. **Every key must have a key policy.**
-- **IAM Policies**: Can be used in combination with key policies if the key policy allows it (via `Enable IAM User Permissions` statement).
+- **[[IAM]] Policies**: Can be used in combination with key policies if the key policy allows it (via `Enable IAM User Permissions` statement).
 - **Grants**: Temporary, granular permissions often used by AWS services.
 
 ## KMS vs. CloudHSM
@@ -40,6 +40,13 @@ KMS uses envelope encryption to protect data:
 | **Compliance** | FIPS 140-2 Level 2 | FIPS 140-2 Level 3 |
 | **Connectivity** | Public API / VPC Endpoint | Inside VPC |
 | **Cost** | Low ($1/month/key) | High ($1.45/hour/cluster) |
+
+## Related Services
+- [[_Security Index|Security Index]]
+- [[IAM]]
+- [[Secrets Manager]]
+- [[S3 Overview]]
+- [[EBS Overview]]
 
 ---
 **Practice:** [[KMS - Practice Questions|KMS Practice Questions]]

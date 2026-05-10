@@ -1,5 +1,5 @@
 ---
-tags: ['aws', 'sap-c02', 'vpc']
+tags: [aws, sap-c02, networking, vpc]
 ---
 # VPC Overview
 
@@ -101,7 +101,8 @@ tags: ['aws', 'sap-c02', 'vpc']
 | **TGW** | Built-in | Regional | Multi-VPC / Hybrid hub |
 
 ---
-**References:**
+## Related Services
+- [[_Networking Index|Networking Index]]
 - [[VPC NAT Gateway]]
 - [[VPC Peering]]
 - [[VPC Endpoints]]

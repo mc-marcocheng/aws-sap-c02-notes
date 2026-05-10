@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, load-balancing]
+tags: [aws, sap-c02, networking, load-balancing]
 ---
 # ALB vs. NLB: Architectural Comparison
 
@@ -39,6 +39,13 @@ You can register an **ALB as a target for an NLB**. This combines the static IP 
 > - **Choose ALB** for web applications, microservices, and when you need WAF or OIDC.
 > - **Choose NLB** for ultra-low latency, non-HTTP protocols (TCP/UDP), static IPs, or PrivateLink.
 > - **Choose both** (NLB in front of ALB) if you need static IPs AND Layer 7 routing.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[ALB Overview]]
+- [[NLB Overview]]
+- [[ELB Overview]]
 
 ---
 **Practice:** [[ALB vs NLB - Practice Questions|ALB vs NLB Practice Questions]]

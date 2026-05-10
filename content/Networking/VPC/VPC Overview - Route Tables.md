@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, vpc]
+tags: [aws, sap-c02, networking, vpc]
 ---
 # VPC Route Tables
 
@@ -34,6 +34,13 @@ If you have a VPC Peering connection (`10.1.0.0/16`) and a more specific Static 
 
 > [!exam]
 > If a subnet is not explicitly associated with a route table, it is implicitly associated with the **Main Route Table**. It is a best practice to keep the Main Route Table private and use **Custom Route Tables** for public subnets.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[VPC Overview|VPC]]
+- [[VPC Peering]]
+- [[Transit Gateway]]
 
 ---
 **Practice:** [[VPC - Practice Questions|VPC Practice Questions]]

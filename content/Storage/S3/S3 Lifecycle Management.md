@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, service]
+tags: [aws, sap-c02, storage, service]
 ---
 # S3 Lifecycle Management
 
@@ -54,6 +54,11 @@ S3 Lifecycle configuration provides a way to manage your objects so that they ar
 
 > [!exam]
 > To move an object to Glacier, you **must** use a Lifecycle policy. You cannot select Glacier as the storage class during the initial upload via the standard S3 API (though S3 Glacier has its own API, in the context of S3, it's a transition).
+
+## Related Services
+- [[_Storage Index|Storage Index]]
+- [[S3 Overview|S3]]
+- [[S3 Storage Classes]]
 
 ---
 **Practice:** [[S3 Lifecycle - Practice Questions|S3 Lifecycle Practice Questions]]

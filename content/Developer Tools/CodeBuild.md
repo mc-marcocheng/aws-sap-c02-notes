@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, codebuild]
+tags: [aws, sap-c02, developer-tools, codebuild]
 ---
 # CodeBuild
 
@@ -24,7 +24,7 @@ AWS CodeBuild is a fully managed continuous integration service that compiles so
 
 ## Strategic Scenarios (SAP-C02)
 - **Accessing Private Resources**: If your build needs to access resources in a VPC (e.g., integration tests against an internal DB), configure CodeBuild to run within that VPC. Ensure the VPC has a NAT Gateway if the build needs internet access (e.g., to download packages).
-- **Secrets Management**: Do not hardcode secrets in `buildspec.yml`. Integrate with **AWS Secrets Manager** or **AWS Systems Manager Parameter Store** natively within the buildspec.
+- **Secrets Management**: Do not hardcode secrets in `buildspec.yml`. Integrate with **[[Secrets Manager|AWS Secrets Manager]]** or **AWS Systems Manager Parameter Store** natively within the buildspec.
 - **Performance Optimization**: Use S3 caching for Maven/npm dependencies to reduce build duration.
 - **Cross-Account ECR**: To push an image to an ECR repo in another account, the CodeBuild IAM role needs permissions in the remote account's ECR repository policy.
 
@@ -33,6 +33,13 @@ AWS CodeBuild is a fully managed continuous integration service that compiles so
 
 > [!exam]
 > For managing credentials, expect questions testing your knowledge of using the `env:secrets-manager` or `env:parameter-store` blocks inside the `buildspec.yml`.
+
+## Related Services
+- [[_Developer Tools Index|Developer Tools Index]]
+- [[CodeCommit]]
+- [[CodeDeploy]]
+- [[CodePipeline]]
+- [[Systems Manager Overview|Systems Manager]]
 
 ---
 **Practice:** [[CodeBuild - Practice Questions|CodeBuild Practice Questions]]

@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, guardduty]
+tags: [aws, sap-c02, guardduty, security]
 ---
 # Amazon GuardDuty
 
@@ -17,6 +17,13 @@ Amazon GuardDuty is a continuous security monitoring service that analyzes and p
 > [!exam] SAP-C02 Exam Tip
 > For multi-region aggregation of findings, you typically use [[Security Hub|AWS Security Hub]] or route GuardDuty findings via [[EventBridge|Amazon EventBridge]] to a central region/account. GuardDuty does *not* natively aggregate findings across regions on its own.
 > Expect scenarios where an organization needs to auto-remediate GuardDuty findings. The pattern is always: GuardDuty -> [[EventBridge|Amazon EventBridge]] -> [[Lambda|AWS Lambda]] or [[Systems Manager Overview|AWS Systems Manager Automation]].
+
+## Related Services
+- [[_Security Index|Security Index]]
+- [[Security Hub]]
+- [[EventBridge]]
+- [[CloudTrail]]
+- [[VPC Overview]]
 
 ---
 **Practice:** [[GuardDuty - Practice Questions|GuardDuty Practice Questions]]

@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, eks]
+tags: [compute, aws, sap-c02, eks]
 ---
 # Elastic Kubernetes Service (EKS)
 
@@ -17,6 +17,12 @@ Amazon EKS is a managed Kubernetes service that makes it easy for you to run Kub
 
 > [!exam]
 > If a scenario mentions pod-level security for accessing AWS services, look for IRSA (IAM Roles for Service Accounts) rather than assigning roles to the underlying EC2 nodes.
+
+## Related Services
+- [[_Compute Index|Compute Index]]
+- [[EC2 Overview|EC2]]
+- [[Lambda]]
+- [[VPC Overview|VPC]]
 
 ---
 **Practice:** [[EKS - Practice Questions|EKS Practice Questions]]

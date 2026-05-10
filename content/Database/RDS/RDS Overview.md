@@ -1,9 +1,9 @@
 ---
-tags: [aws, sap-c02, rds]
+tags: [aws, sap-c02, database, rds]
 ---
 # RDS Overview
 
-Amazon Relational Database Service (Amazon RDS) is a managed service that makes it easy to set up, operate, and scale relational databases in the cloud. It supports multiple database engines: MySQL, MariaDB, PostgreSQL, Oracle, Microsoft SQL Server, and Amazon Aurora.
+Amazon Relational Database Service (Amazon [[RDS Overview|RDS]]) is a managed service that makes it easy to set up, operate, and scale relational databases in the cloud. It supports multiple database engines: MySQL, MariaDB, PostgreSQL, Oracle, Microsoft SQL Server, and Amazon [[Aurora Overview|Aurora]].
 
 ## Core Components
 
@@ -33,9 +33,9 @@ Amazon Relational Database Service (Amazon RDS) is a managed service that makes 
 ## Security and Authentication
 
 - **Network Isolation**: Always deploy RDS in **Private Subnets**.
-- **IAM DB Authentication**: Allows authentication to MySQL and PostgreSQL using IAM users/roles.
+- **IAM DB Authentication**: Allows authentication to MySQL and PostgreSQL using [[IAM]] users/roles.
 - **Encryption**:
-  - **At Rest**: Using AWS KMS keys. Encrypts the instance, snapshots, and replicas.
+  - **At Rest**: Using AWS [[KMS]] keys. Encrypts the instance, snapshots, and replicas.
   - **In Transit**: Using SSL/TLS.
 - **Secrets Manager**: Best practice for rotating and managing database credentials.
 
@@ -50,7 +50,7 @@ Amazon Relational Database Service (Amazon RDS) is a managed service that makes 
 ## Advanced Features
 
 > [!info] **RDS Proxy**
-> A highly available database proxy that pools and shares established database connections. Essential for **Lambda** architectures to prevent connection exhaustion.
+> A highly available database proxy that pools and shares established database connections. Essential for **[[Lambda]]** architectures to prevent connection exhaustion.
 
 > [!info] **Performance Insights**
 > A dashboard to visualize database load and identify bottlenecks (e.g., high-load SQL queries).
@@ -59,6 +59,13 @@ Amazon Relational Database Service (Amazon RDS) is a managed service that makes 
 > - **Multi-AZ** is for **Availability/DR**; **Read Replicas** are for **Scalability**.
 > - **Aurora** is often the preferred relational choice for SAP-C02 due to its 6-way replication and faster failover.
 > - For **Cross-Region DR**, use Cross-Region Read Replicas or Aurora Global Database.
+
+## Related Services
+- [[_Database Index|Database Index]]
+- [[Aurora Overview]]
+- [[RDS Proxy]]
+- [[RDS Replication]]
+- [[Secrets Manager]]
 
 ---
 **Practice:** [[RDS - Practice Questions|RDS Practice Questions]]

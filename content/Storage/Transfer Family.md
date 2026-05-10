@@ -1,9 +1,9 @@
 ---
-tags: [aws, sap-c02, transfer]
+tags: [aws, sap-c02, storage, transfer]
 ---
 # AWS Transfer Family
 
-AWS Transfer Family is a secure, fully managed transfer service that enables you to move files into and out of Amazon S3 or Amazon EFS over several protocols.
+AWS Transfer Family is a secure, fully managed transfer service that enables you to move files into and out of Amazon [[S3 Overview|S3]] or Amazon [[EFS]] over several protocols.
 
 ## Supported Protocols
 - **SFTP** (Secure Shell File Transfer Protocol)
@@ -16,7 +16,7 @@ AWS Transfer Family is a secure, fully managed transfer service that enables you
 - **Identity Providers**:
     - **Service Managed**: Store user identities directly in the service.
     - **Active Directory**: Integrate with AWS Managed Microsoft AD or on-premises AD.
-    - **Custom**: Use Lambda or API Gateway to integrate with your own identity provider.
+    - **Custom**: Use [[Lambda]] or [[API Gateway]] to integrate with your own identity provider.
 - **Managed File Transfer Workflows (MFTW)**: Automate processing steps like scanning, tagging, and compressing files upon upload.
 
 ## Use Cases
@@ -34,6 +34,13 @@ AWS Transfer Family is a secure, fully managed transfer service that enables you
 > - **SFTP/FTPS Migration**: Use Transfer Family to replace on-premises SFTP servers while keeping the same client-side protocols.
 > - **Storage Backend**: Always choose **S3** for massive scalability or **EFS** if the files need to be accessed by standard Linux file systems.
 > - **Custom Auth**: Use **Lambda** or **API Gateway** as a custom identity provider to integrate with existing user databases (like Okta or LDAP).
+
+## Related Services
+- [[_Storage Index|Storage Index]]
+- [[S3 Overview|S3]]
+- [[EFS]]
+- [[Lambda]]
+- [[API Gateway]]
 
 ---
 **Practice:** [[Transfer Family - Practice Questions|Transfer Family Practice Questions]]

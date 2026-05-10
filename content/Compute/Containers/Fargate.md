@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, fargate]
+tags: [compute, aws, sap-c02, fargate]
 ---
 # AWS Fargate
 
@@ -18,6 +18,12 @@ AWS Fargate is a serverless, pay-as-you-go compute engine that lets you focus on
 
 > [!exam]
 > If a question asks for the lowest maintenance overhead for running containers, or removing EC2 patching/scaling responsibilities, [[Fargate]] is usually the correct answer. Remember it does not support DaemonSets on EKS or privileged execution.
+
+## Related Services
+- [[_Compute Index|Compute Index]]
+- [[EC2 Overview|EC2]]
+- [[Lambda]]
+- [[VPC Overview|VPC]]
 
 ---
 **Practice:** [[Fargate - Practice Questions|Fargate Practice Questions]]

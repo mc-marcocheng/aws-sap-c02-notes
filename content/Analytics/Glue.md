@@ -7,8 +7,7 @@ tags: [aws, sap-c02, analytics, etl, serverless]
 
 ## Key Components
 
-### AWS Glue Data Catalog
-- A **central metadata repository** and persistent store for all data assets.
+ ### AWS Glue Data Catalog- A **central metadata repository** and persistent store for all data assets.
 - Apache Hive Metastore compatible; can be a drop-in replacement for Hive Metastore in [[EMR]].
 - Provides integration with [[Athena]], [[EMR]], and [[Redshift]] Spectrum.
 - Each account has one Data Catalog per region.
@@ -25,7 +24,7 @@ tags: [aws, sap-c02, analytics, etl, serverless]
 
 ### AWS Glue Streaming ETL
 - Performs ETL on streaming data using the Apache Spark Structured Streaming engine.
-- Ingests from **Kinesis Data Streams**, **MSK**, or Apache Kafka.
+- Ingests from **[[Kinesis Overview|Kinesis Data Streams]]**, **[[MSK]]**, or Apache Kafka.
 
 ### Glue DataBrew & Glue Studio
 - **Glue DataBrew**: A visual data preparation tool for cleaning and normalizing data without writing code.
@@ -42,6 +41,13 @@ tags: [aws, sap-c02, analytics, etl, serverless]
 
 > [!exam]
 > **Glue vs. EMR**: Use **Glue** for serverless, Spark-based ETL and data cataloging. Use **EMR** for more complex big data workloads requiring custom Hadoop ecosystem tools or specific cluster configurations.
+
+## Related Services
+- [[_Analytics Index|Analytics Index]]
+- [[Athena]]
+- [[EMR]]
+- [[Redshift]]
+- [[Kinesis Overview|Kinesis]]
 
 ---
 **Practice:** [[Glue - Practice Questions|Glue Practice Questions]]

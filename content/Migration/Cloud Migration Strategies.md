@@ -43,8 +43,15 @@ Migrating to AWS involves moving applications, databases, and data from on-premi
 > [!exam]
 > **SAP-C02 Choice**:
 > - If the goal is **speed** and **minimum downtime** for servers: **AWS MGN**.
-> - If the goal is **minimal management** for database migration: **AWS DMS**.
-> - If the network is too slow for large data: **Snow Family**.
+> - If the goal is **minimal management** for database migration: **AWS [[DMS]]**.
+> - If the network is too slow for large data: **[[Snow Family]]**.
+
+## Related Services
+- [[_Migration Index|Migration Index]]
+- [[DataSync]]
+- [[DMS]]
+- [[Snow Family]]
+- [[Transfer Family]]
 
 ---
-**Practice:** [[Migration - Practice Questions|Migration Practice Questions]]
+**Practice:** [[Migration - Practice Questions|Migration Practice Questions]]e Questions]]

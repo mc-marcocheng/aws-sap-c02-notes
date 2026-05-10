@@ -1,24 +1,23 @@
 ---
-tags: [aws, sap-c02, opensearch]
+tags: [aws, sap-c02, analytics, opensearch]
 ---
 # Amazon OpenSearch Service
 
 Amazon OpenSearch Service (successor to Amazon Elasticsearch Service) is a managed service that makes it easy to deploy, operate, and scale OpenSearch clusters in the AWS Cloud for log analytics, real-time application monitoring, and full-text search.
 
 ## Core Features
-- **Managed Clusters**: Automates backups, monitoring, and software patching.
-- **Storage Tiers**:
-    - **Hot**: Fast storage (EBS) for indexing and frequent access.
-    - **UltraWarm**: Low-cost, read-only storage backed by S3 for older data.
+ - **Managed Clusters**: Automates backups, monitoring, and software patching.- **Storage Tiers**:
+    - **Hot**: Fast storage ([[EBS Overview|EBS]]) for indexing and frequent access.
+    - **UltraWarm**: Low-cost, read-only storage backed by [[S3 Overview|S3]] for older data.
     - **Cold**: Lowest cost, data is detached from compute until needed for analysis.
 - **Dedicated Master Nodes**: Offload cluster management tasks from data nodes to improve stability.
 - **Multi-AZ**: Supports deployment across 2 or 3 Availability Zones for high availability.
 
 ## Security and Access Control
-- **Network Isolation**: Deploy within a **VPC** for private connectivity.
-- **Authentication**: Integrates with **Amazon Cognito** and SAML for dashboard access.
+- **Network Isolation**: Deploy within a **[[VPC Overview|VPC]]** for private connectivity.
+- **Authentication**: Integrates with **[[Cognito|Amazon Cognito]]** and SAML for dashboard access.
 - **Fine-Grained Access Control (FGAC)**: Document and field-level security.
-- **Encryption**: Supports encryption at rest (KMS) and node-to-node encryption (TLS).
+- **Encryption**: Supports encryption at rest ([[KMS]]) and node-to-node encryption (TLS).
 
 ## Advanced Capabilities
 - **Cross-Cluster Replication**: Low-latency synchronization between clusters in different regions.
@@ -37,3 +36,10 @@ Amazon OpenSearch Service (successor to Amazon Elasticsearch Service) is a manag
 > [!exam]
 > **SAP-C02 Tip**: For centralized logging across multiple accounts, the recommended pattern is:
 > **CloudWatch Logs** -> **Kinesis Data Firehose** -> **Amazon OpenSearch**.
+
+## Related Services
+- [[_Analytics Index|Analytics Index]]
+- [[Kinesis Overview|Kinesis]]
+- [[Cognito|Amazon Cognito]]
+- [[CloudWatch Overview|CloudWatch]]
+- [[VPC Overview|VPC]]

@@ -1,9 +1,9 @@
 ---
-tags: ['aws', 'sap-c02', 'rds']
+tags: [aws, sap-c02, database, rds]
 ---
 # RDS Replication
 
-Amazon RDS provides two primary mechanisms for data redundancy and scalability: **Multi-AZ Deployments** and **Read Replicas**.
+Amazon [[RDS Overview|RDS]] provides two primary mechanisms for data redundancy and scalability: **Multi-AZ Deployments** and **Read Replicas**.
 
 ## Multi-AZ vs. Read Replicas Comparison
 
@@ -65,7 +65,8 @@ Amazon RDS provides two primary mechanisms for data redundancy and scalability: 
 > - **Solution**: Use **Cross-Region Read Replicas**. In the event of an outage, manually promote the replica to a standalone instance in the healthy region.
 
 ---
-## Related Links
+## Related Services
+- [[_Database Index|Database Index]]
 - [[RDS Overview]]
 - [[Aurora Overview]]
 - [[DR Strategies Overview]]

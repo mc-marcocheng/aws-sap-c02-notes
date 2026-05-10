@@ -1,9 +1,5 @@
 ---
-tags:
-  - aws
-  - sap-c02
-  - systems-manager
-  - management
+tags: [aws, sap-c02, management, systems-manager]
 ---
 # Systems Manager (Patch Manager & Automation)
 
@@ -22,7 +18,7 @@ Patch Manager automates the process of patching managed instances with both secu
 ### Multi-Account & Multi-Region Patching
 To deploy patches across an AWS Organization centrally:
 - Use **AWS Systems Manager Quick Setup** or **Systems Manager Explorer**.
-- Deploy a **Resource Data Sync** to send patch compliance data from all member accounts/regions into a centralized Amazon S3 bucket, which can be queried using **Amazon Athena** or visualized in Amazon QuickSight.
+- Deploy a **Resource Data Sync** to send patch compliance data from all member accounts/regions into a centralized Amazon S3 bucket, which can be queried using **[[Athena|Amazon Athena]]** or visualized in Amazon [[QuickSight|Amazon QuickSight]].
 
 ## 2. SSM Automation
 
@@ -35,8 +31,8 @@ SSM Automation simplifies common IT tasks by executing runbooks (JSON/YAML docum
 - **Rate Control:** Control the concurrency (`Max concurrency`) and error thresholds (`Max errors`) when running automation across a fleet of instances.
 
 ### Integrations
-- **EventBridge:** Trigger Automation runbooks based on events (e.g., trigger an EBS snapshot automation when an EC2 instance changes state).
-- **Config Rules:** Use SSM Automation as a remediation action for non-compliant AWS Config rules (e.g., automatically attach a strict security group if an open SSH port is detected).
+- **[[EventBridge]]:** Trigger Automation runbooks based on events (e.g., trigger an [[EBS Overview|EBS]] snapshot automation when an [[EC2 Overview|EC2]] instance changes state).
+- **Config Rules:** Use SSM Automation as a remediation action for non-compliant [[Config|AWS Config]] rules (e.g., automatically attach a strict security group if an open SSH port is detected).
 
 ## Strategic Scenarios (SAP-C02)
 
@@ -50,6 +46,13 @@ SSM Automation simplifies common IT tasks by executing runbooks (JSON/YAML docum
 
 > [!exam]
 > When you need centralized reporting of patch compliance across an AWS Organization, the answer is almost always **Resource Data Sync to S3 + Amazon Athena**.
+
+## Related Services
+- [[_Management Index|Management Index]]
+- [[Athena]]
+- [[QuickSight]]
+- [[EventBridge]]
+- [[Config]]
 
 ---
 **Practice:** [[Systems Manager - Practice Questions|Systems Manager Practice Questions]]

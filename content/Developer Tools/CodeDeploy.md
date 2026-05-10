@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, codedeploy]
+tags: [aws, sap-c02, developer-tools, codedeploy]
 ---
 # CodeDeploy
 
@@ -38,6 +38,12 @@ AWS CodeDeploy is a fully managed deployment service that automates software dep
 
 > [!exam]
 > Know the difference between Canary and Linear traffic shifting for Lambda/ECS. Canary shifts a small percentage, waits, then shifts the rest. Linear shifts equal portions at equal intervals until 100% is reached.
+
+## Related Services
+- [[_Developer Tools Index|Developer Tools Index]]
+- [[CodePipeline]]
+- [[EC2 Overview|EC2]]
+- [[Lambda]]
 
 ---
 **Practice:** [[CodeDeploy - Practice Questions|CodeDeploy Practice Questions]]

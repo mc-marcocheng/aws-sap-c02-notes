@@ -1,9 +1,9 @@
 ---
-tags: [aws, sap-c02, dynamodb]
+tags: [aws, sap-c02, database, dynamodb]
 ---
 # DynamoDB Advanced Features
 
-Overview of advanced capabilities in Amazon DynamoDB, including indexing, caching, and disaster recovery.
+Overview of advanced capabilities in Amazon [[DynamoDB Overview|DynamoDB]], including indexing, caching, and disaster recovery.
 
 ## Secondary Indexes
 
@@ -14,7 +14,7 @@ Overview of advanced capabilities in Amazon DynamoDB, including indexing, cachin
 
 ## Caching with DAX (DynamoDB Accelerator)
 
-DAX is a fully managed, highly available, in-memory cache for DynamoDB.
+[[DynamoDB DAX|DAX]] is a fully managed, highly available, in-memory cache for DynamoDB.
 - **Performance**: Reduces latency from milliseconds to **microseconds**.
 - **Write-through**: Automatically updates the cache when data is written to the table.
 - **Cost**: Reduces RCU consumption on the base table.
@@ -23,7 +23,7 @@ DAX is a fully managed, highly available, in-memory cache for DynamoDB.
 ## DynamoDB Streams and Triggers
 
 - **DynamoDB Streams**: A time-ordered sequence of item-level changes (Last 24 hours).
-    - **Use Case**: Cross-region replication, real-time analytics, or triggering Lambda functions.
+    - **Use Case**: Cross-region replication, real-time analytics, or triggering [[Lambda]] functions.
     - **No Duplicates**: Each update is represented exactly once.
 - **Triggers**: Associating an AWS Lambda function with a DynamoDB Stream to execute custom logic on data changes.
 
@@ -47,7 +47,7 @@ DAX is a fully managed, highly available, in-memory cache for DynamoDB.
 
 ## Connectivity and Security
 
-- **VPC Gateway Endpoints**: Provides private access to DynamoDB from within a VPC without an IGW or NAT Gateway.
+- **VPC Gateway Endpoints**: Provides private access to DynamoDB from within a [[VPC Overview|VPC]] without an IGW or NAT Gateway.
 - **Conflict Resolution**: Global Tables use **Last Write Wins (LWW)** based on timestamps.
 
 > [!important]
@@ -60,6 +60,12 @@ DAX is a fully managed, highly available, in-memory cache for DynamoDB.
 > - For **Cross-account/Cross-region backups**, use **AWS Backup**.
 - **PITR** allows recovery from accidental deletes up to 35 days.
 - **TTL** is the best way to manage data lifecycle without incurring extra costs or performance hits.
+
+## Related Services
+- [[_Database Index|Database Index]]
+- [[DynamoDB Overview]]
+- [[DynamoDB DAX]]
+- [[Lambda]]
 
 ---
 **Practice:** [[DynamoDB Advanced - Practice Questions|DynamoDB Advanced Practice Questions]]

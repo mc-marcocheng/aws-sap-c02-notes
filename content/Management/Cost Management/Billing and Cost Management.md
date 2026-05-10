@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, billing]
+tags: [aws, sap-c02, management, billing]
 ---
 # Billing and Cost Management
 
@@ -7,16 +7,16 @@ AWS provides a suite of tools to help you monitor, manage, and optimize your AWS
 
 ## Cost Analysis Tools
 - **AWS Cost Explorer**: Visualize and forecast your AWS costs and usage. Filter by service, account, tag, and more.
-- **AWS Trusted Advisor**: Provides recommendations for cost optimization (e.g., identifying idle or underutilized resources).
+- **[[Trusted Advisor|AWS Trusted Advisor]]**: Provides recommendations for cost optimization (e.g., identifying idle or underutilized resources).
 - **AWS Compute Optimizer**: Recommends optimal AWS resources for your workloads to reduce costs and improve performance.
 
 ## Budgeting and Alerts
 - **AWS Budgets**: Set custom budgets for cost or usage and receive alerts when you exceed (or are forecasted to exceed) your thresholds.
-- **CloudWatch Billing Alarms**: Monitor your estimated charges and receive SNS notifications if they cross a certain amount. (Enabled in `us-east-1` for global billing metrics).
+- **[[CloudWatch Overview|CloudWatch]] Billing Alarms**: Monitor your estimated charges and receive SNS notifications if they cross a certain amount. (Enabled in `us-east-1` for global billing metrics).
 
 ## Resource Organization
 - **Cost Allocation Tags**: Use tags to track AWS costs on a detailed level. You must **activate** these tags in the Billing Console before they appear in Cost Explorer.
-- **Consolidated Billing**: (Part of AWS Organizations) Allows you to combine usage across multiple accounts to reach volume discount tiers and pay with a single payment method.
+- **Consolidated Billing**: (Part of [[Organizations Overview|AWS Organizations]]) Allows you to combine usage across multiple accounts to reach volume discount tiers and pay with a single payment method.
 
 ## Purchase Options
 - **On-Demand**: Pay for what you use by the second/hour.
@@ -30,5 +30,12 @@ AWS provides a suite of tools to help you monitor, manage, and optimize your AWS
 > - For steady-state workloads: **Savings Plans** or **RIs**.
 > - For fault-tolerant/batch processing: **Spot Instances**.
 > - For multi-account cost management: **Consolidated Billing** with **SCPs** to restrict expensive services.
+
+## Related Services
+- [[_Management Index|Management Index]]
+- [[Organizations Overview|AWS Organizations]]
+- [[Trusted Advisor]]
+- [[CloudWatch Overview|CloudWatch]]
+
 ---
 **Practice:** [[Billing - Practice Questions|Billing Practice Questions]]

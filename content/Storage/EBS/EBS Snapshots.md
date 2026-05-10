@@ -1,14 +1,14 @@
 ---
-tags: [aws, sap-c02, ebs]
+tags: [aws, sap-c02, storage, ebs]
 ---
 # EBS Snapshots
 
-EBS Snapshots are point-in-time, incremental backups of EBS volumes stored in Amazon S3.
+EBS Snapshots are point-in-time, incremental backups of EBS volumes stored in Amazon [[S3 Overview|S3]].
 
 ## 1. Key Concepts
 - **Incremental**: Only the blocks that have changed since the last snapshot are stored. This reduces storage costs and snapshot time.
 - **Regional**: Snapshots are constrained to the region where they were created.
-- **Storage**: Snapshots are stored in S3 (11 9's durability) but are managed via the EC2/EBS APIs.
+- **Storage**: Snapshots are stored in S3 (11 9's durability) but are managed via the [[EC2 Overview|EC2]]/EBS APIs.
 
 ## 2. Snapshot Lifecycle Management
 
@@ -26,7 +26,7 @@ EBS Snapshots are point-in-time, incremental backups of EBS volumes stored in Am
 
 ---
 ## 3. Encryption
-- **Encrypted Volumes**: Snapshots of encrypted volumes are automatically encrypted using the same KMS key.
+- **Encrypted Volumes**: Snapshots of encrypted volumes are automatically encrypted using the same [[KMS]] key.
 - **Encrypted Snapshots**: Volumes created from encrypted snapshots are automatically encrypted.
 - **Re-encryption**: You can change the KMS key during the snapshot copy process.
 
@@ -56,6 +56,12 @@ EBS Snapshots are point-in-time, incremental backups of EBS volumes stored in Am
 
 > [!important]
 > Deleting a snapshot only removes the data unique to that snapshot. Blocks used by subsequent incremental snapshots are retained.
+
+## Related Services
+- [[_Storage Index|Storage Index]]
+- [[EBS Overview|EBS]]
+- [[S3 Overview|S3]]
+- [[KMS]]
 
 ---
 **Practice:** [[EBS Snapshots - Practice Questions|EBS Snapshots Practice Questions]]

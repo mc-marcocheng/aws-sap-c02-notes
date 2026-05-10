@@ -1,5 +1,5 @@
 ---
-tags: ['aws', 'sap-c02', 'vpc']
+tags: [aws, sap-c02, networking, vpc]
 ---
 # VPC Endpoints
 
@@ -86,7 +86,8 @@ S3 is unique because it supports both endpoint types. Choosing the right one is 
 > **Solution**: **AWS PrivateLink**. Customers create an Interface Endpoint to connect to the provider's NLB. PrivateLink handles the address translation, so overlapping CIDRs are not an issue.
 
 ---
-**References:**
+## Related Services
+- [[_Networking Index|Networking Index]]
 - [[VPC Overview]]
 - [[S3 Overview]]
 - [[DynamoDB Overview]]

@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, cloud-map]
+tags: [aws, sap-c02, networking, cloud-map]
 ---
 # AWS Cloud Map
 
@@ -17,6 +17,14 @@ AWS Cloud Map is a cloud resource discovery service. With Cloud Map, you can def
 
 > [!exam]
 > Choose [[Cloud Map]] when a scenario requires dynamic discovery of microservices that rapidly scale, especially if custom metadata attributes need to be queried (which DNS alone cannot do).
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[App Mesh]]
+- [[Route 53 Overview]]
+- [[ECS]]
+- [[EKS]]
 
 ---
 **Practice:** [[Cloud Map - Practice Questions|Cloud Map Practice Questions]]

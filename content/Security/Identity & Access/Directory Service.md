@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, directory-service]
+tags: [aws, sap-c02, directory-service, security]
 ---
 # AWS Directory Service
 
@@ -16,8 +16,8 @@ AWS Managed Microsoft AD is actual Microsoft Active Directory hosted on the AWS 
 ### AD Connector
 AD Connector is a directory gateway with which you can redirect directory requests to your on-premises Microsoft Active Directory without caching any information in the cloud.
 
-- **Features**: Proxy to on-premises AD, no caching in AWS, requires VPN or Direct Connect to on-premises, supports MFA via RADIUS.
-- **Use Cases**: When you want to use existing on-premises AD to log in to AWS services (like WorkSpaces, QuickSight, AWS Management Console) without syncing or hosting AD in AWS.
+- **Features**: Proxy to on-premises AD, no caching in AWS, requires [[VPN]] or [[Direct Connect Overview|Direct Connect]] to on-premises, supports MFA via RADIUS.
+- **Use Cases**: When you want to use existing on-premises AD to log in to AWS services (like WorkSpaces, [[QuickSight]], AWS Management Console) without syncing or hosting AD in AWS.
 
 ### Simple AD
 Simple AD is a standalone managed directory that is powered by Samba 4 Active Directory Compatible Server.
@@ -48,11 +48,19 @@ Simple AD is a standalone managed directory that is powered by Samba 4 Active Di
 
 ### Scenario 1: Global Authentication for WorkSpaces
 **Requirement**: A global company uses Amazon WorkSpaces in multiple AWS Regions (us-east-1, eu-west-1). They want users to authenticate using their on-premises AD credentials. They want to minimize latency during login and avoid relying on the VPN for every authentication request.
+
 **Solution**: Deploy AWS Managed Microsoft AD in a central region and use the Multi-Region feature to replicate the directory to other regions. Establish a two-way trust with the on-premises AD. This provides local authentication endpoints in each region, reducing latency and reliance on the WAN link for login.
 
 ### Scenario 2: Zero-Footprint AWS Authentication
 **Requirement**: A strict security policy dictates that no user credentials or password hashes can be stored in the cloud. Users must access the AWS Management Console using their existing AD credentials.
+
 **Solution**: Use AD Connector over AWS Direct Connect or Site-to-Site VPN to proxy authentication requests back to the on-premises AD. AD Connector does not cache credentials in AWS.
+
+## Related Services
+- [[_Security Index|Security Index]]
+- [[VPN]]
+- [[Direct Connect Overview]]
+- [[QuickSight]]
 
 ---
 **Practice:** [[Directory Service - Practice Questions|AWS Directory Service Practice Questions]]

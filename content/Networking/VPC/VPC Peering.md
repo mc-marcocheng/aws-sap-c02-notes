@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, vpc]
+tags: [aws, sap-c02, networking, vpc]
 ---
 # VPC Peering
 
@@ -79,7 +79,7 @@ tags: [aws, sap-c02, vpc]
 > [!exam]
 > - **Transitive Connectivity**: Remember that VPC Peering is **NOT transitive**. For a hub-and-spoke model that supports transitive routing, use **Transit Gateway**.
 > - **Overlapping CIDRs**: VPC Peering will fail if CIDR ranges overlap. Use **PrivateLink** to connect VPCs with overlapping CIDRs.
-> - **Inter-Region Cost**: VPC Peering is often the most cost-effective way to connect two VPCs across regions for high-bandwidth traffic compared to VPN.
+> - **Inter-Region Cost**: VPC Peering is often the most cost-effective way to connect two VPCs across regions for high-bandwidth traffic compared to [[VPN]].
 
 > [!info] Scenario 1: Transitive Routing
 > **Problem**: Dev is peered to Test, and Test is peered to Prod. Dev needs to reach Prod.
@@ -92,6 +92,12 @@ tags: [aws, sap-c02, vpc]
 > [!info] Scenario 3: SaaS Exposure
 > **Problem**: A provider wants to share an application with customers who might have overlapping CIDRs.
 > **Solution**: **AWS PrivateLink**. It avoids CIDR conflicts and doesn't require full network peering.
+
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[Transit Gateway]]
+- [[VPN]]
+- [[VPC Endpoints]]
 
 ---
 **Practice:** [[VPC Peering - Practice Questions|VPC Peering Practice Questions]]

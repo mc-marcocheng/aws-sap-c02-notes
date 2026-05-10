@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, vpc]
+tags: [aws, sap-c02, networking, vpc]
 ---
 # VPC NAT & Egress Options
 
@@ -36,6 +36,13 @@ Allows multiple AWS accounts to create their resources (EC2, RDS) in shared, cen
 
 > [!info]
 > For high-performance internet egress for thousands of instances, consider using a **Transit Gateway with an Egress VPC** containing a cluster of NAT Gateways or Firewalls.
+
+---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[VPC NAT Gateway]]
+- [[VPC Overview|VPC]]
+- [[Transit Gateway]]
 
 ---
 **Practice:** [[VPC NAT Gateway - Practice Questions|VPC NAT Gateway Practice Questions]]

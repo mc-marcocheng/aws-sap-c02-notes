@@ -1,5 +1,5 @@
 ---
-tags: ['aws', 'sap-c02', 'auto-scaling']
+tags: [compute, aws, sap-c02, auto-scaling]
 ---
 # Auto Scaling Overview
 
@@ -7,8 +7,7 @@ Amazon EC2 Auto Scaling ensures that you have the correct number of EC2 instance
 
 ## Core Components
 
-> [!info] **The Building Blocks**
-> - **Auto Scaling Group (ASG)**: A logical grouping of EC2 instances with shared characteristics. Defines min, max, and desired capacity.
+ > [!info] **The Building Blocks**> - **Auto Scaling Group (ASG)**: A logical grouping of EC2 instances with shared characteristics. Defines min, max, and desired capacity.
 > - **Launch Template (LT)**: The modern way to define instance configurations (AMI, instance type, SG, user data). Supports versioning and multiple purchase options (Spot + On-Demand).
 > - **Launch Configuration (LC)**: Legacy method. Immutable (requires recreation for changes). *AWS recommends using Launch Templates.*
 
@@ -85,7 +84,8 @@ Automates the process of rolling out updates to instances in an ASG (e.g., updat
 > - **Solution**: Use **Instance Refresh** for a rolling update or swap **Target Groups** in the Load Balancer to a new ASG.
 
 ---
-## Related Links
+## Related Services
+- [[_Compute Index|Compute Index]]
 - [[Auto Scaling - Practice Questions|Practice Questions: Auto Scaling]]
 - [[EC2 Overview]]
 - [[ALB Overview]]

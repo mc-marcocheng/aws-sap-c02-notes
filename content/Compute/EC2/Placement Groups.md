@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, ec2]
+tags: [compute, aws, sap-c02, ec2]
 ---
 # Placement Groups
 
@@ -60,6 +60,12 @@ EC2 Placement groups determine how instances are placed on the underlying hardwa
 > - **Spread/Partition** = High Availability (Multi-AZ).
 > - If you see "Cassandra" or "HDFS" on the exam, think **Partition Placement Groups**.
 > - For maximum throughput between two instances, they should be in a **Cluster Placement Group** and use **Jumbo Frames (MTU 9001)**.
+
+## Related Services
+- [[_Compute Index|Compute Index]]
+- [[EC2 Overview|EC2]]
+- [[Lambda]]
+- [[VPC Overview|VPC]]
 
 ---
 **Practice:** [[Placement Groups - Practice Questions|Placement Groups Practice Questions]]

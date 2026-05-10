@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, artifact]
+tags: [aws, sap-c02, management, artifact]
 ---
 # AWS Artifact
 
@@ -18,6 +18,11 @@ AWS Artifact is a self-service audit artifact retrieval portal that provides our
 > [!exam]
 > If a question asks how to prove to an external auditor that AWS data centers meet ISO or SOC compliance standards, the answer is **AWS Artifact**.
 > Do not confuse Artifact with [[Audit Manager]]. Artifact provides *AWS's* compliance reports. Audit Manager helps you continuously audit *your* AWS usage.
+
+## Related Services
+- [[_Management Index|Management Index]]
+- [[Audit Manager]]
+- [[Organizations Overview|AWS Organizations]]
 
 ---
 **Practice:** [[Artifact - Practice Questions|Artifact Practice Questions]]
