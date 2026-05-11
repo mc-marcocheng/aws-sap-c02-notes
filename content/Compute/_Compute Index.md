@@ -16,6 +16,7 @@ tags: [aws, sap-c02, compute, index]
 ## Containers
 - [[ECS]]
 - [[EKS]]
+- [[ECR]]
 - [[Fargate]]
 
 ## Lambda

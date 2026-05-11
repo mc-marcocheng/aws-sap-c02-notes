@@ -16,6 +16,7 @@ tags: [aws, sap-c02, security, index]
 - [[KMS]]
 - [[Secrets Manager]]
 - [[ACM]]
+- [[CloudHSM]]
 
 ## Network Security
 - [[Security Groups vs NACLs]]

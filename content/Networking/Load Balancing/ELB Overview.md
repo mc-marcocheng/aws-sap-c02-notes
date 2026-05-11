@@ -11,7 +11,7 @@ Elastic Load Balancing (ELB) automatically distributes incoming application traf
 | --- | --- | --- | --- |
 | **Application (ALB)** | 7 (HTTP/S) | Web apps, Microservices | Path-based routing, Host-based routing, Lambda targets, WAF. |
 | **Network (NLB)** | 4 (TCP/UDP/TLS) | Ultra-low latency, High throughput | **Static IP**, UDP support, Zonal isolation. |
-| **Gateway (GWLB)** | 3 (IP) | Security/Network Virtual Appliances | In-line traffic inspection, Bump-in-the-wire. |
+| **Gateway (GWLB)** | 3 (IP) | Security/Network Virtual Appliances | [[GWLB Overview|GWLB]] - In-line traffic inspection, Bump-in-the-wire. |
 | **Classic (CLB)** | 4/7 | Legacy apps | Basic load balancing (Deprecated for most new apps). |
 
 ## Core Features

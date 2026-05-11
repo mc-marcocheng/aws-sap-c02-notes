@@ -155,6 +155,40 @@ Add `[[Service Name]]` wikilinks in any related topic notes where the service is
 
 ---
 
+## Adding an Architecture Pattern Note
+
+Architecture Patterns synthesize individual service knowledge into exam-ready blueprints.
+
+### 1. Create the pattern note
+
+**Path:** `content/Architecture Patterns/<Pattern Name>.md`
+
+```markdown
+---
+tags: [aws, sap-c02, architecture, <category>]
+---
+
+# Pattern Name
+
+A brief description of the architecture pattern and when it is typically used in enterprise environments.
+
+## Core Components
+- **Component 1**: Description
+- **Component 2**: Description
+
+> [!exam]
+> Exam tip relating to this architecture pattern (e.g., when to choose it over an alternative).
+
+## Related Notes
+- [[Related Service]]
+```
+
+### 2. Link from the index
+
+Edit `content/Architecture Patterns/_Architecture Patterns Index.md` and add the new note.
+
+---
+
 ## Adding Practice Questions
 
 When adding questions to an **existing** practice questions file:

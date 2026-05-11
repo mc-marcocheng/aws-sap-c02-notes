@@ -21,6 +21,8 @@ tags: [aws, sap-c02, database, index]
 ## Other
 - [[ElastiCache]]
 - [[Redshift]]
+- [[DocumentDB]]
+- [[Neptune]]
 
 ## Comparisons
 - [[Aurora vs DynamoDB Global]]

@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, storage, service]
+tags: [aws, sap-c02, storage, s3]
 ---
 # S3 Lifecycle Management
 

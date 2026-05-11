@@ -14,6 +14,7 @@ tags: [aws, sap-c02, management, index]
 
 ## Cost Management
 - [[Billing and Cost Management]]
+- [[Compute Optimizer]]
 
 ## Governance & Compliance
 - [[Artifact]]
