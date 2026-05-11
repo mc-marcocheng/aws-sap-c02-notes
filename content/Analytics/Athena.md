@@ -7,7 +7,8 @@ tags: [aws, sap-c02, analytics, serverless]
 
 ## Key Features
 
- - **Serverless**: No infrastructure to manage; pay only for the queries you run.- **Schema-on-Read**: Table definitions are applied to the data in [[S3 Overview|S3]] when queries are executed.
+- **Serverless**: No infrastructure to manage; pay only for the queries you run.
+- **Schema-on-Read**: Table definitions are applied to the data in [[S3 Overview|S3]] when queries are executed.
 - **Glue Data Catalog**: Uses a managed [[Glue|Glue Data Catalog]] to store schemas and metadata.
 - **Federated Query**: Query data across 30+ sources, including [[RDS Overview|RDS]], [[Redshift]], and on-premises databases using Athena Federated Query.
 - **Modern Table Formats**: Supports **Apache Iceberg**, **Delta Lake**, and **Apache Hudi** for ACID transactions, schema evolution, and time travel.
