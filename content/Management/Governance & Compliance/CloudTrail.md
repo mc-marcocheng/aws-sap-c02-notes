@@ -6,14 +6,21 @@ tags: [aws, sap-c02, management, cloudtrail]
 AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. It records API calls and related events made by or on behalf of your account.
 
 ## Event Types
-1. **Management Events**: (Logged by default) Operations performed on resources, such as creating an [[EC2 Overview|EC2]] instance or an [[S3 Overview|S3]] bucket.
-2. **Data Events**: (Not logged by default) High-volume operations performed *within* a resource, such as S3 object-level actions or [[Lambda]] function executions.
-3. **CloudTrail Insights**: (Optional) Detects unusual API activity (e.g., a sudden spike in `TerminateInstances` calls).
+1. **Management Events**: Control plane operations (e.g., `CreateBucket`, `TerminateInstances`). Logged by default.
+2. **Data Events**: Data plane operations (e.g., `GetObject`, `PutItem`, `InvokeFunction`). Disabled by default due to high volume and extra cost.
+3. **Insights Events**: Detects unusual API activity (e.g., a sudden spike in `TerminateInstances` calls) through machine learning.
 
 ## Trail Configurations
 - **Single-Region Trail**: Logs events for a specific region.
 - **Multi-Region Trail**: (Best Practice) Logs events from all regions in a single trail and delivers them to a central S3 bucket.
-- **Organization Trail**: Logs events for all accounts in an **AWS Organization**. Managed from the management account.
+- **Organization Trail**: A single trail that logs events across **all accounts** in an AWS Organization. This is the standard for centralized auditing.
+
+## CloudTrail Lake
+A managed data lake for CloudTrail events that allows you to aggregate, immutably store, and query events using **SQL**. It is an alternative to the Athena + S3 architecture for long-term investigation and auditing.
+
+## Delivery Delay
+> [!important]
+> CloudTrail delivers events with a typical delay of **~5 minutes** (not real-time). For real-time monitoring, stream CloudTrail events to **CloudWatch Logs** and set up metric filters/alarms.
 
 ## Security and Integrity
 - **Log File Integrity Validation**: Uses SHA-256 and RSA signatures to ensure logs haven't been tampered with after delivery.

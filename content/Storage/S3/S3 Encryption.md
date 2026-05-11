@@ -13,6 +13,7 @@ S3 provides multiple options for protecting data at rest and in transit. Underst
 
 ### SSE-S3 (S3-Managed Keys)
 - **Mechanism**: S3 manages the encryption keys (AES-256).
+- **Default Status**: **SSE-S3 is the default encryption** for all new objects (as of Jan 2023). Even if you don't specify encryption, S3 applies SSE-S3.
 - **Pros**: Easy to use, no extra cost, no key management overhead.
 - **Cons**: Cannot be used for granular audit trails of key usage.
 

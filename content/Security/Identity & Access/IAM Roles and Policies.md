@@ -26,6 +26,7 @@ The global service that issues temporary credentials.
 - `AssumeRole`: Used for cross-account and service-to-service access.
 - `AssumeRoleWithSAML`: Used for SAML 2.0 federation.
 - `AssumeRoleWithWebIdentity`: Used for OIDC/social login federation.
+- **Session Policies**: Optional policies passed as a parameter during `AssumeRole` (and other STS calls) to further restrict the permissions of the resulting session. The session's effective permissions are the intersection of the role's permissions and the session policy.
 
 ## Cross-Account Access Flow
 1. **Account B** (Trusting) creates a role with a **Trust Policy** allowing **Account A** (Trusted).

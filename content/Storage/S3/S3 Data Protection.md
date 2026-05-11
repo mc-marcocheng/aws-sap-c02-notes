@@ -39,9 +39,15 @@ S3 is designed for 99.999999999% (11 9's) of durability by redundantly storing o
 - **Use Case**: Log aggregation, Syncing production and test accounts.
 - **Feature**: Copies objects to a different bucket in the same region.
 
+### S3 Batch Replication
+- **Definition**: A mechanism to replicate objects that existed before a replication configuration was in place, or to re-replicate objects that previously failed.
+- **Use Case**: Post-hoc DR setup, migrating existing data between buckets, or compliance remediation.
+- **Integration**: Leverages **S3 Batch Operations** to handle the replication of millions (or billions) of objects.
+
 > [!exam] Replication Rules
 > - **Versioning** must be enabled on both source and destination buckets.
-> - **Existing Objects**: By default, replication only copies NEW objects. Use S3 Batch Replication for existing objects.
+> - **Live Replication**: By default, CRR/SRR only copies NEW objects.
+> - **Batch Replication**: Required for existing objects or objects that failed to replicate.
 > - **Delete Markers**: Can optionally be replicated. Permanent version deletions are **NOT** replicated to prevent malicious deletes from propagating.
 
 ---

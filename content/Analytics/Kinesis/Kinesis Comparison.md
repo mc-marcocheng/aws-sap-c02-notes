@@ -7,12 +7,13 @@ Understanding the differences between Kinesis Data Streams (KDS) and Kinesis Dat
 
 ## Key Differences Summary
 
- | Feature | Kinesis Data Streams (KDS) | Kinesis Data Firehose (KDF) || --- | --- | --- |
+ | Feature | Kinesis Data Streams (KDS) | Kinesis Data Firehose (KDF) |
+| --- | --- | --- |
 | **Capacity Mode** | Provisioned or On-Demand | Fully managed (automatic) |
-| **Latency** | Real-time (~70-200 ms) | Near real-time (60s default, ~5s min) |
+| **Latency** | Real-time (~70-200 ms) | Near real-time (**Minimum 0s** for supported destinations; typically 60s for S3) |
 | **Data Retention** | 24 hours to 365 days | No storage (transient) |
 | **Replay** | Supported | Not supported |
-| **Consumers** | Custom (SDK, KCL, Lambda) | Pre-defined (S3, Redshift, OpenSearch) |
+| **Consumers** | Custom (SDK, KCL, Lambda) | Pre-defined (S3, Redshift, OpenSearch, etc.) |
 | **Use Case** | Custom real-time apps, sub-second latency | ETL, loading data into AWS data stores |
 
 ![[kinesis-data-streams-vs-kinesis-data-firehose.jpg]]
@@ -26,9 +27,12 @@ Understanding the differences between Kinesis Data Streams (KDS) and Kinesis Dat
 
 ## Kinesis Data Firehose (KDF)
 - **Zero Management**: No shards to manage; scales automatically.
-- **Built-in Transformations**: Use [[Lambda]] to transform/convert data format (e.g., JSON to Parquet/Orc) before delivery.
+- **Built-in Transformations**: Use [[Lambda]] to transform/convert data format (e.g., JSON to Parquet/Orc).
+    - **Limitation**: Lambda has a 6 MB payload limit and 5-minute timeout per batch. For heavy transformations, pre-process before Firehose.
+- **Dynamic Partitioning**: Partitions data in S3 based on keys in the record (e.g., `customer_id`), eliminating post-processing.
 - **Destinations**: Native delivery to [[S3 Overview|S3]], [[Redshift]], [[OpenSearch]], HTTP endpoints, and Snowflake.
-- **Buffering**: Delivers data based on time (60-900s) or size (1-128MB).
+    - **Note**: Firehose does **NOT** support writing to Kinesis Data Streams as a destination.
+- **Buffering**: Delivers data based on time (0-900s) or size (1-128MB).
 
 > [!exam]
 > **SAP-C02 Decision Point**:

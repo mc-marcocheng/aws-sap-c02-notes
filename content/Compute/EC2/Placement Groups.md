@@ -31,7 +31,7 @@ EC2 Placement groups determine how instances are placed on the underlying hardwa
 - **Scope**: Can span multiple AZs in the same region.
 - **Structure**: Each group is divided into logical segments called partitions.
 - **Isolation**: EC2 ensures that each partition has its own set of racks (network/power). No two partitions share the same racks.
-- **Limits**: Maximum of **7 partitions per AZ**.
+- **Limits**: Maximum of **7 partitions per AZ**. There is no limit on the number of instances *within* each partition.
 - **Visibility**: Topology-aware applications (like HDFS) can use partition information to make intelligent replication decisions.
 
 ![[placement-group-partition.png]]
@@ -58,6 +58,7 @@ EC2 Placement groups determine how instances are placed on the underlying hardwa
 > [!exam]
 > - **Cluster** = High Performance (Single AZ).
 > - **Spread/Partition** = High Availability (Multi-AZ).
+> - **Spread Limit**: Restricted to **7 instances per AZ per group**.
 > - If you see "Cassandra" or "HDFS" on the exam, think **Partition Placement Groups**.
 > - For maximum throughput between two instances, they should be in a **Cluster Placement Group** and use **Jumbo Frames (MTU 9001)**.
 

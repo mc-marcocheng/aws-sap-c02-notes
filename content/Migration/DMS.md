@@ -7,16 +7,18 @@ AWS Database Migration Service (DMS) helps you migrate databases to AWS quickly 
 
 ## Core Components
 - **Replication Instance**: A managed [[EC2 Overview|EC2]] instance that runs the migration tasks.
+- **DMS Serverless**: Automatically provisions and scales replication capacity, eliminating the need to manage instance sizing.
 - **Endpoints**: Connections to the source and target data stores.
-- **Replication Tasks**: Defines what data is moved, how it's moved (Full Load, CDC, or both), and how to handle LOBs.
+- **Replication Tasks**: Defines what data is moved. Common pattern: **Full-load + CDC** (initial bulk load followed by ongoing change capture to minimize downtime).
 
 ## Migration Types
-1. **Homogeneous**: Source and target are the same (e.g., Oracle to Oracle).
-2. **Heterogeneous**: Source and target are different (e.g., SQL Server to [[Aurora Overview|Aurora]]). Requires **AWS Schema Conversion Tool (SCT)**.
+1. **Homogeneous**: Source and target are the same (e.g., MySQL to Aurora MySQL). DMS handles this natively; SCT is **not** required.
+2. **Heterogeneous**: Source and target are different (e.g., Oracle to PostgreSQL). Requires **AWS Schema Conversion Tool (SCT)** to convert the schema before DMS can migrate data.
 
 ## AWS Schema Conversion Tool (SCT)
+- SCT is **only needed for heterogeneous** migrations (e.g., Oracle → PostgreSQL). For homogeneous migrations, DMS handles it natively.
 - Converts database schemas, views, stored procedures, and functions.
-- For heterogeneous migrations, SCT must be used **before** DMS.
+- Must be used **before** DMS in heterogeneous scenarios.
 - Can also convert application code containing embedded SQL.
 
 ## Key Features

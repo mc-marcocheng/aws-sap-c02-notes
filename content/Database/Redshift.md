@@ -22,6 +22,9 @@ tags: [aws, sap-c02, database, analytics]
 - **Result Caching**: Transparently caches query results on the leader node for repeated queries.
 - **Redshift Spectrum**: Query and retrieve structured and semi-structured data directly from [[S3 Overview|S3]] without loading it into Redshift tables.
 - **Federated Query**: Query data across operational databases ([[RDS Overview|RDS]], [[Aurora Overview|Aurora]]), data warehouses, and data lakes.
+- **Redshift Data Sharing**: Share live data across Redshift clusters without copying or moving data.
+- **Concurrency Scaling**: Automatically adds transient cluster capacity to handle increases in concurrent queries during demand spikes.
+- **Zero-ETL Integration**: Near real-time replication from [[Aurora Overview|Aurora]] to Redshift without building or managing complex ETL pipelines.
 
 ## High Availability & Disaster Recovery
 
@@ -34,8 +37,9 @@ tags: [aws, sap-c02, database, analytics]
 
 ## Redshift Serverless
 
-- Automatically provisions and scales capacity (measured in **Redshift Processing Units - RPUs**).
-- Ideal for unpredictable or intermittent workloads.
+- **No cluster management**: Automatically provisions and scales capacity (measured in **Redshift Processing Units - RPUs**).
+- **Pay per RPU-hour**: Only pay for the capacity used while the database is active.
+- **Use Case**: Best for **ad-hoc querying** and **variable or unpredictable workloads**.
 - Supports **Concurrency Scaling** to handle virtually unlimited concurrent users/queries.
 
 ## Comparison: Redshift vs. [[RDS Overview|RDS]] vs. [[EMR]]

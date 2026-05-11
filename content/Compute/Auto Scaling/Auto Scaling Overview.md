@@ -14,7 +14,7 @@ Amazon EC2 Auto Scaling ensures that you have the correct number of EC2 instance
 ### Capacity Settings
 - **Min Size**: Minimum instances the group will maintain.
 - **Max Size**: Maximum instances the group can scale out to.
-- **Desired Capacity**: The target number of instances. ASG will launch/terminate instances to match this.
+- **Desired Capacity**: The number of instances ASG attempts to maintain. Always between Min and Max.
 
 ---
 ## Scaling Policies
@@ -25,7 +25,10 @@ Amazon EC2 Auto Scaling ensures that you have the correct number of EC2 instance
 | **Step Scaling** | Increases/decreases capacity based on the size of the alarm breach. | Rapidly changing loads. |
 | **Simple Scaling** | Waits for a cooldown after a single scaling activity. | Basic, slow-moving loads. |
 | **Scheduled Scaling** | Scales based on known time-based patterns (e.g., Friday 6 PM). | Predictable traffic spikes. |
-| **Predictive Scaling** | Uses machine learning to forecast traffic and schedule scaling. | Workloads with recurring daily/weekly patterns. |
+| **Predictive Scaling** | Uses ML to forecast traffic patterns and pre-scale. Eliminates reactive lag. | Predictable daily/weekly patterns. |
+
+> [!tip] **Policy Priority**
+> If multiple policies trigger simultaneously, ASG executes the one that results in the **largest capacity change**.
 
 ---
 ## Health Checks and Rebalancing
@@ -56,7 +59,13 @@ Allows you to pause the launch or termination of an instance to perform custom a
 - **States**: `Pending:Wait`, `Pending:Proceed`, `Terminating:Wait`, `Terminating:Proceed`.
 
 ### Instance Refresh
-Automates the process of rolling out updates to instances in an ASG (e.g., updating the AMI). It replaces instances in stages, ensuring a minimum healthy percentage is maintained.
+Rolling replacement of instances when launch template changes (e.g., new AMI). Supports **minimum healthy percentage**.
+
+### Warm Pools
+Pre-initialized instances kept in a stopped state to reduce scale-out latency for applications with long initialization times.
+
+### Mixed Instances Policy
+Allows combining On-Demand and Spot instances with multiple instance types within a single ASG for cost optimization and high availability.
 
 ### Standby and Suspension
 - **Standby**: Puts an `InService` instance into a state where it's still part of the ASG but doesn't serve traffic. Useful for troubleshooting.
@@ -65,9 +74,7 @@ Automates the process of rolling out updates to instances in an ASG (e.g., updat
 ---
 ## Auto Scaling with ELB
 
-> [!info] **Integration Benefits**
-> - **Connection Draining**: Ensures in-flight requests are completed before an instance is deregistered during scale-in.
-> - **Dynamic Registration**: New instances are automatically registered with the target group/load balancer.
+ASG integrates with ELB health checks to replace unhealthy instances automatically.
 
 ---
 ### SAP-C02 Exam Scenarios

@@ -32,8 +32,12 @@ Rules define how traffic is routed to target groups based on conditions:
 
 ### Performance
 - **HTTP/2 & WebSockets**: Natively supported.
+- **gRPC**: ALB supports **gRPC** natively.
 - **Slow Start Mode**: Allows targets to warm up before handling full load.
 - **Least Outstanding Requests**: An alternative routing algorithm to Round Robin, ideal for requests with varying processing times.
+
+### Security & Reliability
+- **Desync Mitigation Mode**: Protects your application against HTTP desync attacks by ensuring that the load balancer follows strict HTTP standards.
 
 ---
 ## 3. Deployment Models

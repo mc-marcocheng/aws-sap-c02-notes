@@ -39,6 +39,7 @@ tags: [aws, sap-c02, networking, vpc]
 > Interface endpoints use an **Elastic Network Interface (ENI)** with a private IP address from your subnet's range.
 
 - **Pricing**: Billed per hour and per GB of data processed.
+- **Endpoint Policies**: Interface Endpoints support **Endpoint Policies** — allowing you to restrict which S3 buckets, DynamoDB tables, or other service resources are accessible through the endpoint.
 - **Connectivity**:
     - **On-Premises**: Accessible via [[VPN]] or [[Direct Connect Overview|Direct Connect]].
     - **Peering**: Accessible across intra- and inter-region [[VPC Peering]].

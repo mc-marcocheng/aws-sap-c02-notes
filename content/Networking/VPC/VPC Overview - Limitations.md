@@ -7,7 +7,7 @@ Understanding VPC limits is essential for large-scale architectural design in th
 
 ## 1. CIDR and IP Limits
 - **VPC Size**: Minimum `/28`, Maximum `/16`.
-- **Secondary CIDRs**: You can associate up to 5 CIDR blocks with a VPC.
+- **Secondary CIDRs**: You can associate up to 5 CIDR blocks with a VPC. Secondary CIDR blocks must be from the same RFC 1918 range as the primary OR from the `100.64.0.0/10` range (CG-NAT).
 - **Reserved IPs**: 5 IP addresses are always reserved in every subnet (Network, Router, DNS, Future, Broadcast).
 
 ## 2. Resource Quotas (Soft Limits)

@@ -7,7 +7,7 @@ tags: [aws, sap-c02, analytics, quicksight]
 > A scalable, serverless, embeddable, machine learning-powered business intelligence (BI) service built for the cloud.
 
 ## Key Features
- - **SPICE (Super-fast, Parallel, In-memory Calculation Engine):** In-memory data store for blazingly fast performance.- **ML Insights:** Anomaly detection, forecasting, and auto-narratives powered by ML.
+ - **SPICE (Super-fast, Parallel, In-memory Calculation Engine):** In-memory data store for blazingly fast performance. QuickSight stores data in SPICE for fast dashboards. **Note:** SPICE has capacity limits per region; you purchase capacity as needed.
 - **Embedded Analytics:** Easily embed interactive dashboards into applications, portals, and websites.
 - **QuickSight Q:** Ask questions about data using natural language.
 
@@ -15,15 +15,14 @@ tags: [aws, sap-c02, analytics, quicksight]
 - Enterprise BI and dash-boarding.
 - Embedding analytics into SaaS applications.
 - Ad-hoc data exploration and visualization.
-- Generating automated ML-driven insights.
 
 ## Architecture & Integration
 - Connects to various data sources: [[RDS Overview|RDS]], [[Aurora Overview|Aurora]], [[Redshift]], [[Athena]], [[S3 Overview|S3]], on-premises databases, and third-party SaaS.
-- **VPC Integration:** Can securely connect to data sources in private VPCs using QuickSight VPC connections (Elastic Network Interfaces).
-- **Row-Level Security (RLS):** Restrict data access for users based on rules.
+- **VPC Integration:** Can securely connect to data sources in private VPCs using QuickSight VPC connections.
+- **Row-Level Security (RLS):** Restricts which rows a user sees based on their identity — **critical for multi-tenant dashboards**.
 
 > [!important] Enterprise Edition
-> QuickSight Enterprise Edition is required for Active Directory integration, VPC connectivity, Row-Level Security (RLS), and ML Insights.
+> QuickSight Enterprise Edition is required for Active Directory integration, VPC connectivity, and Row-Level Security (RLS).
 
 ### Comparison: Direct Query vs. SPICE
 

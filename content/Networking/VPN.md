@@ -10,6 +10,7 @@ tags: ['aws', 'sap-c02', 'vpn']
 
 ### VPN Types
 - **AWS Site-to-Site VPN**: Connects your on-premises network to your VPC. Also known as AWS Hardware VPN or AWS Managed VPN.
+- **Accelerated Site-to-Site VPN**: Uses **AWS Global Accelerator** to route traffic from your on-premises network to the closest AWS edge location, improving performance and reliability.
 - **AWS Client VPN**: A managed client-based VPN service that enables secure access to AWS resources and on-premises networks from any location.
 - **AWS VPN CloudHub**: A hub-and-spoke model for connecting multiple branch offices.
 - **AWS Software VPN**: Uses a third-party software VPN appliance running on an EC2 instance.
@@ -31,6 +32,7 @@ tags: ['aws', 'sap-c02', 'vpn']
 ### Transit Gateway (TGW)
 - A transit hub that can interconnect VPCs and on-premises networks.
 - Supports both IPv4 and IPv6 traffic inside VPN tunnels.
+- **ECMP (Equal-Cost Multi-Path)**: Supported only with TGW. Allows aggregate throughput across multiple VPN tunnels by spreading traffic across them.
 - Higher scalability than VGW.
 
 ---

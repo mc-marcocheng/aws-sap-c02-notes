@@ -40,12 +40,20 @@ Provides cloud-backed iSCSI block storage volumes.
 - **Virtual Tape Library (VTL)**: Backed by S3.
 - **Virtual Tape Shelf (VTS)**: Backed by S3 Glacier or Deep Archive for long-term retention.
 
+## Deployment Options
+- **Virtual Appliance**: Deployed as a VM on VMware ESXi, Microsoft Hyper-V, or Linux KVM.
+- **EC2 Instance**: Deployed within a VPC for cloud-to-cloud scenarios.
+- **Hardware Appliance**: A physical, dedicated server device for on-premises environments where virtualization is not available.
+
 ---
 ## Key Architecture & Trade-offs
 
+> [!exam] Key Decision Matrix
+> - **Ongoing Hybrid Access**: Use **File Gateway** (S3 or FSx).
+> - **Data Migration (One-time or Periodic)**: Use **[[DataSync]]**.
+> - **Cloud-Backed Backup for Block Storage**: Use **Volume Gateway**.
+
 - **Security**: Data is encrypted in transit (SSL) and at rest (SSE-S3 or SSE-KMS).
-- **Deployment**: Can be deployed on-premises as a VM (VMware, Hyper-V, KVM) or in AWS as an EC2 instance.
-- **Performance**: Bottlenecked by network bandwidth and local disk I/O for caching.
 
 > [!exam] Trade-off: Stored vs. Cached Volumes
 > - **RTO/RPO**: Stored volumes provide better RTO for local access since the primary data is on-prem.

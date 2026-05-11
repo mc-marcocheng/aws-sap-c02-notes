@@ -3,40 +3,30 @@ tags: [aws, sap-c02, management, cloudwatch]
 ---
 # CloudWatch Overview
 
-Amazon CloudWatch is a monitoring and observability service that provides data and actionable insights for AWS resources and applications.
+Monitoring and observability service for AWS resources and applications.
 
-## Core Concepts
-- **Metrics**: Time-ordered data points (Standard: 1-minute, High-Resolution: 1-second).
-- **Dimensions**: Name/value pairs that uniquely identify a metric (e.g., `InstanceId`).
-- **Statistics**: Metric data aggregations over specified periods (Average, Sum, Min, Max, SampleCount).
-- **Namespaces**: Containers for metrics (e.g., `AWS/EC2`).
+## Metrics and Resolution
+- **Standard Resolution:** 1-minute intervals. Default for most services.
+- **High Resolution:** Up to 1-second intervals. **Costs more**; used for mission-critical monitoring.
+- **Metric Math:** Perform real-time calculations across metrics (e.g., calculating `Error Rate = (Errors / TotalRequests) * 100`).
+- **Custom Metrics:** Memory utilization, disk space, and application-level metrics require the **CloudWatch Agent**.
 
 ## Alarms
-Alarms watch a single metric (or math expression) and perform actions based on thresholds.
-- **States**: `OK`, `ALARM`, `INSUFFICIENT_DATA`.
-- **Actions**:
-    - [[SNS]] Notifications.
-    - [[Auto Scaling Overview|Auto Scaling]] Policies.
-    - [[EC2 Overview|EC2]] Actions (Stop, Terminate, Reboot, Recover).
+- **Static Alarms:** Watch a single metric against a fixed threshold.
+- **Composite Alarms:** Combine multiple alarms using logic (**AND/OR**) to reduce alarm fatigue (e.g., alarm only if CPU > 80% AND IOPS > 1000).
+- **Actions:** SNS, Auto Scaling, or EC2 actions (Recover, Reboot, etc.).
 
-## CloudWatch Agent
-- A unified agent that collects **metrics** and **logs** from both EC2 instances and on-premises servers.
-- Can collect system-level metrics not available via standard monitoring (e.g., **Memory Utilization**, Disk Space).
+## Advanced Insights
+- **Contributor Insights:** Analyze log data to identify the "Top N" contributors (e.g., find the top 10 IP addresses causing the most 5xx errors).
+- **Anomaly Detection:** Uses ML to track metrics and identify patterns, automatically setting thresholds based on historical data.
 
 ## Dashboards
-- Customizable home pages to monitor resources in a single view across regions.
-- **Cross-Account Observability**: Allows a central monitoring account to view metrics, logs, and traces from multiple source accounts.
-
-## Metric Retention
-- 1-second data: 3 hours.
-- 60-second data: 15 days.
-- 5-minute data: 63 days.
-- 1-hour data: 455 days (15 months).
+- **Cross-Account Observability:** Centralize metrics, logs, and traces from multiple AWS accounts into a single dashboard.
 
 ![[cw-overview.png]]
 
 > [!exam]
-> **EC2 Custom Metrics**: Standard [[EC2 Overview|EC2]] metrics include CPU, Network, and Disk I/O. **Memory utilization** and **Disk swap** are NOT standard metrics and require the **CloudWatch Agent**.
+> **Resolution & Cost:** Remember that High-Resolution metrics (1s) provide granular visibility but at a higher price point. **Composite Alarms** are the answer for reducing noise by aggregating multiple conditions.
 
 ---
 ## Related Services
@@ -44,7 +34,6 @@ Alarms watch a single metric (or math expression) and perform actions based on t
 - [[CloudWatch Logs]]
 - [[EventBridge|Amazon EventBridge]]
 - [[SNS|Amazon SNS]]
-- [[Auto Scaling Overview|AWS Auto Scaling]]
 
 ---
 **Practice:** [[CloudWatch - Practice Questions|CloudWatch Practice Questions]]

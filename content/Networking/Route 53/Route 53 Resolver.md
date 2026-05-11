@@ -40,7 +40,7 @@ To bridge DNS between on-premises and AWS, you use Resolver Endpoints over VPN o
 | :--- | :--- |
 | **On-prem needs to resolve S3 PrivateLink** | Inbound Endpoint + Private Hosted Zone. |
 | **VPC needs to resolve on-prem AD** | Outbound Endpoint + Forwarding Rule. |
-| **Shared DNS across 100 VPCs** | Centralized TGW with a shared Outbound Endpoint (via RAM). |
+| **Shared DNS across 100 VPCs** | Centralized TGW with Resolver Endpoints in a **shared services VPC**. Share forwarding rules with other accounts via **Resource Access Manager (RAM)**. |
 | **Block C&C (Command & Control) domains** | Route 53 DNS Firewall with Managed Domain Lists. |
 
 > [!exam]

@@ -79,7 +79,17 @@ tags: [aws, sap-c02, networking, vpc]
 - **Source/Destination Check**: If using a **NAT Instance**, you must **disable** the Source/Destination check attribute on the instance for it to route traffic.
 
 ---
+## Related Services
+- [[_Networking Index|Networking Index]]
+- [[VPC Overview]]
+- [[Security Groups vs NACLs]]
+- [[VPC Endpoints]]
+
+---
 ## Troubleshooting Checklist
+
+<details>
+<summary>Click to expand NAT Gateway Troubleshooting Checklist</summary>
 
 1. **Route Table**: Does the private subnet have a route (0.0.0.0/0) pointing to the NAT Gateway/Instance?
 2. **Public Subnet**: Is the NAT device actually in a public subnet (with a route to an IGW)?
@@ -87,12 +97,7 @@ tags: [aws, sap-c02, networking, vpc]
 4. **NACLs/SGs**: Do they allow outbound traffic from the private instance and inbound/outbound on the NAT device?
 5. **EIP**: Does the Public NAT Gateway have an Elastic IP attached?
 
----
-## Related Services
-- [[_Networking Index|Networking Index]]
-- [[VPC Overview]]
-- [[Security Groups vs NACLs]]
-- [[VPC Endpoints]]
+</details>
 
 ---
 **Practice:** [[VPC NAT Gateway - Practice Questions|VPC NAT Gateway Practice Questions]]

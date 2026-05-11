@@ -17,6 +17,7 @@ AWS provides two layers of security to control network traffic in a [[VPC Overvi
 
 ## Security Groups (SG)
 - Act as a virtual firewall for associated instances.
+- **Peered VPCs**: You can reference Security Groups from **peered VPCs** in the same region as a source or destination in your SG rules.
 - **Default SG**: Allows all outbound, allows all inbound from other members of the same SG, denies all other inbound.
 - **New SG**: Allows all outbound, denies all inbound by default.
 - **Rule Changes**: Applied immediately to all associated instances.
@@ -26,7 +27,7 @@ AWS provides two layers of security to control network traffic in a [[VPC Overvi
 - **Rule Order**: Evaluated from lowest to highest number. As soon as a match is found, it is applied.
 - **Ephemeral Ports**: Because NACLs are stateless, you must allow outbound traffic to ephemeral ports (usually 1024-65535) for clients to receive responses from your servers.
 - **Default NACL**: Allows all inbound and outbound.
-- **New NACL**: Denies all inbound and outbound by default.
+- **Custom NACL**: Denies all inbound and outbound by default until rules are added.
 
 ![[security-groups-vs-nacls.jpg]]
 

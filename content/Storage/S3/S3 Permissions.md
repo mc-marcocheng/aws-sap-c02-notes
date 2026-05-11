@@ -27,6 +27,11 @@ When S3 receives a request, it evaluates all applicable policies ([[IAM]], Bucke
 ### Option C: ACLs (Legacy)
 - Used to grant permissions to other accounts or predefined groups (e.g., Log Delivery).
 
+### Option D: S3 Access Grants (Modern)
+- Maps corporate identities (from **IAM Identity Center**) directly to S3 prefixes.
+- **Key benefit**: Scalability. Avoids managing massive bucket policies for thousands of users.
+- Allows users to access S3 data based on their corporate group membership.
+
 ---
 ## 3. Object Ownership (Crucial for Exam)
 By default, an object is owned by the AWS account that uploaded it, NOT necessarily the bucket owner.

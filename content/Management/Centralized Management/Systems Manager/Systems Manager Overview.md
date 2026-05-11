@@ -13,22 +13,25 @@ AWS Systems Manager (SSM) provides a unified user interface so you can view oper
 
 ### 2. Application Management
 - **Parameter Store**: Secure, hierarchical storage for configuration data (AMI IDs, license keys) and secrets. Integrates with **[[KMS]]**.
+    - **Hierarchy**: Support structure like `/prod/db/password` for easy management and permissions.
+    - **Policies**: Supports policies for expiration notifications (TTL) and versioning.
 - **AppConfig**: Helps you create, manage, and quickly deploy application configurations.
 
 ### 3. Change Management
 - **Automation**: Simplifies common maintenance and deployment tasks (e.g., patching AMIs, updating drivers).
-- **Maintenance Windows**: Define recurring schedules for administrative tasks.
+- **Maintenance Windows**: Define recurring schedules for administrative tasks. Integrates with **Run Command**.
 
 ### 4. Node Management
-- **Run Command**: Securely manage the configuration of your managed nodes at scale without SSH/bastion hosts.
-- **Session Manager**: Interactive browser-based shell and CLI access to instances. **Provides an audit log of all commands.**
+- **Run Command**: Execute scripts and commands across hundreds of instances at scale without SSH. Integrates with maintenance windows.
+- **Session Manager**: Secure interactive shell access to EC2 without opening port 22 or managing SSH keys. Auditable via **[[CloudTrail]]** and CloudWatch Logs.
 - **Patch Manager**: Automates the process of patching managed nodes with security updates. Uses **Patch Baselines** and **Patch Groups**.
 - **Inventory**: Collects metadata from managed nodes (OS, applications, network settings).
 - **State Manager**: Maintains your managed nodes in a defined state (e.g., ensuring a specific agent is always running).
 
-## SSM Agent
-- Software that must be installed on your nodes (EC2, on-premises VMs) to communicate with Systems Manager.
-- Pre-installed on most Amazon-provided AMIs.
+## SSM Agent & Access Requirements
+- **SSM Agent**: Must be installed and running on nodes (EC2, on-premises VMs). Pre-installed on most Amazon-provided AMIs.
+- **IAM Role**: The instance must have an IAM role with the **`AmazonSSMManagedInstanceCore`** policy attached. This is the #1 troubleshooting step for SSM connectivity.
+- **Network**: The instance must have outbound access to SSM endpoints (via IGW, NAT Gateway, or **VPC Endpoints**).
 
 ## Parameter Store vs. Secrets Manager
 | Feature | Parameter Store | Secrets Manager |

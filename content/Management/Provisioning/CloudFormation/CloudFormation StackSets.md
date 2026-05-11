@@ -13,11 +13,16 @@ AWS CloudFormation StackSets extends the functionality of stacks by enabling you
 
 ## Permission Models
 
+StackSets use **two IAM roles** for operations: 
+- `AWSCloudFormationStackSetAdministrationRole`: In the administrator account, allows CloudFormation to perform operations on your behalf.
+- `AWSCloudFormationStackSetExecutionRole`: In the target accounts, allows the administration role to perform stack operations.
+- *Note*: When using Service-Managed permissions with AWS Organizations, these roles are created automatically in each account.
+
 | Feature | Self-Managed Permissions | Service-Managed Permissions |
 | :--- | :--- | :--- |
-| **Prerequisites** | [[IAM Roles and Policies|IAM Roles]] (Administration and Execution roles) created manually in each target account. | [[Organizations Overview|AWS Organizations]] with "All Features" enabled. |
+| **Prerequisites** | Roles created manually in each target account. | [[Organizations Overview|AWS Organizations]] with "All Features" enabled. |
 | **Targeting** | Specific AWS Account IDs. | Organizational Units (OUs) or the entire Organization. |
-| **Automatic Deployments** | No. Must manually deploy to new accounts. | Yes. Automatically deploys to new accounts added to targeted OUs. |
+| **Automatic Deployments** | No. Must manually deploy to new accounts. | **Yes.** Automatically deploys to new accounts when they join a targeted OU. |
 | **Management Account** | Any AWS Account. | Management Account or Delegated Administrator account. |
 
 ## Architecture & Concepts

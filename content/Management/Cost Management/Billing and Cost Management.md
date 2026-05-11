@@ -11,8 +11,19 @@ AWS provides a suite of tools to help you monitor, manage, and optimize your AWS
 - **AWS Compute Optimizer**: Recommends optimal AWS resources for your workloads to reduce costs and improve performance.
 
 ## Budgeting and Alerts
-- **AWS Budgets**: Set custom budgets for cost or usage and receive alerts when you exceed (or are forecasted to exceed) your thresholds.
-- **[[CloudWatch Overview|CloudWatch]] Billing Alarms**: Monitor your estimated charges and receive SNS notifications if they cross a certain amount. (Enabled in `us-east-1` for global billing metrics).
+- **AWS Budgets**: Set custom budgets for cost or usage and receive alerts. 
+    - **Budget Actions**: Can automatically trigger actions when thresholds are met (e.g., apply an SCP, stop an EC2/RDS instance).
+- **AWS Cost Anomaly Detection**: ML-based service that identifies anomalous spend and root causes to prevent cost surprises.
+- **[[CloudWatch Overview|CloudWatch]] Billing Alarms**: Monitor your estimated charges and receive SNS notifications.
+
+## Data Transfer Costs
+Understanding data transfer is critical for SAP-C02 cost optimization:
+- **Inbound Data Transfer**: Free (from Internet, same/different Region).
+- **Same Availability Zone (AZ)**: Free if using private IP.
+- **Cross-AZ**: ~$0.01/GB each way (inter-AZ transfer).
+- **Cross-Region**: ~$0.02/GB (transfer out to a different AWS Region).
+- **NAT Gateway**: $0.045/GB (data processing charge) **plus** standard EC2 data transfer charges.
+- **AWS Direct Connect / CloudFront**: Often used to reduce data transfer out costs compared to Internet.
 
 ## Resource Organization
 - **Cost Allocation Tags**: Use tags to track AWS costs on a detailed level. You must **activate** these tags in the Billing Console before they appear in Cost Explorer.

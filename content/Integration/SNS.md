@@ -3,41 +3,37 @@ tags: [aws, sap-c02, integration, sns]
 ---
 # Amazon Simple Notification Service (SNS)
 
-Amazon SNS is a fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications.
+Fully managed pub/sub messaging service for decoupling microservices, distributed systems, and serverless applications.
 
 ## Core Concepts
-- **Topics**: Logical access points and communication channels.
-- **Publishers (Producers)**: Send messages to topics.
-- **Subscribers (Consumers)**: Receive messages from topics via supported protocols.
-- **Fan-out Pattern**: A message published to an SNS topic is distributed to multiple subscribing endpoints (SQS, Lambda, HTTP, etc.) for parallel processing.
+- **Topics:** Logical access points/channels.
+- **Publishers:** Send messages to topics.
+- **Subscribers:** Receive messages via SQS, Lambda, HTTP, Email, SMS, or Mobile Push.
+- **Fan-out:** One message distributed to multiple subscribers for parallel processing.
 
-## Supported Protocols and Endpoints
-- **HTTP/HTTPS**: Post messages to webhooks.
-- **Email / Email-JSON**: Send text or JSON objects to email addresses.
-- **Amazon SQS**: Enqueue messages into SQS queues (highly reliable fan-out).
-- **AWS Lambda**: Trigger functions for serverless processing.
-- **Mobile Push**: Send notifications to mobile apps (APNS, GCM/FCM, ADM, etc.).
-- **SMS**: Send text messages to phone numbers.
-- **Kinesis Data Firehose**: Archive events to S3, Redshift, or OpenSearch.
+## Key Features
+- **Message Filtering:** Subscribers set filter policies based on message attributes. Only matching messages are delivered. **Benefit:** Reduces costs and unnecessary processing (e.g., Lambda invocations).
+- **SNS FIFO Topics:** Paired with **SQS FIFO Queues** to ensure ordered, deduplicated delivery across multiple subscribers.
+- **Encryption:** Encryption at rest ([[KMS]]) and in transit.
+- **Message Redrive (DLQ):** Capture failed deliveries at the subscription level.
+
+## Architecture Patterns
+- **SNS + SQS Fan-out:** One SNS topic fans out to multiple SQS queues.
+  - **Benefit:** Parallel processing where each consumer has its own queue, providing independent retries, visibility timeouts, and **Dead Letter Queues (DLQs)**.
+- **S3 Event Notifications:** S3 can publish events to SNS to trigger multiple downstream workflows.
 
 ![[sns-delivery-protocols.png]]
 
-## Key Features
-- **Message Filtering**: Subscribers can define filter policies so they only receive the messages they are interested in, rather than every message sent to the topic.
-- **Message Fan-out**: One-to-many communication pattern.
-- **Encryption**: Supports encryption at rest ([[KMS]]) and in transit (HTTPS).
-- **Message Redrive (DLQ)**: Assign a Dead Letter Queue to a subscription to capture messages that couldn't be delivered.
-
-## SNS vs. SQS
+## Comparison: SNS vs. SQS
 | Feature | Amazon SNS | Amazon SQS |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | **Model** | Pub/Sub (Push) | Message Queue (Pull/Polling) |
-| **Persistence** | No (lost if not delivered/retried) | Yes (1 min to 14 days) |
-| **Consumers** | Multiple (Fan-out) | Single consumer per message (usually) |
+| **Persistence** | No (messages ephemeral) | Yes (up to 14 days) |
+| **Consumers** | Multiple (Fan-out) | Single consumer per message |
 | **Use Case** | Real-time notifications | Decoupling, load smoothing |
 
 > [!exam]
-> **Fan-out Architecture**: For SAP-C02, if you need to perform multiple independent actions in response to a single event (e.g., an S3 upload triggering a thumbnail generation AND an image analysis), use an **SNS Topic** with multiple **SQS Queues** subscribed to it.
+> For the SAP-C02, if you need **parallel processing** of the same message by multiple different systems with **independent failure handling**, use the **SNS + SQS Fan-out pattern**.
 
 ## Related Services
 - [[_Integration Index|Integration Index]]

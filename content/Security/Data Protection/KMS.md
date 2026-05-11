@@ -8,12 +8,13 @@ AWS Key Management Service (KMS) is a managed service that makes it easy for you
 ## Key Types
 - **Symmetric KMS Keys**: 256-bit AES keys used for encryption and decryption. The key material never leaves KMS.
 - **Asymmetric KMS Keys**: Represents a public/private key pair. Used for encryption/decryption or signing/verification.
-- **Multi-Region Keys**: Primary and Replica keys in different regions with the same key ID and material. Useful for global applications.
+- **Multi-Region Keys**: Primary and Replica keys in different regions with the same key ID and material. **Same key material in all regions → same ciphertext can be decrypted in any region.** Use cases: DynamoDB Global Tables with client-side encryption, S3 CRR with encrypted objects.
 
 ## Key Management
 - **Customer Managed Keys (CMK)**: Keys you create and manage. You control policies and rotation.
 - **AWS Managed Keys**: Created and managed by AWS services (e.g., `aws/s3`). Automatically rotated every year.
 - **AWS Owned Keys**: Managed by AWS for use across multiple accounts; not visible in your account.
+- **Custom Key Store**: Uses **CloudHSM** as the backing for KMS keys. Combines FIPS 140-2 Level 3 security with KMS convenience.
 - **Aliases**: Friendly names for KMS keys. You can update an alias to point to a new key without changing application code (useful for manual rotation).
 
 ## Envelope Encryption
@@ -28,7 +29,11 @@ KMS uses envelope encryption to protect data:
 
 ## Access Control
 - **Key Policies**: Resource-based policies that are the primary way to control access. **Every key must have a key policy.**
-- **[[IAM]] Policies**: Can be used in combination with key policies if the key policy allows it (via `Enable IAM User Permissions` statement).
+- **[[IAM]] Policies**: Can be used in combination with key policies if the key policy allows it (via `Enable IAM User Permissions` statement). 
+    - **Policy Evaluation**: Both the key policy AND the IAM policy must allow access. The default key policy includes a statement that enables IAM policies to work; without it, only the key policy is evaluated.
+- **Cross-Account Access**: To share a key across accounts, you must:
+    1. Grant access to the external account in the **Key Policy**.
+    2. The external account must have an **IAM Policy** allowing `kms:Decrypt` (or other required actions).
 - **Grants**: Temporary, granular permissions often used by AWS services.
 
 ## KMS vs. CloudHSM

@@ -39,15 +39,21 @@ AWS Lambda is a serverless, event-driven compute service that lets you run code 
 ## Performance Optimization
 
 - **Cold Starts**: Latency when a new execution environment is created.
-- **Provisioned Concurrency**: Keeps a specified number of environments "warm" to eliminate cold starts for latency-sensitive apps.
-- **Memory Allocation**: CPU power scales linearly with memory. Increasing memory can often reduce duration and total cost.
+- **Provisioned Concurrency**: Keeps a specified number of environments "warm" to eliminate cold starts for latency-sensitive apps. **Pricing Note**: Eliminates cold starts but you pay for pre-warmed environments even when idle.
+- **Lambda SnapStart**: Dramatically reduces cold starts for **Java** functions by taking a snapshot of the initialized execution environment and resuming from it.
+- **Memory Allocation**: 128 MB - 10,240 MB. **CPU power scales linearly with memory**. At 1,769 MB, you get the equivalent of 1 full vCPU. Increasing memory can often reduce duration and total cost.
 
 ---
 ## SAP-C02 Strategic Considerations
 
 > [!important] **Lambda@Edge vs. CloudFront Functions**
+> See detailed comparison in [[CloudFront Edge Functions|CloudFront Edge Notes]].
 > - **Lambda@Edge**: Full Node.js/Python, supports network access, long execution (up to 30s). Good for complex logic at the edge.
 > - **CloudFront Functions**: JavaScript only, no network access, sub-millisecond execution. Good for header manipulation, URL rewrites.
+
+> [!important] **Limits and Timeouts**
+> - **Timeout**: Maximum of 15 minutes. If processing exceeds this, use **Step Functions** to orchestrate or **ECS/Fargate** for long-running tasks.
+> - **Payload Size**: 6MB (Synchronous), 256KB (Asynchronous).
 
 > [!important] **Database Connectivity**
 > Use **RDS Proxy** to manage a pool of database connections, as Lambda can easily overwhelm RDS with too many concurrent connections during scaling.

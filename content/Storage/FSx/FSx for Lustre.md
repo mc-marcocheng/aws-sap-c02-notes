@@ -15,12 +15,12 @@ Amazon FSx for Lustre is a high-performance file system optimized for workloads 
 ### Scratch File Systems
 - **Best For**: Temporary storage and short-term processing.
 - **Durability**: Data is **not replicated**. If a file server fails, data is lost.
-- **Burst**: Supports high burst throughput (up to 6x baseline).
+- **Key Concept**: **Scratch = Temporary**. Use for transient data processing where cost is more important than durability.
 
 ### Persistent File Systems
 - **Best For**: Long-term storage and workloads that run indefinitely.
 - **Durability**: Data is **automatically replicated** within the same Availability Zone.
-- **High Availability**: Infrastructure components are replaced automatically upon failure.
+- **Key Concept**: **Persistent = Long-running**. Use when data must persist across server failures.
 
 ---
 ## 3. S3 Integration (Data Repository)

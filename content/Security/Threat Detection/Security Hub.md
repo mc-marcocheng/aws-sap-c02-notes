@@ -6,7 +6,7 @@ tags: [aws, sap-c02, security]
 AWS Security Hub is a cloud security posture management (CSPM) service that performs security best practice checks, aggregates alerts, and enables automated remediation.
 
 ## Key Functions
-- **Consolidated Findings**: Aggregates findings from multiple AWS services and third-party partners.
+- **Consolidated Findings**: Aggregates findings from multiple AWS services and third-party partners using the **AWS Security Finding Format (ASFF)**, a standardized JSON format.
 - **Security Standards**: Automatically checks your environment against standards like:
     - **AWS Foundational Security Best Practices**
     - **CIS AWS Foundations Benchmark**
@@ -25,7 +25,8 @@ Security Hub consumes findings from:
 ![[product-page-diagram-aws-security-hub-402x-7e7c0483e9ce1507af2e9214247a1825a27d6bde.png]]
 
 ## Automation and Remediation
-- **Amazon [[EventBridge]]**: Findings can trigger EventBridge rules for automated remediation (e.g., triggering a Lambda function to fix a misconfiguration).
+- **Amazon [[EventBridge]]**: Findings can trigger EventBridge rules for automated remediation.
+- **Automated Remediation Pattern**: **Security Hub Finding** → **[[EventBridge|Amazon EventBridge]]** → **[[Systems Manager Overview|SSM Automation]]** or **[[Lambda]]**.
 - **Custom Actions**: Users can define manual or automated actions for specific findings.
 
 > [!important] Prerequisites

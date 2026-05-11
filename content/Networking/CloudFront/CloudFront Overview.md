@@ -11,9 +11,9 @@ Amazon CloudFront is a fast content delivery network (CDN) service that securely
 - **Distribution**: A configuration that tells CloudFront how to deliver your content.
 
 ## Origin Types
-- **S3 Bucket**: Deliver static website content. Use **Origin Access Control (OAC)** or **Origin Access Identity (OAI)** to restrict direct S3 access.
+- **S3 Bucket**: Deliver static website content. Use **Origin Access Control (OAC)** to restrict direct S3 access. OAC is the modern replacement for OAI, supporting SSE-KMS, all AWS regions, and improved security. **Always prefer OAC.**
 - **Custom Origin**: HTTP servers (ALB, EC2, or on-premises).
-- **Origin Groups**: Provide failover between a primary and secondary origin for high availability.
+- **Origin Groups (Origin Failover)**: Provide high availability by grouping a primary and secondary origin. CloudFront automatically routes to the secondary origin if the primary returns specific 5xx errors or timeouts.
 
 ## Cache Behaviors
 - **Path Patterns**: Route requests to different origins based on URL paths (e.g., `images/*` vs `api/*`).
@@ -22,7 +22,9 @@ Amazon CloudFront is a fast content delivery network (CDN) service that securely
 
 ## Security
 - **HTTPS**: Use **AWS Certificate Manager (ACM)** in `us-east-1` for SSL/TLS.
-- **Signed URLs / Cookies**: Restrict content to specific users (e.g., premium content).
+- **Signed URLs / Cookies**: Restrict content to specific users.
+    - **Signed URLs**: Best for individual files (e.g., a single download link).
+    - **Signed Cookies**: Best for multiple files or entire sections of a site (e.g., HLS video segments).
 - **Field-Level Encryption**: Encrypt sensitive data at the edge before it's sent to the origin.
 - **AWS WAF**: Integrate for Layer 7 protection.
 

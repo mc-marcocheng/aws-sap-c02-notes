@@ -24,6 +24,11 @@ AWS Transfer Family is a secure, fully managed transfer service that enables you
 - **Migration**: Move legacy file transfer workloads to the cloud without changing client-side applications.
 - **Data Ingestion**: Directly ingest data from external sources into an S3 data lake or EFS file system.
 
+## Connectivity & Security
+- **VPC Deployment**: Transfer Family endpoints can be deployed **inside a VPC**. This allows for private access over [[Direct Connect Overview|Direct Connect]] or [[VPN]] and ensures that the endpoint is not accessible from the public internet.
+- **Security Groups**: When deployed in a VPC, you can use **Security Groups** to control which IP addresses can access your transfer endpoints.
+- **FIPS 140-2**: Endpoints can be configured to use FIPS-compliant cryptography for highly regulated industries.
+
 > [!info] Storage Integration
 > AWS Transfer Family acts as a gateway; the actual data resides in **Amazon S3** or **Amazon EFS**, allowing you to leverage their respective lifecycle, security, and durability features.
 

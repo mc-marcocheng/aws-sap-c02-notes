@@ -9,13 +9,26 @@ Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity i
 
 > [!info] **Key Features**
 > - **Instances**: Virtual computing environments.
-> - **Amazon Machine Images (AMIs)**: Preconfigured templates containing the OS and software.
+> - **Amazon Machine Images (AMIs)**: Preconfigured templates containing the OS and software. See [[#Amazon Machine Images (AMI)]].
 > - **Instance Types**: Various configurations of CPU, memory, storage, and networking capacity.
 > - **Key Pairs**: Secure login information (Public key stored by AWS, private key by user).
 > - **Instance Store**: Temporary (ephemeral) storage volumes deleted when the instance is stopped or terminated.
 > - **EBS Volumes**: Persistent storage volumes using [[EBS Overview]].
 > - **Security Groups**: Virtual firewalls to control inbound and outbound traffic.
 > - **Elastic IP Addresses**: Static IPv4 addresses for dynamic cloud computing.
+
+## Amazon Machine Images (AMI)
+AMIs are **regional**. To use an AMI in another region, you must **copy** the AMI to that region. To share an AMI cross-account, you must modify its launch permissions.
+
+## Nitro System
+The **Nitro System** is the underlying platform for the latest generation of EC2 instances. 
+- Nitro instances provide better performance, lower cost, and are required for some features (EBS Multi-Attach io2, Enhanced Networking, Hibernation).
+
+## Additional Features
+- **EC2 Hibernate**: Saves RAM to EBS root volume. Instance resumes with same process state. Useful for long-initialization apps. Requires encrypted root volume + Nitro.
+- **Capacity Reservations**: Guarantees capacity in a specific AZ without a 1/3-year commitment (unlike RIs).
+    - **On-Demand Capacity Reservations**: Guarantees capacity for a specific instance type in an AZ.
+    - **Capacity Blocks**: Specifically for ML workloads (GPU instances) for a specified duration.
 
 ## Storage Comparison
 

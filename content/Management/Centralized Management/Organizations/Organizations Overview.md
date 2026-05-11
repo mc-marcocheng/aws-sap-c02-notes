@@ -13,7 +13,8 @@ AWS Organizations is an account management service that enables you to consolida
 
 ## Key Features
 - **Consolidated Billing**: Pay for all accounts from the management account and benefit from volume discounts.
-- **Service Control Policies (SCPs)**: JSON policies that specify the maximum available permissions for an OU or account. **SCPs do not grant permissions; they filter them.**
+- **Service Control Policies (SCPs)**: JSON policies that specify the **maximum boundary** (permissions guardrail) for an OU or account. SCPs do NOT grant permissions. An SCP Allow does not mean access is granted — the account still needs an IAM policy to Allow.
+- **Delegated Administrator**: Allows a member account to manage specific AWS services (GuardDuty, Security Hub, etc.) on behalf of the organization without using the management account.
 - **Trusted Access**: Allows other AWS services (like [[CloudTrail]], [[Config]], [[GuardDuty]]) to integrate with Organizations to perform actions across all accounts.
 - **Tag Policies**: Enforce consistent tagging across resources.
 - **Backup Policies**: Centrally manage [[Backup|AWS Backup]] schedules.

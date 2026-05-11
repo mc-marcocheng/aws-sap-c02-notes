@@ -18,14 +18,12 @@ CloudWatch Logs enables you to monitor, store, and access log files from [[EC2 O
     - **Infrequent Access**: Cost-optimized (50% cheaper ingestion, no subscription filters).
 
 ## Real-Time Processing
-- **Subscription Filters**: Send real-time feeds of log events to:
-    - **[[Kinesis Overview|Kinesis Data Streams]]**
-    - **[[Kinesis Overview|Kinesis Data Firehose]]**
-    - **[[Lambda|AWS Lambda]]**
-    - **[[OpenSearch|Amazon OpenSearch Service]]**
+- **Subscription Filters**: Send real-time feeds of log events to [[Kinesis Overview|Kinesis]], [[Lambda]], or [[OpenSearch]].
+    - **Limit**: You can have up to **2 subscription filters per log group**.
 
 ## Advanced Features
-- **CloudWatch Logs Insights**: Interactive log analytics using a purpose-built query language.
+- **CloudWatch Logs Insights**: Interactive query language for searching and analyzing log data. Supports complex queries, aggregations, and visualizations.
+- **Cross-Account Log Sharing**: Use **CloudWatch Logs destinations** to centralize logs from multiple accounts into a single account (e.g., a central logging account).
 - **Anomaly Detection**: Uses ML to automatically identify anomalies in log patterns.
 - **Data Protection**: Automatically masks sensitive data (PII) using data protection policies.
 

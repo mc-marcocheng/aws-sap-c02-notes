@@ -23,7 +23,7 @@ AWS CloudFormation provides a common language for you to describe and provision 
 - **Nested Stacks**: Stacks created as part of other stacks using the `AWS::CloudFormation::Stack` resource. Best practice for modularizing templates.
 - **Custom Resources**: Allow you to include resources not natively supported by CloudFormation, often backed by **[[Lambda]]**.
 - **Drift Detection**: Identifies if resources have been modified outside of CloudFormation.
-- **Stack Policies**: Prevents stack resources from being unintentionally updated or deleted during a stack update.
+- **Stack Policies**: Prevent accidental updates or replacements of critical resources (e.g., production RDS instances) during a stack update. By default, all resources can be updated; a stack policy explicitly allows or denies updates.
 
 ## Resource Attributes
 - **CreationPolicy**: Waits for success signals (e.g., from an EC2 user-data script).

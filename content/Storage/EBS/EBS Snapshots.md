@@ -21,11 +21,19 @@ EBS Snapshots are point-in-time, incremental backups of EBS volumes stored in Am
 - **Multi-Volume Snapshots**: Allows taking crash-consistent snapshots across multiple volumes attached to an instance.
 
 ### Copying & Sharing
-- **Copying**: Snapshots can be copied across regions for Disaster Recovery. The first copy is a full copy; subsequent copies are incremental.
+- **Copying**: Snapshots can be copied across regions for Disaster Recovery.
+    - **Note**: Cross-region snapshot copy creates a **full copy** the first time (not incremental). Subsequent copies are incremental.
 - **Sharing**: You can share snapshots with other AWS accounts or make them public (unencrypted only).
 
 ---
-## 3. Encryption
+## 3. EBS Snapshot Archive
+- **Archive Tier**: A lower-cost storage tier for long-term retention of snapshots.
+- **Cost**: ~75% cheaper than the standard tier.
+- **Retrieval**: Retrieval takes 24-72 hours (not for instant recovery).
+- **Use Case**: Rare access (e.g., end-of-year compliance) where cost is prioritized over recovery speed.
+
+---
+## 4. Encryption
 - **Encrypted Volumes**: Snapshots of encrypted volumes are automatically encrypted using the same [[KMS]] key.
 - **Encrypted Snapshots**: Volumes created from encrypted snapshots are automatically encrypted.
 - **Re-encryption**: You can change the KMS key during the snapshot copy process.

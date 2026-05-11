@@ -3,6 +3,13 @@ tags: [aws, sap-c02, networking, elb]
 ---
 # ELB Advanced Configuration
 
+> [!abstract] **TL;DR: Exam Critical Facts**
+> - **Subnet requirements**: Needs at least a **/27** mask and **8 free IP addresses**.
+> - **Cross-Zone Load Balancing**: **ALB** (Free + Enabled by default), **NLB** (Paid + Disabled by default).
+> - **SNI (Server Name Indication)**: Supported by **ALB** and **NLB**; NOT supported by CLB.
+> - **Pre-warming**: Contact AWS Support for expected massive traffic spikes.
+> - **Proxy Protocol**: Used by **NLB** only for client IP passthrough when not using Instance ID targets.
+
 This note covers specialized features, networking requirements, and advanced configurations for Elastic Load Balancing (ALB, NLB, and GWLB).
 
 ## 1. Networking & Subnets

@@ -7,9 +7,9 @@ AWS CodePipeline is a fully managed continuous delivery service that helps you a
 
 ## 1. Features
 - **Workflow Automation**: Automates the build, test, and deploy phases of your release process every time there is a code change.
-- **Integrations**: Integrates tightly with other AWS services like CodeCommit, CodeBuild, CodeDeploy, ECS, Elastic Beanstalk, S3, and third-party tools (GitHub, Bitbucket, Jenkins).
+- **Manual Approval Actions**: Insert a manual gate before production deployment. Authorized users must approve before the pipeline continues. Can send notifications via [[SNS]].
 - **Custom Plugins**: You can integrate custom tools and actions into your pipeline.
-- **Approvals**: Supports manual approval actions to pause the pipeline until an authorized user approves.
+- **Integrations**: Integrates tightly with other AWS services like CodeCommit, CodeBuild, CodeDeploy, ECS, Elastic Beanstalk, S3, and third-party tools (GitHub, Bitbucket, Jenkins).
 
 ## 2. Architecture
 - **Artifacts**: CodePipeline uses Amazon S3 to store and pass artifacts (e.g., source code, built binaries) between stages.
@@ -23,7 +23,7 @@ AWS CodePipeline is a fully managed continuous delivery service that helps you a
 - Managing multi-region or cross-account deployments.
 
 ## Strategic Scenarios (SAP-C02)
-- **Cross-Account Deployments**: To deploy across accounts, CodePipeline in Account A assumes a cross-account IAM role in Account B. The S3 artifact bucket must have a bucket policy granting Account B read access, and AWS KMS Customer Managed Keys (CMK) must be used to encrypt the S3 artifacts (AWS managed keys cannot be shared cross-account).
+- **Cross-Account Deployments**: Cross-account pipelines require the **artifact S3 bucket** to have a bucket policy allowing the target account, and the **KMS key must be shared**. CodePipeline in Account A assumes a cross-account IAM role in Account B. AWS KMS Customer Managed Keys (CMK) must be used (AWS managed keys cannot be shared cross-account).
 - **Pipeline Security**: Secure the pipeline using IAM policies for the pipeline role. Use manual approvals controlled by IAM policies restricting who can approve.
 - **Dynamic Pipelines**: Integrating CloudFormation to provision testing environments in a Test stage and tear them down afterward.
 

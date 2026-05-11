@@ -7,36 +7,30 @@ Amazon [[RDS Overview|RDS]] provides two primary mechanisms for data redundancy 
 
 ## Multi-AZ vs. Read Replicas Comparison
 
-| Feature | Multi-AZ (High Availability) | Read Replicas (Scalability) |
-| :--- | :--- | :--- |
-| **Replication** | Synchronous | Asynchronous |
-| **Primary Use** | Disaster Recovery / High Availability | Scaling Read Workloads |
-| **Active Instances** | Only Primary is accessible | Replica is readable |
-| **Failover** | Automatic (CNAME update) | Manual promotion required |
-| **Backups** | Taken from Standby (no impact on Primary) | No backups by default |
-| **Region** | Same Region | Same or Cross-Region |
-| **Cost** | 2x (Primary + Standby) | Per-replica pricing |
+| Feature | Multi-AZ DB Instance | Multi-AZ DB Cluster | Read Replicas |
+| :--- | :--- | :--- | :--- |
+| **Replication** | Synchronous | Synchronous | Asynchronous |
+| **Standby Read** | **No** (Passive) | **Yes** (2 Readables) | **Yes** |
+| **Failover** | Automatic (60-120s) | Automatic (< 35s) | Manual Promotion |
+| **AZs** | 2 | 3 | 1 per replica |
 
 ---
 ## Multi-AZ Deployments
 
-> [!info] **Operational Mechanics**
-> - RDS automatically provisions a standby instance in a different Availability Zone.
-> - Data is synchronously replicated from the Primary to the Standby.
-> - **Failover**: Triggered by AZ failure, Primary instance failure, or manual reboot with failover. The DNS CNAME is updated to point to the Standby.
-
-### Multi-AZ DB Cluster (New)
-- Consists of one primary and **two readable standby instances** in three different AZs.
-- Provides faster failover (typically < 35s) compared to standard Multi-AZ.
-- Standby instances **can serve read traffic**.
+- **Multi-AZ DB Instance**: The classic option. One primary and one standby (passive/non-readable). Failover updates DNS.
+- **Multi-AZ DB Cluster**: One primary and **two readable standby instances** across 3 AZs. Optimized for faster failover and high-throughput workloads. Standbys can serve read traffic.
 
 ---
 ## Read Replicas
 
 > [!info] **Operational Mechanics**
-> - Data is replicated asynchronously using the engine's native replication (e.g., MySQL binary logs).
-> - **Use Cases**: Offloading reporting queries, scaling read-heavy applications, and testing changes (by promoting the replica).
-> - **Promotion**: A read replica can be promoted to a standalone DB instance, but this breaks replication.
+> - Data is replicated asynchronously using the engine's native replication.
+> - **Promotion**: A read replica can be **promoted** to a standalone DB instance. This is a common DR strategy and a way to create a copy for testing.
+
+> [!exam]
+> - **Read Replicas** can be promoted to a standalone instance.
+> - **Classic Multi-AZ** standby is NOT readable.
+> - **Multi-AZ Clusters** provide 2 readable standbys and faster failover.
 
 ### Cross-Region Read Replicas
 - Essential for **Disaster Recovery (DR)**. Provides a low RPO (Recovery Point Objective) by having data in another region.

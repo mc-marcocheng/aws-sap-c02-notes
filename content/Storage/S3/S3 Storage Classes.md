@@ -51,13 +51,15 @@ tags: [aws, sap-c02, storage, s3]
 
 ### S3 Glacier Flexible Retrieval
 - **Retrieval Options**:
-    - **Expedited**: 1-5 minutes.
+    - **Expedited**: 1-5 minutes (Highest cost; use for urgent data).
     - **Standard**: 3-5 hours.
-    - **Bulk**: 5-12 hours (Free).
+    - **Bulk**: 5-12 hours (**Free**).
 - **Vault Lock**: Enforces WORM (Write Once Read Many) policies for compliance.
 
 ### S3 Glacier Deep Archive
-- **Retrieval Time**: 12 hours (Standard) or 48 hours (Bulk).
+- **Retrieval Options**:
+    - **Standard**: 12 hours.
+    - **Bulk**: 48 hours (**Free**).
 - **Cost**: Lowest storage cost in AWS.
 - **Ideal For**: Regulatory compliance (7-10 years) where data is rarely accessed.
 

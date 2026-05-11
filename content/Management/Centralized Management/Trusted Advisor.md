@@ -3,26 +3,26 @@ tags: [aws, sap-c02, management]
 ---
 # AWS Trusted Advisor
 
-AWS Trusted Advisor is an online tool that provides real-time guidance to help you provision your resources following AWS best practices. It inspects your AWS environment and makes recommendations across five categories.
+AWS Trusted Advisor provides guidance to help you provision your resources following AWS best practices. It inspects your AWS environment and makes recommendations across five categories.
+
+> [!important]
+> **Key Exam Fact**: Trusted Advisor checks are **NOT real-time**. They refresh periodically. For real-time compliance checking, use **[[Config|AWS Config]]**.
 
 ## Trusted Advisor Categories
+- **Cost Optimization**: Idle resources, unassociated EIPs.
+- **Security**: Public S3 buckets, unrestricted SSH, MFA on root.
+- **Fault Tolerance**: Single-AZ deployments, missing snapshots.
+- **Performance**: Overutilized EBS, high CloudFront header usage.
+- **Service Limits**: Checks usage > 80% of quotas.
 
-| Category | Description |
-| --- | --- |
-| **Cost Optimization** | Highlights unused resources and opportunities to reduce your bill (e.g., idle [[ELB Overview|Load Balancers]], unassociated EIPs). |
-| **Security** | Identifies security gaps (e.g., S3 buckets with public access, unrestricted SSH access, MFA not enabled on root). |
-| **Fault Tolerance** | Increases resiliency by highlighting redundancy shortfalls (e.g., single-AZ deployments, missing snapshots). |
-| **Performance** | Improves speed and responsiveness (e.g., overutilized [[EBS Overview|EBS]] volumes, high [[CloudFront Overview|CloudFront]] header usage). |
-| **Service Limits** | Checks usage that is more than 80% of your service limits (quotas). |
-
-## Support Plans and Access
-- **Basic and Developer**: Access to core security and service limit checks.
-- **Business and Enterprise**: Access to the full set of checks.
-- **Trusted Advisor Priority**: (Enterprise only) Prioritized recommendations and visibility into risks identified by AWS account teams.
+## Support Plans Access
+- **Basic and Developer**: Core security and service limit checks only.
+- **Business and Enterprise**: Full set of all checks.
+- **Trusted Advisor Priority**: (Enterprise only) Prioritized recommendations.
 
 ## Automation
-- **AWS Support API**: Programmatic access to Trusted Advisor recommendations.
-- **[[EventBridge|Amazon EventBridge]]**: Can trigger automated actions based on Trusted Advisor status changes.
+- **AWS Support API**: Programmatic access to recommendations.
+- **[[EventBridge|Amazon EventBridge]]**: Trigger actions based on status changes.
 
 ![[trusted-advisor-categories.png]]
 

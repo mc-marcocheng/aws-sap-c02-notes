@@ -13,16 +13,32 @@ AWS API Gateway is a fully managed service that makes it easy for developers to 
 | **Regional** | For clients in the same region. | Lower latency for regional resources (e.g., EC2 in same region). |
 | **Private** | Accessible only from within a VPC via an interface VPC endpoint (PrivateLink). | Internal microservices or sensitive data. |
 
+## API Types
+
+| Type | Description |
+| --- | --- |
+| **HTTP API** | Optimized for serverless workloads. Lower latency, lower cost (up to 70% cheaper than REST). Lacks some features (WAF, caching, usage plans). |
+| **REST API** | Full-featured API. Supports WAF, caching, usage plans, and request/response transformation. |
+| **WebSocket API** | Maintains a persistent connection for real-time, two-way communication (e.g., chat apps, dashboards). |
+
+## Integration Types
+
+- **Lambda Proxy**: (Most common) API Gateway passes the entire request to Lambda. Simple to set up.
+- **HTTP Proxy**: Pass the request through to an HTTP backend.
+- **AWS Service Integration**: Directly integrate with other AWS services (e.g., S3, Kinesis) without a Lambda function.
+- **Custom Integration**: Manual mapping of request/response using VTL templates.
+
 ## Key Features
 
 ### 1. Security
 - **Authentication**: Supports IAM, Lambda Authorizers, and Amazon Cognito.
-- **WAF Integration**: Protect APIs against common web exploits.
+- **WAF Integration**: Protect APIs against common web exploits (REST APIs only).
 - **Resource Policies**: Restrict access based on IP, VPC, or account.
 
 ### 2. Performance & Resiliency
 - **Caching**: API Gateway can cache responses to reduce backend load and improve latency.
 - **Throttling**: Limit request rates (RPS) and bursts to protect backend services. Returns **429 Too Many Requests**.
+- **Usage Plans & API Keys**: Allow you to throttle per-customer usage. **API Keys are not for authentication** (use tokens/IAM for that).
 - **Canary Deployments**: Safely roll out changes by routing a percentage of traffic to a new version.
 
 ### 3. Lifecycle Management

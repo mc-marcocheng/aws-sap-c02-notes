@@ -7,8 +7,9 @@ AWS WAF is a web application firewall that helps protect your web applications o
 
 ## Key Features
 - **Integration**: Tightly integrates with **[[CloudFront Overview|CloudFront]]**, **[[ALB Overview|ALB]]**, **[[API Gateway]]**, and **AWS [[AppSync]]**.
-- **Managed Rules**: Pre-configured rules provided by AWS and Marketplace sellers (e.g., OWASP Top 10, IP reputation lists).
+- **Managed Rules**: Pre-configured rules provided by AWS and Marketplace sellers (e.g., OWASP Top 10, IP reputation lists). **AWS WAF Bot Control** provides managed protection against common and pervasive bots.
 - **Custom Rules**: Define rules based on IP addresses, HTTP headers, HTTP body, URI strings, SQL injection, and XSS.
+    - **Scope-down Statements**: Use scope-down statements to narrow the scope of a rule (e.g., apply a rule only to specific paths or if another condition is met).
 - **Actions**: `Allow`, `Block`, `Count` (Monitor), `CAPTCHA`, and `Challenge`.
 
 ## Deployment Models
@@ -16,10 +17,6 @@ AWS WAF is a web application firewall that helps protect your web applications o
 - **Regional**: Deployed with **[[ALB Overview|ALB]]** or **[[API Gateway]]** to protect regional resources.
 
 ![[how-waf-works.png]]
-
-## Modern Architecture vs. WAF Sandwich
-> [!caution] Obsolete Architecture: WAF Sandwich
-> The "WAF Sandwich" (EC2 instances running WAF software between two ELBs) is largely obsolete for most use cases. The modern, cloud-native approach is to use **AWS WAF** directly on the **ALB** or **CloudFront**.
 
 ### Dynamic Updates with Lambda
 WAF can be updated dynamically using **[[CloudWatch Logs]]**, **S3**, and **[[Lambda|AWS Lambda]]**.

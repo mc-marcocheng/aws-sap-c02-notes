@@ -3,11 +3,14 @@ tags: [aws, sap-c02, database, rds]
 ---
 # RDS Overview
 
-Amazon Relational Database Service (Amazon [[RDS Overview|RDS]]) is a managed service that makes it easy to set up, operate, and scale relational databases in the cloud. It supports multiple database engines: MySQL, MariaDB, PostgreSQL, Oracle, Microsoft SQL Server, and Amazon [[Aurora Overview|Aurora]].
+Amazon Relational Database Service (Amazon [[RDS Overview|RDS]]) is a managed service that makes it easy to set up, operate, and scale relational databases in the cloud. 
+
+**Supported Engines**: MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Db2.
 
 ## Core Components
 
 ### DB Instances and Storage
+- **RDS Custom**: Gives you access to the underlying OS and database for Oracle and SQL Server. Used for custom patches, third-party agents, or OS-level access that managed RDS doesn't allow.
 - **Instance Classes**: Various combinations of CPU and memory.
 - **Storage Types**: 
   - **General Purpose SSD (gp2/gp3)**: Balanced for a wide range of workloads.
@@ -49,8 +52,10 @@ Amazon Relational Database Service (Amazon [[RDS Overview|RDS]]) is a managed se
 
 ## Advanced Features
 
-> [!info] **RDS Proxy**
-> A highly available database proxy that pools and shares established database connections. Essential for **[[Lambda]]** architectures to prevent connection exhaustion.
+### RDS Proxy
+- **Managed Connection Pooling**: Reduces database load and handles connection multiplexing.
+- **Lambda Integration**: Solves the "too many connections" problem for serverless functions.
+- **Faster Failover**: Reduces failover time by **66%+** by bypassing the need for DNS propagation.
 
 > [!info] **Performance Insights**
 > A dashboard to visualize database load and identify bottlenecks (e.g., high-load SQL queries).

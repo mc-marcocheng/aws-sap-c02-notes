@@ -13,7 +13,7 @@ Direct Connect Gateway is a global network resource that simplifies the connecti
 ## 2. Connectivity Options
 
 ### A. DXGW + Virtual Private Gateway (VGW)
-- Connects a single Private VIF to up to **10 VGWs**.
+- Connects a single Private VIF to up to **20 VGWs**.
 - **Rule**: VPCs cannot have overlapping CIDR blocks.
 - **Rule**: DXGW does **not** allow transitive routing between VPCs (VPC A cannot talk to VPC B through the DXGW).
 
@@ -28,7 +28,7 @@ Direct Connect Gateway is a global network resource that simplifies the connecti
 | Feature | Direct Connect to VGW | Direct Connect to DXGW |
 | :--- | :--- | :--- |
 | **Scope** | Single Region | **Global** |
-| **VPC Connections** | 1 VPC per Private VIF | Up to 10 VPCs per DXGW |
+| **VPC Connections** | 1 VPC per Private VIF | Up to 20 VPCs per DXGW |
 | **Complexity** | High (1 VIF per VPC) | Low (1 VIF for many VPCs) |
 | **Multi-account** | No | **Yes** |
 

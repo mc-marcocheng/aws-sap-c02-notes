@@ -17,10 +17,16 @@ AWS Global Accelerator is a networking service that improves the availability an
 - Elastic IP Addresses
 
 ## Key Features
+- **Static Anycast IPs**: Two fixed entry points for your application.
 - **Health Checks**: Automatically reroutes traffic to healthy endpoints.
+- **Client IP Preservation**: Global Accelerator preserves the **client IP address**. Useful for geo-blocking or client identification at origin (supported on ALB and EC2 endpoints).
 - **Client Affinity**: Sticky sessions based on source IP.
 - **Weighting**: Control traffic distribution across regions.
 - **BYOIP**: Bring your own IP addresses to AWS.
+
+## Accelerator Types
+- **Standard Accelerator**: Automatically routes traffic to the nearest healthy endpoint (ALB, NLB, EC2, EIP).
+- **Custom Routing Accelerator**: Deterministically routes traffic to specific EC2 instances and ports in one or more VPCs. Ideal for gaming or specialized applications requiring direct instance control.
 
 ## CloudFront vs. Global Accelerator
 

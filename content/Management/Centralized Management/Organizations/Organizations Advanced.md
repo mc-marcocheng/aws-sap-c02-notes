@@ -26,7 +26,43 @@ By default, only the Management account can configure organization-wide settings
 
 1. **Tag Policies**: Enforce standardization of tags across resources. You can specify required tag keys, allowed values, and even force casing. They do not retroactively modify tags but can prevent non-compliant tag changes.
 2. **Backup Policies**: Centrally manage and apply AWS Backup plans across the organization.
-3. **AI Services Opt-Out Policies**: Control whether AWS can store and use your content to improve AWS AI services (like Rekognition, Comprehend, Lex).
+3. **AI Services Opt-Out Policies**: Control whether AWS can use your content to improve AI services. (Rarely tested)
+
+### Example: Region Restriction SCP
+The most common exam pattern for region control. This policy denies all actions in any region except the approved ones.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyAllOutsideApprovedRegions",
+            "Effect": "Deny",
+            "NotAction": [
+                "iam:*",
+                "organizations:*",
+                "route53:*",
+                "budgets:*",
+                "waf:*",
+                "cloudfront:*",
+                "globalaccelerator:*",
+                "importexport:*",
+                "support:*"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:RequestedRegion": [
+                        "us-east-1",
+                        "eu-west-1"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+*Note: Global services must be excluded from the Deny.*
 
 ## Cross-Account Access Strategies
 

@@ -41,10 +41,25 @@ Amazon [[Aurora Serverless]] is an on-demand, auto-scaling configuration for [[A
 - **Automatic Failover**: If an AZ failure occurs, Aurora Serverless recreates the instance in a different AZ.
 - **Failover Time**: Generally slower than Aurora Provisioned (which has hot replicas).
 
+## Aurora Serverless v1 vs v2
+
+| Feature | Serverless v1 | Serverless v2 |
+| --- | --- | --- |
+| **Scaling Increment** | Doubling capacity | **0.5 ACU** increments |
+| **Scaling Speed** | Seconds to minutes (needs scaling point) | **Instant** (scales within the instance) |
+| **Min/Max Capacity** | 1 - 256 ACUs | **0.5** - 128 ACUs |
+| **Read Replicas** | Not supported | **Supported** (including Multi-AZ) |
+| **Use Case** | Infrequent/predictable workloads | Most production workloads, high-scale |
+
+### Serverless v2 Key Details
+- **Instant Scaling**: Scales capacity within the same instance, avoiding the proxy delay and "scaling point" requirement of v1.
+- **High Availability**: Supports Multi-AZ deployments and Aurora Replicas for faster failover.
+- **Granularity**: Scales in 0.5 ACU increments for better cost optimization.
+
 > [!exam]
 > - **Scaling to Zero**: Unique to Aurora Serverless v1 (v2 scales to 0.5 ACU min but not zero).
-> - **Scaling Points**: Scaling can be blocked by long-running queries or table locks.
-> - **Multi-AZ**: While storage is Multi-AZ, the compute is technically in one AZ at a time, but fails over automatically.
+> - **Scaling Points**: Scaling in v1 can be blocked by long-running queries or table locks.
+> - **v2 Replication**: Unlike v1, v2 supports read replicas and can be part of a Global Database.
 
 ## Related Services
 - [[_Database Index|Database Index]]

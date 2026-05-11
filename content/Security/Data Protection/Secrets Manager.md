@@ -8,6 +8,7 @@ AWS Secrets Manager helps you protect secrets needed to access your applications
 ## Key Features
 - **Automatic Rotation**: Natively supports rotating credentials for [[RDS Overview|RDS]], [[Redshift]], and DocumentDB. Supports [[Lambda]] for other services (API keys, etc.).
 - **Encryption**: All secrets are encrypted at rest using **AWS [[KMS]]**.
+- **Resource Policies**: Supports **resource-based policies**, allowing you to grant cross-account access to secrets without requiring the caller to assume an IAM role.
 - **Cross-Region Replication**: Replicate secrets to multiple regions for disaster recovery and global applications.
 - **VPC Endpoints**: Support for PrivateLink to access secrets without leaving the AWS network.
 

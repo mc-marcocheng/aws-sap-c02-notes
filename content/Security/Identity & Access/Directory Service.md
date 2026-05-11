@@ -42,7 +42,7 @@ Simple AD is a standalone managed directory that is powered by Samba 4 Active Di
 > You can establish a one-way or two-way trust between AWS Managed Microsoft AD and your existing on-premises Microsoft Active Directory. This allows users in your on-premises AD to access AWS resources.
 
 > [!important] AD Connector Dependencies
-> If the VPN or Direct Connect connection goes down, AD Connector will not be able to authenticate users because it does not cache credentials.
+> If the VPN or Direct Connect connection goes down, AD Connector will not be able to authenticate users because it does not cache credentials; authentication **fails completely**. **Managed Microsoft AD with a trust relationship** is more resilient as the directory is hosted in AWS.
 
 ## Strategic Scenarios (SAP-C02)
 

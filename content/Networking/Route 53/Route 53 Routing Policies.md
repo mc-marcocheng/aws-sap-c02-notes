@@ -27,13 +27,22 @@ Route 53 uses routing policies to determine how it responds to DNS queries. Choo
 - **Use Case**: Localization (content in user's language), legal restrictions, or predictable load balancing.
 - **Behavior**: Routes based on the physical location of the user (Continent, Country, or US State).
 
-## 6. Geoproximity Routing (Traffic Flow Only)
+## 6. Geoproximity Routing
 - **Use Case**: Shifting traffic between regions based on a "bias".
 - **Behavior**: Routes based on geographic distance between users and resources. Bias allows you to expand or shrink the geographic size of a region.
+- **Requirement**: Requires **Traffic Flow** (a paid visual policy builder feature).
 
 ## 7. Multivalue Answer Routing
 - **Use Case**: Basic DNS-level load balancing with health checks.
 - **Behavior**: Returns up to 8 healthy records (IPs) for a single name. Similar to simple routing but with health checks.
+
+---
+## Advanced Concepts
+
+### Policy Nesting
+You can **nest** routing policies to create complex logic. For example:
+1. Create a **Latency-based** record that points to multiple **Weighted** records.
+2. Users are first directed to the lowest-latency region, then traffic is distributed according to weights within that region.
 
 ---
 ## Comparison Table

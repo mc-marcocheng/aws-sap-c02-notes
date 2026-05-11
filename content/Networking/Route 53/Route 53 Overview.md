@@ -27,13 +27,10 @@ tags: [aws, sap-c02, networking, route53]
 ---
 ## DNS Record Types
 
-- **A (Address)**: IPv4 address.
-- **AAAA**: IPv6 address.
+- **A (Address)**: Maps a hostname to an IPv4 address.
+- **AAAA**: Maps a hostname to an IPv6 address.
 - **CNAME (Canonical Name)**: Maps one domain name to another. **Note**: Cannot be used for the zone apex (root domain).
-- **MX (Mail Exchange)**: Routes email to mail servers.
-- **NS (Name Server)**: Identifies the name servers for the hosted zone.
-- **SOA (Start of Authority)**: Provides information about the domain and the hosted zone.
-- **TXT (Text)**: Used for various services like email verification (SPF, DKIM).
+- **Alias**: A Route 53-specific record type that maps a hostname to an AWS resource. Can be used for the zone apex.
 
 ---
 ## Alias Records vs. CNAME
@@ -86,7 +83,7 @@ tags: [aws, sap-c02, networking, route53]
 ### DNSSEC
 - Protects your domain from DNS spoofing and man-in-the-middle attacks.
 - Works by establishing a chain of trust using digital signatures.
-- **KMS Integration**: Uses an asymmetric customer-managed key in **KMS** (US East 1 region) for signing.
+- **Implementation**: Uses a Key Signing Key (KSK) in **KMS (us-east-1)** and a Zone Signing Key (ZSK) managed by Route 53.
 
 ---
 ## Logging and Observability

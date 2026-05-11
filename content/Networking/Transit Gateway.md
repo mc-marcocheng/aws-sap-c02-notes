@@ -39,7 +39,10 @@ A TGW attachment is the connection between a resource and the TGW. Supported typ
 
 ### Appliance Mode
 - **Use Case**: Centralized security inspection (firewall/IPS) using appliances in a separate "Security VPC".
-- **Function**: Ensures network flows are symmetrically routed to the same AZ and network appliance for the lifetime of the flow.
+- **Function**: Ensures network flows are symmetrically routed to the same AZ and network appliance for the lifetime of the flow. **Prevents asymmetric routing**, which is essential for stateful inspection.
+
+### Multicast Support
+- **Capability**: TGW supports **multicast** — a unique capability for specialized workloads like financial services and media streaming.
 
 ### Transit Gateway Connect
 - **Use Case**: Native integration with SD-WAN appliances.

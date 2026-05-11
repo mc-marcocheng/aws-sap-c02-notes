@@ -3,52 +3,44 @@ tags: [aws, sap-c02, integration, sqs]
 ---
 # Amazon Simple Queue Service (SQS)
 
-Amazon SQS is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications.
+Fully managed message queuing service for decoupling and scaling microservices and serverless applications.
 
 ## Queue Types
 
 | Feature | Standard Queue | FIFO Queue |
-| --- | --- | --- |
-| **Throughput** | Nearly unlimited | Up to 3,000 mps (with batching) |
+| :--- | :--- | :--- |
+| **Throughput** | Nearly unlimited | **300 msg/s (no batching), 3,000 msg/s (batching)** |
 | **Delivery** | At-least-once | Exactly-once |
 | **Ordering** | Best-effort | First-In-First-Out (Strict) |
-| **Use Case** | General decoupling, high throughput | Transactional order, no duplicates |
+| **Scaling FIFO** | N/A | Use **Message Group IDs** to parallelize processing |
 
 ## Core Concepts
-- **Visibility Timeout**: The period during which SQS prevents other consumers from receiving and processing a message. Default is 30 seconds.
-- **Dead-Letter Queues (DLQ)**: A separate queue for messages that cannot be processed successfully after a maximum number of retries.
-- **Short Polling**: Returns a response immediately, even if the queue is empty.
-- **Long Polling**: Waits up to 20 seconds for a message to arrive, reducing empty responses and costs.
-- **Message Retention**: Default is 4 days; range is 1 minute to 14 days.
+- **Visibility Timeout:** Period where a message is hidden from other consumers. Default 30s.
+- **Long Polling:** Reduces costs and empty responses by waiting up to 20s for messages.
+- **Dead-Letter Queues (DLQ):** Messages move to DLQ after exceeding the `maxReceiveCount`. 
+  - **Config:** Requires a **Redrive Policy** on the source queue and a **Redrive Allow Policy** on the DLQ to control which queues can move messages to it.
+- **Temporary Queues:** (Virtual Queues) Used for request-response patterns to reduce cost and management of many short-lived queues.
 
 ## SQS Design Patterns
 
 ### 1. Fan-out Pattern
-Combine SQS with **SNS**. SNS pushes a message to multiple SQS queues simultaneously.
+SNS topic pushes to multiple SQS queues for parallel processing.
 ![[sqs-batch-processing-architecture.jpg]]
 
 ### 2. Priority Queue Pattern
-Use multiple SQS queues for different priority levels (e.g., High, Medium, Low). The consumer polls the High-priority queue first.
+High and Low priority queues. Consumers poll high-priority first.
 ![[sqs-priority-queue-pattern.png]]
 
 ### 3. Job Observer Pattern
-Scale a fleet of EC2 workers based on the number of messages in the queue using Auto Scaling and CloudWatch alarms.
+Scale EC2 or Lambda based on `ApproximateNumberOfMessagesVisible`.
 ![[job-observer-pattern-with-sqs.png]]
 
-## Security and Reliability
-- **Encryption**: Supports SSE at rest (KMS) and TLS in transit.
-- **Access Control**: Use IAM policies and SQS Resource-based policies.
-- **Durability**: Messages are stored redundantly across multiple Availability Zones.
-
 > [!exam]
-> **SAP-C02 Decision: SQS vs. Kinesis**
-> - Use **SQS** for simple decoupling, worker/job queues, and when you want a message to be deleted after processing.
-> - Use **Kinesis Data Streams** for large-scale data ingestion, real-time analytics, and when multiple consumers need to read the same stream independently.
+> **Key Differentiator:** Use **SQS FIFO** when order matters and you must avoid duplicates. Use **Standard** for maximum throughput. Use **Kinesis** if multiple consumers need to read the same data stream at different offsets.
 
 ## Related Services
 - [[_Integration Index|Integration Index]]
 - [[SNS]]
-- [[EventBridge]]
 - [[Lambda]]
 
 ---

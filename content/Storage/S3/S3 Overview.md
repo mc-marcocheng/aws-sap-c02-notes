@@ -20,6 +20,10 @@ tags: [aws, sap-c02, storage, s3]
 - **Size**: Individual objects can range from 0 bytes to **5 TB**.
 - **Single Upload Limit**: A single PUT operation can upload up to **5 GB**. For larger objects, you **MUST** use Multipart Upload.
 
+### Strong Consistency
+- **Strong Read-After-Write Consistency**: S3 provides strong consistency for **all operations** (PUT, DELETE, LIST) for both new objects and overwrites.
+- **Immediate Visibility**: Any successful write (new object or overwrite) or delete is immediately visible to all subsequent requests across all AWS Regions.
+
 ---
 ## Operations & Features
 
@@ -53,18 +57,6 @@ tags: [aws, sap-c02, storage, s3]
 > - **5,500 GET/HEAD** requests per second per prefix.
 >
 > There is no limit to the number of prefixes in a bucket. To scale performance, use a diverse prefix naming strategy (e.g., folder-like structures).
-
-### Request Styles
-- **Virtual Hosted-Style (Recommended)**: `https://bucket-name.s3.region-code.amazonaws.com/key-name`
-- **Path-Style (Deprecated)**: `https://s3.region-code.amazonaws.com/bucket-name/key-name`
-
----
-## S3 Pricing
-
-- **Storage**: Charged per GB/month based on the storage class.
-- **Requests**: Charged per 1,000 requests (PUT, COPY, POST, LIST, GET, etc.).
-- **Data Transfer Out**: Charged per GB (Data transfer *in* is free).
-- **Management & Replication**: Charges for features like Inventory, Analytics, and Object Tagging.
 
 ---
 ## SAP-C02 Exam Strategy

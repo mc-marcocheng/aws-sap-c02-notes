@@ -5,10 +5,11 @@ tags: [aws, sap-c02, migration]
 
 Migrating to AWS involves moving applications, databases, and data from on-premises or other clouds to the AWS platform.
 
-## Application Migration Strategies (The 6 R's)
+## Application Migration Strategies (The 7 R's)
 
 | Strategy | Description | Best Use Case |
 | --- | --- | --- |
+| **Relocate** | Moving VMware workloads to **VMware Cloud on AWS** without re-architecting or changing the OS. | Fast migration for VMware workloads. |
 | **Rehost** (Lift & Shift) | Moving applications as-is to EC2. Automated using **AWS Application Migration Service (MGN)**. | Fast migration, large scale, low change. |
 | **Replatform** (Lift, Tinker & Shift) | Making minor optimizations (e.g., moving to RDS or Elastic Beanstalk) without core architecture changes. | Reducing management overhead. |
 | **Repurchase** (Drop & Shop) | Switching to a different product, typically a SaaS (e.g., moving from local CRM to Salesforce). | Moving to modern SaaS solutions. |
@@ -19,8 +20,8 @@ Migrating to AWS involves moving applications, databases, and data from on-premi
 ## Key Migration Services
 
 ### 1. Discovery and Planning
-- **AWS Migration Hub**: Central dashboard to track migration progress across various AWS and third-party tools.
-- **AWS Application Discovery Service**: Collects usage and configuration data from on-premises servers to plan the migration.
+- **AWS Migration Hub**: Central tracking for migration progress across multiple AWS and third-party tools (MGN, DMS, etc.).
+- **AWS Application Discovery Service**: Discovers on-premises servers (agent-based or agentless) to plan migrations by collecting usage and configuration data.
 
 ### 2. Server Migration
 - **AWS Application Migration Service (MGN)**: The recommended primary service for lift-and-shift migrations to AWS. It minimizes downtime by continuously replicating block-level data.

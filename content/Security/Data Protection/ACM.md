@@ -11,14 +11,14 @@ AWS Certificate Manager (ACM) handles the complexity of creating, storing, and r
 - **Validation Methods**:
     - **DNS Validation (Recommended)**: Create a CNAME record in your DNS configuration.
     - **Email Validation**: Approval email sent to domain contacts.
-- **Private CA**: Create private certificate authorities to issue certificates for internal resources.
+- **Private CA**: Create private certificate authorities to issue private certificates for internal services, IoT devices, and mTLS. Can be shared cross-account via **[[Organizations Overview|AWS RAM]]**.
 
 ## Regionality Requirements
 
 > [!important] The CloudFront "us-east-1" Rule
 > To use an ACM certificate with **CloudFront**, the certificate MUST be requested or imported in the **US East (N. Virginia) `us-east-1`** region.
 
-- For **ALB**, **NLB**, or **API Gateway**, the certificate must be in the **same region** as the resource.
+- For **ALB**, **NLB** (TLS listeners), or **API Gateway**, the certificate must be in the **same region** as the resource.
 
 ## Deployment Trade-offs
 

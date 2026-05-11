@@ -31,7 +31,18 @@ Amazon FSx for Windows File Server provides a fully managed, highly reliable, an
   - **Data Deduplication**: Reduces storage costs for typical file shares.
 - **Use Cases**: Migrating Windows file shares, home directories, ERP workloads, and IIS web serving.
 
-## Comparison: ONTAP vs Windows File Server
+## Amazon FSx for OpenZFS
+
+Amazon FSx for OpenZFS is a fully managed service that provides high-performance, cost-effective NFS storage built on the OpenZFS file system.
+
+- **Protocols Supported**: NFS (v3, v4, v4.1, v4.2).
+- **Features**:
+  - **Performance**: Up to 1 million IOPS and 12 GB/s throughput with sub-millisecond latencies.
+  - **Snapshots & Clones**: Instant, zero-copy snapshots and clones, making it ideal for dev/test environments.
+  - **ZFS Efficiencies**: Native ZFS compression and space-efficient snapshots.
+- **Use Cases**: High-performance NFS workloads, Machine Learning, EDA, and rapid development environments.
+
+## Comparison: FSx Variants
 
 | Feature | FSx for ONTAP | FSx for Windows File Server |
 | :--- | :--- | :--- |

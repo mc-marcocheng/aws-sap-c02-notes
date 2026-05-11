@@ -39,6 +39,7 @@ Placement groups determine how instances are distributed across the underlying h
 - **Network Performance**: High-end instances support **Enhanced Networking** (ENA) for up to 100 Gbps.
 - **Storage**:
     - **Instance Store**: Ephemeral storage physically attached to the host. Lost if the instance is stopped/terminated.
+        - **Use Case**: **i3/i3en/d2/d3** instances provide high-density instance store for data-intensive workloads like **HDFS, Kafka, and Cassandra**.
     - **EBS**: Persistent, network-attached storage.
 
 > [!exam]

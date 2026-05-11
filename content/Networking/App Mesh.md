@@ -11,7 +11,9 @@ AWS App Mesh is a service mesh that provides application-level networking to mak
 - **Traffic Control:** Supports advanced routing capabilities like canary deployments, circuit breaking, and retries without changing application code.
 
 ## SAP-C02 Key Facts
-- **Observability:** Centralized metrics, logs, and traces (integrates with [[CloudWatch Overview|CloudWatch]], X-Ray).
+- **VPC Lattice**: App Mesh is being superseded by **VPC Lattice** for many use cases. If the question mentions service-to-service communication without Envoy sidecars, prefer VPC Lattice.
+- **Observability**: Centralized metrics, logs, and traces (integrates with [[CloudWatch Overview|CloudWatch]], X-Ray).
+
 - **mTLS:** Supports mutual TLS (mTLS) for end-to-end encryption and authentication between services using [[ACM]] Private CA or Envoy SDS.
 - **Virtual Nodes & Routers:** A Virtual Node acts as a logical pointer to a particular task group/deployment. A Virtual Router handles traffic distribution (e.g., 90% to v1, 10% to v2).
 

@@ -33,6 +33,8 @@ S3 Lifecycle configuration provides a way to manage your objects so that they ar
 > [!exam]
 > - Objects < 128 KB cannot be transitioned to STANDARD-IA or ONEZONE-IA.
 > - Minimum 30-day stay in the current storage class is required before transitioning to IA classes.
+> - **Direct PUT**: While Lifecycle rules are standard for tiering, you **can** upload objects directly to `GLACIER` or `DEEP_ARCHIVE` storage classes via the S3 API.
+> - **One-way Transitions**: Lifecycle transitions are **one-way** (from warmer to colder). To "move" an object back to a warmer tier, you must restore it (for Glacier) or manually copy/overwrite the object.
 > - Lifecycle configuration on MFA-enabled buckets is **not supported**.
 > - Up to 1,000 lifecycle rules per bucket.
 
@@ -51,9 +53,6 @@ S3 Lifecycle configuration provides a way to manage your objects so that they ar
 - **Automation**: S3 handles all transitions automatically once configured.
 - **Asynchronous Processing**: Transitions and expirations are performed asynchronously. There might be a delay, but you are not charged for storage once an object has expired.
 - **Cost Benefits**: Use Lifecycle policies to move data to Glacier for long-term archival (replaces traditional tape backups).
-
-> [!exam]
-> To move an object to Glacier, you **must** use a Lifecycle policy. You cannot select Glacier as the storage class during the initial upload via the standard S3 API (though S3 Glacier has its own API, in the context of S3, it's a transition).
 
 ## Related Services
 - [[_Storage Index|Storage Index]]

@@ -9,7 +9,7 @@ Identity Federation allows external identities (users from your corporate direct
 Used for integrating with corporate directories like Active Directory (via AD FS), Okta, or Ping Identity.
 - **Flow**: User authenticates with IdP -> IdP sends SAML Assertion to browser -> Browser posts assertion to AWS SAML endpoint -> AWS STS returns temporary credentials.
 - **API**: Uses `AssumeRoleWithSAML`.
-- **SSO**: Recommended to use **[[IAM Identity Center|AWS IAM Identity Center]]** (formerly AWS SSO) for modern SAML-based federation.
+- **Recommendation**: For new federation implementations, **prefer [[IAM Identity Center|AWS IAM Identity Center]]** over direct SAML 2.0 integration for simplified management and better scalability.
 
 ## 2. Web Identity Federation (OIDC)
 Used for social logins (Google, Facebook, Amazon) or any OpenID Connect compatible provider.

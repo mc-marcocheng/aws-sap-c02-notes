@@ -17,15 +17,19 @@ Overview of advanced capabilities in Amazon [[DynamoDB Overview|DynamoDB]], incl
 [[DynamoDB DAX|DAX]] is a fully managed, highly available, in-memory cache for DynamoDB.
 - **Performance**: Reduces latency from milliseconds to **microseconds**.
 - **Write-through**: Automatically updates the cache when data is written to the table.
-- **Cost**: Reduces RCU consumption on the base table.
-- **Consistency**: Supports eventual consistency; strongly consistent requests are passed through to DynamoDB.
+- **DAX vs ElastiCache**: DAX is transparent (no code changes, same DynamoDB API). ElastiCache requires application-level caching logic but supports more complex patterns.
 
-## DynamoDB Streams and Triggers
+## DynamoDB Streams
 
-- **DynamoDB Streams**: A time-ordered sequence of item-level changes (Last 24 hours).
-    - **Use Case**: Cross-region replication, real-time analytics, or triggering [[Lambda]] functions.
-    - **No Duplicates**: Each update is represented exactly once.
-- **Triggers**: Associating an AWS Lambda function with a DynamoDB Stream to execute custom logic on data changes.
+- **DynamoDB Streams**: Captures item-level changes. Each record contains the key + old/new image. 
+- **Retention**: 24 hours. 
+- **Use Case**: Commonly used with [[Lambda]] for event-driven architectures and cross-region replication.
+
+## Global Tables
+
+- **Multi-Region**: Active-Active multi-region replication.
+- **Conflict Resolution**: Last writer wins (LWW).
+- **Prerequisites**: Requires DynamoDB Streams enabled + On-Demand or sufficient provisioned capacity in all regions.
 
 ## Backup and Disaster Recovery
 

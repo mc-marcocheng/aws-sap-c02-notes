@@ -7,10 +7,12 @@ tags: [aws, sap-c02, analytics, lake-formation]
 > A service that makes it easy to set up a secure data lake in days. It helps you collect, catalog, clean, and secure data in Amazon S3, making it available for analytics and machine learning.
 
 ## Key Features
- - **Centralized Access Control:** Define fine-grained access controls (table, column, row, and cell level) centrally for data in S3.- **Blueprints:** Use built-in blueprints to ingest data from relational databases and log sources.
+ - **Centralized Access Control:** Define fine-grained access controls (table, column, row, and cell level) centrally. **Lake Formation wraps S3/Glue permissions into a single GRANT/REVOKE model at the column/row level.**
+- **Tag-Based Access Control (LF-TBAC):** Modern approach to managing permissions at scale. Assign LF-Tags to databases/tables/columns, then grant access based on tag values.
+- **Cross-Account Access:** Share data across accounts without complex bucket policies. Replaces the "grant to IAM principal in another account" pattern.
+- **Blueprints:** Use built-in blueprints to ingest data from relational databases and log sources.
 - **Data Catalog:** Builds on the AWS Glue Data Catalog.
 - **Data Filtering:** Restrict access to specific rows and columns.
-- **Cross-Account Access:** Share data across AWS accounts securely.
 
 ## Use Cases
 - Building secure data lakes on Amazon S3.
@@ -20,7 +22,10 @@ tags: [aws, sap-c02, analytics, lake-formation]
 ## Architecture
 
 > [!important] Integration with Analytics
-> Lake Formation acts as the authorization layer. When users query data via Athena, Redshift Spectrum, or EMR, those services request credentials from Lake Formation, which enforces the permissions before returning the data from S3.
+> Lake Formation acts as the authorization layer. It eliminates complex IAM + S3 bucket policies by acting as a proxy for S3 access. When users query data via Athena, Redshift Spectrum, or EMR, those services request credentials from Lake Formation, which enforces the permissions before returning the data from S3.
+
+### Governed Tables (Legacy)
+*Note: Governed Tables feature (including ACID transactions) was largely superseded by support for open table formats like Apache Iceberg.*
 
 ### Comparison: Lake Formation vs. IAM/S3 Policies
 

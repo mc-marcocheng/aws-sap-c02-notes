@@ -9,8 +9,8 @@ Amazon Elastic Block Store (EBS) provides block-level storage volumes for use wi
 
 | Category | Type | Short Name | Use Case |
 | --- | --- | --- | --- |
-| **SSD** | Provisioned IOPS | `io2` / `io1` | Critical databases, high performance. |
-| **SSD** | General Purpose | `gp3` / `gp2` | System volumes, dev/test, virtual desktops. |
+| **SSD** | Provisioned IOPS | `io2` / `io1` | Critical databases, high performance. **io2 Block Express** provides up to 256,000 IOPS and 4,000 MB/s throughput for SAP HANA, Oracle, SQL Server (Requires Nitro). |
+| **SSD** | General Purpose | `gp3` / `gp2` | System volumes, dev/test. **gp3** allows provisioning IOPS and throughput independently of size (unlike gp2 where IOPS scales with size) and is cheaper at baseline. |
 | **HDD** | Throughput Optimized | `st1` | Big data, data warehouses, log processing. |
 | **HDD** | Cold HDD | `sc1` | Infrequently accessed data, lowest cost. |
 
@@ -19,7 +19,7 @@ Amazon Elastic Block Store (EBS) provides block-level storage volumes for use wi
 - **Snapshots**: Incremental backups stored in [[S3 Overview|S3]]. Can be used to create new volumes or replicate data across regions.
 - **Elastic Volumes**: Dynamically increase volume size, change performance (IOPS), or change volume type with no downtime.
 - **Encryption**: Supports encryption at rest using AWS [[KMS]]. Encryption is transparent to the EC2 instance.
-- **Multi-Attach**: Allows a single Provisioned IOPS volume to be attached to multiple Nitro-based EC2 instances in the same AZ.
+- **Multi-Attach**: Allows a single Provisioned IOPS volume to be attached to multiple Nitro-based EC2 instances in the same AZ. Only works within same AZ. Application must handle concurrent write coordination (e.g., using a cluster-aware filesystem).
 
 ## EBS vs. Instance Store
 - **EBS**: Persistent storage. Data survives instance stop/termination (if configured).

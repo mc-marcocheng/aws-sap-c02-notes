@@ -7,7 +7,9 @@ AWS Direct Connect (DX) provides a dedicated physical network connection between
 
 ## Connection Types
 - **Dedicated Connection**: 1 Gbps, 10 Gbps, or 100 Gbps physical port.
+	- **Lead time**: Dedicated connections take **weeks to months** to provision. Use VPN as a bridge for immediate connectivity.
 - **Hosted Connection**: Speeds from 50 Mbps up to 10 Gbps, provisioned by an AWS Direct Connect Partner.
+- **LAG (Link Aggregation Group)**: Bundle multiple (up to 2 or 4) DX connections of the same speed at the same AWS endpoint to act as a single logical connection for increased bandwidth and redundancy.
 
 ## Virtual Interfaces (VIF)
 - **Public VIF**: Access public AWS services (S3, SQS, EC2 APIs) in any region.
@@ -27,7 +29,7 @@ AWS Direct Connect (DX) provides a dedicated physical network connection between
 
 ## Security and Encryption
 - Direct Connect traffic is **not encrypted** by default.
-- **MACsec**: Provides Layer 2 encryption for 10/100 Gbps dedicated connections.
+- **MACsec**: MACsec encrypts at Layer 2 between your router and the AWS DX router. It does NOT encrypt end-to-end to your VPC. Available for 10/100 Gbps dedicated connections.
 - **VPN over DX**: Layer 3 encryption using IPsec over the private DX link.
 
 | Feature | DX Public VIF | DX Private VIF |

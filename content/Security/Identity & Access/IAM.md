@@ -30,7 +30,10 @@ AWS Identity and Access Management (IAM) is a web service that helps you securel
 3. **Default Deny**: If no `Deny` or `Allow` is found, the request is denied (Implicit Deny).
 
 > [!exam]
-> For SAP-C02, understand that **Resource-based policies** (like S3 Bucket policies) allow the resource to define who can access it, whereas **Identity-based policies** define what a user can access. In cross-account scenarios, you often need **both** an Allow in the identity policy (Account A) and an Allow in the resource policy (Account B).
+> **Policy Evaluation (SAP-C02 Focus)**:
+> - **Same-account**: An `Allow` in either an identity-based policy **OR** a resource-based policy is sufficient.
+> - **Cross-account**: You must have an `Allow` in **BOTH** the identity-based policy (Account A) **AND** the resource-based policy (Account B).
+> Understand that **Resource-based policies** (like S3 Bucket policies) allow the resource to define who can access it, whereas **Identity-based policies** define what a user can access.
 
 ## Related Services
 - [[_Security Index|Security Index]]

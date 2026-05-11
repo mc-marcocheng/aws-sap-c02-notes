@@ -15,14 +15,22 @@ Disaster Recovery (DR) is the process of preparing for and recovering from a dis
 ---
 ## Disaster Recovery Strategies
 
-| Strategy | RTO / RPO | Cost | Description |
-| :--- | :--- | :--- | :--- |
-| **Backup & Restore** | Hours | $ | Data is backed up and restored from S3/Glacier. Infrastructure is created after the disaster. |
-| **Pilot Light** | 10s of Minutes | $$ | Core data is replicated (DBs). Application servers are ready as AMIs and launched only during disaster. |
-| **Warm Standby** | Minutes | $$$ | A scaled-down but functional version of the environment is always running. |
-| **Multi-Site (Active-Active)** | Real-time | $$$$ | Full environments running in multiple regions. Traffic is distributed via Route 53. |
+| Strategy | RPO | RTO | Cost | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **Backup & Restore** | Hours | 24h+ | $ | Backups restored from S3. Infrastructure created after disaster. |
+| **Pilot Light** | Minutes | 10s of Mins | $$ | Live data (DBs) + dormant app servers (AMIs). |
+| **Warm Standby** | Seconds | Minutes | $$$ | Scaled-down but functional environment always running. |
+| **Multi-Site** | ~0 | ~0 | $$$$ | Active-Active full environments in multiple regions. |
 
-![[disaster-recovery.png]]
+---
+### Decision Tree: Choosing a DR Strategy
+
+| If RPO is... | and RTO is... | Choose... |
+| :--- | :--- | :--- |
+| Hours | 24h+ | **Backup & Restore** |
+| Minutes | 10s of Minutes | **Pilot Light** |
+| Seconds | Minutes | **Warm Standby** |
+| ~0 (Real-time) | ~0 (Near-instant) | **Multi-Site (Active-Active)** |
 
 ---
 ### 1. Backup & Restore
@@ -44,6 +52,7 @@ Disaster Recovery (DR) is the process of preparing for and recovering from a dis
 
 ---
 ## Key AWS Services for DR
+- **AWS Elastic Disaster Recovery (DRS)**: The primary AWS DR tool for EC2 and on-premises workloads. Provides continuous block-level replication into a low-cost staging area. Replaces **CloudEndure**.
 - **Route 53**: DNS failover, health checks, and global traffic management.
 - **CloudFormation**: Infrastructure as Code to rapidly recreate environments.
 - **S3 / Glacier**: Durable storage for backups with Cross-Region Replication (CRR).

@@ -24,7 +24,7 @@ DynamoDB supports two types of primary keys:
 | Table Class | Best For | Storage Cost | Throughput Cost |
 | --- | --- | --- | --- |
 | **Standard** (Default) | General purpose, high-frequency access. | Higher | Lower |
-| **Standard-IA** | Long-term logs, social media history (storage is the dominant cost). | Lower | Higher |
+| **Standard-IA** | Infrequently accessed data (storage is the dominant cost). | **60% lower** | Higher |
 
 ## Read/Write Capacity Modes
 
@@ -34,8 +34,8 @@ DynamoDB supports two types of primary keys:
 | **On-Demand** | Pays per request; no capacity planning. | Unpredictable or bursty traffic. |
 
 ### Capacity Units (RCU / WCU)
-- **1 WCU**: 1 write per second for items up to 1 KB.
-- **1 RCU**: 1 strongly consistent read (or 2 eventually consistent reads) per second for items up to 4 KB.
+- **1 WCU**: 1 write/sec for item ≤ 1 KB.
+- **1 RCU**: 1 strongly consistent read/sec for item ≤ 4 KB (or 2 eventually consistent).
 
 ## Read Consistency
 
@@ -43,10 +43,9 @@ DynamoDB supports two types of primary keys:
 - **Strongly Consistent**: Returns a result that reflects all successful writes prior to the read. Costs 2x RCU and may have higher latency.
 - **Global Secondary Indexes (GSI)**: Only support eventually consistent reads.
 
-## Performance and Scaling
+## Operations and Bulk Actions
 
-- **Partitions**: Data is automatically partitioned as it grows.
-- **Adaptive Capacity**: Handles imbalanced workloads (hot partitions) by automatically reallocating capacity.
+- **Import/Export to S3**: Native feature for bulk operations without consuming table capacity. Supported formats: DynamoDB JSON, Ion, and CSV (import only).
 - **Scanning vs. Querying**: 
     - **Query**: Efficiently retrieves items using PK and optional SK filters.
     - **Scan**: Reads every item in the table (expensive and slow; use filters and page limits to minimize impact).

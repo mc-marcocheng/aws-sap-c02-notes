@@ -12,7 +12,7 @@ Amazon Elastic Container Service (Amazon ECS) is a highly scalable, high-perform
 | **Management** | AWS manages the underlying instances. | You manage the EC2 instances in the cluster. |
 | **Pricing** | Based on vCPU and memory requested for the task. | Based on the EC2 instance type and EBS volumes. |
 | **Isolation** | Kernel-level isolation for each task. | Tasks share the kernel of the EC2 host. |
-| **Use Case** | Low overhead, ephemeral workloads, small-to-medium apps. | Consistent high CPU/memory, price optimization at scale, custom OS requirements. |
+| **Use Case** | Low overhead, ephemeral workloads, small-to-medium apps. | **GPUs, specific instance types, or persistent storage attached to the host.** |
 
 ---
 ## Core Components
@@ -25,6 +25,10 @@ Amazon Elastic Container Service (Amazon ECS) is a highly scalable, high-perform
 > [!info] **Clusters and Services**
 > - **Clusters**: Logical groupings of tasks or services.
 > - **Services**: Ensures the specified number of tasks are running and restarts failed tasks. Integrates with ELB for traffic distribution.
+> - **Service Connect**: Simplified service-to-service communication. Provides service discovery and traffic resilience without the complexity of App Mesh (best for ECS-only architectures).
+
+> [!info] **ECS Anywhere**
+> Run ECS tasks on on-premises or customer-managed infrastructure. Uses the SSM agent and ECS agent to register external nodes to an AWS ECS cluster. Frequently tested in hybrid cloud migration scenarios.
 
 ---
 ## Networking and Storage
@@ -39,7 +43,9 @@ Amazon Elastic Container Service (Amazon ECS) is a highly scalable, high-perform
 ## SAP-C02 Strategic Considerations
 
 > [!important] **Capacity Providers**
-> Use Capacity Providers to manage the scaling of the infrastructure within a cluster. They can automatically scale EC2 Auto Scaling Groups based on the needs of the tasks.
+> The mechanism that links ASG to ECS for managed scaling of the infrastructure. 
+> - **EC2**: Automatically scales Auto Scaling Groups based on task requirements.
+> - **Fargate**: Used to select between Fargate and Fargate Spot.
 
 > [!important] **Security & Compliance**
 > - Use **Secrets Manager** integration in Task Definitions to inject sensitive data into environment variables.

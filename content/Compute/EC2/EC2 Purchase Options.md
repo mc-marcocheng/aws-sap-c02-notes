@@ -28,23 +28,31 @@ AWS provides several purchasing options to optimize costs based on workload requ
 - **Partial Upfront**: Balance of upfront and discounted hourly rate.
 - **No Upfront**: Discounted hourly rate with no initial cost (1-year term only).
 
+## Savings Plans
+Savings Plans provide significant savings (up to 72%) in exchange for a commitment to a consistent amount of compute usage (measured in $/hour) for a 1 or 3-year term.
+- **Compute Savings Plans**: Most flexible. Applies to EC2 (any family/region), Fargate, and Lambda.
+- **EC2 Instance Savings Plans**: Offers higher discounts but requires commitment to a specific instance family within a region.
+
 ---
 ## Spot Instances
 
 > [!important] **Handling Interruptions**
 > Spot instances can be interrupted by AWS with a **2-minute notification**. 
 > - **Best Practice**: Use for stateless, fault-tolerant applications (e.g., batch processing, CI/CD, big data).
-> - **Spot Fleet**: Automates the management of a group of Spot instances, attempting to maintain target capacity even if instances are reclaimed.
+> - **Spot Fleet**: Launches a collection of Spot and optionally On-Demand instances to meet target capacity. Supports diversification strategies (e.g., across multiple instance types and AZs) to increase availability.
 
 ---
 ## Dedicated Hosts vs. Dedicated Instances
 
 | Feature | Dedicated Instance | Dedicated Host |
 | :--- | :--- | :--- |
-| **Visibility** | No visibility into sockets/cores | Full visibility into sockets and physical cores |
-| **Licensing** | Not suitable for per-core/per-socket licenses | **Primary use case for BYOL** (Windows Server, SQL Server) |
+| **Visibility** | **No visibility** into sockets/cores | **Visibility into sockets/cores** |
+| **Licensing** | Not suitable for per-core/per-socket licenses | **Primary use case for BYOL** (Bring Your Own License) |
 | **Placement Control** | Automatic placement | Manual control over instance placement on the host |
 | **Tenancy** | Single-tenant hardware | Single-tenant physical server |
+
+> [!important]
+> **Dedicated Hosts** are specifically designed for BYOL compliance by providing visibility into physical cores/sockets. **Dedicated Instances** do not provide this visibility.
 
 ---
 ## Capacity Reservations

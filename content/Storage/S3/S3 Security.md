@@ -3,69 +3,45 @@ tags: [aws, sap-c02, storage, s3]
 ---
 # S3 Security
 
-S3 security is a shared responsibility. AWS manages the infrastructure, while you manage access, encryption, and data protection.
+S3 security focuses on controlling access and auditing who can interact with your data. This note covers specialized security features. For core permissions, see [[S3 Permissions]]. For encryption, see [[S3 Encryption]].
 
-## 1. Access Control
+## 1. S3 Block Public Access
+- **Function**: Provides a centralized way to prevent public access to S3 buckets and objects.
+- **Scope**: Can be applied at the **Bucket level** or the **Account level** (affects all buckets in the account).
+- **Behavior**: Overrides any existing or future bucket policies or ACLs that allow public access.
+- **Recommendation**: Enable at the account level for all accounts except those specifically intended for public static hosting.
 
-### IAM Policies & Bucket Policies
-- **[[IAM]] Policies**: Attached to users/roles. Best for internal access.
-- **Bucket Policies**: Attached to the bucket. Best for cross-account access, public access, or enforcing encryption (e.g., `Deny` if `s3:x-amz-server-side-encryption` is null).
+## 2. S3 Access Points
+- **Function**: Named network endpoints that simplify managing data access for shared datasets in S3.
+- **Architecture**: Instead of one massive bucket policy, you create multiple Access Points, each with its own policy tailored to a specific application or team.
+- **Use Case**: A "Data Lake" bucket shared by multiple teams (Analysis team, Finance team, Dev team).
+- **VPC Integration**: Can be restricted to allow access only from specific VPCs via **VPC Endpoints**.
 
-### S3 Block Public Access
-- Centralized control to prevent public access at the account or bucket level.
-- Overrides all other policies and ACLs.
-
-### S3 Access Points
-- Named network endpoints for buckets.
-- Each access point has its own policy, simplifying access for large datasets used by multiple applications/teams.
-
----
-## 2. Encryption
-
-### Data at Rest
-- **SSE-S3**: S3 manages keys (AES-256). No extra charge.
-- **SSE-KMS**: Keys managed in AWS [[KMS]]. Provides audit trails and key rotation.
-- **SSE-C**: Customer manages keys. AWS handles the encryption/decryption but doesn't store the key.
-- **Client-Side Encryption**: Encrypt data before uploading.
-
-### Data in Transit
-- Use **TLS (HTTPS)** for all S3 APIs.
-- Enforce via bucket policy: `Condition: {"Bool": {"aws:SecureTransport": "false"}}` -> `Effect: Deny`.
+## 3. IAM Access Analyzer for S3
+- **Function**: Monitors your bucket policies and ACLs to identify buckets that are accessible from outside your account or publicly.
+- **Security Posture**: Provides a quick way to audit cross-account and public access across your entire S3 estate.
 
 ---
-## 3. Data Protection
-
-### S3 Versioning & MFA Delete
-- **Versioning**: Protects against accidental overwrite/delete.
-- **MFA Delete**: Requires MFA for permanent version deletion or changing versioning state.
+## 4. Other Security Controls
 
 ### S3 Object Lock
-- **Governance Mode**: Protects against deletion by most users.
-- **Compliance Mode**: Protects against deletion by ANY user (including root). Mandatory for some regulatory requirements (WORM).
+- Provides WORM (Write Once, Read Many) protection to prevent object deletion or overwriting.
+- See [[S3 Data Protection]] for details on Governance and Compliance modes.
 
-### S3 Access Analyzer
-- Identifies buckets with public or cross-account access.
-
----
-## SAP-C02 Strategic Trade-offs
-
-| Requirement | Solution |
-| :--- | :--- |
-| **Audit Compliance** | Use **SSE-KMS** for encryption ([[CloudTrail]] logs) + **S3 Access Logs**. |
-| **Ransomware Protection** | Enable **Versioning** + **S3 Object Lock (Compliance Mode)**. |
-| **Least Privilege** | Use **S3 Access Points** for complex multi-tenant environments. |
-| **Privacy** | Use **VPC Gateway Endpoints** to keep S3 traffic off the public internet. |
+### Monitoring & Auditing
+- **[[CloudTrail]]**: Logs S3 bucket-level API actions (default) and object-level actions (if Data Events are enabled).
+- **S3 Access Logs**: Capture detailed information about requests made to a bucket (who, when, what).
+- **S3 Inventory**: Provides a scheduled report of all objects and their metadata for auditing.
 
 > [!exam]
-> - **VPC Gateway Endpoints** are free and don't require an IGW.
-> - **S3 [[Macie]]** can be used to scan buckets for PII (Personally Identifiable Information).
-> - **S3 Cross-Region Replication (CRR)** can be used for compliance-mandated offsite backups.
+> - **VPC Gateway Endpoints** are the preferred way to access S3 from a VPC without an Internet Gateway.
+> - **S3 [[Macie]]** is used for automated sensitive data (PII) discovery.
 
 ## Related Services
 - [[_Storage Index|Storage Index]]
 - [[S3 Overview|S3]]
-- [[IAM]]
-- [[KMS]]
+- [[S3 Permissions]]
+- [[S3 Encryption]]
 - [[Macie]]
 
 ---

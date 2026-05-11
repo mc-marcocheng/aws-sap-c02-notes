@@ -7,10 +7,11 @@ AWS Control Tower provides the easiest way to set up and govern a secure, multi-
 
 ## Core Features
 - **Landing Zone**: A well-architected, multi-account environment using **[[Organizations Overview|AWS Organizations]]**.
-- **Guardrails**: High-level rules for ongoing governance.
+- **Guardrails**: High-level rules for ongoing governance. **Guardrails = SCPs (preventive) + Config Rules (detective) + AWS Lambda hooks (proactive).**
     - **Preventive Guardrails**: Enforce policies using **SCPs** (e.g., "Disallow changes to log archive bucket").
     - **Detective Guardrails**: Detect non-compliance using **[[Config|AWS Config]]** rules (e.g., "Detect whether public read access to [[S3 Overview|S3]] buckets is allowed").
-- **Account Factory**: A standardized template for provisioning new accounts via **[[Service Catalog|AWS Service Catalog]]**.
+- **Account Factory**: Automates new account provisioning with pre-configured networking and security baselines via **[[Service Catalog|AWS Service Catalog]]**.
+- **Customizations for Control Tower (CfCT)**: Extends Control Tower with custom CloudFormation templates and policies deployed to all accounts.
 - **Dashboard**: Centralized visibility into the compliance status of your organization.
 
 ## Landing Zone Components

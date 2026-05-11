@@ -12,19 +12,20 @@ Amazon Elastic File System (EFS) provides a simple, serverless, set-and-forget e
 - **One Zone-IA**: Infrequent access version of One Zone.
 
 ## Performance Modes
-- **General Purpose** (Default): Ideal for latency-sensitive use cases (web servers, CMS, home directories).
-- **Max I/O**: Scalable to higher levels of aggregate throughput and operations per second. Best for highly parallelized workloads (Big Data, media processing).
+- **General Purpose** (Default): Ideal for latency-sensitive use cases (web servers, CMS). **AWS recommends General Purpose with Elastic throughput** for almost all new workloads.
+- **Max I/O**: Scalable to higher levels of aggregate throughput. Best for highly parallelized workloads, but General Purpose is now the preferred starting point.
 
 ## Throughput Modes
 - **Bursting Throughput**: Throughput scales with the size of the file system.
-- **Provisioned Throughput**: You specify the throughput in MiB/s, independent of the amount of data stored.
-- **Elastic Throughput**: (Recommended) Automatically scales throughput based on application activity.
+- **Provisioned Throughput**: Specified MiB/s, independent of data size.
+- **Elastic Throughput**: (Recommended) Automatically scales throughput based on activity.
 
 ## Key Features
-- **Shared Access**: Thousands of [[EC2 Overview|EC2]] instances can mount an EFS file system concurrently.
+- **Shared Access**: Thousands of [[EC2 Overview|EC2]] instances can mount concurrently.
 - **Regional Resilience**: Data in Standard classes is stored redundantly across multiple AZs.
+- **EFS Replication**: Built-in cross-region or same-region replication for DR (RPO ~15 minutes).
 - **Connectivity**: Accessible from on-premises via [[Direct Connect Overview|Direct Connect]] or [[VPN]].
-- **Lifecycle Management**: Automatically move files to IA storage classes after a period of inactivity (e.g., 30 days).
+- **Lifecycle Management**: Automatically move files to IA storage classes after a period of inactivity.
 
 ![[efs-storage-classes.png]]
 
@@ -36,8 +37,9 @@ Amazon Elastic File System (EFS) provides a simple, serverless, set-and-forget e
 
 ---
 ### Security
-- **IAM**: Control who can manage and mount the file system.
-- **Security Groups**: Control network access to the EFS mount targets.
+- **IAM Authorization**: Control mount, read, and write permissions via IAM policies.
+- **Access Points**: Enforce a POSIX user/group identity and/or a specific root directory for applications.
+- **Security Groups**: Control network access to the EFS mount targets (Port 2049).
 - **Encryption**: Supports encryption at rest ([[KMS]]) and in transit (TLS).
 
 ## Related Services
