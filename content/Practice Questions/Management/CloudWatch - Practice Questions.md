@@ -90,7 +90,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > Since the temperature of a physical refrigerator plant is not an automated AWS service metric, it must be treated as a **Custom Metric**. Custom metrics must be published to [[CloudWatch Overview|CloudWatch]] using the [[Index|AWS CLI]] or the `PutMetricData` API.
+> > Since the temperature of a physical refrigerator plant is not an automated AWS service metric, it must be treated as a **Custom Metric**. Custom metrics must be published to [[CloudWatch Overview|CloudWatch]] using the AWS CLI or the `PutMetricData` API.
 
 > [!question]
 > A user has launched an EC2 instance. The user is planning to setup the CloudWatch alarm. Which of the below mentioned actions is not supported by the CloudWatch alarm?
@@ -123,7 +123,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > You can use the `set-alarm-state` command in the [[Index|AWS CLI]] to manually set an alarm to any state (`OK`, `ALARM`, or `INSUFFICIENT_DATA`). This is primarily used to test that the alarm's associated actions, such as [[SNS]] notifications or [[Auto Scaling Overview|Auto Scaling]] triggers, are working correctly.
+> > You can use the `set-alarm-state` command in the AWS CLI to manually set an alarm to any state (`OK`, `ALARM`, or `INSUFFICIENT_DATA`). This is primarily used to test that the alarm's associated actions, such as [[SNS]] notifications or [[Auto Scaling Overview|Auto Scaling]] triggers, are working correctly.
 
 > [!question]
 > A user is publishing custom metrics to CloudWatch. Which of the below mentioned statements will help the user understand the functionality better?
@@ -145,7 +145,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > [[CloudWatch Overview|CloudWatch]] metrics are **regional**. To create a truly global aggregate (e.g., average CPU across all regions), you must retrieve the data from each regional endpoint using the [[Index|AWS CLI]] or SDKs and then aggregate it. Note: While [[CloudWatch Overview|CloudWatch Dashboards]] now allow viewing metrics from multiple regions in one view, cross-region *aggregation* into a single metric still requires custom logic.
+> > [[CloudWatch Overview|CloudWatch]] metrics are **regional**. To create a truly global aggregate (e.g., average CPU across all regions), you must retrieve the data from each regional endpoint using the AWS CLI or SDKs and then aggregate it. Note: While [[CloudWatch Overview|CloudWatch Dashboards]] now allow viewing metrics from multiple regions in one view, cross-region *aggregation* into a single metric still requires custom logic.
 
 > [!question]
 > You have set up Individual AWS accounts for each project. You have been asked to make sure your AWS Infrastructure costs do not exceed the budget set per project for each month. Which of the following approaches can help ensure that you do not exceed the budget each month?
@@ -178,7 +178,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > [[Index|CloudWatch Events]] can capture [[CloudTrail|CloudTrail]] API calls in near real-time. By using a rule to match all API calls and setting the target to an [[Kinesis Overview|Kinesis Stream]], you can perform sophisticated, real-time analysis using Kinesis Data Analytics or other tools.
+> > CloudWatch Events can capture [[CloudTrail|CloudTrail]] API calls in near real-time. By using a rule to match all API calls and setting the target to an [[Kinesis Overview|Kinesis Stream]], you can perform sophisticated, real-time analysis using Kinesis Data Analytics or other tools.
 
 > [!question]
 > To monitor API calls against our AWS account by different users and entities, we can use \_\_\_\_ to create a history of calls in bulk for later review, and use \_\_\_\_ for reacting to AWS API calls in real-time.
@@ -189,7 +189,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > [[CloudTrail|CloudTrail]] is the service for logging and maintaining a durable history of API calls across your AWS account. [[Index|CloudWatch Events]] is used to detect those same API calls in near real-time and trigger automated responses.
+> > [[CloudTrail|CloudTrail]] is the service for logging and maintaining a durable history of API calls across your AWS account. CloudWatch Events is used to detect those same API calls in near real-time and trigger automated responses.
 
 > [!question]
 > You are the head of operations for a SaaS company. Your CTO wants to make debugging any part of your complex, service-oriented architecture simpler and faster. Developers currently log to disk, making it hard to find errors across many services. How can you best meet this requirement?

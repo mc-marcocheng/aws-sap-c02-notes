@@ -400,4 +400,4 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3. Use SWF with an Auto Scaling group of activity workers and a decider instance in another Auto Scaling group with min/max=1 use SES to send emails to customers.**
-> > **Rationale**: Simple Workflow Service (SWF) is ideal for long-running, multi-step processes like order fulfillment. Using an ASG for activity workers ensures the processing layer can scale. Using Amazon SES (Simple Email Service) ensures reliable email delivery, which is a standard best practice compared to sending from EC2 directly. See [[Index|SES Overview]].
+> > **Rationale**: Simple Workflow Service (SWF) is ideal for long-running, multi-step processes like order fulfillment. Using an ASG for activity workers ensures the processing layer can scale. Using Amazon SES (Simple Email Service) ensures reliable email delivery, which is a standard best practice compared to sending from EC2 directly. See SES Overview.

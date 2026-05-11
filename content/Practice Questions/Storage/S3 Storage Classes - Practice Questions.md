@@ -90,7 +90,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[S3 Storage Classes|S3 Standard]] provides high availability and durability (11 9's) for the 17TB of JPEGs. [[Index|CloudSearch]] is a managed service that is more cost-effective than running commercial software on EC2, and [[EC2 Overview|Elastic Beanstalk]] provides an easy way to deploy the Java website across multiple AZs for high availability.
+> > **Rationale:** [[S3 Storage Classes|S3 Standard]] provides high availability and durability (11 9's) for the 17TB of JPEGs. CloudSearch is a managed service that is more cost-effective than running commercial software on EC2, and [[EC2 Overview|Elastic Beanstalk]] provides an easy way to deploy the Java website across multiple AZs for high availability.
 
 > [!question]
 > A research scientist is planning for the one-time launch of an Elastic MapReduce cluster and is encouraged by her manager to minimize the costs. The cluster is designed to ingest 200TB of genomics data with a total of 100 Amazon EC2 instances and is expected to run for around four hours. The resulting data set must be stored temporarily until archived into an Amazon RDS Oracle instance. Which option will help save the most money while meeting requirements?

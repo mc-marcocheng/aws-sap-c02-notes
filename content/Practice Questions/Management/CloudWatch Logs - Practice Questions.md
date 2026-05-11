@@ -27,7 +27,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > > 1. Installing the [[CloudWatch Logs|CloudWatch Unified Agent]] (or legacy Logs Agent) on [[EC2 Overview|Amazon EC2]] instances to stream logs.
 > > 2. Creating [[CloudWatch Logs|Metric Filters]] on the [[CloudWatch Logs]] group to transform log patterns into numerical metrics.
 > > 3. Setting a [[CloudWatch Overview|CloudWatch Alarm]] on that metric with a defined threshold.
-> > 4. Configuring [[SNS|Amazon SNS]] as the alarm action to notify personnel. [[Index|AWS Data Pipeline]] is not used for real-time log streaming to CloudWatch.
+> > 4. Configuring [[SNS|Amazon SNS]] as the alarm action to notify personnel. AWS Data Pipeline is not used for real-time log streaming to CloudWatch.
 
 > [!question]
 > You are hired as the new head of operations for a SaaS company. Your CTO has asked you to make debugging any part of your entire operation simpler and as fast as possible. She complains that she has no idea what is going on in the complex, service-oriented architecture, because the developers just log to disk, and it’s very hard to find errors in logs on so many services. How can you best meet this requirement and satisfy your CTO?
@@ -55,4 +55,4 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > > 1. Use the [[CloudWatch Logs|CloudWatch Unified Agent]] to push logs from servers to [[CloudWatch Logs]].
 > > 2. Define [[CloudWatch Logs|Metric Filters]] to search for "500" errors and increment a custom metric.
 > > 3. Create a [[CloudWatch Overview|CloudWatch Alarm]] on that custom metric.
-> > 4. Use [[SNS|Amazon SNS]] to deliver the notification. [[Index|Amazon SES]] is generally used for transactional emails, not direct CloudWatch alarm actions. [[EC2 Overview|AWS Elastic Beanstalk]] provides some metrics, but custom log parsing is more precise for specific application error messages.
+> > 4. Use [[SNS|Amazon SNS]] to deliver the notification. Amazon SES is generally used for transactional emails, not direct CloudWatch alarm actions. [[EC2 Overview|AWS Elastic Beanstalk]] provides some metrics, but custom log parsing is more precise for specific application error messages.

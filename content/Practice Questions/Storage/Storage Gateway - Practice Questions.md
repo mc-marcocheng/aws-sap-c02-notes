@@ -24,7 +24,7 @@ tags: [aws, sap-c02, storage-gateway, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale**: [[Storage Gateway|AWS Storage Gateway]] is a hybrid cloud storage service that connects on-premises software appliances with cloud-based storage to provide seamless integration with data security features between on-premises and the [[Index|AWS]] storage infrastructure. It gives on-premises access to virtually unlimited cloud storage.
+> > **Rationale**: [[Storage Gateway|AWS Storage Gateway]] is a hybrid cloud storage service that connects on-premises software appliances with cloud-based storage to provide seamless integration with data security features between on-premises and the AWS storage infrastructure. It gives on-premises access to virtually unlimited cloud storage.
 
 > [!question]
 > You’re running an application on-premises due to its dependency on non-x86 hardware and want to use AWS for data backup. Your backup application is only able to write to POSIX-compatible block-based storage. You have 140TB of data and would like to mount it as a single folder on your file server. Users must be able to access portions of this data while the backups are taking place. What backup solution would be most appropriate for this use case?

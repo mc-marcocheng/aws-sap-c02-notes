@@ -35,7 +35,7 @@ tags: [aws, sap-c02, redshift, database, analytics, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 4**
-> > **Rationale:** Both [[RDS Overview|RDS]] and [[Redshift]] feature built-in, automated backup capabilities where users can configure backup windows and retention periods. [[S3 Overview|S3]] uses versioning and replication but doesn't have a scheduled "backup window." [[EBS Overview|EBS]] requires [[Index|AWS Backup]] or Data Lifecycle Manager (DLM) for automated schedules.
+> > **Rationale:** Both [[RDS Overview|RDS]] and [[Redshift]] feature built-in, automated backup capabilities where users can configure backup windows and retention periods. [[S3 Overview|S3]] uses versioning and replication but doesn't have a scheduled "backup window." [[EBS Overview|EBS]] requires AWS Backup or Data Lifecycle Manager (DLM) for automated schedules.
 
 > [!question]
 > Your EMR jobs generate PDF reports in S3 and aggregated tables in CSV for Redshift. How to lower costs without compromising average performance or data integrity?

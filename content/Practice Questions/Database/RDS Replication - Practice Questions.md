@@ -12,7 +12,7 @@ tags: [aws, sap-c02, rds, database, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[RDS Replication#Read Replicas|Read Replicas]] are designed for offloading read-heavy workloads like reporting. Querying the standby in a standard [[RDS Replication#Multi-AZ Deployments|Multi-AZ]] deployment is not possible as the standby is not accessible. [[Index|ElastiCache]] is a caching layer and may not contain the full dataset required for reports.
+> > **Rationale:** [[RDS Replication#Read Replicas|Read Replicas]] are designed for offloading read-heavy workloads like reporting. Querying the standby in a standard [[RDS Replication#Multi-AZ Deployments|Multi-AZ]] deployment is not possible as the standby is not accessible. [[ElastiCache]] is a caching layer and may not contain the full dataset required for reports.
 
 > [!question]
 > A company is deploying a new two-tier web application in AWS. The company has limited staff and requires high availability, and the application requires complex queries and table joins. Which configuration provides the solution for the company’s requirements?
@@ -34,7 +34,7 @@ tags: [aws, sap-c02, rds, database, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 4**
-> > **Rationale:** To resolve read contention, you should either cache the data using [[Index|ElastiCache]] or scale the read capacity using [[RDS Replication#Read Replicas|Read Replicas]]. Since the application supports eventual consistency, read replicas are a perfect fit.
+> > **Rationale:** To resolve read contention, you should either cache the data using [[ElastiCache]] or scale the read capacity using [[RDS Replication#Read Replicas|Read Replicas]]. Since the application supports eventual consistency, read replicas are a perfect fit.
 
 > [!question]
 > Your company has HQ in Tokyo and branch offices all over the world and is using logistics software with a multi-regional deployment on AWS in Japan, Europe and US. The logistic software has a 3-tier architecture and currently uses MySQL 5.6 for data persistence. Each region has deployed its own database. In the HQ region you run an hourly batch process reading data from every region to compute cross-regional reports. How do you build the database architecture in order to meet the requirements?
