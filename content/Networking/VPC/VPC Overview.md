@@ -83,9 +83,9 @@ tags: [aws, sap-c02, networking, vpc]
 
 > [!exam]
 > - **CIDR Overlap**: Always check for overlapping CIDRs when designing Peering, VPN, or Direct Connect.
-> - **Cost vs Performance**: Use [[VPC Endpoints|VPC Endpoints]] to keep traffic off the internet for both security and cost (Gateway Endpoints for S3/DynamoDB are free).
+> - **Cost vs Performance**: Use [[VPC Endpoints]] to keep traffic off the internet for both security and cost (Gateway Endpoints for S3/DynamoDB are free).
 > - **High Availability**: Always distribute resources (subnets, NAT Gateways, ELBs) across multiple AZs.
-> - **Hybrid Connectivity**: Know when to use [[VPN|VPN]] (quick, cheap, internet-based) vs [[Direct Connect Overview|Direct Connect]] (predictable, high-bandwidth, private).
+> - **Hybrid Connectivity**: Know when to use [[VPN]] (quick, cheap, internet-based) vs [[Direct Connect Overview|Direct Connect]] (predictable, high-bandwidth, private).
 
 ---
 ## Summary Table: VPC Components

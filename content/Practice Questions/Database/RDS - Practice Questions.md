@@ -96,7 +96,7 @@ tags: [aws, sap-c02, rds, database, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** While [[RDS Overview|RDS]] manages backups, patching, and failure detection/recovery, it does not automatically scale compute resources (CPU/RAM) "on the fly" to handle higher loads in the same way a serverless product might. Scaling RDS typically requires a manual modification of the instance class or using [[Aurora Serverless|Aurora Serverless]].
+> > **Rationale:** While [[RDS Overview|RDS]] manages backups, patching, and failure detection/recovery, it does not automatically scale compute resources (CPU/RAM) "on the fly" to handle higher loads in the same way a serverless product might. Scaling RDS typically requires a manual modification of the instance class or using [[Aurora Serverless]].
 
 > [!question]
 > A user is launching an AWS RDS with MySQL. Which of the below mentioned options allows the user to configure the InnoDB engine parameters?

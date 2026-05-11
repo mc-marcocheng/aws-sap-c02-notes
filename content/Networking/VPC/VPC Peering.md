@@ -57,7 +57,7 @@ tags: [aws, sap-c02, networking, vpc]
 ![[vpc-peering-shared-services.png]]
 
 - **Shared Services**: Often used to provide shared resources (LDAP, Monitoring, Active Directory) to multiple VPCs.
-- **Mesh vs Hub**: As the number of VPCs grows, a full mesh of peering becomes difficult to manage. For larger scales, use [[Transit Gateway|Transit Gateway]].
+- **Mesh vs Hub**: As the number of VPCs grows, a full mesh of peering becomes difficult to manage. For larger scales, use [[Transit Gateway]].
 
 ---
 ## Comparison: Peering vs. Transit Gateway vs. PrivateLink

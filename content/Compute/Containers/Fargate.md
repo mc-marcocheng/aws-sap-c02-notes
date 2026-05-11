@@ -3,7 +3,7 @@ tags: [compute, aws, sap-c02, fargate]
 ---
 # AWS Fargate
 
-AWS Fargate is a serverless, pay-as-you-go compute engine that lets you focus on building applications without managing servers. It works with both Amazon [[ECS|ECS]] and Amazon [[EKS]].
+AWS Fargate is a serverless, pay-as-you-go compute engine that lets you focus on building applications without managing servers. It works with both Amazon [[ECS]] and Amazon [[EKS]].
 
 ## Architectural Patterns
 - **Serverless Containers:** Removes the need to provision, configure, or scale clusters of virtual machines to run containers.

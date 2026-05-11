@@ -6,7 +6,7 @@ tags: [aws, sap-c02, integration, appsync]
 Managed GraphQL service that simplifies application development by letting you create a flexible API to securely access, manipulate, and combine data from one or more data sources.
 
 ## Architectural Patterns
-- **Unified API:** Combine [[DynamoDB Overview|DynamoDB]], [[Lambda|Lambda]], [[OpenSearch]], and HTTP APIs into a single GraphQL endpoint.
+- **Unified API:** Combine [[DynamoDB Overview|DynamoDB]], [[Lambda]], [[OpenSearch]], and HTTP APIs into a single GraphQL endpoint.
 - **Real-time Subscriptions:** Provides WebSockets for real-time updates (e.g., chat apps, dashboards).
 - **Offline Sync:** Uses AWS Amplify to allow offline access and conflict resolution.
 

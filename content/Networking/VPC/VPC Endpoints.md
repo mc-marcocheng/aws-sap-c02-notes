@@ -40,7 +40,7 @@ tags: [aws, sap-c02, networking, vpc]
 
 - **Pricing**: Billed per hour and per GB of data processed.
 - **Connectivity**:
-    - **On-Premises**: Accessible via [[VPN|VPN]] or [[Direct Connect Overview|Direct Connect]].
+    - **On-Premises**: Accessible via [[VPN]] or [[Direct Connect Overview|Direct Connect]].
     - **Peering**: Accessible across intra- and inter-region [[VPC Peering]].
 - **Private DNS**: Allows you to use the service's default public DNS name (e.g., `ec2.us-east-1.amazonaws.com`) while resolving to the private IP of the endpoint.
 

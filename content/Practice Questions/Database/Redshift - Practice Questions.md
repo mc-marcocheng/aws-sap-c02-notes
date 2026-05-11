@@ -13,7 +13,7 @@ tags: [aws, sap-c02, redshift, database, analytics, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3, 5**
-> > **Rationale:** [[KMS|CloudHSM]] can be used to manage encryption keys for [[RDS Overview|RDS]] and [[Redshift]]. While [[S3 Overview|S3]] supports various encryption options, direct integration for managing S3 keys with CloudHSM is typically handled via [[KMS|KMS]] (Custom Key Store).
+> > **Rationale:** [[KMS|CloudHSM]] can be used to manage encryption keys for [[RDS Overview|RDS]] and [[Redshift]]. While [[S3 Overview|S3]] supports various encryption options, direct integration for managing S3 keys with CloudHSM is typically handled via [[KMS]] (Custom Key Store).
 
 > [!question]
 > You need to store sensor data (100K sensors, 1KB each/min) for at least two years and perform year-over-year comparisons. Peak IOPS is 10K. Which setup meets the requirements?

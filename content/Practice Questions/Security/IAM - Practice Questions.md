@@ -11,7 +11,7 @@ tags: [aws, sap-c02, iam, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale**: [[IAM|IAM]] is the standard service for managing users, groups, and roles, and their permissions to access AWS resources.
+> > **Rationale**: [[IAM]] is the standard service for managing users, groups, and roles, and their permissions to access AWS resources.
 
 > [!question]
 > IAM provides several policy templates you can use to automatically assign permissions to the groups you create. The _____ policy template gives the Admins group permission to access all account resources, except your AWS account information.
@@ -54,7 +54,7 @@ tags: [aws, sap-c02, iam, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale**: [[IAM|IAM]] is specifically designed to manage multiple identities and their access to AWS services.
+> > **Rationale**: [[IAM]] is specifically designed to manage multiple identities and their access to AWS services.
 
 > [!question]
 > An AWS customer is deploying an application that is composed of an AutoScaling group of EC2 Instances. The customer's security policy requires that every outbound connection from these instances to any other service within the VPC must be authenticated using a unique x.509 certificate that contains the specific instance-id. In addition, x.509 certificates must be signed by the customer’s Key management service in order to be trusted for authentication. Which of the following configurations will support these requirements?

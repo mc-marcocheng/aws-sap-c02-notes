@@ -23,7 +23,7 @@ tags: [aws, sap-c02, aurora, database, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[Aurora Overview|Aurora]] meets all these requirements: it is a highly available relational database, its storage scales automatically up to 128 TiB (easily handling 8 TB + growth), and it supports up to 15 [[Aurora Overview|Read Replicas]]. [[DynamoDB Overview|DynamoDB]] is NoSQL, [[S3 Overview|S3]] is object storage, and [[Redshift|Redshift]] is an OLAP data warehouse not typically used for standard application relational workloads.
+> > **Rationale:** [[Aurora Overview|Aurora]] meets all these requirements: it is a highly available relational database, its storage scales automatically up to 128 TiB (easily handling 8 TB + growth), and it supports up to 15 [[Aurora Overview|Read Replicas]]. [[DynamoDB Overview|DynamoDB]] is NoSQL, [[S3 Overview|S3]] is object storage, and [[Redshift]] is an OLAP data warehouse not typically used for standard application relational workloads.
 
 > [!question]
 > A company is migrating their on-premise 10TB MySQL database to AWS. As a compliance requirement, the company wants to have the data replicated across three availability zones. Which Amazon RDS engine meets the above business requirement?

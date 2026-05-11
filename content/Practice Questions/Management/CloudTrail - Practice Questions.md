@@ -12,7 +12,7 @@ tags: [aws, sap-c02, cloudtrail, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** Creating a new [[S3 Overview|S3]] bucket ensures a dedicated environment for log storage, supporting confidentiality. The **Global Services** option is mandatory to capture [[IAM|IAM]] events, as IAM is a global service. Using [[IAM|IAM]] roles and bucket policies ensures confidentiality by restricting access, while [[S3 Security|S3 MFA Delete]] prevents accidental or malicious deletion of the log files, ensuring the integrity and durability of the data.
+> > **Rationale:** Creating a new [[S3 Overview|S3]] bucket ensures a dedicated environment for log storage, supporting confidentiality. The **Global Services** option is mandatory to capture [[IAM]] events, as IAM is a global service. Using [[IAM]] roles and bucket policies ensures confidentiality by restricting access, while [[S3 Security|S3 MFA Delete]] prevents accidental or malicious deletion of the log files, ensuring the integrity and durability of the data.
 
 > [!question]
 > Which of the following are true regarding AWS CloudTrail? (Choose 3 answers)
@@ -41,7 +41,7 @@ tags: [aws, sap-c02, cloudtrail, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[CloudTrail|CloudTrail]] is specifically designed to record AWS API calls. Whenever an employee uses the CLI or SDK to interact with [[CloudWatch Overview|CloudWatch]] (e.g., `PutMetricData`), CloudTrail captures the request details, including the identity of the caller and the timestamp.
+> > **Rationale:** [[CloudTrail]] is specifically designed to record AWS API calls. Whenever an employee uses the CLI or SDK to interact with [[CloudWatch Overview|CloudWatch]] (e.g., `PutMetricData`), CloudTrail captures the request details, including the identity of the caller and the timestamp.
 
 > [!question]
 > Your CTO thinks your AWS account was hacked. What is the only way to know for certain if there was unauthorized access and what they did, assuming your hackers are very sophisticated AWS engineers and doing everything they can to cover their tracks?
@@ -63,4 +63,4 @@ tags: [aws, sap-c02, cloudtrail, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** A global (multi-region) [[CloudTrail|CloudTrail]] trail is the most comprehensive way to track "who, what, when, and where" for API calls across all AWS services and regions. Aggregating these logs from [[S3 Overview|S3]] allows you to generate the required weekly reports. While [[Config]] tracks "what" changed, CloudTrail is the primary source for "who" made the change.
+> > **Rationale:** A global (multi-region) [[CloudTrail]] trail is the most comprehensive way to track "who, what, when, and where" for API calls across all AWS services and regions. Aggregating these logs from [[S3 Overview|S3]] allows you to generate the required weekly reports. While [[Config]] tracks "what" changed, CloudTrail is the primary source for "who" made the change.

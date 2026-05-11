@@ -42,7 +42,7 @@ tags: [aws, sap-c02, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[S3 Overview|Amazon S3]] is the only service that satisfies all these requirements. It is a pay-as-you-go service with unlimited capacity. It supports complex security via [[S3 Permissions|S3 Bucket Policies]] and [[IAM|IAM]], allows public access (e.g., for static website hosting), and provides immediate retrieval (unlike [[S3 Storage Classes|Amazon S3 Glacier]] which has retrieval latencies).
+> > **Rationale:** [[S3 Overview|Amazon S3]] is the only service that satisfies all these requirements. It is a pay-as-you-go service with unlimited capacity. It supports complex security via [[S3 Permissions|S3 Bucket Policies]] and [[IAM]], allows public access (e.g., for static website hosting), and provides immediate retrieval (unlike [[S3 Storage Classes|Amazon S3 Glacier]] which has retrieval latencies).
 
 > [!question]
 > An administrator runs a highly available application in AWS. A file storage layer is needed that can share between instances and scale the platform more easily. The storage should also be POSIX compliant. Which AWS service can perform this action?

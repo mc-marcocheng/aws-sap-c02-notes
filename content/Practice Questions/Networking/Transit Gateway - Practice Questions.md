@@ -15,7 +15,7 @@ tags: [aws, sap-c02, transit-gateway, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale:** [[Transit Gateway|AWS Transit Gateway]] acts as a regional network transit hub that interconnects VPCs and on-premises networks using a hub-and-spoke architecture. It is specifically designed to handle large-scale networking (hundreds of VPCs) and consolidates management of VPC and [[VPN|VPN]] connections, replacing the complexity of a full-mesh [[VPC Peering]] setup.
+> > **Rationale:** [[Transit Gateway|AWS Transit Gateway]] acts as a regional network transit hub that interconnects VPCs and on-premises networks using a hub-and-spoke architecture. It is specifically designed to handle large-scale networking (hundreds of VPCs) and consolidates management of VPC and [[VPN]] connections, replacing the complexity of a full-mesh [[VPC Peering]] setup.
 
 > [!question]
 > A company hosts its core network services, including directory services and DNS, in its on-premises data center. The data center is connected to the AWS Cloud using AWS Direct Connect (DX). Additional AWS accounts are planned that will require quick, cost-effective, and consistent access to these network services. What should a solutions architect implement to meet these requirements with the LEAST amount of operational overhead?

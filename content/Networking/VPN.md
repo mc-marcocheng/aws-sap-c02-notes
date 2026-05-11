@@ -67,7 +67,7 @@ When multiple routes exist for the same prefix, VGW prioritizes them as follows:
 - **IPSec only**: Supports only IPSec tunnel mode; transport mode is not supported.
 - **VPC Limit**: Only one VGW can be attached to a VPC at a time.
 - **No IPv6 on VGW**: Virtual Private Gateways do not support IPv6 (Transit Gateway does).
-- **Transitive Routing**: VGW does not support transitive routing (e.g., On-prem -> VGW -> Peered VPC). Use [[Transit Gateway|Transit Gateway]] for transitive needs.
+- **Transitive Routing**: VGW does not support transitive routing (e.g., On-prem -> VGW -> Peered VPC). Use [[Transit Gateway]] for transitive needs.
 - **MTU**: Does not support Path MTU Discovery.
 - **Bandwidth**: Typically provides up to 1.25 Gbps per tunnel. Multiple tunnels/ECMP (with TGW) can be used to scale.
 

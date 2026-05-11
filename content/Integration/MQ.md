@@ -9,7 +9,7 @@ A managed message broker service for Apache ActiveMQ and RabbitMQ.
 - **Lift and Shift:** Use this when migrating legacy on-premises applications that rely on industry-standard APIs and protocols like JMS, NMS, AMQP, STOMP, MQTT, or WebSocket.
 - **Broker Types:**
   - **Single-instance:** Good for dev/test. No high availability.
-  - **Active/Standby:** High availability across two AZs using a shared Amazon [[EFS|EFS]] volume (ActiveMQ) or cluster nodes (RabbitMQ).
+  - **Active/Standby:** High availability across two AZs using a shared Amazon [[EFS]] volume (ActiveMQ) or cluster nodes (RabbitMQ).
   - **Network of Brokers (ActiveMQ):** For high throughput and multi-region messaging architectures.
 
 ## vs SQS/SNS

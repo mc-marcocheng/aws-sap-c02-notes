@@ -133,7 +133,7 @@ tags: [aws, sap-c02, ebs, storage, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 3, 4**
-> > **Rationale:** Data at rest on [[EBS Overview|Amazon EBS]] can be secured using application-level encryption, OS-level encryption (file system drivers), or third-party tools. Native [[EBS Overview|EBS Encryption]] (using [[KMS|KMS]]) is also a primary method, though it is not "on by default" for all accounts without configuration.
+> > **Rationale:** Data at rest on [[EBS Overview|Amazon EBS]] can be secured using application-level encryption, OS-level encryption (file system drivers), or third-party tools. Native [[EBS Overview|EBS Encryption]] (using [[KMS]]) is also a primary method, though it is not "on by default" for all accounts without configuration.
 
 > [!question]
 > Which of the following are true regarding encrypted Amazon EBS volumes? (Choose 2)
@@ -157,7 +157,7 @@ tags: [aws, sap-c02, ebs, storage, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 5**
-> > **Rationale:** Using an encrypted file system or native [[EBS Overview|EBS Encryption]] (which uses [[KMS|KMS]]) ensures that data is encrypted at rest on the block device.
+> > **Rationale:** Using an encrypted file system or native [[EBS Overview|EBS Encryption]] (which uses [[KMS]]) ensures that data is encrypted at rest on the block device.
 
 > [!question]
 > A user requires dedicated EC2 to EBS traffic for better application performance. How can the user achieve this?
@@ -179,7 +179,7 @@ tags: [aws, sap-c02, ebs, storage, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** [[EBS Overview|EBS Encryption]] is a native feature available to all users, including those on the free tier. It utilizes [[KMS|KMS]] and does not require manual OS-level encryption.
+> > **Rationale:** [[EBS Overview|EBS Encryption]] is a native feature available to all users, including those on the free tier. It utilizes [[KMS]] and does not require manual OS-level encryption.
 
 > [!question]
 > A user wants to ensure snapshots are encrypted. How can the user achieve data encryption with a snapshot?
@@ -245,7 +245,7 @@ tags: [aws, sap-c02, ebs, storage, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[EBS Overview|EBS Encryption]] provides a simple, managed way to encrypt data at rest on [[EBS Overview|Amazon EBS]] volumes using [[KMS|KMS]].
+> > **Rationale:** [[EBS Overview|EBS Encryption]] provides a simple, managed way to encrypt data at rest on [[EBS Overview|Amazon EBS]] volumes using [[KMS]].
 
 > [!question]
 > How can a user share data from an encrypted EBS volume with another AWS account?
@@ -256,7 +256,7 @@ tags: [aws, sap-c02, ebs, storage, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** You cannot share an [[EBS Snapshots|EBS Snapshot]] encrypted with the default AWS-managed [[KMS|KMS]] key. One workaround is to copy the data to an unencrypted volume or use a custom KMS key and share the key itself.
+> > **Rationale:** You cannot share an [[EBS Snapshots|EBS Snapshot]] encrypted with the default AWS-managed [[KMS]] key. One workaround is to copy the data to an unencrypted volume or use a custom KMS key and share the key itself.
 
 > [!question]
 > Which statement is true regarding charges for an EBS-backed instance?

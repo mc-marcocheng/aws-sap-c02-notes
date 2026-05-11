@@ -34,4 +34,4 @@ tags: [aws, sap-c02, appsync, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** AWS [[WAF|WAF]] integrates directly with Amazon [[AppSync]] and can be used to set rate-based rules, block malicious IPs, and protect the backend from sudden traffic bursts or DDoS attacks.
+> > **Rationale:** AWS [[WAF]] integrates directly with Amazon [[AppSync]] and can be used to set rate-based rules, block malicious IPs, and protect the backend from sudden traffic bursts or DDoS attacks.

@@ -12,7 +12,7 @@ tags: [aws, sap-c02, fsx, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[FSx for Lustre]] is a high-performance file system optimized for fast processing of workloads like HPC, machine learning, and media data processing. It provides sub-millisecond latencies, hundreds of GB/s of throughput, and millions of IOPS. While [[EFS|EFS]] is a shared file system, it is not as highly optimized for the extreme performance requirements of HPC workloads as FSx for Lustre.
+> > **Rationale:** [[FSx for Lustre]] is a high-performance file system optimized for fast processing of workloads like HPC, machine learning, and media data processing. It provides sub-millisecond latencies, hundreds of GB/s of throughput, and millions of IOPS. While [[EFS]] is a shared file system, it is not as highly optimized for the extreme performance requirements of HPC workloads as FSx for Lustre.
 
 > [!question]
 > A company is planning to deploy a High Performance Computing (HPC) cluster in its VPC that requires a scalable, high performance file system. The storage service must be optimized for efficient workload processing, and the data must be accessible via a fast and scalable file system interface. It should also work natively with Amazon S3 that enables you to easily process your S3 data with a high-performance POSIX interface. Which of the following is the MOST suitable service that you should use for this scenario?

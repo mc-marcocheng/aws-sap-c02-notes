@@ -34,4 +34,4 @@ tags: [aws, sap-c02, step-functions, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[Step Functions]] provides optimized integrations. By using the `.sync` suffix (Run a Job pattern), Step Functions natively waits for the AWS [[Batch|Batch]] job to complete before moving to the next state, requiring zero polling or custom code.
+> > **Rationale:** [[Step Functions]] provides optimized integrations. By using the `.sync` suffix (Run a Job pattern), Step Functions natively waits for the AWS [[Batch]] job to complete before moving to the next state, requiring zero polling or custom code.

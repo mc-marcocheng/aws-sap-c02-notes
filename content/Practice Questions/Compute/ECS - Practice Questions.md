@@ -12,7 +12,7 @@ tags: [aws, sap-c02, ecs, compute, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** [[ALB Overview|Application Load Balancers]] (ALB) support dynamic host port mapping, which allows multiple tasks from the same service to run on a single container instance by mapping different host ports to the same container port. This is essential for maximizing resource utilization in an [[ECS|ECS]] cluster.
+> > **Rationale:** [[ALB Overview|Application Load Balancers]] (ALB) support dynamic host port mapping, which allows multiple tasks from the same service to run on a single container instance by mapping different host ports to the same container port. This is essential for maximizing resource utilization in an [[ECS]] cluster.
 
 > [!question]
 > Your security team requires each Amazon ECS task to have an IAM policy that limits the task’s privileges to only those required for its use of AWS services. How can you achieve this?
@@ -23,4 +23,4 @@ tags: [aws, sap-c02, ecs, compute, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** By using [[IAM Roles and Policies|IAM Roles for Tasks]], you can specify an IAM role at the task definition level. This ensures that each [[ECS|ECS]] task has its own set of permissions, adhering to the principle of least privilege. This is distinct from the [[ECS|ECS]] Task Execution Role, which is used by the ECS agent itself, and the Instance Role, which applies to the underlying [[EC2 Overview|EC2]] instance.
+> > **Rationale:** By using [[IAM Roles and Policies|IAM Roles for Tasks]], you can specify an IAM role at the task definition level. This ensures that each [[ECS]] task has its own set of permissions, adhering to the principle of least privilege. This is distinct from the [[ECS]] Task Execution Role, which is used by the ECS agent itself, and the Instance Role, which applies to the underlying [[EC2 Overview|EC2]] instance.

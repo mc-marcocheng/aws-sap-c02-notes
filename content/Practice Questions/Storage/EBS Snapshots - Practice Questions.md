@@ -112,7 +112,7 @@ tags: [aws, sap-c02, ebs, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1 & 2**
-> > Encryption is supported for all [[EBS Overview|EBS]] volume types. When a volume is encrypted, any [[EBS Snapshots|snapshots]] taken from it are automatically encrypted using the same [[KMS|KMS]] key.
+> > Encryption is supported for all [[EBS Overview|EBS]] volume types. When a volume is encrypted, any [[EBS Snapshots|snapshots]] taken from it are automatically encrypted using the same [[KMS]] key.
 
 > [!question]
 > Amazon EBS snapshots have which of the following two characteristics? (Choose 2.)
@@ -222,7 +222,7 @@ tags: [aws, sap-c02, ebs, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > Shared [[EBS Snapshots]] can absolutely be used as a basis for new volumes and even new snapshots by the recipient. Note that C is also partially outdated as encrypted snapshots *can* be shared if the [[KMS|KMS]] key is also shared.
+> > Shared [[EBS Snapshots]] can absolutely be used as a basis for new volumes and even new snapshots by the recipient. Note that C is also partially outdated as encrypted snapshots *can* be shared if the [[KMS]] key is also shared.
 
 > [!question]
 > There is a very serious outage at AWS. EC2 is not affected, but your EC2 instance deployment scripts stopped working in the region with the outage. What might be the issue?

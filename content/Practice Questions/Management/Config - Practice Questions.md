@@ -12,7 +12,7 @@ tags: [aws, sap-c02, config, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[Config]] is the primary service for tracking configuration changes over time for supported resources. For services not yet supported by Config, using the AWS SDKs/APIs to programmatically query and record state is the recommended supplemental approach. Tagging and [[CloudTrail|CloudTrail]] (Option 4) provide activity logs but not the detailed configuration history and relationship mapping provided by Config.
+> > **Rationale:** [[Config]] is the primary service for tracking configuration changes over time for supported resources. For services not yet supported by Config, using the AWS SDKs/APIs to programmatically query and record state is the recommended supplemental approach. Tagging and [[CloudTrail]] (Option 4) provide activity logs but not the detailed configuration history and relationship mapping provided by Config.
 
 > [!question]
 > Fill the blanks: \_\_\_\_ helps us track AWS API calls and transitions, \_\_\_\_ helps to understand what resources we have now, and \_\_\_\_ allows auditing credentials and logins.
@@ -23,4 +23,4 @@ tags: [aws, sap-c02, config, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[CloudTrail|CloudTrail]] records API calls and account activity (WHO/WHEN). [[Config]] provides a detailed inventory and configuration history of resources (WHAT/Current State). [[IAM|IAM]] Credential Reports are used specifically for auditing user credentials, MFA status, and last login activity.
+> > **Rationale:** [[CloudTrail]] records API calls and account activity (WHO/WHEN). [[Config]] provides a detailed inventory and configuration history of resources (WHAT/Current State). [[IAM]] Credential Reports are used specifically for auditing user credentials, MFA status, and last login activity.

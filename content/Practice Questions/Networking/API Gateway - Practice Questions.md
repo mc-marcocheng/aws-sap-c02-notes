@@ -13,7 +13,7 @@ tags: [aws, sap-c02, api-gateway, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 5**
-> > **Rationale**: [[API Gateway|API Gateway]] provides the following benefits:
+> > **Rationale**: [[API Gateway]] provides the following benefits:
 > > - **Caching API responses**: API Gateway can cache responses from the endpoint for a specified TTL (Time-to-Live) period. This improves performance and reduces the latency experienced by end users while also decreasing the load on backend services.
 > > - **Throttling traffic**: API Gateway provides traffic management with throttling limits (standard rates and bursts). This protects backend operations from being overwhelmed by traffic spikes, ensuring overall system resiliency.
 > > - **IP blacklisting**: Although API Gateway integrates with AWS WAF to enable IP-based filtering, it is not listed as a primary native benefit in the core feature set in the same way caching and throttling are.

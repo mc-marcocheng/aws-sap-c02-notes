@@ -13,7 +13,7 @@ tags: [aws, sap-c02, kms, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale**: With Client-Side Encryption (CSE) using [[KMS|KMS]], the encryption happens at the client side before the object is uploaded to S3, fulfilling the regulatory requirement. [[KMS|KMS]] is a cost-effective and highly available managed service. Using [[S3 Overview|S3]] with lifecycle policies to move data to [[S3 Storage Classes|Glacier]] is more flexible and cost-effective for this volume of data compared to direct [[S3 Storage Classes|Glacier]] uploads or maintaining on-premise infrastructure.
+> > **Rationale**: With Client-Side Encryption (CSE) using [[KMS]], the encryption happens at the client side before the object is uploaded to S3, fulfilling the regulatory requirement. [[KMS]] is a cost-effective and highly available managed service. Using [[S3 Overview|S3]] with lifecycle policies to move data to [[S3 Storage Classes|Glacier]] is more flexible and cost-effective for this volume of data compared to direct [[S3 Storage Classes|Glacier]] uploads or maintaining on-premise infrastructure.
 
 > [!question]
 > Authenticating EC2 outbound connections with unique x.509 certificates. An AWS customer is deploying an application that is composed of an Auto Scaling group of EC2 Instances. The customers security policy requires that every outbound connection from these instances to any other service within the customers Virtual Private Cloud must be authenticated using a unique x 509 certificate that contains the specific instance-id. In addition an x 509 certificates must be designed by the customer’s Key management service in order to be trusted for authentication. Which of the following configurations will support these requirements?
@@ -25,7 +25,7 @@ tags: [aws, sap-c02, kms, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale**: Embedding a certificate/agent into the AMI allows launched instances to generate a Certificate Signing Request (CSR) that includes their specific `instance-id`. This CSR is then sent to the [[KMS|KMS]] (or a custom CA backend) for signing. This satisfies the requirement for a unique certificate per instance and ensures the certificate contains the `instance-id`.
+> > **Rationale**: Embedding a certificate/agent into the AMI allows launched instances to generate a Certificate Signing Request (CSR) that includes their specific `instance-id`. This CSR is then sent to the [[KMS]] (or a custom CA backend) for signing. This satisfies the requirement for a unique certificate per instance and ensures the certificate contains the `instance-id`.
 
 > [!question]
 > Rotating KMS keys with imported key material. A company has a customer master key (CMK) with imported key materials. Company policy requires that all encryption keys must be rotated every year. What can be done to implement the above policy?
@@ -37,7 +37,7 @@ tags: [aws, sap-c02, kms, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale**: [[KMS|KMS]] keys with imported key material (Origin: EXTERNAL) do not support automatic key rotation. To rotate these keys, you must perform a manual rotation: create a new [[KMS|KMS]] key, import the new key material, and update your application or [[KMS#Aliases|Alias]] to point to the new key ID.
+> > **Rationale**: [[KMS]] keys with imported key material (Origin: EXTERNAL) do not support automatic key rotation. To rotate these keys, you must perform a manual rotation: create a new [[KMS]] key, import the new key material, and update your application or [[KMS#Aliases|Alias]] to point to the new key ID.
 
 > [!question]
 > KMS key types supporting automatic rotation every 12 months. An organization policy states that all encryption keys must be automatically rotated every 12 months. Which AWS Key Management Service (KMS) key type should be used to meet this requirement? (Select TWO)
@@ -49,4 +49,4 @@ tags: [aws, sap-c02, kms, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 2**
-> > **Rationale**: **AWS managed keys** are automatically rotated every year (this was updated from every 3 years). **Customer managed keys** with AWS-generated key material (Origin: AWS_KMS) support optional automatic rotation every year. Keys with imported material or asymmetric keys do not support automatic rotation. Data keys are not "rotated" by [[KMS|KMS]]; they are unique per encryption operation or managed by the service using them via envelope encryption.
+> > **Rationale**: **AWS managed keys** are automatically rotated every year (this was updated from every 3 years). **Customer managed keys** with AWS-generated key material (Origin: AWS_KMS) support optional automatic rotation every year. Keys with imported material or asymmetric keys do not support automatic rotation. Data keys are not "rotated" by [[KMS]]; they are unique per encryption operation or managed by the service using them via envelope encryption.

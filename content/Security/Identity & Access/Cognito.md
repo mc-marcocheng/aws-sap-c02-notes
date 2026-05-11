@@ -14,10 +14,10 @@ Amazon Cognito provides authentication, authorization, and user management for w
 - **Web Identity Federation:** Authenticate via IdP -> Get JWT Token -> Exchange for AWS Credentials via Identity Pool -> Access AWS Resources.
 - **Lambda Triggers:** Customize authentication workflows (e.g., pre sign-up, custom authentication challenge, post authentication). Useful for migrating users without forcing password resets.
 - **ALB Integration:** [[ALB Overview|ALB]] can authenticate users directly with a Cognito User Pool before routing traffic to targets.
-- **API Gateway Integration:** [[API Gateway|API Gateway]] can use Cognito User Pools as an authorizer to protect REST APIs.
+- **API Gateway Integration:** [[API Gateway]] can use Cognito User Pools as an authorizer to protect REST APIs.
 
 > [!exam]
-> When integrating [[ALB Overview|ALB]] or [[API Gateway|API Gateway]] for authentication, use Cognito **User Pools**, not Identity Pools.
+> When integrating [[ALB Overview|ALB]] or [[API Gateway]] for authentication, use Cognito **User Pools**, not Identity Pools.
 > If you need to give users direct access to AWS resources (e.g., mobile app directly uploading to an [[S3 Overview|S3]] bucket), you MUST use **Identity Pools**.
 > For seamless migration of users to Cognito with existing passwords, use the **User Migration Lambda trigger**.
 

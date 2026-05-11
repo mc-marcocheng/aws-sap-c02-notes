@@ -133,7 +133,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > To achieve true [[High Availability|High Availability]], the system must have spare capacity to absorb the load if one AZ fails. By adjusting [[Auto Scaling Overview|Auto Scaling]] thresholds to maintain lower aggregate utilization, you ensure that the remaining 2 AZs can handle the 100% load without being overwhelmed when one AZ goes offline.
+> > To achieve true [[High Availability]], the system must have spare capacity to absorb the load if one AZ fails. By adjusting [[Auto Scaling Overview|Auto Scaling]] thresholds to maintain lower aggregate utilization, you ensure that the remaining 2 AZs can handle the 100% load without being overwhelmed when one AZ goes offline.
 
 > [!question]
 > You run accounting software in the AWS cloud. This software needs to be online continuously during the day every day of the week, and has a very static requirement for compute resources. You also have other, unrelated batch jobs that need to run once per day at any time of your choosing. How should you minimize cost?

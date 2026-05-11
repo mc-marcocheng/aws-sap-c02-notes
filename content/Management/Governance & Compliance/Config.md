@@ -6,7 +6,7 @@ tags: [aws, sap-c02, management, compliance]
 [[Config]] is a fully managed service that provides AWS resource inventory, configuration history, and configuration change notifications to enable security, compliance, and governance. It is a **regional service**.
 
 > [!exam]
-> AWS Config is strictly a **detective** service. It does not prevent changes (use [[IAM|IAM]] or [[Organizations Overview|SCP]] for prevention) but integrates with other services for remediation.
+> AWS Config is strictly a **detective** service. It does not prevent changes (use [[IAM]] or [[Organizations Overview|SCP]] for prevention) but integrates with other services for remediation.
 
 ## Key Features & Use Cases
 
@@ -41,7 +41,7 @@ Remediation is applied using **[[Systems Manager Overview|Systems Manager]] Auto
 
 ![[aws-config-systems-manager-automation-remediation.png]]
 
-## AWS Config vs. [[CloudTrail|CloudTrail]]
+## AWS Config vs. [[CloudTrail]]
 
 | Feature | AWS Config | CloudTrail |
 | :--- | :--- | :--- |

@@ -12,7 +12,7 @@ tags: [aws, sap-c02, amazon-mq, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** Amazon [[MQ|MQ]] natively supports industry-standard protocols and APIs like JMS, AMQP, and XA transactions (via ActiveMQ). It is designed for lift-and-shift migrations where rewriting the application code to use SQS/SNS is not feasible.
+> > **Rationale:** Amazon [[MQ]] natively supports industry-standard protocols and APIs like JMS, AMQP, and XA transactions (via ActiveMQ). It is designed for lift-and-shift migrations where rewriting the application code to use SQS/SNS is not feasible.
 
 > [!question]
 > An architect is designing an active/standby high-availability message broker architecture using Amazon MQ for ActiveMQ across two Availability Zones in a single AWS Region. What underlying storage mechanism provides the shared data synchronization between the active and standby brokers?
@@ -23,7 +23,7 @@ tags: [aws, sap-c02, amazon-mq, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** In an Amazon [[MQ|MQ]] Active/Standby broker deployment for ActiveMQ, the brokers share an Amazon [[EFS|EFS]] (Elastic File System) storage volume. This allows the standby broker to seamlessly take over the storage state if the active broker fails.
+> > **Rationale:** In an Amazon [[MQ]] Active/Standby broker deployment for ActiveMQ, the brokers share an Amazon [[EFS]] (Elastic File System) storage volume. This allows the standby broker to seamlessly take over the storage state if the active broker fails.
 
 > [!question]
 > A company wants to connect multiple Amazon MQ (ActiveMQ) brokers deployed across different AWS Regions to allow messages produced in `us-east-1` to be consumed by applications in `eu-west-1`. How can this be natively achieved?

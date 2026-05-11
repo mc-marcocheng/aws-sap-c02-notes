@@ -7,7 +7,7 @@ AWS App Mesh is a service mesh that provides application-level networking to mak
 
 ## Architectural Patterns
 - **Envoy Proxy:** Uses the open-source Envoy proxy as a sidecar container alongside your microservices.
-- **Cross-Compute Routing:** Consistent routing and traffic rules across [[EKS]], [[ECS|ECS]], EC2, and Kubernetes on EC2.
+- **Cross-Compute Routing:** Consistent routing and traffic rules across [[EKS]], [[ECS]], EC2, and Kubernetes on EC2.
 - **Traffic Control:** Supports advanced routing capabilities like canary deployments, circuit breaking, and retries without changing application code.
 
 ## SAP-C02 Key Facts

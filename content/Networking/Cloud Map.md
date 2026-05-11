@@ -7,7 +7,7 @@ AWS Cloud Map is a cloud resource discovery service. With Cloud Map, you can def
 
 ## Architectural Patterns
 - **Service Discovery:** Replaces hardcoded IP addresses or internal load balancers with dynamic DNS or API-based discovery for microservices.
-- **Integration:** Natively integrates with [[ECS|ECS]] and [[EKS]] to automatically register/deregister services as tasks scale up and down.
+- **Integration:** Natively integrates with [[ECS]] and [[EKS]] to automatically register/deregister services as tasks scale up and down.
 - **Namespace Types:** Supports public DNS, private DNS (within a [[VPC Overview|VPC]]), and HTTP API namespaces (useful for IP/port discovery without DNS constraints).
 
 ## SAP-C02 Key Facts

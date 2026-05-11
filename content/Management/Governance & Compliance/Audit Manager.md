@@ -14,7 +14,7 @@ AWS Audit Manager helps you continuously audit your AWS usage to simplify how yo
 
 ## SAP-C02 Key Facts & Architectural Patterns
 - **Organizations Integration:** Can be enabled across [[Organizations Overview|AWS Organizations]] to collect evidence from multiple member accounts into a single delegated administrator account.
-- **Evidence Sources:** Automatically pulls data from [[CloudTrail|CloudTrail]], [[Config]], [[Security Hub]], and API calls to provide a continuous, unalterable trail of evidence.
+- **Evidence Sources:** Automatically pulls data from [[CloudTrail]], [[Config]], [[Security Hub]], and API calls to provide a continuous, unalterable trail of evidence.
 
 > [!exam]
 > Differentiate clearly: 

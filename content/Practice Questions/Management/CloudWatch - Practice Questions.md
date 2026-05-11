@@ -167,7 +167,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > Historically, [[CloudWatch Overview|CloudWatch]] metric retention was limited to 14 days for high-resolution data. If you are reviewing data from 3 weeks ago, standard metrics might have been deleted or aggregated to a much lower resolution, making it difficult to pinpoint the exact cause of a transient spike compared to [[CloudTrail|CloudTrail]] or [[ELB Overview|ELB]] Access Logs stored in [[S3 Overview|S3]].
+> > Historically, [[CloudWatch Overview|CloudWatch]] metric retention was limited to 14 days for high-resolution data. If you are reviewing data from 3 weeks ago, standard metrics might have been deleted or aggregated to a much lower resolution, making it difficult to pinpoint the exact cause of a transient spike compared to [[CloudTrail]] or [[ELB Overview|ELB]] Access Logs stored in [[S3 Overview|S3]].
 
 > [!question]
 > You have a high security requirement for your AWS accounts. What is the most rapid and sophisticated setup you can use to react to AWS API calls to your account?
@@ -178,7 +178,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > CloudWatch Events can capture [[CloudTrail|CloudTrail]] API calls in near real-time. By using a rule to match all API calls and setting the target to an [[Kinesis Overview|Kinesis Stream]], you can perform sophisticated, real-time analysis using Kinesis Data Analytics or other tools.
+> > CloudWatch Events can capture [[CloudTrail]] API calls in near real-time. By using a rule to match all API calls and setting the target to an [[Kinesis Overview|Kinesis Stream]], you can perform sophisticated, real-time analysis using Kinesis Data Analytics or other tools.
 
 > [!question]
 > To monitor API calls against our AWS account by different users and entities, we can use \_\_\_\_ to create a history of calls in bulk for later review, and use \_\_\_\_ for reacting to AWS API calls in real-time.
@@ -189,7 +189,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > [[CloudTrail|CloudTrail]] is the service for logging and maintaining a durable history of API calls across your AWS account. CloudWatch Events is used to detect those same API calls in near real-time and trigger automated responses.
+> > [[CloudTrail]] is the service for logging and maintaining a durable history of API calls across your AWS account. CloudWatch Events is used to detect those same API calls in near real-time and trigger automated responses.
 
 > [!question]
 > You are the head of operations for a SaaS company. Your CTO wants to make debugging any part of your complex, service-oriented architecture simpler and faster. Developers currently log to disk, making it hard to find errors across many services. How can you best meet this requirement?

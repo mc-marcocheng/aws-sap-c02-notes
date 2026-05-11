@@ -13,7 +13,7 @@ AWS WAF is a web application firewall that helps protect your web applications o
 
 ## Deployment Models
 - **At the Edge**: Deployed with **[[CloudFront Overview|CloudFront]]** to block requests at edge locations, before they reach your origin.
-- **Regional**: Deployed with **[[ALB Overview|ALB]]** or **[[API Gateway|API Gateway]]** to protect regional resources.
+- **Regional**: Deployed with **[[ALB Overview|ALB]]** or **[[API Gateway]]** to protect regional resources.
 
 ![[how-waf-works.png]]
 
@@ -22,7 +22,7 @@ AWS WAF is a web application firewall that helps protect your web applications o
 > The "WAF Sandwich" (EC2 instances running WAF software between two ELBs) is largely obsolete for most use cases. The modern, cloud-native approach is to use **AWS WAF** directly on the **ALB** or **CloudFront**.
 
 ### Dynamic Updates with Lambda
-WAF can be updated dynamically using **[[CloudWatch Logs|CloudWatch Logs]]**, **S3**, and **[[Lambda|AWS Lambda]]**.
+WAF can be updated dynamically using **[[CloudWatch Logs]]**, **S3**, and **[[Lambda|AWS Lambda]]**.
 1. CloudFront/ALB sends logs to S3.
 2. Lambda parses logs for malicious patterns (e.g., high error rates from specific IPs).
 3. Lambda updates the WAF Web ACL to block those IPs.
