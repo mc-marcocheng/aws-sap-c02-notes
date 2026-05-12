@@ -7,7 +7,8 @@ Amazon EC2 Auto Scaling ensures that you have the correct number of EC2 instance
 
 ## Core Components
 
- > [!info] **The Building Blocks**> - **Auto Scaling Group (ASG)**: A logical grouping of EC2 instances with shared characteristics. Defines min, max, and desired capacity.
+> [!info] **The Building Blocks**
+> - **Auto Scaling Group (ASG)**: A logical grouping of EC2 instances with shared characteristics. Defines min, max, and desired capacity.
 > - **Launch Template (LT)**: The modern way to define instance configurations (AMI, instance type, SG, user data). Supports versioning and multiple purchase options (Spot + On-Demand).
 > - **Launch Configuration (LC)**: Legacy method. Immutable (requires recreation for changes). *AWS recommends using Launch Templates.*
 
@@ -35,7 +36,7 @@ Amazon EC2 Auto Scaling ensures that you have the correct number of EC2 instance
 
 ### Health Check Types
 1. **EC2 Health Checks**: Based on instance status checks (System/Instance).
-2. **ELB Health Checks**: Based on application-level pings. 
+2. **ELB Health Checks**: Based on application-level pings.
    - > [!important] **Note**: By default, ASG only uses EC2 health checks. You **must** enable ELB health checks if you want ASG to replace instances that are failing at the application layer.
 
 ### AZ Rebalancing
@@ -45,7 +46,7 @@ ASG always tries to maintain an equal number of instances across all enabled Ava
 ## Termination Policies
 
 When a scale-in event occurs, ASG uses a termination policy to decide which instance to kill:
-1. **Default Policy**: 
+1. **Default Policy**:
    - Selects AZ with the most instances.
    - Selects instances with the oldest launch configuration/template.
    - Selects instances closest to the next billing hour (legacy behavior).
@@ -93,7 +94,6 @@ ASG integrates with ELB health checks to replace unhealthy instances automatical
 ---
 ## Related Services
 - [[_Compute Index|Compute Index]]
-- [[Auto Scaling - Practice Questions|Practice Questions: Auto Scaling]]
 - [[EC2 Overview]]
 - [[ALB Overview]]
 - [[CloudWatch Overview]]
