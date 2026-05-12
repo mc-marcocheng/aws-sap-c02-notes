@@ -27,7 +27,7 @@ tags: [aws, sap-c02, route53, networking, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** While AWS native [[Route 53 Routing Policies#5. Geolocation Routing|Geolocation Routing]] is the preferred way to handle this, in the context of this specific question, using a mechanism (like a third-party provider or Geolocation routing) to ensure users land in the correct region is required for **Data Sovereignty**.
-> > - [[Route 53 Routing Policies#Latency-Based Routing|Latency Based Routing]] (2) is performance-focused and does not guarantee that a user in the EU won't be routed to the US if latency is lower.
+> > - [[Route 53 Routing Policies#3. Latency-Based Routing (LBR)|Latency Based Routing]] (2) is performance-focused and does not guarantee that a user in the EU won't be routed to the US if latency is lower.
 
 > [!question]
 > A US-based company is expanding their web presence into Europe. The company wants to extend their AWS infrastructure from Northern Virginia (us-east-1) into the Dublin (eu-west-1) region. Which of the following options would enable an equivalent experience for users on both continents?
@@ -61,7 +61,7 @@ tags: [aws, sap-c02, route53, networking, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 2**
 > > **Rationale:** 
-> > - 1: [[Route 53 Routing Policies#Latency-Based Routing|Latency-Based Routing (LBR)]] reduces network latency by directing users to the closest regional endpoint.
+> > - 1: [[Route 53 Routing Policies#3. Latency-Based Routing (LBR)|Latency-Based Routing (LBR)]] reduces network latency by directing users to the closest regional endpoint.
 > > - 2: [[CloudFront Overview|CloudFront]] (CDN) is the most effective way to serve static assets like images globally, as it caches content at Edge Locations closer to the end-users.
 
 > [!question]
@@ -73,4 +73,4 @@ tags: [aws, sap-c02, route53, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale:** Combining [[Route 53 Routing Policies#Latency-Based Routing|Latency-Based Routing (LBR)]] for performance and [[Route 53 Routing Policies#4. Failover Routing (Active-Passive)|Failover Routing]] for high availability is the "Gold Standard" for multi-region stateless APIs. Using **Auto Scaling** and **ELBs** ensures that each regional deployment is itself highly available and scalable.
+> > **Rationale:** Combining [[Route 53 Routing Policies#3. Latency-Based Routing (LBR)|Latency-Based Routing (LBR)]] for performance and [[Route 53 Routing Policies#4. Failover Routing (Active-Passive)|Failover Routing]] for high availability is the "Gold Standard" for multi-region stateless APIs. Using **Auto Scaling** and **ELBs** ensures that each regional deployment is itself highly available and scalable.

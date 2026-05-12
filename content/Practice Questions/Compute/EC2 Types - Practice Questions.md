@@ -98,5 +98,5 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > > **Answer: 2**
 > > **Rationale:**
 > > * **i2.8xlarge with RAID 0 SSDs** provides the required 100,000 IOPS via [[EC2 Instance Types|Instance Store]].
-> > * **Synchronous replication to another AZ** (us-east-1b) ensures the architecture can survive the loss of an instance or an entire [[VPC Overview#Availability Zones (AZ)|Availability Zone]] without data loss.
+> > * **Synchronous replication to another AZ** (us-east-1b) ensures the architecture can survive the loss of an instance or an entire [[VPC Overview|Availability Zone]] without data loss.
 > > * RAID 5 and snapshots (Option 4) involve potential data loss (RPO) and do not provide synchronous protection against AZ failure.

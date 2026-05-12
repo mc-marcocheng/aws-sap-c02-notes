@@ -103,4 +103,4 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3, 5**
-> > **Rationale:** [[S3 Encryption#Enforce encryption for all uploads|S3 Default Encryption]] ensures all objects are encrypted at rest even if the user doesn't specify it. A [[S3 Encryption#1. Encryption in Transit|Bucket Policy]] can also be used to explicitly deny any `PutObject` requests that do not include encryption headers.
+> > **Rationale:** [[S3 Encryption|S3 Default Encryption]] ensures all objects are encrypted at rest even if the user doesn't specify it. A [[S3 Encryption#1. Encryption in Transit|Bucket Policy]] can also be used to explicitly deny any `PutObject` requests that do not include encryption headers.

@@ -37,7 +37,7 @@ tags: [aws, sap-c02, kms, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale**: [[KMS]] keys with imported key material (Origin: EXTERNAL) do not support automatic key rotation. To rotate these keys, you must perform a manual rotation: create a new [[KMS]] key, import the new key material, and update your application or [[KMS#Aliases|Alias]] to point to the new key ID.
+> > **Rationale**: [[KMS]] keys with imported key material (Origin: EXTERNAL) do not support automatic key rotation. To rotate these keys, you must perform a manual rotation: create a new [[KMS]] key, import the new key material, and update your application or [[KMS|Alias]] to point to the new key ID.
 
 > [!question]
 > KMS key types supporting automatic rotation every 12 months. An organization policy states that all encryption keys must be automatically rotated every 12 months. Which AWS Key Management Service (KMS) key type should be used to meet this requirement? (Select TWO)

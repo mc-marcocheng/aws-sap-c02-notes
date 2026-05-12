@@ -124,7 +124,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** By default, you can create up to 100 [[S3 Overview#S3 Buckets|buckets]] per AWS account (this is a soft limit). You can request an increase to a maximum of 1,000 buckets.
+> > **Rationale:** By default, you can create up to 100 [[S3 Overview#Buckets|buckets]] per AWS account (this is a soft limit). You can request an increase to a maximum of 1,000 buckets.
 
 > [!question]
 > Your customer needs to create an application to allow contractors to upload videos to Amazon Simple Storage Service (S3) so they can be transcoded into a different format. She creates AWS Identity and Access Management (IAM) users for her application developers, and in just one week, they have the application hosted on a fleet of Amazon Elastic Compute Cloud (EC2) instances. The attached IAM role is assigned to the instances. As expected, a contractor who authenticates to the application is given a pre-signed URL that points to the location for video upload. However, contractors are reporting that they cannot upload their videos. Which of the following are valid reasons for this behavior? Choose 2 answers

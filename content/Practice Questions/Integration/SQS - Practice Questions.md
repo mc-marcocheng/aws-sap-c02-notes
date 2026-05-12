@@ -23,7 +23,7 @@ tags: [aws, sap-c02, sqs, integration, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale**: SQS decouples the producers (on-premise systems) from the consumers (EC2 worker instances). This allows the fleet of worker instances to scale horizontally based on the number of messages in the queue (load), ensuring efficient processing of transcoding jobs. This is a classic [[SQS Overview#SQS Use Cases|SQS Use Case]].
+> > **Rationale**: SQS decouples the producers (on-premise systems) from the consumers (EC2 worker instances). This allows the fleet of worker instances to scale horizontally based on the number of messages in the queue (load), ensuring efficient processing of transcoding jobs. This is a classic [[SQS Overview#SQS Design Patterns|SQS Use Case]].
 
 > [!question]
 > Which statement best describes an Amazon SQS use case?
@@ -111,7 +111,7 @@ tags: [aws, sap-c02, sqs, integration, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale**: When a message is received by a consumer, it remains in the queue but is "hidden" from other consumers for the duration of the [[SQS Overview#Visibility Timeout|visibility timeout]]. If the consumer processes and deletes the message within this window, it won't be processed again.
+> > **Rationale**: When a message is received by a consumer, it remains in the queue but is "hidden" from other consumers for the duration of the [[SQS Overview#Core Concepts|visibility timeout]]. If the consumer processes and deletes the message within this window, it won't be processed again.
 
 > [!question]
 > How do you configure SQS to support longer message retention?
@@ -133,7 +133,7 @@ tags: [aws, sap-c02, sqs, integration, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale**: [[SQS Overview#Standard Queues|Standard queues]] provide "at-least-once" delivery (meaning messages can occasionally be delivered more than once) and "best-effort ordering" (meaning order is not guaranteed).
+> > **Rationale**: [[SQS Overview#Queue Types|Standard queues]] provide "at-least-once" delivery (meaning messages can occasionally be delivered more than once) and "best-effort ordering" (meaning order is not guaranteed).
 
 > [!question]
 > When a task takes 5 minutes to complete, which process results in successful processing while minimizing duplicate processing?
@@ -144,7 +144,7 @@ tags: [aws, sap-c02, sqs, integration, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale**: Increasing the [[SQS Overview#Visibility Timeout|visibility timeout]] ensures the message remains hidden until the 5-minute task is complete. Deleting it *after* processing ensures it was successful. Deleting *before* processing risks data loss if the task fails.
+> > **Rationale**: Increasing the [[SQS Overview#Core Concepts|visibility timeout]] ensures the message remains hidden until the 5-minute task is complete. Deleting it *after* processing ensures it was successful. Deleting *before* processing risks data loss if the task fails.
 
 > [!question]
 > You are getting a lot of empty receive requests when using Amazon SQS. How can you reduce this load?

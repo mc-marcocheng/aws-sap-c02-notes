@@ -24,7 +24,7 @@ tags: [aws, sap-c02, iam, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 4**
-> > **Rationale:** [[IAM Roles and Policies#Identity Federation|Identity federation]] requires a way to connect the on-premises AD to AWS, which is done via [[IAM Federation|Directory Service]] AD Connector. Users then assume [[IAM Roles and Policies#IAM Roles|IAM roles]] to gain access to the console based on their AD group membership.
+> > **Rationale:** [[IAM Roles and Policies|Identity federation]] requires a way to connect the on-premises AD to AWS, which is done via [[IAM Federation|Directory Service]] AD Connector. Users then assume [[IAM Roles and Policies#IAM Roles|IAM roles]] to gain access to the console based on their AD group membership.
 
 > [!question]
 > A customer needs corporate IT governance and cost oversight of all AWS resources consumed by its divisions. The divisions want to maintain administrative control of the discrete AWS resources they consume and keep those resources separate from the resources of other divisions. Which of the following options, when used together will support the autonomy/control of divisions while enabling corporate IT to maintain governance and cost oversight? (Select 2)
@@ -36,7 +36,7 @@ tags: [aws, sap-c02, iam, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 4**
-> > **Rationale:** [[Organizations Overview|Consolidated Billing]] provides cost oversight across multiple accounts. [[IAM Roles and Policies#Cross-Account Access|IAM cross-account access]] allows corporate IT to maintain governance by accessing division accounts without compromising their autonomy.
+> > **Rationale:** [[Organizations Overview|Consolidated Billing]] provides cost oversight across multiple accounts. [[IAM Roles and Policies#Cross-Account Access Flow|IAM cross-account access]] allows corporate IT to maintain governance by accessing division accounts without compromising their autonomy.
 
 > [!question]
 > Which of the following items are required to allow an application deployed on an EC2 instance to write data to a DynamoDB table? Assume that no security keys are allowed to be stored on the EC2 instance. (Select 2)
@@ -92,7 +92,7 @@ tags: [aws, sap-c02, iam, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[IAM Roles and Policies#Cross-Account Access|Cross-account roles]] (ideally with an **External ID**) are the standard way to grant third-party access while preventing the "confused deputy" problem.
+> > **Rationale:** [[IAM Roles and Policies#Cross-Account Access Flow|Cross-account roles]] (ideally with an **External ID**) are the standard way to grant third-party access while preventing the "confused deputy" problem.
 
 > [!question]
 > A user has created an application which will be hosted on EC2. The application makes calls to DynamoDB to fetch certain data. The application is using the DynamoDB SDK to connect with from the EC2 instance. Which of the below mentioned statements is true with respect to the best practice for security in this scenario?

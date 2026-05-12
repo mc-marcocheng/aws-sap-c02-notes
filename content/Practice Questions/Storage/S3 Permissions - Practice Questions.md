@@ -13,7 +13,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 3**
-> > **Rationale:** S3 access can be controlled using resource-based policies (Bucket Policies and [[S3 Permissions#Option C ACLs (Legacy)|ACLs]]) or user-based policies (IAM). CloudFront, Federation, and Virtual Hosting are for delivery or identity, not direct S3 access restriction.
+> > **Rationale:** S3 access can be controlled using resource-based policies (Bucket Policies and [[S3 Permissions#Option C: ACLs (Legacy)|ACLs]]) or user-based policies (IAM). CloudFront, Federation, and Virtual Hosting are for delivery or identity, not direct S3 access restriction.
 
 > [!question]
 > Which method can be used to prevent an IP address block from accessing public objects in an S3 bucket?
@@ -46,7 +46,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** S3 [[S3 Permissions#Option C ACLs (Legacy)|ACLs]] are used to grant permissions to other AWS accounts or predefined groups, not specific IAM users within the same account. To grant access to an IAM user, you should use an IAM Policy or a Bucket Policy.
+> > **Rationale:** S3 [[S3 Permissions#Option C: ACLs (Legacy)|ACLs]] are used to grant permissions to other AWS accounts or predefined groups, not specific IAM users within the same account. To grant access to an IAM user, you should use an IAM Policy or a Bucket Policy.
 
 > [!question]
 > A root AWS account owner is trying to understand various options to set the permission to AWS S3. Which of the below mentioned options is not the right option to grant permission for S3?
@@ -57,7 +57,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** There is no such thing as an "S3 Object Policy." Permissions for objects are managed via [[S3 Permissions#Option A Bucket Policies & IAM (Preferred)|Bucket Policies]], IAM (User Access Policies), or Object [[S3 Permissions#Option C ACLs (Legacy)|ACLs]].
+> > **Rationale:** There is no such thing as an "S3 Object Policy." Permissions for objects are managed via [[S3 Permissions#Option A: Bucket Policies & IAM (Preferred)|Bucket Policies]], IAM (User Access Policies), or Object [[S3 Permissions#Option C: ACLs (Legacy)|ACLs]].
 
 > [!question]
 > A system admin is managing buckets, objects and folders with AWS S3. Which of the below mentioned statements is true and should be taken in consideration by the sysadmin?
@@ -135,7 +135,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** As noted previously, there is no "Object Policy" in S3. Permissions are handled via [[S3 Permissions#Option A Bucket Policies & IAM (Preferred)|IAM User Policies]], [[S3 Permissions#1. Evaluation Logic|Bucket Policies]], or [[S3 Permissions#Option C ACLs (Legacy)|ACLs]].
+> > **Rationale:** As noted previously, there is no "Object Policy" in S3. Permissions are handled via [[S3 Permissions#Option A: Bucket Policies & IAM (Preferred)|IAM User Policies]], [[S3 Permissions#1. Evaluation Logic|Bucket Policies]], or [[S3 Permissions#Option C: ACLs (Legacy)|ACLs]].
 
 > [!question]
 > A user is having access to objects of an S3 bucket, which is not owned by him. If he is trying to set the objects of that bucket public, which of the below mentioned options may be a right fit for this action?

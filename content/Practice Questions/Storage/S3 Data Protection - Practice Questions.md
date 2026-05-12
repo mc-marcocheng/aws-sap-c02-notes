@@ -23,7 +23,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** When using [[S3 Encryption#SSE-C (Server-Side Encryption with Customer-Provided Keys)|SSE-C]], you must provide the following three headers:
+> > **Rationale:** When using [[S3 Encryption#SSE-C (Customer-Provided Keys)|SSE-C]], you must provide the following three headers:
 > > 1. `x-amz-server-side-encryption-customer-algorithm`: Specifies the encryption algorithm (e.g., AES256).
 > > 2. `x-amz-server-side-encryption-customer-key`: Provides the 256-bit, base64-encoded encryption key.
 > > 3. `x-amz-server-side-encryption-customer-key-MD5`: Provides the base64-encoded 128-bit MD5 digest of the encryption key.

@@ -12,7 +12,7 @@ tags: [aws, sap-c02, route53, dns, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3. A scalable Domain Name System.**
-> > **Rationale**: [[Route 53 Overview#DNS Service|Amazon Route 53]] is a highly available and scalable Domain Name System (DNS) web service. It is designed to route end users to Internet applications by translating names like `www.example.com` into numeric IP addresses. Option A describes [[CloudFront Overview|CloudFront]]. Option D describes EC2 Instance Connect or Systems Manager Session Manager.
+> > **Rationale**: [[Route 53 Overview#2. DNS Service|Amazon Route 53]] is a highly available and scalable Domain Name System (DNS) web service. It is designed to route end users to Internet applications by translating names like `www.example.com` into numeric IP addresses. Option A describes [[CloudFront Overview|CloudFront]]. Option D describes EC2 Instance Connect or Systems Manager Session Manager.
 
 > [!question]
 > Does Amazon Route 53 support NS Records?

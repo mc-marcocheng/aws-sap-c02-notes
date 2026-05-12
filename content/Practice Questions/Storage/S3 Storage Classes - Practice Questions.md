@@ -23,7 +23,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** [[S3 Storage Classes#Reduced Redundancy Storage|Reduced Redundancy Storage (RRS)]] is designed for **99.99% durability** of objects. This is significantly lower than the **99.999999999% (11 9's)** durability provided by [[S3 Storage Classes|S3 Standard]] and other modern storage classes.
+> > **Rationale:** [[S3 Storage Classes|Reduced Redundancy Storage (RRS)]] is designed for **99.99% durability** of objects. This is significantly lower than the **99.999999999% (11 9's)** durability provided by [[S3 Storage Classes|S3 Standard]] and other modern storage classes.
 
 > [!question]
 > What is the Reduced Redundancy option in Amazon S3?
@@ -34,7 +34,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** The [[S3 Storage Classes#Reduced Redundancy Storage|Reduced Redundancy Storage (RRS)]] option provides a lower level of redundancy (99.99% durability) compared to standard storage, which reduces storage costs for data that can be easily recreated.
+> > **Rationale:** The [[S3 Storage Classes|Reduced Redundancy Storage (RRS)]] option provides a lower level of redundancy (99.99% durability) compared to standard storage, which reduces storage costs for data that can be easily recreated.
 
 > [!question]
 > An application is generating a log file every 5 minutes. The log file is not critical but may be required only for verification in case of some major issue. The file should be accessible over the internet whenever required. Which of the below mentioned options is a best possible storage solution for it?
@@ -45,7 +45,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale:** [[S3 Storage Classes#Reduced Redundancy Storage|Reduced Redundancy Storage (RRS)]] is ideal for non-critical, reproducible data like logs. While [[S3 Storage Classes|S3 Standard]] is often recommended now, RRS was designed for this specific use case to sustain the loss of data in a single facility while maintaining internet accessibility.
+> > **Rationale:** [[S3 Storage Classes|Reduced Redundancy Storage (RRS)]] is ideal for non-critical, reproducible data like logs. While [[S3 Storage Classes|S3 Standard]] is often recommended now, RRS was designed for this specific use case to sustain the loss of data in a single facility while maintaining internet accessibility.
 
 > [!question]
 > A user has moved an object to Glacier using the life cycle rules. The user requests to restore the archive after 6 months. When the restore request is completed the user accesses that archive. Which of the below mentioned statements is not true in this condition?
@@ -67,7 +67,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** A combination of [[EC2 Purchase Options#Spot Instances|Spot]] and [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances]] for [[EMR]] ensures both performance (via Reserved) and cost reduction (via Spot). Using [[S3 Storage Classes#Reduced Redundancy Storage|RRS]] for all data (assuming it's reproducible) reduces storage costs. In a modern context, [[S3 Storage Classes|S3 One Zone-IA]] or [[S3 Storage Classes|S3 Standard]] with [[S3 Lifecycle Management|Lifecycle rules]] might be preferred.
+> > **Rationale:** A combination of [[EC2 Purchase Options#Spot Instances|Spot]] and [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances]] for [[EMR]] ensures both performance (via Reserved) and cost reduction (via Spot). Using [[S3 Storage Classes|RRS]] for all data (assuming it's reproducible) reduces storage costs. In a modern context, [[S3 Storage Classes|S3 One Zone-IA]] or [[S3 Storage Classes|S3 Standard]] with [[S3 Lifecycle Management|Lifecycle rules]] might be preferred.
 
 > [!question]
 > Which of the below mentioned options can be a good use case for storing content in AWS RRS?
@@ -78,7 +78,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale:** [[S3 Storage Classes#Reduced Redundancy Storage|Image thumbnails]] are a classic use case for [[S3 Storage Classes#Reduced Redundancy Storage|Reduced Redundancy Storage (RRS)]] because they are non-critical and can be easily reproduced from the original images if lost.
+> > **Rationale:** [[S3 Storage Classes|Image thumbnails]] are a classic use case for [[S3 Storage Classes|Reduced Redundancy Storage (RRS)]] because they are non-critical and can be easily reproduced from the original images if lost.
 
 > [!question]
 > A newspaper organization has an on-premises application which allows the public to search its back catalogue and retrieve individual newspaper pages via a website written in Java. They have scanned the old newspapers into JPEGs (approx. 17TB) and used Optical Character Recognition (OCR) to populate a commercial search product. The hosting platform and software is now end of life and the organization wants to migrate its archive to AWS and produce a cost efficient architecture and still be designed for availability and durability. Which is the most appropriate?
@@ -101,4 +101,4 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** For a one-time 4-hour job, [[EC2 Purchase Options#Reserved Instances|Reserved Instances (RI)]] are not cost-effective as they require long-term commitments. [[EC2 Purchase Options#Spot Instances|Spot Instances]] for task nodes provide the highest savings. Ingesting 200TB requires the durability of [[S3 Storage Classes|S3 Standard]] (Option 1) rather than [[S3 Storage Classes#Reduced Redundancy Storage|RRS]] (Option 4) to ensure the 4-hour processing window isn't interrupted by data loss.
+> > **Rationale:** For a one-time 4-hour job, [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances (RI)]] are not cost-effective as they require long-term commitments. [[EC2 Purchase Options#Spot Instances|Spot Instances]] for task nodes provide the highest savings. Ingesting 200TB requires the durability of [[S3 Storage Classes|S3 Standard]] (Option 1) rather than [[S3 Storage Classes|RRS]] (Option 4) to ensure the 4-hour processing window isn't interrupted by data loss.

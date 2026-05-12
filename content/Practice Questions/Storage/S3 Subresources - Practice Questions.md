@@ -23,7 +23,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[S3 Subresources#4. Logging & Monitoring|S3 Access Logs]] provide detailed records for the requests that are made to a bucket. This is ideal for security and access audits as it captures details like the requester, bucket name, request time, request action, response status, and error code. While CloudTrail is used for auditing, "Server Access Logging" is the traditional S3 feature for tracking data-plane access.
+> > **Rationale:** [[S3 Subresources|S3 Access Logs]] provide detailed records for the requests that are made to a bucket. This is ideal for security and access audits as it captures details like the requester, bucket name, request time, request action, response status, and error code. While CloudTrail is used for auditing, "Server Access Logging" is the traditional S3 feature for tracking data-plane access.
 
 > [!question]
 > A user is enabling a static website hosting on an S3 bucket. Which of the below mentioned parameters cannot be configured by the user?
@@ -45,7 +45,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale:** Browsers implement the Same-Origin Policy, which blocks scripts or assets (like fonts) from being requested from a different domain. To allow `www.companyabcd.com` to access fonts in `abcdfonts.s3.amazonaws.com`, you must enable [[S3 Subresources#3. CORS (Cross-Origin Resource Sharing)|CORS]] on the destination bucket.
+> > **Rationale:** Browsers implement the Same-Origin Policy, which blocks scripts or assets (like fonts) from being requested from a different domain. To allow `www.companyabcd.com` to access fonts in `abcdfonts.s3.amazonaws.com`, you must enable [[S3 Subresources#2. CORS (Cross-Origin Resource Sharing)|CORS]] on the destination bucket.
 
 > [!question]
 > Company ABCD is currently hosting their corporate site in an Amazon S3 bucket with Static Website Hosting enabled. Currently, when visitors go to `http://www.companyabcd.com` the `index.html` page is returned. Company ABCD now would like a new page `welcome.html` to be returned when a visitor enters `http://www.companyabcd.com` in the browser. Which of the following steps will allow Company ABCD to meet this requirement? (Choose 2)

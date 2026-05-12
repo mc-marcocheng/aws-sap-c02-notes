@@ -17,7 +17,7 @@ Fully managed message queuing service for decoupling and scaling microservices a
 ## Core Concepts
 - **Visibility Timeout:** Period where a message is hidden from other consumers. Default 30s.
 - **Long Polling:** Reduces costs and empty responses by waiting up to 20s for messages.
-- **Dead-Letter Queues (DLQ):** Messages move to DLQ after exceeding the `maxReceiveCount`. 
+- **Dead-Letter Queues (DLQ):** Messages move to DLQ after exceeding the `maxReceiveCount`.
   - **Config:** Requires a **Redrive Policy** on the source queue and a **Redrive Allow Policy** on the DLQ to control which queues can move messages to it.
 - **Temporary Queues:** (Virtual Queues) Used for request-response patterns to reduce cost and management of many short-lived queues.
 
@@ -25,14 +25,17 @@ Fully managed message queuing service for decoupling and scaling microservices a
 
 ### 1. Fan-out Pattern
 SNS topic pushes to multiple SQS queues for parallel processing.
+
 ![[sqs-batch-processing-architecture.jpg]]
 
 ### 2. Priority Queue Pattern
 High and Low priority queues. Consumers poll high-priority first.
+
 ![[sqs-priority-queue-pattern.png]]
 
 ### 3. Job Observer Pattern
 Scale EC2 or Lambda based on `ApproximateNumberOfMessagesVisible`.
+
 ![[job-observer-pattern-with-sqs.png]]
 
 > [!exam]
