@@ -21,6 +21,17 @@ tags: [aws, sap-c02, inspector, practice-questions]
 > 3. Enable Amazon Inspector continuous scanning for ECR. Use an EventBridge rule on finding creation to trigger an SNS topic to email the security team to manually block the deployment.
 > 4. Deploy an inline scanner inside the CI/CD pipeline before pushing to ECR to fail the build if vulnerabilities are found.
 > 
-> > [!success]- Answer & Rationale
+> [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[Inspector|Amazon Inspector]] provides continuous and on-push scanning for Amazon ECR. By capturing the findings via [[EventBridge|Amazon EventBridge]], you can automate remediation (like tagging the image or notifying a webhook). Using a Lambda function to quarantine the image and an EKS admission controller (like OPA Gatekeeper or Kyverno) to block deployment is a robust, automated cloud-native pattern. Option 1 relies on basic scanning (Clair), not Inspector, and deleting images disrupts pipelines. Option 4 adds overhead to the CI/CD pipeline and doesn't handle zero-day continuous scanning once the image is in ECR.
+
+> [!question]
+> A company uses Amazon Inspector to scan their EC2 fleet and ECR repositories. The security team wants to be notified within minutes whenever a new "CRITICAL" severity vulnerability is discovered on any production EC2 instance (tagged `Environment:Production`). The notification must include the instance ID, CVE identifier, and remediation guidance. Which solution achieves this with the LEAST operational overhead?
+> 1. Configure Amazon Inspector to export findings to an S3 bucket. Use an S3 event to trigger a Lambda function that parses findings and sends emails via SES.
+> 2. Create an EventBridge rule matching Inspector finding events with severity CRITICAL and resource tag `Environment:Production`. Set the target as an SNS topic with an email subscription using an input transformer to format the message.
+> 3. Enable Inspector integration with AWS Security Hub. Create a Security Hub custom action that sends an SNS notification for critical findings.
+> 4. Use CloudWatch Logs Insights to query Inspector findings every 5 minutes via a scheduled Lambda function.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** [[Inspector|Amazon Inspector]] publishes findings as events to [[EventBridge|Amazon EventBridge]] in near real-time. An EventBridge rule can filter by severity and resource tags, and an input transformer can format the notification to include specific fields (instance ID, CVE, remediation). This is fully serverless with no custom code. Option 1 requires custom Lambda code. Option 3 requires manual custom action invocation. Option 4 introduces a 5-minute delay and polling overhead.

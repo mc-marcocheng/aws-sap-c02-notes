@@ -26,3 +26,15 @@ tags: [aws, sap-c02, migration, mgn, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** AWS MGN supports agentless replication specifically for VMware vCenter environments. By deploying the AWS MGN vCenter Appliance, the service can perform block-level replication at the hypervisor level, completely avoiding the need to install agents on the guest OS. (Note: AWS SMS is deprecated and replaced by MGN).
+
+> [!question]
+> A company is using AWS Application Migration Service (MGN) to migrate 50 Windows servers to AWS. During testing, they discover that several migrated instances fail to boot correctly in AWS due to driver incompatibilities. The source servers use VMware paravirtual SCSI controllers. What should the solutions architect do to resolve this issue?
+> 
+> 1. Modify the MGN launch template to use instance types that support paravirtual drivers.
+> 2. Use the MGN post-launch action to run a Systems Manager Automation document that installs AWS NVMe and ENA drivers after the first boot.
+> 3. MGN automatically handles driver injection during replication; check that the replication is configured for the correct boot mode (UEFI vs. Legacy BIOS).
+> 4. Manually install AWS PV drivers and ENA drivers on the source servers before starting replication.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 3**
+> > **Rationale:** [[Application Migration Service]] automatically injects the necessary AWS drivers (NVMe, ENA, PV drivers) into the replicated volumes during the conversion process. Boot failures are more commonly caused by incorrect boot mode configuration (UEFI vs. Legacy BIOS) in the launch settings rather than missing drivers. The architect should verify the boot mode matches the source server's configuration.

@@ -49,94 +49,6 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > > [[CloudWatch Overview|CloudWatch]] can receive custom metric data from any source (including instances in other regions or on-premises servers) using the `PutMetricData` API. If multiple sources publish to the same [[CloudWatch Overview|Namespace]] and Metric Name with the same dimensions, CloudWatch will aggregate the data points.
 
 > [!question]
-> A user is sending the data to CloudWatch using the CloudWatch API. The user is sending data 90 minutes in the future. What will CloudWatch do in this case?
-> 1. CloudWatch will accept the data
-> 2. It is not possible to send data of the future
-> 3. It is not possible to send the data manually to CloudWatch
-> 4. The user cannot send data for more than 60 minutes in the future
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 1**
-> > According to [[CloudWatch Overview|CloudWatch]] concepts, a timestamp for a metric data point can be up to two weeks in the past and up to **two hours (120 minutes)** into the future. Therefore, data sent 90 minutes in the future will be accepted.
-
-> [!question]
-> A user is having data generated randomly based on a certain event. The user wants to upload that data to CloudWatch. It may happen that event may not have data generated for some period due to randomness. Which of the below mentioned options is a recommended option for this case?
-> 1. For the period when there is no data, the user should not send the data at all
-> 2. For the period when there is no data the user should send a blank value
-> 3. For the period when there is no data the user should send the value as 0
-> 4. The user must upload the data to CloudWatch as having no data for some period will cause an error at CloudWatch monitoring
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > In [[CloudWatch Overview|CloudWatch]], it is often recommended to publish the value **0** instead of no value during periods of inactivity. This helps in distinguishing between "no activity" and "failed reporting," ensures that statistics like Average and Sum are accurate, and allows for consistent alarm evaluation.
-
-> [!question]
-> A user has a weighing plant. The user measures the weight of some goods every 5 minutes and sends data to AWS CloudWatch for monitoring and tracking. Which of the below mentioned parameters is mandatory for the user to include in the request list?
-> 1. Value
-> 2. Namespace
-> 3. Metric Name
-> 4. Timezone
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 2**
-> > When using the `put-metric-data` command, the [[CloudWatch Overview|Namespace]] is a mandatory parameter. It acts as a container that isolates metrics from different applications or sources. While Metric Name and Value are also required for a meaningful data point, the Namespace is the primary organizational requirement in the API request.
-
-> [!question]
-> A user has a refrigerator plant. The user is measuring the temperature of the plant every 15 minutes. If the user wants to send the data to CloudWatch to view the data visually, which of the below mentioned statements is true?
-> 1. The user needs to use AWS CLI or API to upload the data
-> 2. The user can use the AWS Import Export facility to import data to CloudWatch
-> 3. The user will upload data from the AWS console
-> 4. The user cannot upload data to CloudWatch since it is not an AWS service metric
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 1**
-> > Since the temperature of a physical refrigerator plant is not an automated AWS service metric, it must be treated as a **Custom Metric**. Custom metrics must be published to [[CloudWatch Overview|CloudWatch]] using the AWS CLI or the `PutMetricData` API.
-
-> [!question]
-> A user has launched an EC2 instance. The user is planning to setup the CloudWatch alarm. Which of the below mentioned actions is not supported by the CloudWatch alarm?
-> 1. Notify the Auto Scaling launch config to scale up
-> 2. Send an SMS using SNS
-> 3. Notify the Auto Scaling group to scale down
-> 4. Stop the EC2 instance
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 1**
-> > [[CloudWatch Overview|CloudWatch Alarms]] can trigger [[Auto Scaling Overview|Auto Scaling]] scaling policies (to scale a group up or down), send notifications via [[SNS]], and perform [[EC2 Overview|EC2]] actions (Stop, Terminate, Reboot, or Recover). However, they cannot directly modify or "notify" a Launch Configuration, which is a static template used by Auto Scaling.
-
-> [!question]
-> A user is trying to aggregate all the CloudWatch metric data of the last 1 week. Which of the below mentioned statistics is not available for the user as a part of data aggregation?
-> 1. Aggregate
-> 2. Sum
-> 3. Sample data
-> 4. Average
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 1**
-> > Standard [[CloudWatch Overview|CloudWatch]] statistics include **Sum**, **Average**, **Minimum**, **Maximum**, and **SampleCount**. "Aggregate" is a general term for the process but is not a specific statistic type available for retrieval.
-
-> [!question]
-> A user has setup a CloudWatch alarm on an EC2 action when the CPU utilization is above 75%. The alarm sends a notification to SNS on the alarm state. If the user wants to simulate the alarm action how can he achieve this?
-> 1. Run activities on the CPU such that its utilization reaches above 75%
-> 2. From the AWS console change the state to “Alarm”
-> 3. The user can set the alarm state to “Alarm” using CLI
-> 4. Run the SNS action manually
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > You can use the `set-alarm-state` command in the AWS CLI to manually set an alarm to any state (`OK`, `ALARM`, or `INSUFFICIENT_DATA`). This is primarily used to test that the alarm's associated actions, such as [[SNS]] notifications or [[Auto Scaling Overview|Auto Scaling]] triggers, are working correctly.
-
-> [!question]
-> A user is publishing custom metrics to CloudWatch. Which of the below mentioned statements will help the user understand the functionality better?
-> 1. The user can use the CloudWatch Import tool
-> 2. The user should be able to see the data in the console after around 15 minutes
-> 3. If the user is uploading the custom data, the user must supply the namespace, timezone, and metric name as part of the command
-> 4. The user can view as well as upload data using the console, CLI and APIs
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 2**
-> > When you create a new custom metric using `put-metric-data`, it can take up to 2 minutes for the statistics to be retrievable and up to **15 minutes** for the new metric to appear in the searchable list in the [[CloudWatch Overview|CloudWatch]] console.
-
-> [!question]
 > An application that you are managing has EC2 instances and DynamoDB tables deployed to several AWS Regions. In order to monitor the performance of the application globally, you would like to see two graphs: 1) Avg CPU Utilization across all EC2 instances and 2) Number of Throttled Requests for all DynamoDB tables. How can you accomplish this?
 > 1. Tag your resources with the application name, and select the tag name as the dimension in the CloudWatch Management console to view the respective graphs.
 > 2. Use the CloudWatch CLI tools to pull the respective metrics from each regional endpoint. Aggregate the data offline & store it for graphing in CloudWatch.
@@ -192,15 +104,15 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > > [[CloudTrail]] is the service for logging and maintaining a durable history of API calls across your AWS account. CloudWatch Events is used to detect those same API calls in near real-time and trigger automated responses.
 
 > [!question]
-> You are the head of operations for a SaaS company. Your CTO wants to make debugging any part of your complex, service-oriented architecture simpler and faster. Developers currently log to disk, making it hard to find errors across many services. How can you best meet this requirement?
-> 1. Copy all log files into AWS S3 using a cron job. Use S3 Notifications to trigger Lambda for analysis.
-> 2. Begin using CloudWatch Logs on every service. Stream all Log Groups into S3 and use AWS EMR for MapReduce analysis.
-> 3. Copy all log files into AWS S3 and use Kinesis with Apache Spark on EMR for stream processing.
-> 4. Begin using CloudWatch Logs on every service. Stream all Log Groups into an AWS Elasticsearch Service Domain running Kibana and perform log analysis.
+> A company is running a large-scale microservices application on Amazon EKS. They need a centralized way to monitor container-level metrics such as CPU and memory usage, as well as diagnostic information like restart counts for all pods across multiple clusters. Which CloudWatch feature should they enable?
+> 1. CloudWatch Application Insights
+> 2. **CloudWatch Container Insights**
+> 3. CloudWatch Lambda Insights
+> 4. CloudWatch Logs Insights
 > 
 > > [!success]- Answer & Rationale
-> > **Answer: 4**
-> > Centralizing logs with [[CloudWatch Logs]] and streaming them to the ELK stack (Elasticsearch, Logstash, Kibana - now [[OpenSearch|OpenSearch Service]]) provides the fastest and most flexible way to search, visualize, and debug errors across multiple services in a distributed architecture.
+> > **Answer: 2**
+> > **Rationale:** **CloudWatch Container Insights** (Option 2) is specifically designed to collect, aggregate, and summarize metrics and logs from containerized applications and microservices. it supports Amazon ECS, Amazon EKS, and Kubernetes on EC2. It provides built-in dashboards for viewing resource utilization and health across clusters, nodes, and pods. (See [[CloudWatch Overview]])
 
 > [!question]
 > Your application includes a monitoring instance that periodically makes requests of various components and calls CloudWatch to fire an alarm if they fail. You also need to "watch the watcher"—the monitoring instance itself—and be notified if it becomes unhealthy. What is a simple way to achieve this?
@@ -212,3 +124,25 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > [[EC2 Overview|EC2]] Status Checks are the simplest way to monitor the health of an instance. "System Status Checks" monitor the AWS systems required for the instance to run, and "Instance Status Checks" monitor the software/network configuration of the instance. A [[CloudWatch Overview|CloudWatch]] alarm on these checks can automatically notify the team via [[SNS]].
+
+> [!question]
+> A company wants to use CloudWatch to monitor their application. They need to alert if the error rate (Errors / Total Requests) exceeds 5% over a 5-minute period. Which CloudWatch feature should they use?
+> 1. CloudWatch Anomaly Detection
+> 2. **CloudWatch Metric Math**
+> 3. CloudWatch Logs Insights
+> 4. CloudWatch Composite Alarms
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** [[CloudWatch Overview|CloudWatch Metric Math]] allows you to perform calculations (like division for error rates) across multiple metrics and create an alarm based on the result. Anomaly Detection (Option 1) is for detecting outliers, not specific percentage thresholds. Logs Insights (Option 3) is for querying log data. Composite Alarms (Option 4) are for grouping existing alarms.
+
+> [!question]
+> A solutions architect is designing a centralized monitoring solution for an Organization with 100 accounts. They want a single dashboard that shows the `CPUUtilization` and `StatusCheckFailed` metrics for all EC2 instances across all accounts and regions. What is the BEST way to implement this?
+> 1. Use CloudWatch Cross-Account Observability and configure a **Monitoring Account** to aggregate data from multiple source accounts.
+> 2. Create a script to assume cross-account roles and pull metrics from each account into a central S3 bucket.
+> 3. Deploy a CloudWatch agent on every instance that publishes directly to the management account's namespace.
+> 4. Use an EventBridge event bus to forward all metrics to a central account.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 1**
+> > **Rationale:** **CloudWatch Cross-Account Observability** (Option 1) is the native feature that allows you to link multiple "source accounts" to a central "monitoring account." This enables viewing dashboards, metrics, and logs across accounts and regions without custom scripting or agents. (See [[CloudWatch Overview]])

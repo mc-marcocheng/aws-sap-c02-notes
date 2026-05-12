@@ -4,26 +4,26 @@ tags: [aws, sap-c02, analytics, kinesis, practice-questions]
 # Kinesis Practice Questions
 
 > [!question]
-> You are deploying an application to track GPS coordinates of delivery trucks in the United States. Coordinates are transmitted from each delivery truck once every three seconds. You need to design an architecture that will enable real-time processing of these coordinates from multiple consumers. Which service should you use to implement data ingestion?
-> 1. Amazon Kinesis
-> 2. AWS Data Pipeline
-> 3. Amazon AppStream
-> 4. Amazon Simple Queue Service
+> A financial services company is building a real-time trading platform. Thousands of trading events per second are ingested into an Amazon Kinesis Data Stream. Multiple downstream applications need to process these events: one for fraud detection (latency-sensitive) and another for long-term auditing (stored in S3). The company notices that as they add more consumer applications, the overall throughput per consumer is decreasing due to the 2 MB/sec per shard limit. How should the company scale the consumption of the stream without increasing the number of shards?
+> 1. Use Kinesis Data Firehose to distribute the data to multiple S3 buckets.
+> 2. Enable Enhanced Fan-out for the consumer applications.
+> 3. Increase the retention period of the Kinesis Data Stream.
+> 4. Use Amazon SQS to buffer the data before it reaches the consumers.
 > 
 > > [!success]- Answer & Rationale
-> > **Answer: 1**
-> > **Rationale**: [[Kinesis Overview|Amazon Kinesis Data Streams]] is designed for real-time ingestion and processing of streaming data. It specifically supports multiple consumers reading from the same stream simultaneously, which is a key requirement here. SQS is generally a one-to-one message delivery system (unless using SNS fan-out).
+> > **Answer: 2**
+> > **Rationale:** [[Kinesis Overview|Enhanced Fan-out]] allows consumers to receive their own dedicated 2 MB/sec throughput per shard, separate from other consumers. This is the primary way to scale consumption when multiple applications need to read from the same stream simultaneously without encountering the shared throughput limit. Kinesis Data Firehose (Option 1) is for loading data, not for multi-consumer real-time processing. Increasing retention (Option 3) doesn't help with throughput. SQS (Option 4) doesn't natively support multiple consumers reading the same message independently without a fan-out architecture (like SNS).
 
 > [!question]
-> You are deploying an application to collect votes for a very popular television show. Millions of users will submit votes using mobile devices. The votes must be collected into a durable, scalable, and highly available data store for real-time public tabulation. Which service should you use?
-> 1. Amazon DynamoDB
-> 2. Amazon Redshift
-> 3. Amazon Kinesis
-> 4. Amazon Simple Queue Service
+> An e-commerce platform needs to process clickstream data to update a recommendation engine in real-time. The order of events is critical: the engine must process "item_viewed" before "item_added_to_cart" for each user session. How should the data be published to Kinesis to ensure this ordering?
+> 1. Publish all events without a Partition Key to allow Kinesis to balance the load across shards.
+> 2. Use the `SessionID` as the Partition Key when publishing events to the Kinesis Data Stream.
+> 3. Use a random string as the Partition Key for each event to ensure high entropy.
+> 4. Use Kinesis Data Firehose with a 60-second buffering window to sort events before delivery.
 > 
 > > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > **Rationale**: For real-time tabulation of millions of events, [[Kinesis Overview|Kinesis]] provides the necessary scalability and durability. While DynamoDB could store the votes, Kinesis is better suited for the initial ingestion and streaming to real-time analytics engines.
+> > **Answer: 2**
+> > **Rationale:** [[Kinesis Overview|Partition Keys]] determine which shard a record is sent to. Kinesis guarantees that all records with the same Partition Key will be sent to the same shard and will be processed in the order they arrived. By using the `SessionID` as the Partition Key, the platform ensures that all events for a specific user session are processed in order by the same consumer instance.
 
 > [!question]
 > Your company is developing a pet collar that collects biometric information. Each collar pushes 30kb of data every 2 seconds. Requirements: real-time analytics, highly durable, elastic, and parallel. Results should be persisted for data mining. Which architecture meets these requirements?

@@ -3,7 +3,7 @@ tags: [aws, sap-c02, cloudformation, stacksets, practice-questions]
 ---
 # CloudFormation StackSets - Practice Questions
 
-> [!question] Question 1: Automatic Baseline Provisioning
+> [!question]
 > A large enterprise uses AWS Organizations with all features enabled. The cloud platform team wants to ensure that every time a new AWS account is created and added to a specific Organizational Unit (OU) called "Production", a standard set of IAM roles and AWS Config rules are automatically deployed to the new account across three specific regions. The solution should require minimal operational overhead and no manual intervention after the initial setup.
 > 
 > What is the MOST operationally efficient solution?
@@ -23,7 +23,7 @@ tags: [aws, sap-c02, cloudformation, stacksets, practice-questions]
 > > 
 > > **Links:** [[CloudFormation StackSets]]
 
-> [!question] Question 2: Delegating StackSet Administration
+> [!question]
 > The security operations team needs the ability to deploy AWS WAF WebACLs and GuardDuty configurations across all AWS accounts in the company's AWS Organization. The company's policy strictly prohibits anyone outside the core cloud infrastructure team from accessing the AWS Organizations Management account. 
 > 
 > How can the security team meet these requirements using CloudFormation StackSets?
@@ -42,3 +42,17 @@ tags: [aws, sap-c02, cloudformation, stacksets, practice-questions]
 > > - D is incorrect because Delegated Administrator functionality specifically exists to solve this problem.
 > > 
 > > **Links:** [[CloudFormation StackSets]], [[Organizations Advanced]]
+
+> [!question]
+> A solutions architect is using CloudFormation StackSets to deploy an application to 100 AWS accounts across 5 regions. The deployment must be as fast as possible, but it must stop automatically if more than 10% of the account deployments in any given region fail.
+> 
+> Which combination of StackSet settings should be configured?
+> 
+> 1. Set `MaxConcurrentAccounts` to 100 and `FailureToleranceCount` to 0.
+> 2. Set `MaxConcurrentPercentage` to 100 and `FailureTolerancePercentage` to 10.
+> 3. Set `RegionConcurrencyType` to `Parallel` and `FailureTolerancePercentage` to 10.
+> 4. Set `MaxConcurrentPercentage` to 10 and `FailureToleranceCount` to 10.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** To maximize speed, **MaxConcurrentPercentage** should be set to 100 (allowing all accounts to be updated at once). The **FailureTolerancePercentage** of 10 ensures that if more than 10% of deployments fail, CloudFormation stops the operation in that region. Option 3 is also important for speed (deploying to multiple regions in parallel), but Option 2 directly addresses the failure tolerance requirement. (See [[CloudFormation StackSets]])

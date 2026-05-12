@@ -12,7 +12,7 @@ tags: [aws, sap-c02, organizations, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[Organizations Overview#Consolidated Billing|Consolidated Billing]] is designed for exactly this purpose. The [[Organizations Overview#Hierarchical Structure|Management Account]] can send invitations to existing accounts to join the organization. Once the invitation is accepted, the account becomes a member account, and its charges are consolidated into the management account's bill. Migrating resources is a high-effort, unnecessary alternative to simply linking the accounts.
+> > **Rationale:** [[Organizations Overview|Consolidated Billing]] is designed for exactly this purpose. The [[Organizations Overview#Hierarchical Structure|Management Account]] can send invitations to existing accounts to join the organization. Once the invitation is accepted, the account becomes a member account, and its charges are consolidated into the management account's bill. Migrating resources is a high-effort, unnecessary alternative to simply linking the accounts.
 
 > [!question]
 > Which of the following are the benefits of AWS Organizations? (Choose 2)
@@ -34,4 +34,4 @@ tags: [aws, sap-c02, organizations, management, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[Organizations Overview#Consolidated Billing|Consolidated Billing]] is a core feature of [[Organizations Overview]]. It enables a single payment method for all accounts in the organization, simplifies tracking, and can provide volume-based discounts.
+> > **Rationale:** [[Organizations Overview|Consolidated Billing]] is a core feature of [[Organizations Overview]]. It enables a single payment method for all accounts in the organization, simplifies tracking, and can provide volume-based discounts.

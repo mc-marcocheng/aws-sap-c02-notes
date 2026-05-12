@@ -31,10 +31,23 @@ tags: [aws, sap-c02, analytics, quicksight, practice-questions]
 > 3. Implement Amazon ElastiCache in front of Amazon Redshift to cache dashboard queries.
 > 4. Convert the Redshift cluster to an Amazon Aurora database for faster read performance.
 >
-> > [!success]- Answer & Rationale
+> [!success]- Answer & Rationale
 > > **Answer:** B
 > > **Rationale:**
 > > Since the data only needs to be updated once per day, changing the dataset to use [[QuickSight]] SPICE (Super-fast, Parallel, In-memory Calculation Engine) is the most efficient and cost-effective solution. SPICE stores data in-memory, providing rapid response times for interactive filtering. A scheduled refresh at midnight fulfills the freshness requirement.
 > > Option A increases costs significantly and might not solve the interactive filtering latency as effectively as an in-memory engine.
 > > Option C is complex to implement for QuickSight; QuickSight does not natively integrate with ElastiCache as a query cache for Redshift.
 > > Option D requires a major database migration and may not be suitable for analytical workloads compared to Redshift.
+
+> [!question]
+> A company needs to distribute highly formatted, multi-page weekly sales reports to thousands of regional managers via email in PDF format. The reports must include complex headers, footers, and page numbers, and must be generated from a centralized data source.
+> 
+> Which QuickSight feature is BEST suited for this requirement?
+> 1. QuickSight Interactive Dashboards
+> 2. QuickSight Paginated Reports
+> 3. QuickSight Q
+> 4. QuickSight Embedded SDK
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** **QuickSight Paginated Reports** is specifically designed for generating and scheduling highly formatted, multi-page reports (like PDFs) that are optimized for printing or distribution via email. Standard interactive dashboards (Option 1) are optimized for on-screen exploration, not for multi-page document generation. QuickSight Q (Option 3) is for natural language queries.

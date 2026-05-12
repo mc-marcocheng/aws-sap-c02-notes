@@ -28,3 +28,15 @@ tags: [aws, sap-c02, transit-gateway, networking, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** Using [[Transit Gateway|AWS Transit Gateway]] with a [[Direct Connect Overview|Direct Connect Gateway]] allows multiple AWS accounts and VPCs to share a single Direct Connect connection. This provides a centralized, scalable, and cost-effective way to provide on-premises connectivity to multiple accounts with minimal operational overhead compared to creating individual DX or VPN connections for each account.
+
+> [!question]
+> A company has a Transit Gateway connecting 20 VPCs and 3 Site-to-Site VPN connections. They want to implement network segmentation so that production VPCs cannot communicate with development VPCs, but both can reach shared services (DNS, Active Directory) in a shared services VPC. How should the Transit Gateway be configured?
+> 
+> 1. Create three Transit Gateway route tables: Production, Development, and Shared Services. Associate Production VPCs with the Production route table and Development VPCs with the Development route table. Propagate the Shared Services VPC routes to both the Production and Development route tables, and propagate Production and Development routes only to the Shared Services route table.
+> 2. Use VPC security groups and NACLs to block traffic between Production and Development VPCs.
+> 3. Create separate Transit Gateways for Production and Development, and use Transit Gateway peering to connect both to the Shared Services VPC.
+> 4. Use a blackhole route in the Transit Gateway route table to drop traffic between Production and Development CIDR ranges.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 1**
+> > **Rationale:** [[Transit Gateway]] supports multiple route tables for network segmentation. By associating VPC attachments with specific route tables and controlling route propagation, you create isolated routing domains. Production VPCs only see routes to Shared Services (and vice versa), and Development VPCs only see routes to Shared Services. This is the standard hub-and-spoke segmentation pattern. Blackhole routes (Option 4) become unmanageable at scale as CIDRs change.

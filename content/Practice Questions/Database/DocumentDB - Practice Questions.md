@@ -1,28 +1,37 @@
 ---
-tags: [aws, sap-c02, database, documentdb, practice-questions]
+tags: [aws, sap-c02, documentdb, database, compute, practice-questions]
 ---
-# DocumentDB - Practice Questions
+# DocumentDB Practice Questions
 
 > [!question]
-> A gaming company is migrating their on-premises, self-managed MongoDB replica set to AWS. The database is currently 40 TB in size and experiences highly variable, read-heavy traffic. The company wants a fully managed solution that requires ZERO changes to their application code, drivers, or tools, while allowing storage to scale automatically without manual provisioning. Which migration target is the BEST fit?
-> 
-> 1. Amazon EC2 instances running MongoDB with EBS Provisioned IOPS volumes.
-> 2. Amazon DynamoDB with a customized data mapping layer.
-> 3. Amazon DocumentDB (with MongoDB compatibility).
-> 4. Amazon Aurora PostgreSQL with JSONB data types.
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > **Rationale:** [[DocumentDB]] is a fully managed, MongoDB-compatible document database. It allows you to use existing MongoDB drivers and tools without application rewrites. Its architecture separates compute and storage, allowing the storage volume to grow automatically up to 128 TB across multiple AZs.
-
-> [!question]
-> A global logistics company uses Amazon DocumentDB in the `us-east-1` region as its primary database. They have a strict disaster recovery requirement: the database must be able to withstand a full regional outage with a Recovery Point Objective (RPO) of less than 1 second and a Recovery Time Objective (RTO) of under 1 minute in the `eu-west-1` region. What is the MOST efficient way to architect this?
-> 
-> 1. Use AWS Database Migration Service (DMS) to continuously replicate data from the DocumentDB cluster in `us-east-1` to a standby cluster in `eu-west-1`.
-> 2. Create an Amazon DocumentDB Global Cluster. Set `us-east-1` as the primary region and add `eu-west-1` as a secondary region.
-> 3. Configure a Lambda function to trigger on Amazon EventBridge events to copy automated DocumentDB snapshots to `eu-west-1` every 5 minutes.
-> 4. Set up an Amazon S3 export task to back up DocumentDB data to S3, and use S3 Cross-Region Replication (CRR) to move the data to `eu-west-1`.
+> A company is migrating a legacy MongoDB application to AWS. The application requires high availability, automatic scaling, and a fully managed environment that is compatible with MongoDB 4.0 APIs. Which service should they choose?
+> 1. Amazon DynamoDB.
+> 2. **Amazon DocumentDB (with MongoDB compatibility)**.
+> 3. MongoDB Atlas on AWS.
+> 4. Amazon RDS for PostgreSQL with the JSONB data type.
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** Amazon [[DocumentDB]] Global Clusters provide disaster recovery across regions with typical replication latencies under 1 second (RPO < 1s). In the event of a regional degradation, a secondary region can be promoted to primary in under a minute (RTO < 1m). This is a native feature and is vastly more efficient than custom replication.
+> > **Rationale:** [[DocumentDB]] is a fully managed document database service that is compatible with MongoDB workloads. It provides the required HA, scaling, and management features while allowing the application to use existing MongoDB drivers and tools. While Atlas (Option 3) is a valid third-party solution, DocumentDB is the native AWS managed service.
+
+> [!question]
+> A solutions architect is designing a backup strategy for an Amazon DocumentDB cluster. The company requires the ability to restore the database to any point in time within the last 35 days. How can this be achieved?
+> 1. Schedule daily snapshots using AWS Backup.
+> 2. Enable **automated backups** and set the retention period to 35 days.
+> 3. Use the `mongodump` tool to export data to S3 hourly.
+> 4. Enable MongoDB Change Streams and archive them to Kinesis.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** [[DocumentDB]] supports automated backups that enable point-in-time recovery (PITR). The backup retention period can be configured between 1 and 35 days.
+
+> [!question]
+> How does Amazon DocumentDB handle storage scaling for its clusters?
+> 1. The administrator must manually increase the volume size in the console.
+> 2. DocumentDB uses **autoscaling storage** that grows automatically up to 128 TiB.
+> 3. Storage is scaled by adding more instances to the cluster.
+> 4. Storage is fixed at the time of cluster creation based on the selected instance type.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** Similar to Aurora, [[DocumentDB]] features a distributed, fault-tolerant, self-healing storage system that automatically scales up to 128 TiB as your data grows, with no impact on application performance.

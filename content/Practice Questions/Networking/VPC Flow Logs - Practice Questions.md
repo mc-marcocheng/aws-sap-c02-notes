@@ -26,3 +26,15 @@ tags: [aws, sap-c02, networking, vpc, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** Publishing [[VPC Flow Logs]] directly to [[S3 Overview|Amazon S3]] is highly cost-effective for large volumes of log data. Using S3 Object Lock ensures immutability (WORM compliance). [[Athena]] allows for complex SQL queries directly against the S3 data without the cost of provisioning a data warehouse like Redshift.
+
+> [!question]
+> A company wants to detect and alert on any traffic from their VPC to known malicious IP addresses in near real-time. They are considering using VPC Flow Logs as the data source. Which architecture provides near real-time detection with the LEAST operational overhead?
+> 
+> 1. Publish VPC Flow Logs to S3 and use Athena scheduled queries every 5 minutes to check against a threat intelligence feed.
+> 2. Publish VPC Flow Logs to CloudWatch Logs and create metric filters for each malicious IP address.
+> 3. Use **Amazon GuardDuty**, which automatically analyzes VPC Flow Logs (among other data sources) and generates findings for communication with known malicious IPs.
+> 4. Publish VPC Flow Logs to Kinesis Data Streams and use a Lambda consumer function to compare each record against a DynamoDB table of threat IPs.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 3**
+> > **Rationale:** [[GuardDuty]] automatically ingests [[VPC Flow Logs]], DNS logs, and CloudTrail events to detect threats including communication with known command-and-control servers and malicious IPs. It requires no operational management of log pipelines, threat feeds, or custom detection logic. Options 1, 2, and 4 require building and maintaining custom detection infrastructure. (See [[GuardDuty]])

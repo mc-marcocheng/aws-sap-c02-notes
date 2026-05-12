@@ -26,3 +26,14 @@ tags: [aws, sap-c02, compute, containers, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** ECR Enhanced Scanning uses Amazon [[Inspector]] to provide continuous vulnerability scanning. Inspector automatically publishes findings to Amazon [[EventBridge]]. EventBridge can filter these events by severity ("CRITICAL") and use an **API Destination** to directly call the external PagerDuty webhook securely, requiring no custom Lambda code.
+
+> [!question]
+> A development team frequently pushes new versions of a container image to an Amazon ECR repository using the `latest` tag. They have encountered issues where production deployments occasionally pull a broken version of the image because the `latest` tag was overwritten by a concurrent build. How can the solutions architect prevent tags from being overwritten?
+> 1. Use ECR Lifecycle Policies to delete old images.
+> 2. Enable **Tag Immutability** on the ECR repository.
+> 3. Implement a naming convention using timestamps instead of the `latest` tag.
+> 4. Use IAM policies to restrict the `ecr:PutImage` action for the `latest` tag.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** **Tag Immutability** is a native [[ECR]] feature that prevents image tags from being overwritten. Once an image is pushed with a specific tag (like `latest`), any subsequent attempt to push an image with the same tag will fail, ensuring that the tag always points to the same image digest until it is deleted. Option 1 manages storage. Option 3 is a process change but doesn't *prevent* the error. Option 4 is complex to implement correctly for specific tag values.

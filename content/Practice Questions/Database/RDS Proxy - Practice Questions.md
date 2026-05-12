@@ -31,10 +31,24 @@ tags: [aws, sap-c02, database, rds, rds-proxy, practice-questions]
 > 3. Configure an Amazon RDS Proxy endpoint for the application to connect to.
 > 4. Use Amazon Aurora Global Database to provide faster cross-region failover.
 >
-> > [!success]- Answer & Rationale
+> [!success]- Answer & Rationale
 > > **Answer:** C
 > > **Rationale:**
 > > [[RDS Proxy]] significantly reduces failover times (up to 66% faster) for RDS and Aurora databases. When a failover occurs, RDS Proxy detects the new primary instance and automatically routes traffic to it without relying on DNS propagation. It holds application connections open during the failover, preventing connection timeouts and hiding the failover process from the application. This is the most direct way to reduce failover time for an existing RDS instance.
 > > Option A is a complete rewrite of the application to use a NoSQL database.
 > > Option B is how RDS Multi-AZ natively works, but DNS propagation still causes the 60-second delay the application is currently experiencing.
 > > Option D is for cross-region disaster recovery, not for minimizing local Multi-AZ failover time.
+
+> [!question]
+> A company wants to improve the security posture of their application by using IAM roles for database authentication instead of managing database passwords in application code. The application currently connects to an Amazon RDS for MySQL instance and has high connection churn.
+> 
+> How should the solutions architect implement this requirement?
+> 
+> 1. Enable IAM Database Authentication on the RDS instance and modify the application to generate authentication tokens.
+> 2. Store database credentials in AWS Secrets Manager and use RDS Proxy to manage the connections, allowing the application to authenticate to the proxy using IAM.
+> 3. Use AWS Lambda as a database proxy to handle IAM authentication and connection pooling.
+> 4. Implement a custom authentication service on EC2 that validates IAM roles and returns database passwords.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** [[RDS Proxy]] supports **IAM authentication**, allowing applications to connect to the proxy using their IAM identity. The proxy then handles the actual database authentication using credentials stored securely in **AWS Secrets Manager**. This centralizes credential management and eliminates the need for applications to handle database passwords or manage tokens directly for every connection, which is especially beneficial for high-churn workloads. Option 1 is valid but doesn't solve the connection churn issue as efficiently as RDS Proxy. (See [[RDS Proxy]])

@@ -24,3 +24,14 @@ tags: [aws, sap-c02, codedeploy, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** The Canary strategy shifts a specified percentage of traffic in the first increment (10%), waits for a specified time (15 minutes), and then shifts the remaining traffic (90%). This matches the `CodeDeployDefault.LambdaCanary10Percent15Minutes` configuration in [[CodeDeploy]]. Linear would shift 10% *every* 15 minutes incrementally.
+
+> [!question]
+> A solutions architect is configuring an AWS CodeDeploy deployment for an application running on EC2. They need to run a custom script to verify that the application is healthy after it has been installed but *before* traffic is shifted to the new version. Which lifecycle hook in the `appspec.yml` should be used?
+> 1. AfterInstall
+> 2. **ValidateService**
+> 3. BeforeAllowTraffic
+> 4. ApplicationStart
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** The **ValidateService** hook in the [[CodeDeploy]] `appspec.yml` is specifically designed for running scripts to verify that the service is functioning as expected before the deployment is considered successful. If the script fails, CodeDeploy can automatically roll back. Option 1 (AfterInstall) runs before the service is even started. Option 3 is for ELB/Lambda traffic shifting control. (See [[CodeDeploy]])

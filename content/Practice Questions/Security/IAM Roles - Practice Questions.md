@@ -36,7 +36,7 @@ tags: [aws, sap-c02, iam, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 4**
-> > **Rationale:** [[Organizations Overview#Consolidated Billing|Consolidated Billing]] provides cost oversight across multiple accounts. [[IAM Roles and Policies#Cross-Account Access|IAM cross-account access]] allows corporate IT to maintain governance by accessing division accounts without compromising their autonomy.
+> > **Rationale:** [[Organizations Overview|Consolidated Billing]] provides cost oversight across multiple accounts. [[IAM Roles and Policies#Cross-Account Access|IAM cross-account access]] allows corporate IT to maintain governance by accessing division accounts without compromising their autonomy.
 
 > [!question]
 > Which of the following items are required to allow an application deployed on an EC2 instance to write data to a DynamoDB table? Assume that no security keys are allowed to be stored on the EC2 instance. (Select 2)
@@ -70,7 +70,7 @@ tags: [aws, sap-c02, iam, security, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** Attaching an [[IAM Roles and Policies#IAM Roles|IAM role]] to the EC2 instance allows the application to retrieve temporary credentials from [[EC2 Overview#Instance Metadata|Instance Metadata]] securely.
+> > **Rationale:** Attaching an [[IAM Roles and Policies#IAM Roles|IAM role]] to the EC2 instance allows the application to retrieve temporary credentials from [[EC2 Overview#Additional Features|Instance Metadata]] securely.
 
 > [!question]
 > An administrator is using Amazon CloudFormation to deploy a three tier web application that consists of a web tier and application tier that will utilize Amazon DynamoDB for storage when creating the CloudFormation template which of the following would allow the application instance access to the DynamoDB tables without exposing API credentials?

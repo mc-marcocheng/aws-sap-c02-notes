@@ -1,121 +1,59 @@
 ---
-tags: [aws, sap-c02, rds, database, practice-questions]
+tags: [aws, sap-c02, rds, database, compute, practice-questions]
 ---
 # RDS Practice Questions
 
 > [!question]
-> What does Amazon RDS stand for?
-> 1. Regional Data Server.
-> 2. Relational Database Service
-> 3. Regional Database Service.
+> A company is running a production MySQL database on a single Amazon RDS instance. Due to a new compliance requirement, the database must be highly available with an RTO of less than 60 seconds and an RPO of 0. Which action should the solutions architect take?
+> 1. Create a Read Replica in a different Availability Zone.
+> 2. Enable Multi-AZ deployment for the RDS instance.
+> 3. Use AWS Backup to take snapshots every 5 minutes.
+> 4. Configure an Aurora Global Database with a secondary region.
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[RDS Overview|Amazon RDS]] stands for Relational Database Service. It is a web service that makes it easier to set up, operate, and scale a relational database in the cloud. It manages common database administration tasks such as hardware provisioning, database setup, patching, and backups.
+> > **Rationale:** **Multi-AZ deployment** (Option 2) provides synchronous replication to a standby instance in a different Availability Zone. In the event of a failure, RDS automatically fails over to the standby instance, typically within 60 seconds, with zero data loss (RPO 0). Read Replicas (Option 1) are asynchronous and require manual promotion. AWS Backup (Option 3) does not provide the required RTO. (See [[RDS Overview]])
 
 > [!question]
-> How many relational database engines does RDS currently support?
-> 1. MySQL, Postgres, MariaDB, Oracle, and Microsoft SQL Server
-> 2. Just two: MySQL and Oracle.
-> 3. Five: MySQL, PostgreSQL, MongoDB, Cassandra and SQLite.
-> 4. Just one: MySQL.
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 1**
-> > **Rationale:** [[RDS Overview|Amazon RDS]] currently supports several industry-standard relational database engines including MySQL, MariaDB, PostgreSQL, Oracle, and Microsoft SQL Server. Additionally, it supports [[Aurora Overview|Amazon Aurora]], which is a MySQL and PostgreSQL-compatible database engine.
-
-> [!question]
-> If I modify a DB Instance or the DB parameter group associated with the instance, should I reboot the instance for the changes to take effect?
-> 1. No
-> 2. Yes
+> A company has an unencrypted Amazon RDS for PostgreSQL instance. A security audit requires that all data at rest must be encrypted using a customer-managed KMS key. What is the MOST efficient way to implement this?
+> 1. Enable encryption on the existing instance using the RDS console.
+> 2. Create a snapshot of the instance, copy the snapshot to an encrypted snapshot using the KMS key, and restore the encrypted snapshot to a new instance.
+> 3. Use AWS DMS to migrate data from the unencrypted instance to a new encrypted instance.
+> 4. Create an encrypted Read Replica and then promote it to a standalone instance.
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** While changes to dynamic parameters are applied immediately, changes to **static parameters** in a [[RDS Overview|DB parameter group]] are NOT applied immediately and require a manual reboot of the DB instance to take effect.
+> > **Rationale:** Encryption at rest for [[RDS Overview|RDS]] cannot be enabled on an existing unencrypted instance. The standard procedure is to take a **snapshot**, **copy** it while enabling encryption with the desired [[KMS]] key, and then **restore** from that encrypted snapshot. DMS (Option 3) is a valid but more complex migration method. You cannot create an encrypted Read Replica of an unencrypted source (Option 4).
 
 > [!question]
-> What is the name of licensing model in which I can use your existing Oracle Database licenses to run Oracle deployments on Amazon RDS?
-> 1. Bring Your Own License
-> 2. Role Bases License
-> 3. Enterprise License
-> 4. License Included
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 1**
-> > **Rationale:** The **Bring Your Own License (BYOL)** model allows you to use your existing Oracle Database licenses to run Oracle deployments on [[RDS Overview|Amazon RDS]].
-
-> [!question]
-> Will I be charged if the DB instance is idle?
-> 1. No
-> 2. Yes
-> 3. Only is running in GovCloud
-> 4. Only if running in VPC
+> An application experiences unpredictable bursts of write activity that occasionally cause the RDS database to run out of storage space, leading to application downtime. How can the solutions architect resolve this with the LEAST manual intervention?
+> 1. Create a CloudWatch Alarm for `FreeStorageSpace` and manually increase the storage.
+> 2. Enable **RDS Storage Autoscaling**.
+> 3. Use a Provisioned IOPS (io1) volume type.
+> 4. Migrate the database to Amazon Aurora.
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** You are charged for an [[RDS Overview|Amazon RDS]] DB instance as long as it is running, regardless of whether it is actively serving traffic or idle. To stop being charged for the instance itself, you must stop or delete the instance.
+> > **Rationale:** **RDS Storage Autoscaling** (Option 2) automatically increases the storage capacity of an RDS instance when the free space drops below a threshold. This happens without downtime and with minimal management overhead. While Aurora (Option 4) also handles storage automatically, enabling autoscaling on the existing RDS instance is the "least intervention" path. (See [[RDS Overview]])
 
 > [!question]
-> What is the minimum charge for the data transferred between Amazon RDS and Amazon EC2 Instances in the same Availability Zone?
-> 1. USD 0.10 per GB
-> 2. No charge. It is free.
-> 3. USD 0.02 per GB
-> 4. USD 0.01 per GB
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 2**
-> > **Rationale:** Data transfer between an [[RDS Overview|Amazon RDS]] DB instance and an Amazon EC2 instance in the same [[VPC Overview|Availability Zone]] is free of charge.
-
-> [!question]
-> Does Amazon RDS allow direct host access via Telnet, Secure Shell (SSH), or Windows Remote Desktop Connection?
-> 1. Yes
-> 2. No
-> 3. Depends on if it is in VPC or not
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 2**
-> > **Rationale:** As a managed service, [[RDS Overview|Amazon RDS]] does not provide shell access (root SSH or RDP) to DB instances. This is to ensure the integrity of the managed service, though it does restrict access to certain system procedures that require advanced privileges.
-
-> [!question]
-> What are the two types of licensing options available for using Amazon RDS for Oracle?
-> 1. BYOL and Enterprise License
-> 2. BYOL and License Included
-> 3. Enterprise License and License Included
-> 4. Role based License and License Included
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 2**
-> > **Rationale:** [[RDS Overview|Amazon RDS]] for Oracle provides two licensing models: **Bring Your Own License (BYOL)** and **License Included**. In the License Included model, you do not need to purchase Oracle licenses separately; the license cost is bundled into the RDS hourly price.
-
-> [!question]
-> A user plans to use RDS as a managed DB platform. Which of the below mentioned features is not supported by RDS?
-> 1. Automated backup
-> 2. Automated scaling to manage a higher load
-> 3. Automated failure detection and recovery
-> 4. Automated software patching
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 2**
-> > **Rationale:** While [[RDS Overview|RDS]] manages backups, patching, and failure detection/recovery, it does not automatically scale compute resources (CPU/RAM) "on the fly" to handle higher loads in the same way a serverless product might. Scaling RDS typically requires a manual modification of the instance class or using [[Aurora Serverless]].
-
-> [!question]
-> A user is launching an AWS RDS with MySQL. Which of the below mentioned options allows the user to configure the InnoDB engine parameters?
-> 1. Options group
-> 2. Engine parameters
-> 3. Parameter groups
-> 4. DB parameters
+> A company wants to improve the security of their RDS for SQL Server database by removing the need for password-based authentication for their application servers. Which feature should they use?
+> 1. Use AWS Secrets Manager to rotate passwords.
+> 2. Enable **IAM Database Authentication**.
+> 3. Use Windows Authentication with an AWS Managed Microsoft AD.
+> 4. Use a VPC Endpoint for RDS.
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** A [[RDS Overview|DB Parameter Group]] acts as a container for engine configuration values that can be applied to one or more DB instances. This is where you configure settings like InnoDB parameters for MySQL.
+> > **Rationale:** For **RDS for SQL Server**, password-less authentication is typically achieved using **Windows Authentication** integrated with [[Directory Service|AWS Managed Microsoft AD]]. IAM Database Authentication (Option 2) is supported for MySQL and PostgreSQL, but not for SQL Server. Secrets Manager (Option 1) still uses passwords, though it rotates them. (See [[RDS Overview]])
 
 > [!question]
-> A user is planning to use the AWS RDS with MySQL. Which of the below mentioned services the user is not going to pay?
-> 1. Data transfer
-> 2. RDS CloudWatch metrics
-> 3. Data storage
-> 4. I/O requests per month
+> A solutions architect needs to design a disaster recovery (DR) solution for an RDS for PostgreSQL database with an RTO of 4 hours and an RPO of 1 hour in a secondary region. Which solution is MOST cost-effective?
+> 1. Use Cross-Region Read Replicas.
+> 2. Use AWS Backup to perform **Cross-Region Snapshot Copy** on a scheduled basis.
+> 3. Implement an Aurora Global Database.
+> 4. Use AWS DMS for continuous replication to the secondary region.
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** Basic [[CloudWatch Overview|CloudWatch metrics]] for [[RDS Overview|Amazon RDS]] are provided at no additional charge. Users pay for the instance class, storage, I/O requests, and data transfer (depending on the destination).
+> > **Rationale:** For an RPO of 1 hour and RTO of 4 hours, **Cross-Region Snapshot Copy** via AWS Backup is the most cost-effective solution as it doesn't require a running database instance in the secondary region. Cross-Region Read Replicas (Option 1) and Aurora Global Database (Option 3) provide much lower RPOs but are more expensive due to the cost of the secondary instance. (See [[RDS Replication]])

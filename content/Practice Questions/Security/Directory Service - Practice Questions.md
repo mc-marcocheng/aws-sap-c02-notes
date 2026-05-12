@@ -3,7 +3,7 @@ tags: [aws, sap-c02, directory-service, practice-questions]
 ---
 # AWS Directory Service - Practice Questions
 
-> [!question] Question 1
+> [!question]
 > A company wants to use their on-premises Active Directory to authenticate users accessing the AWS Management Console and Amazon WorkSpaces. A strict compliance mandate states that no directory data, including password hashes or cached credentials, may be stored in the cloud. Which AWS Directory Service solution should the company implement?
 > 
 > 1. AWS Managed Microsoft AD with a two-way trust to the on-premises AD.
@@ -19,7 +19,7 @@ tags: [aws, sap-c02, directory-service, practice-questions]
 > > - C is correct because [[Directory Service#AD Connector]] acts only as a proxy. It redirects requests to the on-premises AD and does not cache credentials or store directory data in the cloud, meeting the strict compliance mandate.
 > > - D is incorrect because RODCs store directory data (and some cached credentials) in the cloud.
 
-> [!question] Question 2
+> [!question]
 > A global financial institution uses Amazon WorkSpaces across three AWS Regions: us-east-1, eu-west-1, and ap-southeast-1. They are currently using a single AWS Managed Microsoft AD in us-east-1. Users in Europe and Asia are reporting slow login times. The architecture team wants to improve authentication performance for all global users while minimizing management overhead. Which solution should an SAP-C02 Solutions Architect recommend?
 > 
 > 1. Deploy AD Connector in eu-west-1 and ap-southeast-1, pointing to the us-east-1 AWS Managed Microsoft AD.

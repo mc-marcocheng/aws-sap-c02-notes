@@ -24,3 +24,14 @@ tags: [aws, sap-c02, waf, security, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** This is a legacy question referencing the "WAF Sandwich Architecture." Before the launch of [[WAF|AWS WAF]], the standard way to scale a web application firewall was to place a fleet of WAF-running EC2 instances between two [[ELB Overview|Load Balancers]]. Option 1 is expensive and complex. Option 2 (NACLs) is limited by rule counts. Option 4 is incorrect because ELBs do not support "Advanced Protocol Filtering" for WAF-like deep packet inspection. In a modern scenario, you would attach [[WAF|AWS WAF]] directly to the [[ALB Overview|ALB]].
+
+> [!question]
+> A company hosts a public-facing API on Amazon API Gateway. They observe automated bot traffic performing credential stuffing attacks using valid-looking HTTP requests that bypass standard rate-based rules because the attacks come from thousands of rotating IP addresses. The security team wants to block these sophisticated bots without impacting legitimate users. Which AWS WAF configuration is most effective?
+> 1. Create a WAF rate-based rule with a very low threshold (e.g., 10 requests per 5 minutes) per IP.
+> 2. Deploy the AWS WAF Bot Control managed rule group with the targeted inspection level to detect and block sophisticated bots.
+> 3. Create a WAF rule with a regex pattern match on the User-Agent header to block known bot strings.
+> 4. Enable AWS Shield Advanced and rely on the Shield Response Team to mitigate the attack.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** [[WAF|AWS WAF]] Bot Control with **targeted inspection level** uses advanced detection techniques (browser fingerprinting, behavioral analysis, ML) to identify sophisticated bots that rotate IPs and mimic legitimate user behavior. Rate-based rules (Option 1) are ineffective against distributed attacks from thousands of IPs. User-Agent filtering (Option 3) is trivially bypassed by sophisticated bots. [[Shield|AWS Shield Advanced]] (Option 4) is for DDoS volumetric attacks, not application-layer credential stuffing.

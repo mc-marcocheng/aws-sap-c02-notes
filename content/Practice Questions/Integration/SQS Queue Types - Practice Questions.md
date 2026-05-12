@@ -24,3 +24,14 @@ tags: [aws, sap-c02, sqs, integration, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** The requirement explicitly states that orders must be processed "exactly once" and "in the order in which they are received." These are the two primary features of [[SQS Queue Types#SQS FIFO Queues|FIFO queues]]. Standard SQS queues offer at-least-once delivery (which could lead to duplicates) and best-effort ordering, failing both requirements. While SNS can be integrated with SQS, the core logic for ordering and deduplication resides within the FIFO queue configuration.
+
+> [!question]
+> A company is using an Amazon SQS FIFO queue to ensure that messages are processed in order. However, they are experiencing issues where some messages are being processed multiple times by their consumer application during retry events. How can they ensure "exactly-once" delivery at the SQS level?
+> 1. Increase the visibility timeout of the queue.
+> 2. Use the **Message Deduplication ID** attribute when sending messages to the FIFO queue.
+> 3. Switch to a standard SQS queue.
+> 4. Implement a custom tracking table in DynamoDB to record processed message IDs.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** [[SQS Queue Types#SQS FIFO Queues|FIFO queues]] provide a native **message deduplication** feature. By providing a `MessageDeduplicationId` for each message, SQS will automatically reject any subsequent messages sent with the same ID within a 5-minute deduplication window, ensuring that the same message isn't added to the queue multiple times. Option 4 is a valid application-level pattern but Option 2 is the native SQS feature. (See [[SQS Queue Types]])

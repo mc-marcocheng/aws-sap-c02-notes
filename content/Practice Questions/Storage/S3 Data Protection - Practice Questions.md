@@ -28,3 +28,15 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > > 2. `x-amz-server-side-encryption-customer-key`: Provides the 256-bit, base64-encoded encryption key.
 > > 3. `x-amz-server-side-encryption-customer-key-MD5`: Provides the base64-encoded 128-bit MD5 digest of the encryption key.
 > > `x-amz-server-side-encryption-customer-key-AES-256` is not a valid header. For more details on encryption options, see [[S3 Encryption]].
+
+> [!question]
+> A company stores critical financial records in Amazon S3 and needs to protect against accidental deletion by IAM users. They also need the ability to recover any version of an object deleted in the past 90 days. The bucket is accessed by automated processes that overwrite objects frequently. Which combination of S3 features should be enabled? (Choose 2)
+> 1. Enable S3 Versioning on the bucket.
+> 2. Enable MFA Delete on the bucket.
+> 3. Configure S3 Object Lock in Governance mode with a 90-day retention period.
+> 4. Configure a lifecycle rule to permanently delete non-current versions after 90 days.
+> 5. Enable S3 Cross-Region Replication to a backup bucket.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 1, 4**
+> > **Rationale:** [[S3 Data Protection|S3 Versioning]] preserves all versions of an object, including deletions (which create a delete marker rather than permanently removing data). A [[S3 Lifecycle Management|Lifecycle rule]] to expire non-current versions after 90 days controls storage costs while maintaining the 90-day recovery window. MFA Delete (Option 2) adds protection but is for preventing permanent version deletion, not for the recovery requirement. Object Lock (Option 3) prevents any modification, which conflicts with the automated overwrite requirement. CRR (Option 5) adds durability but doesn't inherently provide point-in-time recovery of deleted objects.

@@ -27,3 +27,15 @@ tags: [aws, sap-c02, global-accelerator, networking, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[Global Accelerator|AWS Global Accelerator]] provides two static anycast IP addresses that act as a fixed entry point to applications. By registering all the [[ALB Overview|ALB]]s as endpoints, the company only needs to allow these two static IPs on their firewall, regardless of how many ALBs are added or moved behind the accelerator. This is a one-time, highly available configuration. Options 1, 2, and 4 are either too complex to maintain or do not provide the same level of global availability and simplicity.
+
+> [!question]
+> A company has a multi-region active-active architecture with Application Load Balancers in us-east-1 and eu-west-1. They are choosing between Amazon CloudFront and AWS Global Accelerator for their client-facing endpoint. The application is a real-time bidding platform that uses HTTP POST requests with unique payloads that cannot be cached. Latency must be minimized globally. Which service is more appropriate and why?
+> 
+> 1. CloudFront, because it has more edge locations than Global Accelerator and will always provide lower latency.
+> 2. Global Accelerator, because the application uses non-cacheable dynamic content and benefits from TCP termination at the edge and optimized routing over the AWS backbone.
+> 3. CloudFront with caching disabled (TTL=0), because it still provides edge TCP termination and connection reuse to the origin.
+> 4. Both B and C provide equivalent latency benefits for this use case; choose based on pricing.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 4**
+> > **Rationale:** Both [[Global Accelerator]] and [[CloudFront Overview|CloudFront]] (with TTL=0) provide TCP termination at edge locations and route traffic over the AWS backbone rather than the public internet. For non-cacheable HTTP content, both offer similar latency benefits. The choice depends on additional requirements: Global Accelerator provides static IPs and instant failover; CloudFront provides more edge locations and HTTP-specific features like header manipulation. For SAP-C02, recognize that both are valid for dynamic content.

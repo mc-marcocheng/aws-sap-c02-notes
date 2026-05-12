@@ -24,3 +24,14 @@ tags: [aws, sap-c02, codebuild, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** Storing secrets in AWS Secrets Manager or Systems Manager Parameter Store and natively referencing them in the `buildspec.yml` is the AWS recommended best practice for [[CodeBuild]]. It avoids exposing secrets in code, logs, or static configuration.
+
+> [!question]
+> A company's CodeBuild projects are taking a long time to complete because they need to download several gigabytes of Docker layers and third-party libraries for every build. How can the solutions architect optimize the build performance?
+> 1. Increase the compute type to a larger instance (e.g., `BUILD_GENERAL1_LARGE`).
+> 2. Enable **S3 Caching** or **Local Caching** in the CodeBuild project configuration for source dependencies and Docker layers.
+> 3. Use an AWS Lambda function to pre-download the dependencies to an EFS volume.
+> 4. Switch to a custom build image that includes all the dependencies pre-installed.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** [[CodeBuild]] supports **Caching**, which allows you to store reusable fragments of your build environment (like Docker layers, Maven dependencies, or npm modules) in an S3 bucket or locally on the build host. This significantly reduces build times by avoiding expensive downloads. While using a custom image (Option 4) also helps, caching is more flexible for evolving dependencies. (See [[CodeBuild]])

@@ -24,3 +24,14 @@ tags: [aws, sap-c02, codepipeline, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** A Manual Approval action in [[CodePipeline]] pauses the pipeline. Notifications are sent via SNS. Restricting who can approve it is done by controlling the `codepipeline:PutApprovalResult` permission via IAM.
+
+> [!question]
+> A company wants their AWS CodePipeline to trigger immediately whenever a developer pushes a change to their GitHub repository. The company wants to follow AWS best practices for security and efficiency. Which trigger method should they use?
+> 1. Configure CodePipeline to poll GitHub every 1 minute for changes.
+> 2. Use a **Webhook** (authenticated with a secret) or an **AWS CodeStar Source Connection** to receive events from GitHub.
+> 3. Use an S3 bucket as an intermediary and have GitHub push the source code to S3.
+> 4. Create an EventBridge rule that periodically calls the GitHub API to check for new commits.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** Polling (Option 1) is inefficient and slower. The recommended best practice for [[CodePipeline]] is to use **Webhooks** or the modern **AWS CodeStar Source Connections**, which provide an event-driven mechanism to trigger the pipeline instantly when a change is detected in the external source provider (GitHub, Bitbucket, GitLab). (See [[CodePipeline]])

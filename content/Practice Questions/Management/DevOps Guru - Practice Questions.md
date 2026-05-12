@@ -32,3 +32,14 @@ tags: [aws, sap-c02, devops-guru, practice-questions]
 > > **Answer: 2**
 > > **Rationale:** DevOps Guru natively publishes events to **Amazon EventBridge**. By creating an EventBridge rule that matches DevOps Guru events (e.g., `New Insight Open`), you can route the event to targets like AWS Lambda or EventBridge API Destinations to directly communicate with third-party ITSM tools like ServiceNow or Jira.
 > > **Reference Notes:** [[DevOps Guru]]
+
+> [!question]
+> How does AWS DevOps Guru help in identifying potential issues before they impact the application's availability?
+> 1. By running automated unit tests on every code push.
+> 2. By using **Proactive Insights** to analyze historical behavior and identify upcoming resource exhaustion (e.g., memory leaks or disk space running low).
+> 3. By automatically increasing the instance size of EC2 instances when CPU load is high.
+> 4. By scanning source code for security vulnerabilities.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** [[DevOps Guru]] provides **Proactive Insights** (Option 2), which use machine learning to detect patterns that indicate a future problem, such as a gradual increase in memory usage that will eventually lead to an OOM error. This allows teams to intervene *before* an outage occurs. Reactive Insights, on the other hand, help diagnose issues that are already happening. (See [[DevOps Guru]])

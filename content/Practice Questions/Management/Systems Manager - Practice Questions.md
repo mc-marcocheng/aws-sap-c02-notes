@@ -32,3 +32,14 @@ tags: [aws, sap-c02, systems-manager, practice-questions]
 > > **Answer: 2**
 > > **Rationale:** AWS Config natively supports automated remediation using **AWS Systems Manager Automation runbooks**. You can link an SSM Automation document directly to the Config rule, and it will execute automatically when a resource is evaluated as non-compliant. This requires little to no custom code compared to building a Step Functions workflow (Option A) or a Lambda function (Option C).
 > > **Reference Notes:** [[Systems Manager Patch Manager & Automation]]
+
+> [!question]
+> A solutions architect is designing a patching strategy for a large fleet of EC2 instances. Some instances must be patched immediately when a new critical security update is released, while others should be patched during a weekly maintenance window. How can this be implemented using Systems Manager?
+> 1. Create two separate Systems Manager Maintenance Windows.
+> 2. Use **Patch Baselines** with different auto-approval rules and assign them to the instances using **Patch Groups** (tags).
+> 3. Use AWS Config to trigger a Lambda function that installs patches.
+> 4. Use SSM Run Command to manually execute the `AWS-RunPatchBaseline` document every day.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** [[Systems Manager Patch Manager & Automation|Patch Manager]] uses **Patch Baselines** to define which patches are approved for installation. By creating different baselines (e.g., one with 0-day approval for critical patches and one with a 7-day delay) and associating them with different **Patch Groups** (defined by resource tags), you can satisfy the different patching requirements for your fleet. (See [[Systems Manager Patch Manager & Automation]])

@@ -12,7 +12,7 @@ tags: [aws, sap-c02, vpc, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale:** Each EC2 instance performs source/destination checks by default. This means that the instance must be the source or destination of any traffic it sends or receives. However, a [[VPC NAT Gateway#NAT Instance|NAT Instance]] must be able to send and receive traffic when the source or destination is not itself. Therefore, you must disable the **Source/Destination Check** attribute on the NAT instance for it to function correctly.
+> > **Rationale:** Each EC2 instance performs source/destination checks by default. This means that the instance must be the source or destination of any traffic it sends or receives. However, a [[VPC NAT Gateway#Comparison: NAT Gateway vs. NAT Instance|NAT Instance]] must be able to send and receive traffic when the source or destination is not itself. Therefore, you must disable the **Source/Destination Check** attribute on the NAT instance for it to function correctly.
 
 > [!question]
 > You manually launch a NAT AMI in a public subnet. The network is properly configured. Security groups and network access control lists are property configured. Instances in a private subnet can access the NAT. The NAT can access the Internet. However, private instances cannot access the Internet. What additional step is required to allow access from the private instances?
@@ -23,7 +23,7 @@ tags: [aws, sap-c02, vpc, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale:** Just like in the previous scenario, a [[VPC NAT Gateway#NAT Instance|NAT Instance]] requires the Source/Destination check to be disabled. Since the private instances are communicating "through" the NAT instance (where the NAT instance is neither the ultimate source nor the destination), the default AWS security check would drop the packets unless this attribute is disabled.
+> > **Rationale:** Just like in the previous scenario, a [[VPC NAT Gateway#Comparison: NAT Gateway vs. NAT Instance|NAT Instance]] requires the Source/Destination check to be disabled. Since the private instances are communicating "through" the NAT instance (where the NAT instance is neither the ultimate source nor the destination), the default AWS security check would drop the packets unless this attribute is disabled.
 
 > [!question]
 > A user has created a VPC with public and private subnets. The VPC has CIDR 20.0.0.0/16. The private subnet uses CIDR 20.0.1.0/24 and the public subnet uses CIDR 20.0.0.0/24. The user is planning to host a web server in the public subnet (port 80) and a DB server in the private subnet (port 3306). The user is configuring a security group of the NAT instance. Which of the below mentioned entries is **NOT** required for the NAT security group?

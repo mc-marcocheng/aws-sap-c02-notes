@@ -4,34 +4,34 @@ tags: [aws, sap-c02, aurora, database, practice-questions]
 # Aurora Practice Questions
 
 > [!question]
-> Company wants to use MySQL compatible relational database with greater performance. Which AWS service can be used?
-> 1. Aurora
-> 2. RDS
-> 3. SimpleDB
-> 4. DynamoDB
+> A company is using an Amazon Aurora MySQL cluster for its web application. During peak hours, the application experiences high read latency. The cluster consists of one primary instance and one Aurora Replica. What is the MOST effective way to reduce read latency?
+> 1. Scale up the primary instance to a larger size.
+> 2. **Add more Aurora Replicas** to the cluster and use the Reader Endpoint.
+> 3. Enable Aurora Serverless v2.
+> 4. Use an Amazon ElastiCache cluster to cache frequently accessed data.
 > 
 > > [!success]- Answer & Rationale
-> > **Answer: 1**
-> > **Rationale:** [[Aurora Overview|Aurora]] is a MySQL and PostgreSQL-compatible relational database engine that combines the speed and reliability of high-end commercial databases with the simplicity and cost-effectiveness of open-source databases. It delivers up to 5x the performance of standard MySQL. While standard [[RDS Overview|RDS]] also supports MySQL, Aurora is specifically designed for higher performance and scalability.
+> > **Answer: 2**
+> > **Rationale:** [[Aurora Overview|Aurora]] allows you to add up to 15 Read Replicas. By adding more replicas and using the **Reader Endpoint**, the application can distribute read traffic across all available replicas, significantly reducing latency. Scaling up the primary (Option 1) helps with writes but doesn't solve read-scaling as efficiently. Caching (Option 4) is also effective but adds more architectural complexity. (See [[Aurora Overview#High Availability and Scaling|Aurora Scaling]])
 
 > [!question]
-> An application requires a highly available relational database with an initial storage capacity of 8 TB. The database will grow by 8 GB every day. To support expected traffic, at least eight read replicas will be required to handle database reads. Which option will meet these requirements?
-> 1. DynamoDB
-> 2. Amazon S3
-> 3. Amazon Aurora
-> 4. Amazon Redshift
+> A financial services company needs to ensure that their Amazon Aurora database can survive the failure of an entire AWS Region with an RPO of less than 1 second and an RTO of less than 1 minute. Which feature should they implement?
+> 1. Cross-Region Read Replicas.
+> 2. **Aurora Global Database**.
+> 3. Snapshot replication to a secondary region.
+> 4. Multi-Region AWS Managed Microsoft AD.
 > 
 > > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > **Rationale:** [[Aurora Overview|Aurora]] meets all these requirements: it is a highly available relational database, its storage scales automatically up to 128 TiB (easily handling 8 TB + growth), and it supports up to 15 [[Aurora Overview|Read Replicas]]. [[DynamoDB Overview|DynamoDB]] is NoSQL, [[S3 Overview|S3]] is object storage, and [[Redshift]] is an OLAP data warehouse not typically used for standard application relational workloads.
+> > **Answer: 2**
+> > **Rationale:** **Aurora Global Database** (Option 2) uses dedicated infrastructure to replicate data to up to 5 secondary regions with a typical latency of less than 1 second (RPO < 1s). In the event of a regional failure, a secondary region can be promoted to full read/write capabilities in less than a minute (RTO < 1m). Standard Cross-Region Replicas (Option 1) have higher latency and RTO. (See [[Aurora Overview#Aurora Global Database|Aurora Global Database]])
 
 > [!question]
-> A company is migrating their on-premise 10TB MySQL database to AWS. As a compliance requirement, the company wants to have the data replicated across three availability zones. Which Amazon RDS engine meets the above business requirement?
-> 1. Use Multi-AZ RDS
-> 2. Use RDS
-> 3. Use Aurora
-> 4. Use DynamoDB
+> An application uses an Amazon Aurora PostgreSQL cluster. The team wants to minimize costs during development by ensuring the database automatically scales down to zero when there is no activity and scales up instantly when a developer starts testing. Which Aurora configuration meets this?
+> 1. Aurora Serverless v2.
+> 2. **Aurora Serverless v1**.
+> 3. Aurora Auto Scaling for Read Replicas.
+> 4. RDS Instance Start/Stop on a schedule.
 > 
 > > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > **Rationale:** [[Aurora Overview|Aurora]] automatically replicates data six ways across three Availability Zones (AZs) by default, providing high durability and meeting the compliance requirement for 3-AZ replication. While [[RDS Overview|RDS]] Multi-AZ provides replication across two AZs (Primary and Standby), Aurora's native storage architecture is built on a 3-AZ quorum-based system.
+> > **Answer: 2**
+> > **Rationale:** **Aurora Serverless v1** is the only version that supports "scaling to zero" when there is no activity. Aurora Serverless v2 (Option 1) scales much faster and more granularly but has a minimum capacity of 0.5 ACUs. (See [[Aurora Serverless]])

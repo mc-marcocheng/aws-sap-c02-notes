@@ -21,6 +21,18 @@ tags: [aws, sap-c02, cloud-map, practice-questions]
 > 3. Use AWS App Mesh and Envoy proxy to intercept static IP traffic and route it via Cloud Map discovery.
 > 4. Use Amazon EventBridge to trigger a Lambda function that updates the IPs.
 >
-> > [!success]- Answer & Rationale
+> [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[App Mesh]] uses Envoy proxies that can transparently intercept traffic (even destined for specific IPs or ports) and route it to the correct dynamic endpoints discovered via [[Cloud Map]]. This provides modern service discovery capabilities to legacy applications without code changes.
+
+> [!question]
+> A company has an ECS service registered with AWS Cloud Map for service discovery. When tasks are stopped due to a deployment, there is a 30-second window where the terminated task's IP is still returned by Cloud Map DNS queries, causing connection errors in upstream services. How can this be resolved?
+> 
+> 1. Reduce the DNS TTL for the Cloud Map namespace to 0 seconds.
+> 2. Configure the Cloud Map service with a custom health check that uses Route 53 health checks to detect terminated tasks faster.
+> 3. Configure the ECS service to use Cloud Map with SRV records and set a low DNS TTL, combined with enabling ECS service discovery health check integration.
+> 4. Use API-based discovery (HTTP namespace) instead of DNS-based discovery to get real-time instance information.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 4**
+> > **Rationale:** [[Cloud Map]] DNS-based discovery is limited by DNS TTL and client-side caching (even with TTL=0, resolvers may cache briefly). For real-time accuracy, switching to an **HTTP namespace** with the `DiscoverInstances` API bypasses DNS caching entirely and returns only currently healthy, registered instances. This eliminates the stale endpoint problem during deployments.

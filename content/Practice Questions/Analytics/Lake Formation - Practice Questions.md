@@ -31,10 +31,23 @@ tags: [aws, sap-c02, analytics, lake-formation, practice-questions]
 > 3. Implement Apache Ranger on an EC2 instance and configure Amazon EMR and Amazon Athena to use it for authorization.
 > 4. Use Amazon Macie to continuously monitor the S3 buckets and automatically apply tag-based access controls using AWS Config rules.
 >
-> > [!success]- Answer & Rationale
+> [!success]- Answer & Rationale
 > > **Answer:** B
 > > **Rationale:**
 > > [[Lake Formation]] integrates natively with Amazon EMR and Amazon Athena to provide centralized, fine-grained access control. You can register the S3 locations with Lake Formation and define permissions on databases and tables. EMR clusters can be configured with security configurations that leverage Lake Formation for authorization.
 > > Option A (AWS RAM) is for sharing resources, not fine-grained data access control within a lake.
 > > Option C (Apache Ranger) is a valid open-source alternative but requires managing underlying infrastructure (EC2), which adds operational overhead compared to the fully managed Lake Formation. Furthermore, integrating Athena with a self-managed Apache Ranger is not natively supported.
 > > Option D (Amazon Macie) is for data discovery and protection (sensitive data finding), not for enforcing query-level authorization.
+
+> [!question]
+> A multi-national corporation has a data lake with thousands of tables and hundreds of users across different business units (Finance, Sales, HR). They need to implement an access control model that scales as new tables and users are added. Instead of managing permissions for each individual user on each table, they want to assign permissions based on attributes like "ProjectID" and "Classification".
+> 
+> Which feature of AWS Lake Formation should they use?
+> 1. Lake Formation Blueprints
+> 2. Lake Formation Data Filters
+> 3. Lake Formation Tag-Based Access Control (LF-TBAC)
+> 4. Lake Formation Cross-Account Sharing
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 3**
+> > **Rationale:** **Lake Formation Tag-Based Access Control (LF-TBAC)** allows you to define permissions based on tags (LF-Tags) attached to databases, tables, and columns. This attribute-based access control (ABAC) model scales much better than managing individual resource permissions, as new resources automatically inherit permissions based on their tags, and users are granted access based on their assigned tag values. Blueprints (Option 1) are for data ingestion. Data Filters (Option 2) are for row-level security.

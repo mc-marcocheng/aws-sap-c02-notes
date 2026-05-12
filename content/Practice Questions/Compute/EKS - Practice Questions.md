@@ -21,6 +21,17 @@ tags: [aws, sap-c02, eks, practice-questions]
 > 3. Disable the Amazon VPC CNI plugin and use kubenet for pod networking.
 > 4. Use NAT Gateway to masquerade pod IP addresses behind the worker node IPs.
 >
-> > [!success]- Answer & Rationale
+> [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** Enabling custom networking with the VPC CNI allows pods to receive IP addresses from a secondary CIDR block (such as Carrier Grade NAT ranges), preserving primary subnet IPs for EC2 instances and other AWS resources while maintaining native VPC connectivity.
+
+> [!question]
+> A company wants to run a machine learning workload on Amazon EKS that requires specific GPU-optimized instances and a custom Amazon Machine Image (AMI) with pre-installed drivers. They want to minimize the operational burden of joining nodes to the cluster while maintaining control over the AMI. Which node type should they use?
+> 1. Self-managed node groups.
+> 2. **Managed node groups** with a custom AMI.
+> 3. AWS Fargate.
+> 4. Bottlerocket nodes.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** [[EKS]] **Managed Node Groups** support the use of custom AMIs. This provides the best balance: AWS handles the automated provisioning, updating, and draining of nodes, while the company maintains control over the software stack within the AMI. Self-managed node groups (Option 1) require more manual effort for lifecycle management. Fargate (Option 3) does not support GPU instances.

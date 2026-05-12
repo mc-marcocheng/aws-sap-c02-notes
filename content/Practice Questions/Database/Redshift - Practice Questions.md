@@ -10,10 +10,10 @@ tags: [aws, sap-c02, redshift, database, analytics, practice-questions]
 > 3. RDS
 > 4. ElastiCache
 > 5. Amazon Redshift
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3, 5**
-> > **Rationale:** [[KMS|CloudHSM]] can be used to manage encryption keys for [[RDS Overview|RDS]] and [[Redshift]]. While [[S3 Overview|S3]] supports various encryption options, direct integration for managing S3 keys with CloudHSM is typically handled via [[KMS]] (Custom Key Store).
+> > **Rationale:** [[CloudHSM]] can be used to manage encryption keys for [[RDS Overview|RDS]] and [[Redshift]]. While [[S3 Overview|S3]] supports various encryption options, direct integration for managing S3 keys with CloudHSM is typically handled via [[KMS]] (Custom Key Store).
 
 > [!question]
 > You need to store sensor data (100K sensors, 1KB each/min) for at least two years and perform year-over-year comparisons. Peak IOPS is 10K. Which setup meets the requirements?
@@ -21,7 +21,7 @@ tags: [aws, sap-c02, redshift, database, analytics, practice-questions]
 > 2. Ingest data into a DynamoDB table and move old data to a Redshift cluster
 > 3. Replace RDS with a 6 node Redshift cluster
 > 4. Upgrade RDS storage to 3TB and 10K PIOPS
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[DynamoDB Overview|DynamoDB]] is ideal for high-velocity ingestion (100K sensors writing per minute). [[Redshift]] is the preferred choice for performing large-scale, historical, year-over-year analytical comparisons (OLAP). Moving "cold" data from [[DynamoDB Overview|DynamoDB]] to [[Redshift]] is a standard architectural pattern for cost-effective big data analytics.
@@ -32,7 +32,7 @@ tags: [aws, sap-c02, redshift, database, analytics, practice-questions]
 > 2. Amazon RDS
 > 3. Amazon EBS
 > 4. Amazon Redshift
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 4**
 > > **Rationale:** Both [[RDS Overview|RDS]] and [[Redshift]] feature built-in, automated backup capabilities where users can configure backup windows and retention periods. [[S3 Overview|S3]] uses versioning and replication but doesn't have a scheduled "backup window." [[EBS Overview|EBS]] requires AWS Backup or Data Lifecycle Manager (DLM) for automated schedules.
@@ -43,7 +43,18 @@ tags: [aws, sap-c02, redshift, database, analytics, practice-questions]
 > 2. Use RRS for all data in S3. Use a combination of Spot instances and Reserved Instances for EMR. Use Reserved instances for Redshift.
 > 3. Use RRS for all data in S3. Add Spot Instances to EMR. Use Reserved Instances for Redshift.
 > 4. Use RRS for PDF and CSV data in S3. Add Spot Instances to EMR. Use Spot Instances for Redshift.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** Reduced Redundancy Storage (RRS) in [[S3 Overview|S3]] is cost-effective for reproducible data like reports. For [[EMR]], using a mix of Reserved Instances (for Master/Core nodes to ensure integrity) and Spot Instances (for Task nodes to save cost) is the best practice. [[Redshift]] clusters are typically steady-state, making Reserved Instances the most cost-effective choice compared to On-Demand.
+
+> [!question]
+> A company wants to query data sitting in their S3 data lake using their existing Amazon Redshift cluster without loading the data into Redshift local storage. Which feature should they use?
+> 1. Redshift Spectrum
+> 2. Redshift Federated Query
+> 3. Redshift Managed Storage
+> 4. Redshift Data API
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 1**
+> > **Rationale:** **Redshift Spectrum** (Option 1) allows you to run Redshift SQL queries directly against exabytes of unstructured data in [[S3 Overview|Amazon S3]]. No loading or transformation is required. Federated Query (Option 2) is for querying external databases like RDS. Managed Storage (Option 3) is for the local cluster data. (See [[Redshift]])

@@ -14,7 +14,7 @@ tags: [aws, sap-c02, route53, networking, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 5**
 > > **Rationale:** 
-> > - 2: For [[Route 53 Routing Policies#Weighted Routing|Weighted Routing]] to function as part of a failover mechanism, each record must have an associated **Health Check**. Without it, Route 53 assumes the resource is always healthy.
+> > - 2: For [[Route 53 Routing Policies#2. Weighted Routing|Weighted Routing]] to function as part of a failover mechanism, each record must have an associated **Health Check**. Without it, Route 53 assumes the resource is always healthy.
 > > - 5: When using **Alias Records** (like the Latency Alias pointing to the Weighted records), you must enable **Evaluate Target Health**. This allows Route 53 to "look through" the alias to the underlying health of the weighted records. If all weighted records in a region are unhealthy, and Evaluate Target Health is Yes, Route 53 will failover to the other region.
 
 > [!question]
@@ -26,7 +26,7 @@ tags: [aws, sap-c02, route53, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** While AWS native [[Route 53 Routing Policies#Geolocation Routing|Geolocation Routing]] is the preferred way to handle this, in the context of this specific question, using a mechanism (like a third-party provider or Geolocation routing) to ensure users land in the correct region is required for **Data Sovereignty**.
+> > **Rationale:** While AWS native [[Route 53 Routing Policies#5. Geolocation Routing|Geolocation Routing]] is the preferred way to handle this, in the context of this specific question, using a mechanism (like a third-party provider or Geolocation routing) to ensure users land in the correct region is required for **Data Sovereignty**.
 > > - [[Route 53 Routing Policies#Latency-Based Routing|Latency Based Routing]] (2) is performance-focused and does not guarantee that a user in the EU won't be routed to the US if latency is lower.
 
 > [!question]
@@ -38,7 +38,7 @@ tags: [aws, sap-c02, route53, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[Route 53 Routing Policies#Geolocation Routing|Geolocation Routing]] allows you to route traffic based on the user's geographic location (Continent/Country), ensuring users in Europe reach the Dublin region and users in the US reach the N. Virginia region. This provides a localized and "equivalent" experience by ensuring regional proximity.
+> > **Rationale:** [[Route 53 Routing Policies#5. Geolocation Routing|Geolocation Routing]] allows you to route traffic based on the user's geographic location (Continent/Country), ensuring users in Europe reach the Dublin region and users in the US reach the N. Virginia region. This provides a localized and "equivalent" experience by ensuring regional proximity.
 
 > [!question]
 > You have been asked to propose a multi-region deployment of a web-facing application where a controlled portion of your traffic is being processed by an alternate region. Which configuration would achieve that goal?
@@ -49,7 +49,7 @@ tags: [aws, sap-c02, route53, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** [[Route 53 Routing Policies#Weighted Routing|Weighted Routing]] is designed for "shifting" traffic in specific proportions. By assigning a small weight to the alternate region, you can "control" exactly how much traffic is processed there (e.g., for canary testing or gradual migration).
+> > **Rationale:** [[Route 53 Routing Policies#2. Weighted Routing|Weighted Routing]] is designed for "shifting" traffic in specific proportions. By assigning a small weight to the alternate region, you can "control" exactly how much traffic is processed there (e.g., for canary testing or gradual migration).
 
 > [!question]
 > Your company is moving towards tracking web page users with a small tracking image loaded on each page. Currently you are serving this image out of us-east, but are starting to get concerned about the time it takes to load the image for users on the west coast. What are the two best ways to speed up serving this image? (Choose 2 answers)
@@ -73,4 +73,4 @@ tags: [aws, sap-c02, route53, networking, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
-> > **Rationale:** Combining [[Route 53 Routing Policies#Latency-Based Routing|Latency-Based Routing (LBR)]] for performance and [[Route 53 Routing Policies#Failover Routing|Failover Routing]] for high availability is the "Gold Standard" for multi-region stateless APIs. Using **Auto Scaling** and **ELBs** ensures that each regional deployment is itself highly available and scalable.
+> > **Rationale:** Combining [[Route 53 Routing Policies#Latency-Based Routing|Latency-Based Routing (LBR)]] for performance and [[Route 53 Routing Policies#4. Failover Routing (Active-Passive)|Failover Routing]] for high availability is the "Gold Standard" for multi-region stateless APIs. Using **Auto Scaling** and **ELBs** ensures that each regional deployment is itself highly available and scalable.

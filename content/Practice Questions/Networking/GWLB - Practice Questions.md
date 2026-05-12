@@ -26,3 +26,15 @@ tags: [aws, sap-c02, networking, gwlb, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** [[GWLB Overview|GWLB]] acts as a bump-in-the-wire. It encapsulates the original IP packet (with the original source/destination IPs intact) inside a GENEVE packet. If the firewall is only seeing the GWLB IPs, it means the firewall appliance software is reading the outer GENEVE header rather than decapsulating it to inspect the inner packet payload. GWLB does not perform source NAT like an ALB or NAT Gateway.
+
+> [!question]
+> A company has deployed a Gateway Load Balancer with a fleet of third-party firewall appliances for traffic inspection. They notice that when an appliance becomes unhealthy, existing flows through that appliance are immediately dropped, causing TCP connection resets for active sessions. How can they improve the availability of existing flows during appliance failures?
+> 
+> 1. Enable GWLB cross-zone load balancing to redistribute flows to healthy appliances in other AZs.
+> 2. Configure the GWLB target group with a longer deregistration delay (connection draining) to allow existing flows to complete before removing the target.
+> 3. Enable **GWLB target failover** so that existing flows are re-routed to a healthy appliance when the original target becomes unhealthy.
+> 4. Deploy the appliances in an Auto Scaling group with a shorter health check interval to replace unhealthy instances faster.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 3**
+> > **Rationale:** [[GWLB Overview|Gateway Load Balancer]] supports **target failover** configuration, which determines what happens to existing flows when a target becomes unhealthy. By enabling target failover (`rebalance` on existing flows), the GWLB re-hashes existing flows to a healthy appliance rather than dropping them. This is critical for stateful inspection appliances where dropped flows mean broken connections. (See [[GWLB Overview]])

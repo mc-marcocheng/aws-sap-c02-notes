@@ -238,26 +238,15 @@ tags: [aws, sap-c02, dynamodb, practice-questions]
 > > **Rationale**: Using Office ID as the partition (hash) key and Name as the sort (range) key allows the query to target a specific partition and then use the `begins_with` or `BETWEEN` operator on the sort key to efficiently retrieve only the required names.
 
 > [!question]
-> Migrate 10M records in 1 hour. All records are 1.5KB. Data is evenly distributed. How many WCU?
-> 1. 6667
-> 2. 4166
-> 3. 5556
-> 4. 2778
+> A company is designing a DynamoDB table for an application that requires querying data by `OrderDate` and filtering by `Status`. The base table's partition key is `CustomerID` and the sort key is `OrderID`. The application needs to perform these queries efficiently even for data that was created months ago. Should they use a Local Secondary Index (LSI) or a Global Secondary Index (GSI)?
+> 1. Use an LSI, because it allows for strong consistency and uses the same partition key as the base table.
+> 2. Use a GSI, because it allows for a different partition key and has no storage limit per partition.
+> 3. Use an LSI, but only if the `CustomerID` has fewer than 10 GB of data.
+> 4. Use a GSI, because LSI can only be created at table creation time and the 10 GB partition limit might be exceeded.
 > 
 > > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > **Rationale**: 1. Calculate units per item: 1.5KB requires 2 WCU (1 unit per 1KB, rounded up). 2. Total units needed: 10,000,000 items * 2 WCU/item = 20,000,000 total units. 3. Calculate units per second: 20,000,000 units / 3600 seconds ≈ 5,555.55. 4. Round up to 5556 WCU.
-
-> [!question]
-> 600 temperature gauges, samples every minute. Each sample is 1KB. Writes are evenly distributed. How much write throughput is required?
-> 1. 1 WCU
-> 2. 10 WCU
-> 3. 60 WCU
-> 4. 600 WCU
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 2**
-> > **Rationale**: 600 samples per minute / 60 seconds = 10 samples per second. Each 1KB write requires 1 WCU. Total = 10 WCU.
+> > **Answer: 4**
+> > **Rationale:** While LSIs (Option 1) support strong consistency, they have a major limitation: the **10 GB limit** per partition key (item collection). For high-volume customers, this could easily be exceeded. Furthermore, LSIs must be created when the table is created. **GSIs** (Option 4) can be created at any time, have no storage limit per partition, and allow for a different partition key, making them more scalable and flexible for most SAP-level designs. (See [[DynamoDB Overview]])
 
 > [!question]
 > You need to store user high scores for many games and look up the highest score for any game. What’s the best DynamoDB key structure?

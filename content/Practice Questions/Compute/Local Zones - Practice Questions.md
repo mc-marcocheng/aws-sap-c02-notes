@@ -4,15 +4,15 @@ tags: [aws, sap-c02, local-zones, practice-questions]
 # Local Zones Practice Questions
 
 > [!question]
-> A media entertainment company based in Los Angeles has a latency-sensitive video rendering application. Their main AWS infrastructure is in `us-west-2` (Oregon), but artists in LA complain about high latency when accessing the rendering nodes. They do not have their own on-premises data center. How can this latency be reduced?
-> 1. Deploy AWS Outposts in an LA colocation facility and run the rendering nodes there.
-> 2. Enable the Los Angeles AWS Local Zone, extend the VPC to create a subnet in the Local Zone, and deploy the rendering nodes there.
-> 3. Use AWS Wavelength in Los Angeles to host the rendering application.
-> 4. Deploy Amazon CloudFront to cache the rendering compute processes at the edge.
+> A company wants to provide ultra-low latency access to a real-time gaming application for users in a specific metropolitan area where AWS does not have a full region. They decide to use an AWS Local Zone. What is the CORRECT architectural step to extend their existing VPC to the Local Zone?
+> 1. Create a new VPC in the Local Zone and peer it with the existing VPC.
+> 2. Create a new subnet in the existing VPC and select the Local Zone as the Availability Zone for that subnet.
+> 3. Use AWS Site-to-Site VPN to connect the VPC to the Local Zone's public endpoint.
+> 4. Deploy an AWS Outposts rack in the target metropolitan area.
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[Local Zones]] are designed to provide single-digit millisecond latency to users in specific metropolitan areas (like LA) by bringing select AWS services closer to them, without the customer needing to manage physical data centers.
+> > **Rationale:** [[Local Zones]] are extensions of an existing AWS Region. To use them, you simply create a new subnet within your existing VPC and choose the Local Zone (which appears as a specific AZ) for that subnet. This allows resources in the Local Zone to communicate with the rest of the VPC over the AWS private network. Option 1 is incorrect because you don't create a separate VPC. Option 3 is for external connectivity. Option 4 is a different service (physical hardware) and more complex than using a managed Local Zone.
 
 > [!question]
 > A company is using an AWS Local Zone in Miami. The resources in the Local Zone subnet need to access the public internet. To minimize latency, how should internet-bound traffic be routed?

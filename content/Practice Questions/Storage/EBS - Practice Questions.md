@@ -4,15 +4,15 @@ tags: [aws, sap-c02, ebs, storage, practice-questions]
 # EBS Practice Questions
 
 > [!question]
-> _____ is a durable, block-level storage volume that you can attach to a single, running Amazon EC2 instance.
-> 1. Amazon S3
-> 2. Amazon EBS
-> 3. None of these
-> 4. All of these
+> A company is migrating a latency-sensitive Oracle database from on-premises to AWS. The database requires 64,000 IOPS with sub-millisecond latency and 1,000 MB/s throughput. The database volume is 2 TB. The company also needs consistent snapshot performance without impacting production I/O. Which EBS configuration meets these requirements?
+> 1. A single io2 Block Express volume with 64,000 provisioned IOPS attached to an R6i.metal instance.
+> 2. Multiple gp3 volumes in a RAID 0 configuration to aggregate IOPS, attached to an R5.4xlarge instance.
+> 3. A single io1 volume with 64,000 provisioned IOPS attached to an EBS-optimized R5.8xlarge instance.
+> 4. A single gp3 volume with 16,000 IOPS and 1,000 MB/s throughput attached to an R6i.2xlarge instance.
 >
 > > [!success]- Answer & Rationale
-> > **Answer: 2**
-> > **Rationale:** [[EBS Overview|Amazon EBS]] provides block-level storage volumes for use with [[EC2 Overview|EC2]] instances. Unlike [[S3 Overview|Amazon S3]], which is object storage, EBS behaves like a physical hard drive.
+> > **Answer: 1**
+> > **Rationale:** [[EBS Overview|io2 Block Express]] volumes support up to 256,000 IOPS and 4,000 MB/s throughput per volume with sub-millisecond latency, making them ideal for latency-sensitive databases. Option 2 adds operational complexity with RAID and gp3 max IOPS is 16,000 per volume. Option 3's io1 volumes max at 64,000 IOPS but have higher latency than Block Express. Option 4's single gp3 cannot exceed 16,000 IOPS.
 
 > [!question]
 > Which Amazon storage is the best for database-style applications that frequently encounter many random reads and writes across the dataset?
@@ -24,28 +24,6 @@ tags: [aws, sap-c02, ebs, storage, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** [[EBS Overview|Amazon EBS]] (specifically SSD-backed volumes like `gp3` or `io2`) is optimized for random I/O workloads, which are common in databases. While [[EC2 Instance Types|Instance Store]] offers high performance, it lacks the persistence required for most database applications.
-
-> [!question]
-> What does Amazon EBS stand for?
-> 1. Elastic Block Storage
-> 2. Elastic Business Server
-> 3. Elastic Blade Server
-> 4. Elastic Block Store
->
-> > [!success]- Answer & Rationale
-> > **Answer: 4**
-> > **Rationale:** EBS stands for **Elastic Block Store**.
-
-> [!question]
-> Which Amazon Storage behaves like raw, unformatted, external block devices that you can attach to your instances?
-> 1. None of these
-> 2. Amazon Instance Storage
-> 3. Amazon EBS
-> 4. All of these
->
-> > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > **Rationale:** [[EBS Overview|Amazon EBS]] volumes are provided as raw block devices. They must be formatted with a file system before they can be used by an [[EC2 Overview|EC2]] instance.
 
 > [!question]
 > A user has created numerous EBS volumes. What is the general limit for each AWS account for the maximum number of EBS volumes that can be created?

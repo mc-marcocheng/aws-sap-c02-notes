@@ -13,7 +13,7 @@ Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity i
 > - **Instance Types**: Various configurations of CPU, memory, storage, and networking capacity.
 > - **Key Pairs**: Secure login information (Public key stored by AWS, private key by user).
 > - **Instance Store**: Temporary (ephemeral) storage volumes deleted when the instance is stopped or terminated.
-> - **EBS Volumes**: Persistent storage volumes using [[EBS Overview]].
+> - **EBS Volumes**: Persistent storage volumes using [[EBS Overview|EBS]].
 > - **Security Groups**: Virtual firewalls to control inbound and outbound traffic.
 > - **Elastic IP Addresses**: Static IPv4 addresses for dynamic cloud computing.
 
@@ -21,7 +21,7 @@ Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity i
 AMIs are **regional**. To use an AMI in another region, you must **copy** the AMI to that region. To share an AMI cross-account, you must modify its launch permissions.
 
 ## Nitro System
-The **Nitro System** is the underlying platform for the latest generation of EC2 instances. 
+The **Nitro System** is the underlying platform for the latest generation of EC2 instances.
 - Nitro instances provide better performance, lower cost, and are required for some features (EBS Multi-Attach io2, Enhanced Networking, Hibernation).
 
 ## Additional Features
@@ -48,16 +48,9 @@ The **Nitro System** is the underlying platform for the latest generation of EC2
 ## Accessing EC2
 Instances can be managed via the **AWS Management Console**, **AWS CLI**, **AWS Tools for PowerShell**, or **AWS SDKs**. The **Instance Metadata Service (IMDS)** provides data about the instance (e.g., public IP, IAM role) at `http://169.254.169.254/latest/meta-data/`.
 
-## Related Services
-- [[_Compute Index|Compute Index]]
-- [[EC2 Instance Types]]
-- [[EC2 Purchase Options]]
-- [[Placement Groups]]
-- [[EBS Overview]]
-- [[VPC Overview]]
-
 ---
-### Exam Focus: Trade-offs and Scenarios
+
+## Exam Focus: Trade-offs and Scenarios
 
 > [!exam] **Scenario: High Performance Computing (HPC)**
 > Use **Cluster Placement Groups** within a single AZ for low-latency network performance. Combine with **Enhanced Networking (ENA)**.
@@ -67,6 +60,16 @@ Instances can be managed via the **AWS Management Console**, **AWS CLI**, **AWS 
 
 > [!exam] **Scenario: Cost Optimization**
 > Analyze workloads to choose between **On-Demand**, **Reserved Instances (RIs)**, or **Spot Instances**. See [[EC2 Purchase Options]].
+
+---
+
+## Related Services
+- [[_Compute Index|Compute Index]]
+- [[EC2 Instance Types]]
+- [[EC2 Purchase Options]]
+- [[Placement Groups]]
+- [[EBS Overview]]
+- [[VPC Overview]]
 
 ---
 **Practice:** [[EC2 - Practice Questions|EC2 Practice Questions]]

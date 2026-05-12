@@ -26,3 +26,14 @@ tags: [aws, sap-c02, management, cost, optimizer, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** Updating the Launch Template and utilizing the ASG **Instance Refresh** feature is the native, automated way to roll out instance type changes across a fleet. Instance Refresh replaces instances in batches according to a defined minimum healthy percentage, ensuring zero downtime for the application behind the ALB.
+
+> [!question]
+> A solutions architect is reviewing Compute Optimizer recommendations for several Auto Scaling groups (ASGs). The tool identifies an ASG as "Over-provisioned" because its instances have consistently low CPU utilization. What should the architect verify before implementing the recommended smaller instance type?
+> 1. The price difference between the current and recommended instance types.
+> 2. Whether the application is **bottlenecked on other resources** like memory or network throughput, which Compute Optimizer also analyzes.
+> 3. The current maximum size of the ASG.
+> 4. If the ASG is using a combination of Spot and On-Demand instances.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** While CPU is a common bottleneck, [[Compute Optimizer]] also analyzes memory, storage, and network utilization. If an architect only looks at CPU and ignores a recommendation based on memory (Option 2), they might choose an instance type that causes the application to fail. Compute Optimizer's holistic analysis is its key strength for SAP-level decision making. (See [[Compute Optimizer]])

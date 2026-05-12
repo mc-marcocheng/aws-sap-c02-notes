@@ -26,3 +26,15 @@ tags: [aws, sap-c02, networking, vpc, privatelink, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** While on-premises networks can route to the IP addresses of a [[VPC Endpoints|VPC Interface Endpoint]] over [[Direct Connect Overview|Direct Connect]], they cannot automatically resolve the regional AWS service DNS names to those private IPs. You must deploy an Amazon [[Route 53 Resolver]] Inbound Endpoint and configure on-premises DNS to forward requests for the AWS service domain to the Inbound Endpoint.
+
+> [!question]
+> A company has created an AWS PrivateLink endpoint service backed by a Network Load Balancer. Multiple consumer VPCs in different AWS accounts have created Interface Endpoints to access the service. The provider wants to restrict which AWS accounts can create endpoints to their service and also wants to be notified when a new connection request is made. How should this be configured?
+> 
+> 1. Configure the endpoint service to require manual acceptance of connection requests. Add allowed principals (AWS account IDs) to the endpoint service permissions.
+> 2. Use IAM policies on the consumer accounts to prevent unauthorized endpoint creation.
+> 3. Configure the NLB security group to only allow traffic from known consumer VPC CIDRs.
+> 4. Use AWS Organizations SCPs to restrict which accounts can create VPC endpoints.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 1**
+> > **Rationale:** [[PrivateLink]] endpoint services support two access control mechanisms: **allowed principals** (whitelisting specific AWS accounts, IAM users, or roles that can create endpoints) and **acceptance required** (manual or automatic approval of connection requests). When acceptance is required, the provider receives a notification and must approve each connection. NLB security groups (Option 3) cannot filter by consumer VPC CIDR since PrivateLink uses ENIs in the consumer's VPC.

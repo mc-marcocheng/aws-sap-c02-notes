@@ -24,3 +24,14 @@ tags: [aws, sap-c02, config, management, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[CloudTrail]] records API calls and account activity (WHO/WHEN). [[Config]] provides a detailed inventory and configuration history of resources (WHAT/Current State). [[IAM]] Credential Reports are used specifically for auditing user credentials, MFA status, and last login activity.
+
+> [!question]
+> A central compliance team needs to monitor the configuration compliance of 500 AWS accounts in an Organization. They want to see a single dashboard that shows the compliance status of all "S3 Bucket Public Read Prohibited" rules across all accounts. What is the most efficient way to achieve this?
+> 1. Write a script that uses the AWS CLI to query each account's Config status and aggregates the results in a CSV.
+> 2. Create a **Config Aggregator** in a central security account and authorize the Organization to provide data to it.
+> 3. Use AWS Organizations to deploy a Service Control Policy (SCP) that blocks public S3 buckets.
+> 4. Use CloudWatch Dashboards with cross-account functionality to visualize Config metrics.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** A **Config Aggregator** (Option 2) is a native [[Config]] feature that collects configuration and compliance data from multiple accounts and regions into a single account. When integrated with AWS Organizations, it can automatically include all accounts in the Organization, providing the required centralized dashboard with minimal effort. (See [[Config]])

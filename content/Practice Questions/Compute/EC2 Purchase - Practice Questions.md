@@ -12,7 +12,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > To run on single-tenant hardware, the tenancy attribute must be set to `dedicated`. [[EC2 Purchase Options#Dedicated Instances|Dedicated Instances]] run on hardware dedicated to a single customer, providing physical isolation at the host level.
+> > To run on single-tenant hardware, the tenancy attribute must be set to `dedicated`. [[EC2 Purchase Options#Dedicated Hosts vs. Dedicated Instances|Dedicated Instances]] run on hardware dedicated to a single customer, providing physical isolation at the host level.
 
 > [!question]
 > You have a video transcoding application running on Amazon EC2. Each instance polls a queue to find out which video should be transcoded, and then runs a transcoding process. If this process is interrupted, the video will be transcoded by another instance based on the queuing system. You have a large backlog of videos, which need to be transcoded, and would like to reduce this backlog by adding more instances. You will need these instances only until the backlog is reduced. Which type of Amazon EC2 instances should you use to reduce the backlog in the most cost efficient way?

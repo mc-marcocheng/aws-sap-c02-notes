@@ -3,7 +3,7 @@ tags: [aws, sap-c02, service-catalog, practice-questions]
 ---
 # Service Catalog - Practice Questions
 
-> [!question] Question 1: Self-Service Provisioning without Direct Permissions
+> [!question]
 > A data science team frequently needs to deploy Amazon EMR clusters for data processing tasks. The security team wants to ensure that the data scientists can launch these clusters on-demand, but they must strictly use approved AMIs, specific VPC subnets, and only `m5.xlarge` instance types. The data scientists should NOT have direct IAM permissions to create EMR clusters or modify VPC settings to prevent misconfigurations.
 > 
 > What is the most secure and operationally efficient way to implement this?
@@ -25,7 +25,7 @@ tags: [aws, sap-c02, service-catalog, practice-questions]
 > > 
 > > **Links:** [[Service Catalog]]
 
-> [!question] Question 2: Multi-Account Portfolio Sharing
+> [!question]
 > A central cloud center of excellence (CCoE) team has created an AWS Service Catalog portfolio containing several approved IT services. The company uses AWS Organizations with 50 member accounts. The CCoE team wants to make this portfolio available to all developers across all 50 member accounts without having to manually share the portfolio with each account ID.
 > 
 > How should the CCoE team achieve this?
@@ -44,3 +44,17 @@ tags: [aws, sap-c02, service-catalog, practice-questions]
 > > - D is incorrect because Organizations integration eliminates the need for manual or scripted account-by-account sharing.
 > > 
 > > **Links:** [[Service Catalog]], [[Organizations Overview]]
+
+> [!question]
+> An IT operations team wants to allow end-users to perform common administrative tasks on their provisioned Service Catalog products, such as rebooting an EC2 instance or taking an RDS snapshot, without granting them direct permissions to those services.
+> 
+> How can this be implemented?
+> 
+> 1. Grant the end-users the `ec2:RebootInstances` and `rds:CreateDBSnapshot` permissions directly.
+> 2. Create **Service Actions** (AWS Systems Manager documents) and associate them with the Service Catalog products.
+> 3. Tell the users to use the AWS CLI with a shared administrative credential.
+> 4. Use AWS Config to automatically reboot instances if they are tagged with a specific value.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** **Service Actions** (Option 2) in [[Service Catalog]] allow administrators to define and associate operational procedures (implemented as [[Systems Manager Patch Manager & Automation|SSM Automation documents]]) with products. Users can then execute these actions directly from the Service Catalog console on their provisioned resources, using the permissions of the associated Launch Constraint role rather than their own IAM permissions. This provides secure, governed self-service operations. (See [[Service Catalog]])

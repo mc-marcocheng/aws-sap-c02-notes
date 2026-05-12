@@ -4,15 +4,16 @@ tags: [aws, sap-c02, athena, analytics, serverless, practice-questions]
 # Athena Practice Questions
 
 > [!question]
-> A SysOps administrator wants to use standard SQL to query access logs in S3 without managing infrastructure. Which service should they use?
-> 1. Amazon Inspector
-> 2. Amazon CloudWatch
-> 3. Amazon Athena
-> 4. Amazon RDS
+> A company stores petabytes of log data in an S3 bucket in CSV format. A security analyst needs to perform periodic ad-hoc SQL queries on this data using Amazon Athena. Initial queries are taking several minutes and scanning significant amounts of data, leading to high costs. Which combination of actions will MOST effectively improve query performance and reduce cost? (Choose 2)
+> 1. Use AWS Glue to convert the CSV data into Apache Parquet format.
+> 2. Implement S3 bucket replication to move data to a higher performance S3 Express One Zone bucket.
+> 3. Partition the data in S3 by year, month, and day.
+> 4. Increase the Athena workgroup query result limit.
+> 5. Use Athena Federated Query to connect to the S3 bucket via a Lambda function.
 > 
 > > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > **Rationale:** [[Athena]] is a serverless, interactive query service that makes it easy to analyze data in [[S3 Overview|S3]] using standard SQL. It requires no infrastructure management and you pay only for the queries you run.
+> > **Answer: 1, 3**
+> > **Rationale:** [[Athena]] performance and cost are directly tied to the amount of data scanned. Converting to a columnar format like **Parquet** allows Athena to only read the specific columns requested in the query. **Partitioning** the data (e.g., by date) allows Athena to skip entire directories of data that don't match the query's WHERE clause (partition pruning). S3 Express One Zone (Option 2) is for low-latency request performance, not necessarily for massive scans. Athena Federated Query (Option 5) is for querying external data sources, not optimizing native S3 data.
 
 > [!question]
 > Design a cost-effective storage solution for incoming billing reports (CSV) that are scanned infrequently and discarded after 30 days.

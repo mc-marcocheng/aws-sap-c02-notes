@@ -32,3 +32,15 @@ tags: [aws, sap-c02, x-ray, practice-questions]
 > > **Answer: 3**
 > > **Rationale:** **Centralized Sampling Rules** in X-Ray allow you to control the amount of data recorded without modifying or redeploying your application code. You can define rules based on service names, HTTP methods, and URL paths to adjust the fixed rate and percentage of requests to trace.
 > > **Reference Notes:** [[X-Ray]]
+
+> [!question]
+> A company has an application with components running on EC2, ECS, and Lambda. They have enabled X-Ray tracing but notice that traces from the EC2-based services are missing. The ECS and Lambda traces appear correctly. What is the MOST likely cause?
+> 
+> 1. X-Ray does not support EC2-based applications.
+> 2. The X-Ray daemon is not installed and running on the EC2 instances, and the application is not instrumented with the X-Ray SDK.
+> 3. The EC2 instances do not have an IAM instance profile with `xray:PutTraceSegments` and `xray:PutTelemetryRecords` permissions.
+> 4. Both 2 and 3 are required for EC2-based tracing, and either could be the cause.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 4**
+> > **Rationale:** Unlike [[Lambda]] and ECS (where the daemon is managed), [[X-Ray]] on EC2 requires: (1) installing the X-Ray daemon to collect and forward trace segments, (2) instrumenting the application code with the X-Ray SDK, and (3) an IAM instance profile granting `xray:PutTraceSegments` and `xray:PutTelemetryRecords` permissions. Missing any of these would result in no traces from EC2.

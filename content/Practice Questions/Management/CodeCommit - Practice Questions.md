@@ -21,6 +21,18 @@ tags: [aws, sap-c02, codecommit, practice-questions]
 > 3. Move the `production` branch to a separate CodeCommit repository and only grant access to the senior engineers.
 > 4. Use Amazon EventBridge to monitor push events to the `production` branch and trigger AWS Step Functions to revert the commit if it wasn't approved.
 >
-> > [!success]- Answer & Rationale
+> [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** IAM policies are the native and most efficient way to block direct pushes to specific branches in [[CodeCommit]] by utilizing the `codecommit:References` condition key. Approval Rule Templates natively enforce pull request approval requirements (e.g., minimum number of approvals) before a merge can occur.
+
+> [!question]
+> A company wants to automatically notify their Slack channel every time a new tag is pushed to their AWS CodeCommit repository. Which architectural pattern should they implement?
+> 1. Configure a **CodeCommit Trigger** to send events to an Amazon SNS topic, which then triggers a Lambda function to post to Slack.
+> 2. Create an Amazon EventBridge rule that matches `CodeCommit Repository State Change` events and triggers a Step Functions workflow.
+> 3. Use a CloudWatch Alarm to monitor the `RepositoryTagCount` metric.
+> 4. Install a third-party agent on the CodeCommit server to monitor Git hooks.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 1**
+> > **Rationale:** [[CodeCommit]] supports **Triggers** which can be configured for specific events like "Push to existing branch" or "Created tag." These triggers can natively send a notification to an [[SNS]] topic or invoke a [[Lambda]] function directly, which can then perform the Slack integration. EventBridge (Option 2) is also valid but Triggers are a more direct, built-in feature for CodeCommit-specific events. (See [[CodeCommit]])
+

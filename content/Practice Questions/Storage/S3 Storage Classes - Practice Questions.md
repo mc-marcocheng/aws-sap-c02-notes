@@ -67,7 +67,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** A combination of [[EC2 Purchase Options#Spot Instances|Spot]] and [[EC2 Purchase Options#Reserved Instances|Reserved Instances]] for [[EMR]] ensures both performance (via Reserved) and cost reduction (via Spot). Using [[S3 Storage Classes#Reduced Redundancy Storage|RRS]] for all data (assuming it's reproducible) reduces storage costs. In a modern context, [[S3 Storage Classes|S3 One Zone-IA]] or [[S3 Storage Classes|S3 Standard]] with [[S3 Lifecycle Management|Lifecycle rules]] might be preferred.
+> > **Rationale:** A combination of [[EC2 Purchase Options#Spot Instances|Spot]] and [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances]] for [[EMR]] ensures both performance (via Reserved) and cost reduction (via Spot). Using [[S3 Storage Classes#Reduced Redundancy Storage|RRS]] for all data (assuming it's reproducible) reduces storage costs. In a modern context, [[S3 Storage Classes|S3 One Zone-IA]] or [[S3 Storage Classes|S3 Standard]] with [[S3 Lifecycle Management|Lifecycle rules]] might be preferred.
 
 > [!question]
 > Which of the below mentioned options can be a good use case for storing content in AWS RRS?

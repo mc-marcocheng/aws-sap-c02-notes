@@ -24,3 +24,15 @@ tags: [aws, sap-c02, cloudfront, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** [[CloudFront Edge Functions|Lambda@Edge]] can be used to intercept the [[CloudFront Overview|CloudFront]] response from the origin and perform operations like compression (e.g., Gzip) before the content is delivered to the viewer. This reduces the size of the payload, thereby decreasing data transfer costs. Since the files are "single-use," caching (3) is unlikely to provide significant benefits. [[S3 Overview|S3 Transfer Acceleration]] (2) is for faster uploads to S3, not for reducing data transfer out costs from CloudFront. Multipart uploads (4) are also unrelated to the delivery cost of files to end-users.
+
+> [!question]
+> A multi-tenant SaaS application uses Amazon CloudFront to serve content. Each tenant has a custom domain (e.g., tenant1.app.com, tenant2.app.com). The application needs to inspect the Host header on every request and route to the correct tenant's S3 origin bucket — with sub-millisecond execution time and no network calls. The function will execute millions of times per second. Which CloudFront edge compute option should be used?
+> 
+> 1. Lambda@Edge with an Origin Request trigger
+> 2. **CloudFront Functions** with a Viewer Request trigger
+> 3. Lambda@Edge with a Viewer Request trigger
+> 4. A custom EC2-based origin routing layer
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** [[CloudFront Edge Functions|CloudFront Functions]] run at the edge locations (not regional edge caches like Lambda@Edge), execute in sub-millisecond time, and are designed for lightweight, high-volume request manipulation like header inspection and URL rewriting. They are significantly cheaper and faster than Lambda@Edge for simple operations that don't require network calls or complex processing. (See [[CloudFront Edge Functions]])

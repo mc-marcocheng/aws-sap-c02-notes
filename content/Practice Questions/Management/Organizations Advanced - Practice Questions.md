@@ -3,7 +3,7 @@ tags: [aws, sap-c02, organizations, practice-questions]
 ---
 # AWS Organizations Advanced - Practice Questions
 
-> [!question] Question 1: Protecting Centralized Security Controls
+> [!question]
 > A company uses AWS Organizations and has enabled AWS CloudTrail in all member accounts to send logs to a centralized S3 bucket in a dedicated "Security" account. The CISO mandates that no user in any member account, including those with AdministratorAccess or the local root user, should be able to stop CloudTrail logging or modify the CloudTrail configuration.
 > 
 > How can a Solutions Architect enforce this requirement?
@@ -23,7 +23,7 @@ tags: [aws, sap-c02, organizations, practice-questions]
 > > 
 > > **Links:** [[Organizations Advanced]], [[Organizations Overview]]
 
-> [!question] Question 2: Delegating GuardDuty Administration
+> [!question]
 > An organization has a complex multi-account structure managed via AWS Organizations. The Management account is strictly controlled by the Cloud Platform team. A separate Security Operations (SecOps) team has their own dedicated AWS account within the organization. The SecOps team needs to enable and manage Amazon GuardDuty across all existing and future accounts in the organization.
 > 
 > Which solution meets these requirements while adhering to the principle of least privilege?
@@ -43,7 +43,7 @@ tags: [aws, sap-c02, organizations, practice-questions]
 > > 
 > > **Links:** [[Organizations Advanced]]
 
-> [!question] Question 3: Dynamic Cross-Account Access via Organizations
+> [!question]
 > An application running in an AWS member account needs to publish messages to an Amazon SNS topic located in a central "Shared Services" account. The organization frequently adds new member accounts that will also need to publish to this same SNS topic. The Solutions Architect wants to grant access with the lowest possible administrative overhead as new accounts are added.
 > 
 > How should the SNS topic policy be configured?

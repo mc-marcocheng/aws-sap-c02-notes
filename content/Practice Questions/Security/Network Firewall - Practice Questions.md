@@ -21,6 +21,17 @@ tags: [aws, sap-c02, network-firewall, practice-questions]
 > 3. Deploy a fleet of EC2 instances running third-party IPS software in an Auto Scaling group within a central VPC. Use AWS Gateway Load Balancer to distribute traffic to the appliances.
 > 4. Enable VPC Flow Logs in all VPCs and use Amazon GuardDuty to perform continuous deep packet inspection on the network traffic.
 > 
-> > [!success]- Answer & Rationale
+> [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** The centralized inspection pattern using [[Transit Gateway|AWS Transit Gateway]] and an Inspection VPC hosting [[Network Firewall|AWS Network Firewall]] is the standard, scalable AWS architecture for enterprise deep packet inspection. This avoids the operational overhead and cost of deploying firewalls in every single VPC (Option 1). While Gateway Load Balancer (Option 3) is valid for third-party appliances, AWS Network Firewall is the fully managed, native service. [[GuardDuty|Amazon GuardDuty]] (Option 4) analyzes flow logs (metadata) but does not perform inline blocking or deep packet inspection on the actual payload.
+
+> [!question]
+> A company has deployed AWS Network Firewall in a centralized inspection VPC. They want to implement Suricata-compatible IPS rules that can detect and block known malware command-and-control (C2) traffic patterns. The rules must be updated automatically as new threat intelligence becomes available without manual intervention. Which approach meets these requirements?
+> 1. Write custom Suricata rules and manually update the Network Firewall rule group weekly.
+> 2. Subscribe to AWS Network Firewall managed rule groups for threat intelligence. Associate the managed stateful rule group with the firewall policy.
+> 3. Deploy a third-party threat intelligence feed on an EC2 instance and configure Network Firewall to pull rules from it via an API.
+> 4. Use AWS WAF managed rule groups for known bad inputs and associate them with the Network Firewall policy.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** [[Network Firewall|AWS Network Firewall]] supports **managed stateful rule groups** from AWS and AWS Marketplace partners that are automatically updated with new threat intelligence (including C2 domain lists and known malware signatures). This eliminates manual rule maintenance. Option 1 requires manual updates. Option 3 adds infrastructure management. Option 4 is invalid — [[WAF|AWS WAF]] rule groups cannot be used with Network Firewall as they are different services with different rule formats.

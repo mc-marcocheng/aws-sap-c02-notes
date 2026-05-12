@@ -4,15 +4,16 @@ tags: [aws, sap-c02, shield, security, practice-questions]
 # Shield Practice Questions
 
 > [!question]
-> Which AWS service has inbuilt DDoS protection?
-> 1. AWS Shield
-> 2. AWS CloudWatch
-> 3. AWS EC2
-> 4. AWS Inspector
-> 
+> A global media streaming company serves content through Amazon CloudFront and Application Load Balancers across multiple AWS regions. They have experienced several sophisticated Layer 7 DDoS attacks that overwhelmed their application logic. The company wants proactive engagement from AWS during attacks, the ability to create custom mitigations, and financial protection against scaling costs caused by DDoS events. Which combination of services should a solutions architect implement? (Choose 2)
+> 1. AWS Shield Standard on all CloudFront distributions and ALBs.
+> 2. AWS Shield Advanced on all CloudFront distributions and ALBs.
+> 3. AWS WAF with rate-based rules attached to CloudFront and ALBs.
+> 4. Amazon GuardDuty with automated EC2 instance isolation via Lambda.
+> 5. AWS Firewall Manager to deploy NACLs across all VPCs.
+>
 > > [!success]- Answer & Rationale
-> > **Answer: 1**
-> > **Rationale:** [[Shield|AWS Shield]] is a managed Distributed Denial of Service (DDoS) protection service that safeguards applications running on AWS. Shield Standard provides automatic protection for all AWS customers at no additional charge.
+> > **Answer: 2, 3**
+> > **Rationale:** [[Shield|AWS Shield Advanced]] provides 24/7 access to the Shield Response Team (SRT) for proactive engagement, custom mitigations, and DDoS cost protection. [[WAF|AWS WAF]] with rate-based rules provides Layer 7 protection against HTTP flood attacks. Shield Standard (Option 1) only covers Layer 3/4 and doesn't offer SRT access or cost protection. GuardDuty (Option 4) is a threat detection service, not a DDoS mitigation tool. Firewall Manager with NACLs (Option 5) doesn't address Layer 7 attacks.
 
 > [!question]
 > A media company has monetized their APIs to external third parties. During the last month, the platform has come under DDoS attacks multiple times leading to scaling of underlying instances and cost incurred. Which AWS service would help provide cost protection against such spikes, if such situations do occur in the future?

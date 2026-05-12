@@ -4,15 +4,15 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 # S3 Practice Questions
 
 > [!question]
-> What does Amazon S3 stand for?
-> 1. Simple Storage Solution.
-> 2. Storage Storage Storage (triple redundancy Storage).
-> 3. Storage Server Solution.
-> 4. Simple Storage Service
-> 
+> A genomics research company stores petabytes of sequencing data in Amazon S3. They need to run complex SQL queries across this data to identify patterns, but only a small subset of columns are relevant per query. The data is stored as CSV files averaging 500 MB each. The team wants to minimize query costs and improve performance without maintaining any infrastructure. Which approach is most cost-effective?
+> 1. Convert the CSV files to Apache Parquet format using AWS Glue, then query with Amazon Athena.
+> 2. Load all the data into Amazon Redshift Spectrum external tables and run queries from a Redshift cluster.
+> 3. Enable S3 Select on each object and have the application issue S3 Select requests.
+> 4. Create an EMR cluster with Apache Spark to query the CSV files directly in S3.
+>
 > > [!success]- Answer & Rationale
-> > **Answer: 4**
-> > **Rationale:** [[S3 Overview|Amazon S3]] stands for Simple Storage Service. It is an object storage service designed to store and retrieve any amount of data from anywhere on the Internet.
+> > **Answer: 1**
+> > **Rationale:** Converting to columnar format (Parquet) via [[Glue|AWS Glue]] allows [[Athena|Amazon Athena]] to skip irrelevant columns, dramatically reducing the amount of data scanned and therefore cost. [[S3 Overview|S3 Select]] (Option 3) works on individual objects but cannot perform complex SQL joins across multiple objects. Redshift Spectrum (Option 2) requires a running Redshift cluster. EMR (Option 4) requires cluster management.
 
 > [!question]
 > What are characteristics of Amazon S3? Choose 2 answers

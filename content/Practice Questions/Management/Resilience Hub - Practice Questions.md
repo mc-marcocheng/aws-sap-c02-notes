@@ -32,3 +32,14 @@ tags: [aws, sap-c02, resilience-hub, practice-questions]
 > > **Answer: 3**
 > > **Rationale:** **AWS Fault Injection Service (FIS)** is the native chaos engineering service in AWS. Resilience Hub natively integrates with FIS to generate and run experiments (like DB failovers, AZ drops) to empirically validate that the application recovers within the defined RTO.
 > > **Reference Notes:** [[Resilience Hub]]
+
+> [!question]
+> A company has an application that met its RTO and RPO targets during the initial Resilience Hub assessment. However, over the following months, several manual configuration changes were made to the infrastructure. How can Resilience Hub help detect if these changes have compromised the application's resilience?
+> 1. By automatically running an FIS experiment every day.
+> 2. By using **Resilience Drift Detection** to identify changes in the application's configuration that might impact its ability to meet RTO/RPO targets.
+> 3. By monitoring CloudTrail for any "Deny" actions.
+> 4. By automatically reverting any manual changes using Systems Manager.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** [[Resilience Hub]] provides **Drift Detection** (Option 2), which continuously monitors the application's resources and compares their current state to the state at the time of the last successful assessment. If a change is detected that could negatively impact resilience, Resilience Hub alerts the team so they can re-assess or fix the configuration. (See [[Resilience Hub]])

@@ -4,17 +4,6 @@ tags: [aws, sap-c02, billing, practice-questions]
 # Billing Practice Questions
 
 > [!question]
-> An organization is using AWS since a few months. The finance team wants to visualize the pattern of AWS spending. Which of the below AWS tool will help for this requirement?
-> 1. AWS Cost Manager
-> 2. AWS Cost Explorer
-> 3. AWS CloudWatch
-> 4. AWS Consolidated Billing
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 2**
-> > **Rationale:** [[Billing and Cost Management|AWS Cost Explorer]] is the primary tool for visualizing, understanding, and managing your AWS costs and usage over time. It provides high-level visualizations as well as the ability to drill down into specific services, accounts, and tags. [[CloudWatch Overview|CloudWatch]] is used for monitoring and alerts but not primarily for visualizing spend patterns, and [[Organizations Overview|Consolidated Billing]] is a feature for multi-account management rather than a visualization tool.
-
-> [!question]
 > Your company wants to understand where cost is coming from in the company’s production AWS account. There are a number of applications and services running at any given time. Without expending too much initial development time, how best can you give the business a good understanding of which applications cost the most per month to operate?
 > 1. Create an automation script which periodically creates AWS Support tickets requesting detailed intra-month information.
 > 2. Use custom CloudWatch Metrics in your system and put a metric data point whenever cost is incurred.
@@ -48,34 +37,34 @@ tags: [aws, sap-c02, billing, practice-questions]
 > > **Rationale:** For custom billing analysis systems, AWS provides **Programmatic Billing Access** (via Cost and Usage Reports or legacy Monthly Billing Reports). This allows users to have billing data delivered to an [[S3 Overview|S3]] bucket, where it can be parsed and ingested into custom tools or databases for specialized reporting.
 
 > [!question]
-> An organization is setting up programmatic billing access for their AWS account. Which of the below mentioned services is not required or enabled when the organization wants to use programmatic access?
-> 1. Programmatic access
-> 2. AWS bucket to hold the billing report
-> 3. AWS billing alerts
-> 4. Monthly Billing report
+> A company wants to visualize their AWS spending patterns and receive recommendations for optimizing costs, such as identifying underutilized EC2 instances. Which combination of tools should they use?
+> 1. AWS Cost Explorer and AWS Compute Optimizer.
+> 2. AWS Budgets and AWS Trusted Advisor.
+> 3. AWS Cost and Usage Report (CUR) and Amazon Athena.
+> 4. AWS Pricing Calculator and AWS Organizations.
 > 
 > > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > **Rationale:** [[Billing and Cost Management|AWS billing alerts]] (or [[Billing and Cost Management|CloudWatch Billing Alarms]]) are used for notification purposes and are not a requirement for setting up programmatic access to billing data. Programmatic access specifically requires enabling the feature, specifying an [[S3 Overview|S3]] bucket to store the reports, and choosing the report type (e.g., Monthly Billing Report or Cost and Usage Report).
+> > **Answer: 1**
+> > **Rationale:** [[Billing and Cost Management|AWS Cost Explorer]] provides the visualization of spending patterns, while [[Compute Optimizer]] specifically uses ML to identify underutilized resources (right-sizing). While Trusted Advisor (Option 2) also provides some recommendations, Cost Explorer + Compute Optimizer is the more targeted combination for visualization and deep ML-based right-sizing.
 
 > [!question]
-> A user has setup a billing alarm using CloudWatch for $200. The usage of AWS exceeded $200 after some days. The user wants to increase the limit from $200 to $400. What should the user do?
-> 1. Create a new alarm of $400 and link it with the first alarm.
-> 2. It is not possible to modify the alarm once it has crossed the usage limit.
-> 3. Update the existing alarm to set the limit at $400 instead of $200.
-> 4. Create a new alarm for the additional $200 amount.
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > **Rationale:** [[CloudWatch Overview|CloudWatch]] alarms are fully editable. If a threshold needs to be changed, you can simply update the existing alarm configuration to the new value. There is no need to create new alarms or link them for a simple threshold increase.
-
-> [!question]
-> A user is trying to configure the CloudWatch billing alarm. Which of the below mentioned steps should be performed by the user for the first time alarm creation in the AWS Account Management section?
-> 1. Enable Receiving Billing Reports
-> 2. Enable Receiving Billing Alerts
-> 3. Enable AWS billing utility
-> 4. Enable CloudWatch Billing Threshold
+> An organization needs to provide their finance department with a granular, hourly breakdown of AWS costs, including which IAM user or role incurred the cost. Which tool provides this level of detail?
+> 1. AWS Cost Explorer.
+> 2. **AWS Cost and Usage Report (CUR)**.
+> 3. AWS Budgets.
+> 4. Consolidated Billing.
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** To use [[Billing and Cost Management|CloudWatch Billing Alarms]], you must first navigate to the Billing and Cost Management console and check the option to **Enable Receiving Billing Alerts**. This "unlocks" the ability for CloudWatch to receive and process estimated billing metrics.
+> > **Rationale:** The **AWS Cost and Usage Report (CUR)** is the most detailed billing report available. It can be configured to provide hourly granularity and includes resource-level details (like IAM user/role) and metadata (like tags). Cost Explorer (Option 1) is great for visualization but doesn't offer the same depth of raw data as CUR. (See [[Billing and Cost Management]])
+
+> [!question]
+> A solutions architect is designing a multi-account strategy for a large enterprise. They want to ensure that all member accounts can benefit from the volume discounts and Reserved Instance (RI) sharing of the entire Organization. What feature must be enabled?
+> 1. Service Control Policies (SCPs).
+> 2. **Consolidated Billing** in AWS Organizations.
+> 3. AWS RAM (Resource Access Manager).
+> 4. AWS Compute Optimizer.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 2**
+> > **Rationale:** **Consolidated Billing** (Option 2) treats all accounts in an [[Organizations Overview|AWS Organization]] as one for billing purposes. This allows for volume-based tiered pricing discounts and enables the sharing of Reserved Instances and Savings Plans across all member accounts (unless RI sharing is explicitly disabled). (See [[Billing and Cost Management]])

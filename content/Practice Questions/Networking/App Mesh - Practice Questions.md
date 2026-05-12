@@ -21,6 +21,18 @@ tags: [aws, sap-c02, app-mesh, practice-questions]
 > 3. Use AWS App Mesh Virtual Routers and Virtual Routes to distribute traffic based on weights.
 > 4. Both 1 and 3 are valid, but App Mesh is more suitable for complex service-to-service mesh architectures.
 >
-> > [!success]- Answer & Rationale
+> [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** While ALB weighted target groups can route traffic, [[App Mesh]] is specifically designed for fine-grained internal service-to-service traffic routing (canary deployments) across a microservices architecture using Virtual Routers. Option 4 correctly identifies this nuance.
+
+> [!question]
+> A company running microservices on Amazon EKS wants to implement circuit breaking to prevent cascading failures when a downstream service becomes unhealthy. They are currently using AWS App Mesh. How should they configure circuit breaking?
+> 
+> 1. Configure circuit breaker settings in the App Mesh Virtual Node's outlier detection policy to eject unhealthy endpoints based on consecutive errors.
+> 2. Implement circuit breaking logic in the application code using a library like Hystrix.
+> 3. Configure the App Mesh Virtual Router to stop routing traffic to unhealthy Virtual Nodes based on health check failures.
+> 4. Use Amazon CloudWatch alarms to trigger a Lambda function that removes unhealthy Virtual Nodes from the mesh.
+>
+> > [!success]- Answer & Rationale
+> > **Answer: 1**
+> > **Rationale:** [[App Mesh]] supports **outlier detection** (circuit breaking) at the Virtual Node level. The Envoy proxy can automatically eject endpoints from the load balancing pool when they exceed a threshold of consecutive 5xx errors or connection failures. This is configured declaratively without application code changes, which is the primary benefit of a service mesh architecture.

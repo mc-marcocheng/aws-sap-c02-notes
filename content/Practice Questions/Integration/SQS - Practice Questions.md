@@ -70,28 +70,6 @@ tags: [aws, sap-c02, sqs, integration, practice-questions]
 > > **Rationale**: Using [[SQS Overview|SQS]] as a buffer allows the application to acknowledge the write immediately while the worker process throttles the actual database writes to a level the on-premises mainframe can handle.
 
 > [!question]
-> An organization has created a Queue named “modularqueue” but is not performing any operations on it. What happens after 30 days of inactivity?
-> 1. AWS SQS sends notification after 15 days.
-> 2. AWS SQS can delete queue after 30 days without notification.
-> 3. AWS SQS marks queue inactive after 30 days.
-> 4. AWS SQS notifies the user after 2 weeks.
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 2**
-> > **Rationale**: [[SQS Overview|SQS]] reserves the right to delete a queue without notification if no action has been performed on it for 30 consecutive days.
-
-> [!question]
-> Which of the below mentioned operations is not supported by SQS?
-> 1. SendMessageBatch
-> 2. DeleteMessageBatch
-> 3. CreateQueue
-> 4. DeleteMessageQueue
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 4**
-> > **Rationale**: The correct API action name is `DeleteQueue`, not `DeleteMessageQueue`. `SendMessageBatch`, `DeleteMessageBatch`, and `CreateQueue` are all valid [[SQS Overview|SQS API operations]].
-
-> [!question]
 > A consumer of an SQS queue is down for 3 days and then becomes available. Will it receive messages that were sent while it was down?
 > 1. Yes, since SQS by default stores message for 4 days.
 > 2. No, since SQS by default stores message for 1 day only.
@@ -103,28 +81,6 @@ tags: [aws, sap-c02, sqs, integration, practice-questions]
 > > **Rationale**: The default message retention period for [[SQS Overview|Amazon SQS]] is 4 days. Since the consumer was only down for 3 days, the messages sent during that time will still be available in the queue.
 
 > [!question]
-> Which of the following is a valid Queue URL for a queue named “queue2” in US-East region with AWS account ID 123456789012?
-> 1. http://sqs.us-east-1.amazonaws.com/123456789012/queue2
-> 2. http://sqs.amazonaws.com/123456789012/queue2
-> 3. http://sqs.123456789012.us-east-1.amazonaws.com/queue2
-> 4. http://123456789012.sqs.us-east-1.amazonaws.com/queue2
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 1**
-> > **Rationale**: The standard format for an [[SQS Overview|SQS Queue URL]] is `https://sqs.[region].amazonaws.com/[account-id]/[queue-name]`.
-
-> [!question]
-> If a user tries to delete an SQS queue that has four messages in it, what will happen?
-> 1. A user can never delete a queue manually.
-> 2. It will delete the queue.
-> 3. It will wait for four days before deleting.
-> 4. It will ask user to delete the messages first.
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 2**
-> > **Rationale**: [[SQS Overview|Amazon SQS]] allows you to delete a queue even if it contains messages. When you delete the queue, all messages in it are also deleted.
-
-> [!question]
 > A user wants to decouple data sending to a NoSQL database so the application keeps processing without waiting for a DB acknowledgement. Which service helps?
 > 1. AWS SNS
 > 2. AWS SWF
@@ -134,17 +90,6 @@ tags: [aws, sap-c02, sqs, integration, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale**: [[SQS Overview|Amazon SQS]] is designed specifically for decoupling distributed components through an asynchronous polling model.
-
-> [!question]
-> Your backend system needs messages in the same sequence customer orders were placed. How can you achieve this with SQS?
-> 1. It is not possible to do this with SQS.
-> 2. You can use sequencing information on each message.
-> 3. You can do this with SQS but you also need to use SWF.
-> 4. Messages will arrive in the same order by default.
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 2**
-> > **Rationale**: In the context of older SQS documentation, manual sequencing information was required. However, the modern answer would be to use [[SQS Overview#SQS FIFO|SQS FIFO Queues]], which provide strict First-In-First-Out ordering.
 
 > [!question]
 > Using an architecture with SQS, CloudWatch, and Auto Scaling, which feature can you implement in a cost-effective manner?
@@ -180,17 +125,6 @@ tags: [aws, sap-c02, sqs, integration, practice-questions]
 > > **Rationale**: [[SQS Overview|Message retention]] can be configured from 1 minute to 14 days. This is done by modifying the `MessageRetentionPeriod` queue attribute.
 
 > [!question]
-> If a message is retrieved from a queue in Amazon SQS, how long is the message inaccessible to other users by default?
-> 1. 0 seconds
-> 2. 1 hour
-> 3. 1 day
-> 4. 30 seconds
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 4**
-> > **Rationale**: The default [[SQS Overview#Visibility Timeout|visibility timeout]] for an SQS queue is 30 seconds.
-
-> [!question]
 > Which statement about SQS Standard Queues is true?
 > 1. Messages will be delivered exactly once and in FIFO order.
 > 2. Messages will be delivered exactly once and order is indeterminate.
@@ -200,17 +134,6 @@ tags: [aws, sap-c02, sqs, integration, practice-questions]
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale**: [[SQS Overview#Standard Queues|Standard queues]] provide "at-least-once" delivery (meaning messages can occasionally be delivered more than once) and "best-effort ordering" (meaning order is not guaranteed).
-
-> [!question]
-> How long can you keep your Amazon SQS messages in SQS queues?
-> 1. From 120 secs up to 4 weeks.
-> 2. From 10 secs up to 7 days.
-> 3. From 60 secs up to 2 weeks.
-> 4. From 30 secs up to 1 week.
-> 
-> > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > **Rationale**: The [[SQS Overview|message retention]] range is 60 seconds (1 minute) to 1,209,600 seconds (14 days).
 
 > [!question]
 > When a task takes 5 minutes to complete, which process results in successful processing while minimizing duplicate processing?
@@ -232,7 +155,7 @@ tags: [aws, sap-c02, sqs, integration, practice-questions]
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale**: [[SQS Overview#Long Polling|Long Polling]] (up to 20 seconds) reduces the number of empty responses by waiting for a message to arrive in the queue before returning a response, thus reducing API calls and costs.
+> > **Rationale**: [[SQS Overview#Core Concepts|Long Polling]] (up to 20 seconds) reduces the number of empty responses by waiting for a message to arrive in the queue before returning a response, thus reducing API calls and costs.
 
 > [!question]
 > An ASG scales according to SQS queue depth. Completion velocity has gone down, ASG size has maxed out, but inbound velocity is unchanged. What is a possible issue?
@@ -246,34 +169,23 @@ tags: [aws, sap-c02, sqs, integration, practice-questions]
 > > **Rationale**: If jobs are unprocessable, they will fail and return to the [[SQS Overview|queue]] (after visibility timeout), causing the queue depth to stay high or increase, which keeps the ASG at max size. Since some work is still happening (velocity went down but not to zero), malformed messages clogging the system is the most likely cause.
 
 > [!question]
-> Polling in tight loops is burning CPU cycles and increasing costs with empty responses. How can you reduce the number of empty responses?
-> 1. Set visibility Timeout to 20 seconds.
-> 2. Set ReceiveMessageWaitTimeSeconds attribute to 20 seconds.
-> 3. Set MessageRetentionPeriod attribute to 20 seconds.
-> 4. Set DelaySeconds parameter to 20 seconds.
+> A company needs to process large messages (up to 2 GB) using SQS. Since the native SQS message size limit is 256 KB, how should they implement this?
+> 1. Use the SQS Extended Client Library for Java and Amazon S3.
+> 2. Use SNS to send the message payload as an email attachment.
+> 3. Split the message into multiple 256 KB chunks and reassemble them at the consumer.
+> 4. Use Amazon MQ instead of SQS.
+> 
+> > [!success]- Answer & Rationale
+> > **Answer: 1**
+> > **Rationale:** The **SQS Extended Client Library** (Option 1) is the standard way to handle large message payloads. It automatically stores the message data in an [[S3 Overview|Amazon S3]] bucket and sends a pointer to the data in the SQS message. The consumer library then automatically retrieves the data from S3. Option 3 is complex to manage. Option 4 has a 256 KB limit as well for some protocols. (See [[SQS Overview]])
+
+> [!question]
+> A solutions architect is designing a system where a single event must trigger three different downstream processes. Each downstream process must receive a copy of the event and operate independently. Which AWS integration pattern should be used?
+> 1. Send the event to an SQS queue and have three different consumers poll the same queue.
+> 2. Send the event to an **SNS topic** and subscribe three different **SQS queues** to that topic.
+> 3. Use an SQS FIFO queue with three different Message Group IDs.
+> 4. Use a Step Functions state machine with a Parallel state.
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale**: Setting `ReceiveMessageWaitTimeSeconds` to a value between 1 and 20 enables [[SQS Overview#Long Polling|Long Polling]], which waits for messages to be available before responding to a poll request.
-
-> [!question]
-> A company has a fleet of EC2 instances pulling transcoding jobs from an SQS queue. How does SQS facilitate horizontal scaling?
-> 1. SQS allows the producers and consumers to scale independently.
-> 2. SQS provides a mechanism to automatically terminate unhealthy EC2 instances.
-> 3. SQS guarantees that all instances receive the same job at the same time.
-> 4. SQS limits the number of EC2 instances that can connect to the queue.
->
-> > [!success]- Answer & Rationale
-> > **Answer: 1**
-> > **Rationale**: SQS allows the producers and consumers to scale independently. By monitoring the `ApproximateNumberOfMessagesVisible` metric, the Auto Scaling group can add more EC2 workers as the queue depth increases. This is a common application of [[SQS Overview|SQS]].
-
-> [!question]
-> How can you reduce the number of empty responses when polling an SQS queue?
-> 1. By decreasing the visibility timeout of the messages in the queue.
-> 2. By increasing the message retention period of the queue.
-> 3. By enabling Long Polling by setting the `ReceiveMessageWaitTimeSeconds` to a value greater than 0 (up to 20 seconds).
-> 4. By switching from Standard queues to FIFO queues.
->
-> > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > **Rationale**: Enable [[SQS Overview#Long Polling|Long Polling]] by setting the `ReceiveMessageWaitTimeSeconds` to a value greater than 0 (up to 20 seconds).
+> > **Rationale:** This is the **Fan-out Pattern** (Option 2). By publishing to an [[SNS]] topic and subscribing multiple [[SQS Overview|SQS]] queues, each subscriber gets its own copy of the message to process at its own pace. Option 1 is incorrect because SQS messages are only delivered to one consumer at a time (unless they fail). Option 4 is valid but much more complex for simple event distribution. (See [[SQS Overview]])
