@@ -60,7 +60,7 @@ S3 is designed for 99.999999999% (11 9's) of durability by redundantly storing o
 | **Disaster Recovery (Region failure)** | Cross-Region Replication (CRR). |
 | **Durability on a budget** | S3 One Zone-IA (only if data is reproducible). |
 
-> [!info] 
+> [!info]
 > Remember that **S3 Intelligent-Tiering** also provides the same 11 9's durability as S3 Standard while optimizing for cost.
 
 ## Related Services

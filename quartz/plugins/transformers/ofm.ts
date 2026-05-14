@@ -440,7 +440,8 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 const collapse = collapseChar === "+" || collapseChar === "-"
                 const defaultState = collapseChar === "-" ? "collapsed" : "expanded"
                 const titleContent = match.input.slice(calloutDirective.length).trim()
-                const useDefaultTitle = titleContent === "" && restOfTitle.length === 0
+                const hasContentOnSameLine = remainingLines.length > 0
+                const useDefaultTitle = titleContent === "" && (!hasContentOnSameLine ? restOfTitle.length === 0 : true)
                 const titleNode: Paragraph = {
                   type: "paragraph",
                   children: [
@@ -448,9 +449,9 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                       type: "text",
                       value: useDefaultTitle
                         ? capitalize(typeString).replace(/-/g, " ")
-                        : titleContent + " ",
+                        : titleContent + (hasContentOnSameLine || restOfTitle.length === 0 ? "" : " "),
                     },
-                    ...restOfTitle,
+                    ...(hasContentOnSameLine ? [] : restOfTitle),
                   ],
                 }
                 const title = mdastToHtml(titleNode)
@@ -469,15 +470,21 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 }
 
                 const blockquoteContent: (BlockContent | DefinitionContent)[] = [titleHtml]
+                const contentNodes: PhrasingContent[] = []
                 if (remainingText.length > 0) {
+                  contentNodes.push({
+                    type: "text",
+                    value: remainingText,
+                  })
+                }
+                if (hasContentOnSameLine && restOfTitle.length > 0) {
+                  contentNodes.push(...restOfTitle as PhrasingContent[])
+                }
+
+                if (contentNodes.length > 0) {
                   blockquoteContent.push({
                     type: "paragraph",
-                    children: [
-                      {
-                        type: "text",
-                        value: remainingText,
-                      },
-                    ],
+                    children: contentNodes,
                   })
                 }
 
