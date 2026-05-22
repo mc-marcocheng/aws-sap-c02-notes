@@ -3,6 +3,7 @@ tags: [aws, sap-c02, architecture-patterns, index]
 ---
 # Architecture Patterns Index
 
+- [[AWS Service Scopes]]
 - [[Decision Tree]]
 - [[Multi-Account Strategy]]
 - [[Hybrid Connectivity Patterns]]
