@@ -42,6 +42,7 @@ Most VPC limits can be increased by contacting AWS Support.
 - [[VPC Overview|VPC]]
 - [[Transit Gateway]]
 - [[VPC Peering]]
+- [[Network Firewall]]
 
 ---
 **Practice:** [[VPC - Practice Questions|VPC Practice Questions]]

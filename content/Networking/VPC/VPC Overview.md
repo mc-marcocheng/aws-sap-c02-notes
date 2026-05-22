@@ -74,7 +74,7 @@ tags: [aws, sap-c02, networking, vpc]
 - **Benefits**: Centralized network management while allowing teams to manage their own application resources (EC2, RDS).
 
 ### Layered Defense
-- **Security Groups**: Statefull, instance-level firewall.
+- **Security Groups**: Stateful, instance-level firewall.
 - **Network ACLs (NACLs)**: Stateless, subnet-level firewall.
 
 > [!important] Troubleshooting Tip
