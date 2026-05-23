@@ -17,7 +17,7 @@ A serverless event bus that connects applications using data from your own apps,
 | :--- | :--- | :--- |
 | **EventBridge** | Event Bus | Complex routing, content filtering, SaaS integration, Many-to-Many. |
 | **SNS** | Pub/Sub | High-throughput fan-out, simple topic-based notifications, Many-to-Many. |
-| **SQS** | Queuing | Decoupling, point-to-point, load leveling, Point-to-Point. |
+| **SQS** | Queuing | Decoupling, load leveling, Point-to-Point. |
 
 ## Architectural Patterns
 - **Choreography:** Decouple microservices by publishing events; services independently subscribe via Rules.
