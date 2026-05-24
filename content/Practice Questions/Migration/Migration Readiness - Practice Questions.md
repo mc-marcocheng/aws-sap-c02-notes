@@ -9,14 +9,14 @@ tags: [aws, sap-c02, migration, practice-questions]
 > 2. AWS Migration Hub
 > 3. AWS Application Discovery Service
 > 4. AWS Server Migration Service
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale**: The [[Migration Readiness Assessment|AWS Cloud Adoption Framework (CAF)]] provides guidance to help organizations develop and execute a plan for their cloud adoption journey. It helps identify gaps in skills and processes, which is a key part of assessing migration readiness. While Migration Hub (Option 2) tracks the migration and Application Discovery Service (Option 3) helps identify on-premises assets, the CAF is the overarching framework for readiness assessment.
 
 > [!question]
 > A large enterprise is planning to migrate 500 applications to AWS over 3 years. The CTO wants to understand the organization's overall cloud readiness, identify capability gaps (people, process, technology), and create a prioritized migration roadmap. Which AWS program or tool should they engage with FIRST?
-> 
+>
 > 1. AWS Migration Hub
 > 2. AWS Migration Readiness Assessment (MRA)
 > 3. AWS Application Discovery Service
@@ -32,9 +32,9 @@ tags: [aws, sap-c02, migration, practice-questions]
 > - App B: A .NET monolith that needs to be broken into microservices for scalability
 > - App C: A commercial off-the-shelf (COTS) application that the vendor now offers as SaaS
 > - App D: A Java web app running on Tomcat with no cloud-incompatible dependencies
-> 
+>
 > Match each application to the MOST appropriate migration strategy:
-> 
+>
 > 1. App A: Retire, App B: Refactor, App C: Repurchase, App D: Rehost
 > 2. App A: Retain, App B: Rehost, App C: Refactor, App D: Replatform
 > 3. App A: Retire, App B: Refactor, App C: Repurchase, App D: Replatform
@@ -42,7 +42,7 @@ tags: [aws, sap-c02, migration, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** Using the [[Migration Readiness Assessment|6 R's]]:
+> > **Rationale:** Using the [[Migration Readiness Assessment|7 R's]]:
 > > - **App A → Retire**: No vendor support, minimal users — decommission it.
 > > - **App B → Refactor**: Breaking a monolith into microservices is a re-architecture effort.
 > > - **App C → Repurchase**: Moving from a self-hosted COTS app to the vendor's SaaS offering.

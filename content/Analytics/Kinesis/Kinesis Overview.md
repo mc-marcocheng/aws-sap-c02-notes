@@ -6,7 +6,8 @@ tags: [aws, sap-c02, analytics, kinesis]
 Amazon Kinesis Data Streams (KDS) is a massively scalable and durable real-time data streaming service.
 
 ## Core Terminology
- - **Shard**: The base unit of throughput. 1 MB/s Ingest, 2 MB/s Outgest.- **Partition Key**: Used to group data by shard. Ensures that data for the same key goes to the same shard (preserving order).
+- **Shard**: The base unit of throughput. 1 MB/s Ingest, 2 MB/s Outgest.
+- **Partition Key**: Used to group data by shard. Ensures that data for the same key goes to the same shard (preserving order).
 - **Sequence Number**: A unique identifier assigned by KDS to each data record.
 - **Retention**: 24 hours by default, extendable up to 365 days. **Extended retention increases cost significantly; use only for replay scenarios.**
 

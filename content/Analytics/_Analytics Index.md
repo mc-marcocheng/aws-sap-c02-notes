@@ -11,6 +11,5 @@ tags: [aws, sap-c02, analytics, index]
 - [[OpenSearch]]
 
 ## Kinesis
-- [[Kinesis Comparison]]
 - [[Kinesis Overview]]
-
+- [[Kinesis Comparison]]

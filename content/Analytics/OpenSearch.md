@@ -6,7 +6,8 @@ tags: [aws, sap-c02, analytics, opensearch]
 Amazon OpenSearch Service is a managed service for log analytics, real-time application monitoring, and full-text search.
 
 ## Core Features
- - **Managed Clusters**: Automates backups, monitoring, and software patching.- **Storage Tiers (Cost Optimization)**:
+- **Managed Clusters**: Automates backups, monitoring, and software patching.
+- **Storage Tiers (Cost Optimization)**:
     - **Hot**: Fast storage ([[EBS Overview|EBS]]) for indexing and frequent access.
     - **UltraWarm**: S3-backed storage for infrequently queried indices at ~90% lower cost. **(Critical for cost optimization)**
     - **Cold**: Lowest cost, data is detached from compute until needed for analysis.

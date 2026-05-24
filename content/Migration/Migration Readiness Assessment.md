@@ -6,13 +6,14 @@ tags: [aws, sap-c02, migration]
 The Migration Readiness Assessment (MRA) is a process of gaining an understanding of your current cloud readiness and identifying areas where you can improve to achieve your desired business outcomes.
 
 > [!exam]
-> For the SAP-C02 exam, understand the **6 R's** of migration:
-> 1. **Rehost** (Lift & Shift): Move as-is (Fastest).
-> 2. **Replatform** (Lift & Reshape): Small optimizations (e.g., move to RDS).
-> 3. **Refactor / Re-architect**: Full cloud-native redesign.
-> 4. **Repurchase**: Switch to a different product (e.g., SaaS).
-> 5. **Retain**: Keep as-is on-premises.
-> 6. **Retire**: Decommission.
+> For the SAP-C02 exam, understand the **7 R's** of migration:
+> 1. **Relocate**: Move VMware workloads to VMware Cloud on AWS (No OS change).
+> 2. **Rehost** (Lift & Shift): Move as-is (Fastest).
+> 3. **Replatform** (Lift & Reshape): Small optimizations (e.g., move to RDS).
+> 4. **Refactor / Re-architect**: Full cloud-native redesign.
+> 5. **Repurchase**: Switch to a different product (e.g., SaaS).
+> 6. **Retain**: Keep as-is on-premises.
+> 7. **Retire**: Decommission.
 
 ## Migration Phases
 
@@ -23,7 +24,7 @@ The Migration Readiness Assessment (MRA) is a process of gaining an understandin
 
 ### 2. Portfolio Discovery & Planning
 - Use **AWS Application Discovery Service** to map the IT landscape.
-- Categorize applications using the **6 R's** strategy.
+- Categorize applications using the **7 R's** strategy.
 - Prioritize applications for migration.
 
 ### 3. Application Design
