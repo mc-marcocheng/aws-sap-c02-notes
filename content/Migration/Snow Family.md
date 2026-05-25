@@ -7,13 +7,13 @@ The AWS Snow Family consists of physical devices used to transport large amounts
 
 ## Device Comparison
 
-| Feature | Snowcone | Snowball Edge | Snowmobile (Deprecated) |
-| --- | --- | --- | --- |
-| **Form Factor** | Small, portable (4.5 lbs) | Ruggedized suitcase | 45-ft shipping container |
-| **Capacity** | 8 TB - 14 TB | 80 TB - 100 TB | Up to 100 PB |
-| **Edge Compute** | 2 vCPU, 4 GB RAM | Up to 104 vCPUs, 416 GB RAM | None |
-| **Connectivity** | WiFi, Ethernet | 10G/25G/40G/100G Ethernet | High-speed fiber |
-| **Use Case** | IoT, Drones, Tight spaces | Large data migration, Edge ML | Exabyte-scale migration |
+| Feature | Snowcone | Snowball Edge |
+| --- | --- | --- |
+| **Form Factor** | Small, portable (4.5 lbs) | Ruggedized suitcase |
+| **Capacity** | 8 TB (HDD) / 14 TB (SSD) | 28 TB (Compute Optimized) - 210 TB (Storage Optimized) |
+| **Edge Compute** | 4 vCPU, 4 GB RAM | Up to 104 vCPUs, 416 GB RAM |
+| **Connectivity** | WiFi, Ethernet | 10G/25G/40G/100G Ethernet |
+| **Use Case** | IoT, Drones, Tight spaces | Large data migration, Edge ML |
 
 ## Management
 - **AWS OpsHub**: A GUI-based application for managing Snow devices locally. It simplifies unlocking devices, configuring IPs, and monitoring metrics.
@@ -38,7 +38,7 @@ The AWS Snow Family consists of physical devices used to transport large amounts
 > **SAP-C02 Decision Point**:
 > - If data is **< 10 TB**: Use Snowcone or high-speed internet.
 > - If data is **Petabyte-scale**: Use multiple Snowball Edge devices.
-> - **Snowmobile**: Effectively deprecated. Most recent guidance pushes for multiple **Snowball Edge** devices instead of a single Snowmobile.
+> - For **Exabyte-scale**: Use multiple Snowball Edge devices (e.g., 10+ Snowball Edge 100TB devices for 1 PB).
 
 ## Related Services
 - [[_Migration Index|Migration Index]]

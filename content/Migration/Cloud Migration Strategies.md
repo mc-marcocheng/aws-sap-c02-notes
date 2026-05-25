@@ -36,7 +36,6 @@ Migrating to AWS involves moving applications, databases, and data from on-premi
 | Service                 | Mechanism            | Capacity                        |
 | ----------------------- | -------------------- | ------------------------------- |
 | **AWS Snowball**        | Physical Appliance   | Terabytes to Petabytes          |
-| **AWS Snowmobile**      | Shipping Container   | Up to 100 PB                    |
 | **AWS DataSync**        | Online (Agent-based) | High-speed online transfer      |
 | **AWS Transfer Family** | SFTP/FTPS/FTP        | Managed file transfer to S3/EFS |
 | **AWS Direct Connect**  | Dedicated Network    | 1 Gbps to 100 Gbps              |
@@ -55,4 +54,4 @@ Migrating to AWS involves moving applications, databases, and data from on-premi
 - [[Transfer Family]]
 
 ---
-**Practice:** [[Migration - Practice Questions|Migration Practice Questions]]e Questions]]
+**Practice:** [[Migration - Practice Questions|Migration Practice Questions]]

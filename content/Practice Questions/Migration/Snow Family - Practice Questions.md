@@ -6,24 +6,24 @@ tags: [aws, sap-c02, snow-family, migration, practice-questions]
 > [!question]
 > A company wants to transfer petabyte-scale of data to AWS for their analytics, however are constrained on their internet connectivity? Which AWS service can help them transfer the data quickly?
 > 1. S3 enhanced uploader
-> 2. Snowmobile
-> 3. Snowball
+> 2. Snowball Edge
+> 3. AWS DataSync
 > 4. Direct Connect
 > 
 > > [!success]- Answer & Rationale
-> > **Answer: 3**
-> > **Rationale:** [[Snow Family|Snowball]] (specifically Snowball Edge) is designed for large-scale data migrations at the petabyte-scale. It provides a physical device that is shipped to AWS, bypassing internet bandwidth limitations entirely. [[Snow Family|Snowmobile]] is designed for exabyte-scale and is overkill for petabyte-scale. [[Direct Connect Overview|Direct Connect]] provides a dedicated connection but is often slower for one-time massive transfers if connectivity is already a constraint.
+> > **Answer: 2**
+> > **Rationale:** [[Snow Family|Snowball Edge]] is designed for large-scale data migrations at the petabyte-scale. It provides a physical device that is shipped to AWS, bypassing internet bandwidth limitations entirely. [[Direct Connect Overview|Direct Connect]] provides a dedicated connection but is often slower for one-time massive transfers if connectivity is already a constraint. [[DataSync]] is an online transfer service and would be limited by the existing internet connectivity.
 
 > [!question]
-> A company wants to transfer its video library data, which runs in exabytes, to AWS. Which AWS service can help the company transfer the data?
-> 1. Snowmobile
-> 2. Snowball
-> 3. S3 upload
-> 4. S3 enhanced uploader
+> A company needs to transfer 50 PB of data from an on-premises data center to AWS. They have limited bandwidth and need to complete the transfer as efficiently as possible. What is the recommended approach?
+> 1. Use multiple Snowball Edge devices
+> 2. Use AWS DataSync over a new 10 Gbps Direct Connect
+> 3. Use S3 Transfer Acceleration
+> 4. Use AWS Storage Gateway
 > 
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > **Rationale:** [[Snow Family|Snowmobile]] is the only member of the [[Snow Family]] capable of handling exabyte-scale data migrations. A single Snowmobile can carry up to 100 PB. [[Snow Family|Snowball]] Edge units max out at ~100 TB usable capacity, making them impractical for exabyte-scale transfers. Standard S3 upload methods are constrained by internet bandwidth and are not feasible for exabyte-level data volumes.
+> > **Rationale:** For exabyte-scale or multi-petabyte migrations, the current recommended approach is to use multiple [[Snow Family|Snowball Edge]] devices. S3 Transfer Acceleration and DataSync are still limited by the source's outbound internet bandwidth or the time/cost to provision a high-speed Direct Connect for a one-time migration. Storage Gateway is for hybrid storage and not primarily for one-time bulk migrations.
 
 > [!question]
 > A research facility in a remote location with no internet connectivity needs to collect IoT sensor data from 200 devices, perform local ML inference on the data, and periodically ship results to AWS. The facility has limited IT staff and cannot maintain complex infrastructure. Which Snow Family device is MOST appropriate?
@@ -31,11 +31,11 @@ tags: [aws, sap-c02, snow-family, migration, practice-questions]
 > 1. AWS Snowcone with AWS IoT Greengrass
 > 2. AWS Snowball Edge Storage Optimized
 > 3. AWS Snowball Edge Compute Optimized with GPU
-> 4. AWS Snowmobile
+> 4. AWS Snowball Edge Storage Optimized with Tape Gateway
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** [[Snow Family|Snowball Edge Compute Optimized]] with GPU is designed for edge computing use cases that require ML inference capabilities in disconnected environments. It can run EC2 instances and Lambda functions locally. Snowcone (Option 1) has limited compute and storage (14 TB) for 200 IoT devices. Storage Optimized (Option 2) lacks GPU for ML inference. Snowmobile (Option 4) is for bulk data transfer only and has no compute capabilities.
+> > **Rationale:** [[Snow Family|Snowball Edge Compute Optimized]] with GPU is designed for edge computing use cases that require ML inference capabilities in disconnected environments. It can run EC2 instances and Lambda functions locally. Snowcone (Option 1) has limited compute and storage (14 TB) for 200 IoT devices. Storage Optimized (Option 2) lacks GPU for ML inference. Option 4 is for backup use cases and doesn't provide the necessary compute for ML inference.
 
 > [!question]
 > A media company needs to migrate 80 TB of archived video content from an on-premises NAS to Amazon S3 Glacier Deep Archive. Their internet connection is 100 Mbps. The project has a strict 2-week deadline. They also need to encrypt the data with their own encryption keys during transit. Which approach meets all requirements?
