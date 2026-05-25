@@ -3,7 +3,7 @@ tags: [aws, sap-c02, database, rds]
 ---
 # RDS Overview
 
-Amazon Relational Database Service (Amazon [[RDS Overview|RDS]]) is a managed service that makes it easy to set up, operate, and scale relational databases in the cloud. 
+Amazon Relational Database Service (Amazon [[RDS Overview|RDS]]) is a managed service that makes it easy to set up, operate, and scale relational databases in the cloud.
 
 **Supported Engines**: MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Db2.
 
@@ -12,14 +12,14 @@ Amazon Relational Database Service (Amazon [[RDS Overview|RDS]]) is a managed se
 ### DB Instances and Storage
 - **RDS Custom**: Gives you access to the underlying OS and database for Oracle and SQL Server. Used for custom patches, third-party agents, or OS-level access that managed RDS doesn't allow.
 - **Instance Classes**: Various combinations of CPU and memory.
-- **Storage Types**: 
+- **Storage Types**:
   - **General Purpose SSD (gp2/gp3)**: Balanced for a wide range of workloads.
   - **Provisioned IOPS SSD (io1)**: High-performance for I/O intensive workloads.
 - **Storage Autoscaling**: Automatically increases storage when space is low, without downtime.
 
 ### Configuration
-- **DB Parameter Groups**: Manage engine settings. 
-  - **Static parameters** require a manual reboot. 
+- **DB Parameter Groups**: Manage engine settings.
+  - **Static parameters** require a manual reboot.
   - **Dynamic parameters** are applied immediately.
 - **DB Option Groups**: Enable optional features (e.g., Oracle APEX, SQL Server TDE).
 

@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, amazon-mq, practice-questions] 
+tags: [aws, sap-c02, amazon-mq, practice-questions]
 ---
 # Amazon MQ Practice Questions
 

@@ -29,7 +29,7 @@ KMS uses envelope encryption to protect data:
 
 ## Access Control
 - **Key Policies**: Resource-based policies that are the primary way to control access. **Every key must have a key policy.**
-- **[[IAM]] Policies**: Can be used in combination with key policies if the key policy allows it (via `Enable IAM User Permissions` statement). 
+- **[[IAM]] Policies**: Can be used in combination with key policies if the key policy allows it (via `Enable IAM User Permissions` statement).
     - **Policy Evaluation**: Both the key policy AND the IAM policy must allow access. The default key policy includes a statement that enables IAM policies to work; without it, only the key policy is evaluated.
 - **Cross-Account Access**: To share a key across accounts, you must:
     1. Grant access to the external account in the **Key Policy**.

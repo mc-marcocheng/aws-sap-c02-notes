@@ -9,7 +9,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. isolated
 > 3. one
 > 4. reserved
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > To run on single-tenant hardware, the tenancy attribute must be set to `dedicated`. [[EC2 Purchase Options#Dedicated Hosts vs. Dedicated Instances|Dedicated Instances]] run on hardware dedicated to a single customer, providing physical isolation at the host level.
@@ -20,7 +20,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. Spot instances
 > 3. Dedicated instances
 > 4. On-demand instances
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > Since the application is fault-tolerant (the queuing system allows for retries if interrupted) and the goal is to reduce a backlog cost-effectively, [[EC2 Purchase Options#Spot Instances|Spot Instances]] are the best choice as they offer the highest discounts (up to 90%).
@@ -30,7 +30,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 1. always
 > 2. in some circumstances
 > 3. never
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > Reserved Instance purchases are **never** refundable. If a reservation is no longer needed, it cannot be cancelled for a refund, although it can sometimes be sold on the [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instance Marketplace]].
@@ -41,7 +41,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. 6 Reserved instances (heavy utilization), 6 On-Demand instances, rest covered by Spot Instances
 > 3. 6 Reserved instances (heavy utilization), 6 Spot instances, rest covered by On-Demand instances
 > 4. 6 Reserved instances (heavy utilization), 6 Reserved instances (medium utilization), rest covered by Spot instances
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > For high availability on a web tier, you should use [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances]] for the predictable steady-state load (6 instances) and [[EC2 Purchase Options#Purchase Model Comparison|On-Demand Instances]] for the daily fluctuations to 12. Spot instances are not recommended for the web tier in this scenario because their availability is not guaranteed, which could compromise the application's uptime during peaks.
@@ -52,10 +52,10 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. The user should use the AWS high utilized RI
 > 3. The user should use the AWS medium utilized RI
 > 4. The user should use the AWS low utilized RI
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
-> > For a workload running only 3 hours a day, traditional [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances]] (which are billed 24/7 regardless of usage) would be more expensive than [[EC2 Purchase Options#Purchase Model Comparison|On-Demand Instances]]. 
+> > For a workload running only 3 hours a day, traditional [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances]] (which are billed 24/7 regardless of usage) would be more expensive than [[EC2 Purchase Options#Purchase Model Comparison|On-Demand Instances]].
 
 > [!question]
 > Which of the following are characteristics of a reserved instance? (Choose 3)
@@ -64,7 +64,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 3. It can be applied to instances launched by Auto Scaling
 > 4. It is specific to an instance Type
 > 5. It can be used to lower Total Cost of Ownership (TCO) of a system
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 3, 5**
 > > [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances]] can be modified to change Availability Zones within a region. They are automatically applied as a billing discount to matching instances, including those launched by [[Auto Scaling Overview|Auto Scaling]]. Their primary purpose is to lower the [[EC2 Purchase Options#Purchase Model Comparison|Total Cost of Ownership (TCO)]] by providing significant discounts over On-Demand rates.
@@ -75,7 +75,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. Reserved instances
 > 3. Dedicated instances
 > 4. On-Demand instances
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > For periodic, large-volume data processing that is designed to be fault-tolerant, [[EC2 Purchase Options#Spot Instances|Spot Instances]] provide the most cost-effective solution, allowing for massive scale at a fraction of the cost of other models.
@@ -86,7 +86,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. Only if they are moving into GovCloud
 > 3. Yes
 > 4. Only if they are moving to US East from another region
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances]] are scoped to a specific Region and cannot be moved to a different Region. You can only modify attributes like Availability Zone or instance size within the same Region.
@@ -97,7 +97,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. Use ec2-reboot-instances command line and set the parameter dedicated=true
 > 3. Right click on the instance, select properties and check the box for dedicated tenancy
 > 4. Stop the instance, create an AMI, launch a new instance with tenancy=dedicated, and terminate the old instance
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > You cannot change the tenancy attribute of an existing instance. The most efficient way to move to dedicated hardware is to create an AMI of the current instance and then launch a new instance from that AMI with the tenancy set to `dedicated`. This is a standard procedure for moving to [[EC2 Purchase Options#Dedicated Hosts vs. Dedicated Instances|Dedicated Tenancy]].
@@ -108,7 +108,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. Use reduced redundancy storage (RRS) for all data in S3. Use a combination of Spot instances and Reserved Instances for Amazon EMR jobs. Use Reserved instances for Amazon Redshift.
 > 3. Use reduced redundancy storage (RRS) for all data in Amazon S3. Add Spot Instances to Amazon EMR jobs. Use Reserved Instances for Amazon Redshift.
 > 4. Use reduced redundancy storage (RRS) for PDF and CSV data in S3. Add Spot Instances to EMR jobs. Use Spot Instances for Amazon Redshift.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > Using a combination of [[EC2 Purchase Options#Spot Instances|Spot Instances]] and [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances]] for EMR ensures that the steady-state performance is maintained by RIs while costs are reduced by Spots. [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances]] for Redshift are ideal for steady-state data warehousing. S3 RRS (though legacy) reduces costs for reproducible data while maintaining integrity.
@@ -119,7 +119,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. Optimize by deploying a combination of on-demand, RI and spot-pricing models for the master, core and task nodes. Store ingest and output files in Amazon S3 with a lifecycle policy that archives them to Amazon Glacier.
 > 3. Store the ingest files in Amazon S3 RRS and store the output files in S3. Deploy Reserved Instances for the master and core nodes and on-demand for the task nodes.
 > 4. Deploy on-demand master, core and task nodes and store ingest and output files in Amazon S3 RRS
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > For a one-time 4-hour job, [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances]] are not cost-effective as they require a 1 or 3-year commitment. Using [[EC2 Purchase Options#Spot Instances|Spot Instances]] for task nodes in EMR handles the heavy lifting at a low cost, while On-Demand master and core nodes ensure cluster stability.
@@ -130,7 +130,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. Continue to run your web front-end at 90% utilization, but purchase an appropriate number of utilization RIs in each availability zone to cover the loss of any of the other availability zones during peak load.
 > 3. Continue to run your web front-end at 90% utilization, but leverage a high bid price strategy to cover the loss of any of the other availability zones during peak load.
 > 4. Increase use of spot instances to cost effectively to scale the web front-end across all availability zones to lower aggregate utilization levels that will allow an availability zone to fail during peak load without affecting the applications availability.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > To achieve true [[High Availability]], the system must have spare capacity to absorb the load if one AZ fails. By adjusting [[Auto Scaling Overview|Auto Scaling]] thresholds to maintain lower aggregate utilization, you ensure that the remaining 2 AZs can handle the 100% load without being overwhelmed when one AZ goes offline.
@@ -141,7 +141,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. Purchase a Medium Utilization Reserved Instance to run the accounting software. Turn it off after hours. Run the batch jobs with the same instance class, so the Reserved Instance credits are also applied to the batch jobs.
 > 3. Purchase a Light Utilization Reserved Instance to run the accounting software. Turn it off after hours. Run the batch jobs with the same instance class, so the Reserved Instance credits are also applied to the batch jobs.
 > 4. Purchase a Full Utilization Reserved Instance to run the accounting software. Turn it off after hours. Run the batch jobs with the same instance class, so the Reserved Instance credits are also applied to the batch jobs.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > Since the accounting software has a predictable, continuous daytime load, a [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instance]] is the best choice. By running the daily batch jobs during the hours the accounting software is "off" using the same instance class, you maximize the value of the RI credits, essentially running the batch jobs for free under the same reservation.

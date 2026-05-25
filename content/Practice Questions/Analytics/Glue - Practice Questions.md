@@ -9,7 +9,7 @@ tags: [aws, sap-c02, glue, analytics, etl, serverless, practice-questions]
 > 2. Enable "Create a single schema for all S3 paths."
 > 3. Use a custom Classifier with a regular expression for the new log format.
 > 4. Set the "Schema change policy" to "Ignore the change and don't update the table in the data catalog."
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** [[Glue|AWS Glue Crawlers]] have a configurable **Schema change policy**. By setting it to **Update the table definition in the data catalog**, the crawler will detect new columns or changes in data types and update the metadata automatically, supporting schema evolution while preserving existing partition data. Option 2 is for grouping different paths. Option 3 is for parsing, not handling catalog updates. (See [[Glue]])
@@ -20,7 +20,7 @@ tags: [aws, sap-c02, glue, analytics, etl, serverless, practice-questions]
 > 2. Change the Worker Type from G.1X to G.2X or G.4X.
 > 3. Enable Job Bookmarks to process data in smaller increments.
 > 4. Use Glue DataBrew instead of Glue ETL to handle the join operation.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** "Out of Memory" (OOM) errors in [[Glue]] often occur when the executor memory is insufficient for the volume of data being processed (especially during large joins or shuffles). **G.2X or G.4X worker types** provide significantly more memory per worker compared to G.1X, which is the primary solution for memory-bound ETL jobs. Increasing the *number* of workers (Option 1) helps with parallelism but doesn't increase the memory available to an individual worker for a specific partition of data. Job Bookmarks (Option 3) help with incremental processing of *new* data but don't solve OOM issues for a single large batch.
@@ -31,7 +31,7 @@ tags: [aws, sap-c02, glue, analytics, etl, serverless, practice-questions]
 > 2. Implement AWS Glue Workflows with triggers based on job success or failure.
 > 3. Use Amazon EventBridge to capture Glue job state change events and trigger the next Lambda functions.
 > 4. Create a master Glue job that uses Python's `subprocess` module to call other Glue jobs and wait for their completion.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** **AWS Glue Workflows** is a native orchestration feature that allows you to create complex directed acyclic graphs (DAGs) of Glue jobs and crawlers. It supports triggers based on the success of multiple parent jobs (joining), making it the most efficient and managed way to handle the described dependency logic. Option 1 and 3 are valid but require more custom development and monitoring overhead. Option 4 is an anti-pattern that wastes Glue worker resources while waiting for other jobs.

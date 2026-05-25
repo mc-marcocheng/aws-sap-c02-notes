@@ -22,7 +22,7 @@ To deploy patches across an AWS Organization centrally:
 
 ## 2. SSM Automation
 
-SSM Automation simplifies common IT tasks by executing runbooks (JSON/YAML documents defining steps). 
+SSM Automation simplifies common IT tasks by executing runbooks (JSON/YAML documents defining steps).
 
 ### Key Features
 - **Runbooks:** Pre-defined or custom scripts (e.g., `AWS-RestartEC2Instance`, `AWS-CreateImage`).

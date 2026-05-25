@@ -5,7 +5,7 @@ tags: [aws, sap-c02, dms, migration, practice-questions]
 
 > [!question]
 > A company is migrating a 20 TB Oracle data warehouse to Amazon Redshift. The source database must remain online during the migration with minimal performance impact. The migration must be completed within a 2-week window, and the company needs to validate that the data in Redshift matches the source after migration. Which approach meets these requirements?
-> 
+>
 > 1. Use AWS DMS with a full-load task to migrate all data, then perform a manual row-count comparison between Oracle and Redshift.
 > 2. Use AWS DMS with full-load plus Change Data Capture (CDC) to perform continuous replication, and enable AWS DMS data validation to automatically compare source and target data.
 > 3. Export the Oracle database to CSV files, upload them to S3 using AWS DataSync, and use the COPY command to load them into Redshift.
@@ -17,7 +17,7 @@ tags: [aws, sap-c02, dms, migration, practice-questions]
 
 > [!question]
 > A financial services company is migrating from an on-premises PostgreSQL database to Amazon Aurora PostgreSQL. The database contains several stored procedures, triggers, and complex data types that may not migrate cleanly. The team wants to identify potential migration issues before starting the actual data migration. Which combination of AWS services should they use?
-> 
+>
 > 1. Use AWS DMS Schema Conversion to assess and convert the schema, then use AWS DMS to migrate the data.
 > 2. Use AWS Application Discovery Service to analyze the database, then use AWS DMS for migration.
 > 3. Use Amazon Inspector to assess the database configuration, then use AWS DMS for migration.
@@ -29,7 +29,7 @@ tags: [aws, sap-c02, dms, migration, practice-questions]
 
 > [!question]
 > A company uses AWS DMS to replicate data from an on-premises MySQL database to Amazon Aurora MySQL. After the initial full load, CDC replication is running. The operations team notices that the replication instance CPU is consistently at 95% and replication lag is increasing. The source database has 50 tables, with 5 very large tables (over 500 GB each) and 45 small tables. What is the MOST effective way to resolve the performance issue?
-> 
+>
 > 1. Increase the replication instance size and enable Multi-AZ for better performance.
 > 2. Split the migration into multiple DMS tasks: one task for the 5 large tables with parallel load settings, and a separate task for the 45 small tables. Use a larger replication instance.
 > 3. Enable Auto Scaling on the DMS replication instance.
@@ -41,7 +41,7 @@ tags: [aws, sap-c02, dms, migration, practice-questions]
 
 > [!question]
 > An enterprise is using AWS DMS to migrate a Microsoft SQL Server database to Amazon Aurora PostgreSQL. During testing, they discover that DMS cannot migrate certain SQL Server-specific features like SQL Agent jobs, SSIS packages, and linked server configurations. How should the team handle these components?
-> 
+>
 > 1. Enable the "migrate all database objects" option in the DMS task settings.
 > 2. Use AWS DMS Schema Conversion to automatically convert these features to Aurora equivalents.
 > 3. Manually re-architect these components using AWS-native services such as AWS Lambda, AWS Step Functions, and AWS Glue for ETL jobs.

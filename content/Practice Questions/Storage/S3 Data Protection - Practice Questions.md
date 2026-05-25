@@ -9,7 +9,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. A single facility in eu-west-1 and a single facility in us-east-1
 > 3. Multiple facilities in eu-west-1
 > 4. A single facility in eu-west-1
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[S3 Data Protection#1. Resilience & Durability|S3 Standard storage class]] is designed for high durability by redundantly storing objects across **Multiple facilities** (at least 3 Availability Zones) within the same region. This ensures [[S3 Data Protection#1. Resilience & Durability|Resilience & Durability]] against the failure of a single data center.
@@ -20,7 +20,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. x-amz-server-side-encryption-customer-key
 > 3. x-amz-server-side-encryption-customer-algorithm
 > 4. x-amz-server-side-encryption-customer-key-MD5
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** When using [[S3 Encryption#SSE-C (Customer-Provided Keys)|SSE-C]], you must provide the following three headers:

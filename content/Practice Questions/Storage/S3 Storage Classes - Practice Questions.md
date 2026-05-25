@@ -9,7 +9,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Relational Rights Storage
 > 3. Regional Rights Standard
 > 4. Reduced Redundancy Storage
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** RRS stands for **Reduced Redundancy Storage**. It was designed for non-critical, reproducible data stored at lower levels of redundancy than the [[S3 Storage Classes|S3 Standard]] storage class.
@@ -20,7 +20,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. 99.95%
 > 3. 99.995%
 > 4. 99.999999999%
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** [[S3 Storage Classes|Reduced Redundancy Storage (RRS)]] is designed for **99.99% durability** of objects. This is significantly lower than the **99.999999999% (11 9's)** durability provided by [[S3 Storage Classes|S3 Standard]] and other modern storage classes.
@@ -31,7 +31,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. It doesn’t exist in Amazon S3, but in Amazon EBS.
 > 3. It allows you to destroy any copy of your files outside a specific jurisdiction.
 > 4. It doesn’t exist at all
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** The [[S3 Storage Classes|Reduced Redundancy Storage (RRS)]] option provides a lower level of redundancy (99.99% durability) compared to standard storage, which reduces storage costs for data that can be easily recreated.
@@ -42,7 +42,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. AWS Glacier
 > 3. AWS RDS
 > 4. AWS S3 RRS
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** [[S3 Storage Classes|Reduced Redundancy Storage (RRS)]] is ideal for non-critical, reproducible data like logs. While [[S3 Storage Classes|S3 Standard]] is often recommended now, RRS was designed for this specific use case to sustain the loss of data in a single facility while maintaining internet accessibility.
@@ -53,7 +53,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. The restored object’s storage class will be RRS
 > 3. The user can modify the restoration period only by issuing a new restore request with the updated period
 > 4. The user needs to pay storage for both RRS (restored) and Glacier (Archive) Rates
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** When an object is restored from [[S3 Storage Classes|S3 Glacier]], its storage class **still remains GLACIER**. The restored copy is temporary and exists alongside the archived object. Note that the reference to RRS in option 2 and 4 refers to the legacy pricing model for restored objects; modern restores use a different billing structure but the principle that the storage class remains [[S3 Storage Classes|Glacier]] is constant.
@@ -64,7 +64,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Use reduced redundancy storage (RRS) for all data in S3. Use a combination of Spot instances and Reserved Instances for Amazon EMR jobs. Use Reserved instances for Amazon Redshift
 > 3. Use reduced redundancy storage (RRS) for all data in Amazon S3. Add Spot Instances to Amazon EMR jobs. Use Reserved Instances for Amazon Redshift
 > 4. Use reduced redundancy storage (RRS) for PDF and CSV data in S3. Add Spot Instances to EMR jobs. Use Spot Instances for Amazon Redshift.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** A combination of [[EC2 Purchase Options#Spot Instances|Spot]] and [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances]] for [[EMR]] ensures both performance (via Reserved) and cost reduction (via Spot). Using [[S3 Storage Classes|RRS]] for all data (assuming it's reproducible) reduces storage costs. In a modern context, [[S3 Storage Classes|S3 One Zone-IA]] or [[S3 Storage Classes|S3 Standard]] with [[S3 Lifecycle Management|Lifecycle rules]] might be preferred.
@@ -75,7 +75,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Storing infrequently used log files
 > 3. Storing a video file which is not reproducible
 > 4. Storing image thumbnails
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** [[S3 Storage Classes|Image thumbnails]] are a classic use case for [[S3 Storage Classes|Reduced Redundancy Storage (RRS)]] because they are non-critical and can be easily reproduced from the original images if lost.
@@ -87,7 +87,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 3. Use S3 with standard redundancy to store and serve the scanned files, use CloudSearch for query processing, and use Elastic Beanstalk to host the website across multiple availability zones.
 > 4. Use a single-AZ RDS MySQL instance to store the search index and the JPEG images use an EC2 instance to serve the website and translate user queries into SQL.
 > 5. Use a CloudFront download distribution to serve the JPEGs to the end users and Install the current commercial search product, along with a Java Container for the website on EC2 instances and use Route53 with DNS round-robin.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[S3 Storage Classes|S3 Standard]] provides high availability and durability (11 9's) for the 17TB of JPEGs. CloudSearch is a managed service that is more cost-effective than running commercial software on EC2, and [[EC2 Overview|Elastic Beanstalk]] provides an easy way to deploy the Java website across multiple AZs for high availability.
@@ -98,7 +98,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Optimize by deploying a combination of on-demand, RI and spot-pricing models for the master, core and task nodes. Store ingest and output files in Amazon S3 with a lifecycle policy that archives them to Amazon Glacier.
 > 3. Store the ingest files in Amazon S3 RRS and store the output files in S3. Deploy Reserved Instances for the master and core nodes and on-demand for the task nodes.
 > 4. Deploy on-demand master, core and task nodes and store ingest and output files in Amazon S3 RRS
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** For a one-time 4-hour job, [[EC2 Purchase Options#Reserved Instances (RI)|Reserved Instances (RI)]] are not cost-effective as they require long-term commitments. [[EC2 Purchase Options#Spot Instances|Spot Instances]] for task nodes provide the highest savings. Ingesting 200TB requires the durability of [[S3 Storage Classes|S3 Standard]] (Option 1) rather than [[S3 Storage Classes|RRS]] (Option 4) to ensure the 4-hour processing window isn't interrupted by data loss.

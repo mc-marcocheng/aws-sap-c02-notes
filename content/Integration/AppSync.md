@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, integration, appsync] 
+tags: [aws, sap-c02, integration, appsync]
 ---
 # Amazon AppSync
 

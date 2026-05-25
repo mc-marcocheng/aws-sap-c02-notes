@@ -9,7 +9,7 @@ tags: [aws, sap-c02, snow-family, migration, practice-questions]
 > 2. Snowball Edge
 > 3. AWS DataSync
 > 4. Direct Connect
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[Snow Family|Snowball Edge]] is designed for large-scale data migrations at the petabyte-scale. It provides a physical device that is shipped to AWS, bypassing internet bandwidth limitations entirely. [[Direct Connect Overview|Direct Connect]] provides a dedicated connection but is often slower for one-time massive transfers if connectivity is already a constraint. [[DataSync]] is an online transfer service and would be limited by the existing internet connectivity.
@@ -20,14 +20,14 @@ tags: [aws, sap-c02, snow-family, migration, practice-questions]
 > 2. Use AWS DataSync over a new 10 Gbps Direct Connect
 > 3. Use S3 Transfer Acceleration
 > 4. Use AWS Storage Gateway
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** For exabyte-scale or multi-petabyte migrations, the current recommended approach is to use multiple [[Snow Family|Snowball Edge]] devices. S3 Transfer Acceleration and DataSync are still limited by the source's outbound internet bandwidth or the time/cost to provision a high-speed Direct Connect for a one-time migration. Storage Gateway is for hybrid storage and not primarily for one-time bulk migrations.
 
 > [!question]
 > A research facility in a remote location with no internet connectivity needs to collect IoT sensor data from 200 devices, perform local ML inference on the data, and periodically ship results to AWS. The facility has limited IT staff and cannot maintain complex infrastructure. Which Snow Family device is MOST appropriate?
-> 
+>
 > 1. AWS Snowcone with AWS IoT Greengrass
 > 2. AWS Snowball Edge Storage Optimized
 > 3. AWS Snowball Edge Compute Optimized with GPU
@@ -39,7 +39,7 @@ tags: [aws, sap-c02, snow-family, migration, practice-questions]
 
 > [!question]
 > A media company needs to migrate 80 TB of archived video content from an on-premises NAS to Amazon S3 Glacier Deep Archive. Their internet connection is 100 Mbps. The project has a strict 2-week deadline. They also need to encrypt the data with their own encryption keys during transit. Which approach meets all requirements?
-> 
+>
 > 1. Use AWS DataSync over the internet with bandwidth throttling disabled.
 > 2. Order an AWS Snowball Edge Storage Optimized device, configure it with a customer-managed AWS KMS key, copy the data, and ship it back with an S3 lifecycle policy to transition objects to Glacier Deep Archive.
 > 3. Set up AWS Direct Connect with a 1 Gbps dedicated connection and transfer via S3 CLI.
@@ -51,7 +51,7 @@ tags: [aws, sap-c02, snow-family, migration, practice-questions]
 
 > [!question]
 > A company has ordered multiple AWS Snowball Edge devices for a large data migration. Their security policy requires that data be encrypted and that the encryption keys are managed exclusively within their AWS account. If a device is intercepted during shipping, the data must remain unreadable. Which statements about Snowball Edge security are TRUE? (Choose 2)
-> 
+>
 > 1. Snowball Edge uses a Trusted Platform Module (TPM) to detect unauthorized modifications to the hardware or software.
 > 2. Data on Snowball Edge is encrypted using keys stored on the device in a tamper-resistant enclosure that erases keys if breached.
 > 3. Snowball Edge encrypts all data with 256-bit encryption, and the encryption keys are managed through AWS KMS — they are never stored on the device itself.

@@ -9,7 +9,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. Stream the log data to Amazon Kinesis
 > 3. Stream the log data into Amazon OpenSearch Service in near real-time with CloudWatch Logs subscriptions.
 > 4. Record API calls for your AWS account and delivers log files containing API calls to your Amazon S3 bucket
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 2, 3**
 > > **Rationale:** CloudWatch Logs enables real-time processing of log data through [[CloudWatch Logs|Subscription Filters]]. These filters can stream data to [[Lambda|AWS Lambda]] for custom logic, [[Kinesis Overview|Amazon Kinesis Data Streams]] or [[Kinesis Overview|Amazon Kinesis Data Firehose]] for downstream processing, and [[OpenSearch|Amazon OpenSearch Service]] for indexing and search. The option regarding recording API calls refers to the primary function of [[CloudTrail|AWS CloudTrail]], which can deliver logs to [[S3 Overview|Amazon S3]] independently of CloudWatch Logs.
@@ -20,7 +20,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. Use CloudWatch Logs agent to send log data from the app to CloudWatch Logs from Amazon EC2 instances
 > 3. Pipe data from EC2 to the application logs using AWS Data Pipeline and CloudWatch
 > 4. Once a CloudWatch alarm is triggered, use SNS to notify the Senior DevOps Engineer.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 2, 4**
 > > **Rationale:** The standard workflow for log-based alerting involves:
@@ -35,7 +35,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. Begin using CloudWatch Logs on every service. Stream all Log Groups into S3 objects. Use AWS EMR cluster jobs to perform adhoc MapReduce analysis and write new queries when needed.
 > 3. Copy all log files into AWS S3 using a cron job on each instance. Use an S3 Notification Configuration on the PutBucket event and publish events to AWS Kinesis. Use Apache Spark on AWS EMR to perform at-scale stream processing queries on the log chunks and flag issues.
 > 4. Begin using CloudWatch Logs on every service. Stream all Log Groups into an Amazon OpenSearch Service Domain and perform log analysis on a search cluster.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** For high-speed, interactive, and ad-hoc log analysis in a complex architecture, streaming [[CloudWatch Logs]] to [[OpenSearch|Amazon OpenSearch Service]] (formerly Elasticsearch) is the architecturally preferred solution. This "OpenSearch Stack" (often combined with Dashboards) allows for near real-time searching, filtering, and visualization of logs across many services. Options involving [[S3 Overview|Amazon S3]] with cron jobs or [[EMR|Amazon EMR]] introduce significant latency and are better suited for batch processing or long-term archival rather than fast debugging.
@@ -48,7 +48,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 4. Use Amazon Simple Notification Service to notify an on-call engineer when a CloudWatch alarm is triggered.
 > 5. Use Amazon Simple Email Service to notify an on-call engineer when a CloudWatch alarm is triggered.
 > 6. Use AWS Data Pipeline to stream web application logs from your servers to CloudWatch.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 3, 4**
 > > **Rationale:** To monitor specific error codes within application logs:

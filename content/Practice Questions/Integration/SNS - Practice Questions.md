@@ -44,7 +44,7 @@ tags: [aws, sap-c02, sns, practice-questions]
 > 2. Implement **SNS Message Filtering**.
 > 3. Use multiple SNS topics, one for each queue.
 > 4. Use a Lambda function to sort and route messages.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** **SNS Message Filtering** allows subscribers (like [[SQS Overview|SQS]] queues) to specify a filter policy. SNS will then only deliver messages to that subscriber if the message attributes match the policy. This avoids the need for custom routing logic in Lambda (Option 4) or creating excessive topics (Option 3). (See [[SNS]])

@@ -9,7 +9,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 2. Elastic IP Addresses
 > 3. AWS Direct Connect
 > 4. Amazon VPC virtual private gateway
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[Direct Connect Overview|Direct Connect]] Hosted Connections support sub-1Gbps speeds, including 50 Mbps, 100 Mbps, up to 500 Mbps, provided by AWS Direct Connect Partners. A [[VPN|Virtual Private Gateway]] (VGW) is needed to terminate the connection, but the product itself is Direct Connect.
@@ -20,7 +20,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 2. Yes, it’s called Amazon Dedicated Connection.
 > 3. No, AWS only allows access from the public Internet.
 > 4. Yes, it’s called Direct Connect
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** [[Direct Connect Overview|Direct Connect]] provides a dedicated physical network connection between your network and one of the AWS Direct Connect locations.
@@ -31,7 +31,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 2. AWS Direct Connect provides greater resiliency than an Internet-based VPN connection.
 > 3. AWS Direct Connect provides greater bandwidth than an Internet-based VPN connection.
 > 4. AWS Direct Connect provides greater control of network provider selection than an Internet-based VPN connection.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[Direct Connect Overview|Direct Connect]] provides significantly higher bandwidth (up to 100 Gbps) and more consistent network performance than Internet-based [[VPN|Site-to-Site VPN]], which is limited by the public internet's variable performance and typically lower bandwidth.
@@ -42,7 +42,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 2. No
 > 3. Yes
 > 4. Only when there’s just one availability zone in a region.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** Each [[Direct Connect Overview|Direct Connect]] location enables connectivity to all Availability Zones within the geographically nearest AWS region.
@@ -54,7 +54,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 3. Enable route propagation to the customer gateway (CGW)
 > 4. Modify the route table of all Instances using the “route” command.
 > 5. Modify the Instances VPC subnet route table by adding a route back to the customer’s on-premises environment.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 5**
 > > **Rationale:** For traffic to flow back to on-premises, the VPC [[VPC Overview - Route Tables|Route Table]] must have a path. This can be achieved either by enabling **Route Propagation** on the [[VPN|Virtual Private Gateway]] (VGW) so it automatically adds BGP-learned routes, or by manually adding a static route pointing to the VGW.
@@ -66,7 +66,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 3. Establish a new AWS Direct Connect connection and private virtual interface in the same region as VPC-2
 > 4. Establish a new AWS Direct Connect connection and private virtual interface in a different AWS region than VPC-1
 > 5. Establish a new AWS Direct Connect connection and private virtual interface in the same AWS region as VPC-1
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 5**
 > > **Rationale:** [[VPC Peering]] does not support "edge-to-edge" routing (transitive routing). Therefore, a connection to VPC-2 cannot be used to reach VPC-1. To increase fault tolerance for VPC-1, you must establish a secondary path directly to VPC-1, such as a [[VPN|Site-to-Site VPN]] (2) or another [[Direct Connect Overview|Direct Connect]] connection (5).
@@ -77,7 +77,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 2. Configure your Direct Connect router with a higher BGP priority than your VPN router, verify network traffic is leveraging Direct Connect, and then delete your existing VPN connection.
 > 3. Update your VPC route tables to point to the Direct Connect connection.
 > 4. Configure your Direct Connect router, update your VPC route tables to point to the Direct Connect connection, configure your VPN connection with a higher BGP priority.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** By using [[Direct Connect Overview|BGP]] priorities (such as AS Path prepending or Local Preference), you can ensure that the [[Direct Connect Overview|Direct Connect]] path is preferred over the VPN path. Once traffic is verified on the DX link, the VPN can be decommissioned without downtime.
@@ -88,7 +88,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 2. Configure a single routing table with a default route via the internet gateway. Propagate specific routes for the on-premises networks via BGP on the AWS Direct Connect customer router. Associate the routing table with all VPC subnets.
 > 3. Configure a single routing table with two default routes: one to the internet via an Internet gateway the other to the on-premises network via the VPN gateway.
 > 4. Configure two routing tables one that has a default route via the Internet gateway and another that has a default route via the VPN gateway.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** A [[VPC Overview - Route Tables|Route Table]] can only have one default route (0.0.0.0/0). To allow internet access, the default route must point to the [[VPC Overview|Internet Gateway]] (IGW). To reach on-premises, specific routes (e.g., 10.0.0.0/8) should be propagated via [[Direct Connect Overview|BGP]] to the [[VPN|Virtual Private Gateway]] (VGW) from the [[Direct Connect Overview|Direct Connect]] connection.
@@ -99,7 +99,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 2. Create a private interface on your AWS Direct Connect link. Configure a static route via your AWS Direct Connect link that points to Amazon S3.
 > 3. Create a public interface on your AWS Direct Connect link. Redistribute BGP routes into your existing routing infrastructure; advertise specific routes for your network to AWS.
 > 4. Create a private interface on your AWS Direct connect link. Redistribute BGP routes into your existing routing infrastructure and advertise a default route to AWS.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** A [[Direct Connect Overview|Public Virtual Interface]] (Public VIF) is required to access public AWS services like [[S3 Overview|S3]] or DynamoDB over [[Direct Connect Overview|Direct Connect]]. You receive AWS public IP ranges via [[Direct Connect Overview|BGP]] and advertise your own public prefixes to AWS.
@@ -110,7 +110,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 2. Allocate EIPs and an Internet Gateway for quick access, then provision a VPN.
 > 3. Provision a VPN connection between a VPC and existing on-premises equipment, submit a DirectConnect partner request to provision cross connects, then cut over from the VPN connection to one or more DirectConnect connections as needed.
 > 4. Quickly submit a DirectConnect request to provision a 1 Gbps cross connect.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[VPN|Site-to-Site VPN]] can be set up in minutes, allowing for quick time-to-market. [[Direct Connect Overview|Direct Connect]] takes weeks or months to provision but provides the high bandwidth (10s of Gbps) required for the long term.
@@ -123,7 +123,7 @@ tags: [aws, sap-c02, direct-connect, networking, practice-questions]
 > 4. An IP address space that does not conflict with the one on-premises
 > 5. Entries in Amazon Route 53 that allow the Instance to resolve its dependencies
 > 6. A VM Import of the current virtual machine
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 4, 6**
 > > **Rationale:** To maintain the application's hardcoded configurations, you should: (6) Use **VM Import/Export** to preserve the existing OS and app state; (4) Ensure the VPC [[VPC Overview|CIDR]] does not conflict with on-premises so that routing works; and (1) Use [[Direct Connect Overview|Direct Connect]] (or VPN) for private connectivity to the on-premises dependencies.

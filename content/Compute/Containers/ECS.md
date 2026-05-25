@@ -43,7 +43,7 @@ Amazon Elastic Container Service (Amazon ECS) is a highly scalable, high-perform
 ## SAP-C02 Strategic Considerations
 
 > [!important] **Capacity Providers**
-> The mechanism that links ASG to ECS for managed scaling of the infrastructure. 
+> The mechanism that links ASG to ECS for managed scaling of the infrastructure.
 > - **EC2**: Automatically scales Auto Scaling Groups based on task requirements.
 > - **Fargate**: Used to select between Fargate and Fargate Spot.
 

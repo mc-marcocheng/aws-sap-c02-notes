@@ -8,7 +8,7 @@ tags: [aws, sap-c02, analytics, big-data]
 ## Architecture & Node Types
 
  An EMR cluster consists of several node types:
-- **Master Node (Primary Node)**: Coordinates the distribution of data and tasks among other nodes. It tracks task status and monitors cluster health. 
+- **Master Node (Primary Node)**: Coordinates the distribution of data and tasks among other nodes. It tracks task status and monitors cluster health.
   - > [!warning]
     > If the Master node fails, the cluster is terminated and the job must be re-executed (unless using **Multi-Master support** for High Availability).
 - **Core Nodes**: Run tasks and host data using the **Hadoop Distributed File System (HDFS)**.

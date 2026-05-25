@@ -9,7 +9,7 @@ tags: [aws, sap-c02, analytics, kinesis, practice-questions]
 > 2. Enable Enhanced Fan-out for the consumer applications.
 > 3. Increase the retention period of the Kinesis Data Stream.
 > 4. Use Amazon SQS to buffer the data before it reaches the consumers.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[Kinesis Overview|Enhanced Fan-out]] allows consumers to receive their own dedicated 2 MB/sec throughput per shard, separate from other consumers. This is the primary way to scale consumption when multiple applications need to read from the same stream simultaneously without encountering the shared throughput limit. Kinesis Data Firehose (Option 1) is for loading data, not for multi-consumer real-time processing. Increasing retention (Option 3) doesn't help with throughput. SQS (Option 4) doesn't natively support multiple consumers reading the same message independently without a fan-out architecture (like SNS).
@@ -20,7 +20,7 @@ tags: [aws, sap-c02, analytics, kinesis, practice-questions]
 > 2. Use the `SessionID` as the Partition Key when publishing events to the Kinesis Data Stream.
 > 3. Use a random string as the Partition Key for each event to ensure high entropy.
 > 4. Use Kinesis Data Firehose with a 60-second buffering window to sort events before delivery.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[Kinesis Overview|Partition Keys]] determine which shard a record is sent to. Kinesis guarantees that all records with the same Partition Key will be sent to the same shard and will be processed in the order they arrived. By using the `SessionID` as the Partition Key, the platform ensures that all events for a specific user session are processed in order by the same consumer instance.
@@ -31,7 +31,7 @@ tags: [aws, sap-c02, analytics, kinesis, practice-questions]
 > 2. Utilize Amazon Kinesis to collect inbound sensor data, analyze with Kinesis clients and save results to Redshift using EMR.
 > 3. Utilize SQS to collect inbound sensor data, analyze with Kinesis and save to RDS.
 > 4. Utilize EMR to collect inbound sensor data, analyze with Kinesis and save to DynamoDB.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale**: [[Kinesis Overview|Kinesis]] handles the real-time ingestion and parallel processing. Kinesis clients (KCL) provide the elasticity and parallel processing capability. Saving to Redshift (potentially via EMR or Firehose) satisfies the long-term data mining requirement.
@@ -42,7 +42,7 @@ tags: [aws, sap-c02, analytics, kinesis, practice-questions]
 > 2. Send all log events to Amazon Kinesis and develop a client process to apply heuristics.
 > 3. Configure Amazon CloudTrail to receive custom logs, use EMR to apply heuristics.
 > 4. Setup Auto Scaling group of EC2 syslogd servers, store logs on S3, use EMR.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale**: [[Kinesis Overview|Kinesis Data Streams]] supports real-time analysis and has a default retention period of 24 hours (extendable to 365 days). This allows the "going back 12 hours" requirement to be met by simply re-reading the stream from a previous sequence number or timestamp.
@@ -53,7 +53,7 @@ tags: [aws, sap-c02, analytics, kinesis, practice-questions]
 > 2. Push web clicks by session to Amazon Kinesis and analyze behavior using Kinesis workers.
 > 3. Write click events directly to Redshift and analyze with SQL.
 > 4. Publish web clicks to SQS, then drain periodically to RDS.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale**: [[Kinesis Overview|Kinesis]] preserves the order of records within a shard when a Partition Key (like SessionID) is used. This is critical for "sequence of pages" analysis in real-time.
@@ -64,7 +64,7 @@ tags: [aws, sap-c02, analytics, kinesis, practice-questions]
 > 2. Use the second app to store a backup of Kinesis data onto EBS.
 > 3. Add a second Kinesis stream in another AZ and replicate.
 > 4. Add a third app that uses the Kinesis S3 connector to archive data into S3.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale**: Archiving the raw stream to S3 is the most cost-effective and efficient way to ensure long-term durability and recoverability of the source data, complementing the real-time processing.
@@ -75,7 +75,7 @@ tags: [aws, sap-c02, analytics, kinesis, practice-questions]
 > 2. AWS Lambda
 > 3. AWS Kinesis
 > 4. AWS SNS
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale**: [[Kinesis Overview|Kinesis]] acts as an event stream buffer. It maintains the order of events and allows multiple consumers (the two systems) to process the same data independently.
@@ -86,7 +86,7 @@ tags: [aws, sap-c02, analytics, kinesis, practice-questions]
 > 2. Kinesis Firehose + RedShift
 > 3. EMR using Hive
 > 4. EMR running Apache Spark
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale**: [[Kinesis Overview|Kinesis Data Firehose]] can aggregate high-velocity streaming data and load it directly into Redshift. Redshift is an OLAP database that supports standard SQL, making it ideal for the BI team's ad-hoc queries.
@@ -97,7 +97,7 @@ tags: [aws, sap-c02, analytics, kinesis, practice-questions]
 > 2. On-Demand mode
 > 3. Enhanced fan-out mode
 > 4. Standard mode
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale**: In [[Kinesis Overview#Capacity Modes|On-Demand mode]], AWS automatically manages shard capacity based on throughput, removing the need for manual resharding.
@@ -108,7 +108,7 @@ tags: [aws, sap-c02, analytics, kinesis, practice-questions]
 > 2. Create Interface VPC endpoints with cross-region PrivateLink support
 > 3. Use NAT Gateway
 > 4. Use Internet Gateway with security groups
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale**: [[Kinesis Overview#Security|Interface VPC Endpoints (PrivateLink)]] allow private connectivity to Kinesis. Recent updates (Nov 2025) support cross-region PrivateLink, further enhancing connectivity options.

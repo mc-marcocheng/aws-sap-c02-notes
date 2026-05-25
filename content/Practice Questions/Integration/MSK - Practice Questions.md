@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, msk, practice-questions] 
+tags: [aws, sap-c02, msk, practice-questions]
 ---
 # MSK Practice Questions
 

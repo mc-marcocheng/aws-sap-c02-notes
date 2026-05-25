@@ -31,7 +31,7 @@ tags: [aws, sap-c02, codedeploy, practice-questions]
 > 2. **ValidateService**
 > 3. BeforeAllowTraffic
 > 4. ApplicationStart
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** The **ValidateService** hook in the [[CodeDeploy]] `appspec.yml` is specifically designed for running scripts to verify that the service is functioning as expected before the deployment is considered successful. If the script fails, CodeDeploy can automatically roll back. Option 1 (AfterInstall) runs before the service is even started. Option 3 is for ELB/Lambda traffic shifting control. (See [[CodeDeploy]])

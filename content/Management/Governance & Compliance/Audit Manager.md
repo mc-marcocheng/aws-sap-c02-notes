@@ -17,7 +17,7 @@ AWS Audit Manager helps you continuously audit your AWS usage to simplify how yo
 - **Evidence Sources:** Automatically pulls data from [[CloudTrail]], [[Config]], [[Security Hub]], and API calls to provide a continuous, unalterable trail of evidence.
 
 > [!exam]
-> Differentiate clearly: 
+> Differentiate clearly:
 > - **[[Artifact]]**: Get AWS's compliance documents (AWS is compliant).
 > - **Audit Manager**: Automate evidence collection for *your* configuration/workloads to prove *you* are compliant.
 > - **[[Security Hub]]**: Continuous security posture management and standard checks (e.g., CIS Foundations), but Audit Manager is specifically for generating formal audit reports/evidence.

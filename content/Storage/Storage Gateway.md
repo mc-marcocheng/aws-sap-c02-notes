@@ -60,7 +60,7 @@ Provides cloud-backed iSCSI block storage volumes.
 > - **Cost**: Cached volumes are more cost-effective as they leverage S3 for primary storage.
 > - **Scaling**: Cached volumes scale more easily as you don't need to provision all storage on-premises.
 
-> [!info] 
+> [!info]
 > For SAP-C02, focus on when to use File Gateway (NFS/SMB to S3) vs. FSx File Gateway (Windows File Server integration) vs. [[DataSync]] (for one-time or scheduled migrations).
 
 ## Related Services

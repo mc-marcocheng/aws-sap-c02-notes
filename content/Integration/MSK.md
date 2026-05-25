@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, integration, msk] 
+tags: [aws, sap-c02, integration, msk]
 ---
 # Amazon MSK (Managed Streaming for Apache Kafka)
 

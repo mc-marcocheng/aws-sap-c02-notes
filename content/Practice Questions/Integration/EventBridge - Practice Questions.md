@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, eventbridge, practice-questions] 
+tags: [aws, sap-c02, eventbridge, practice-questions]
 ---
 # EventBridge Practice Questions
 

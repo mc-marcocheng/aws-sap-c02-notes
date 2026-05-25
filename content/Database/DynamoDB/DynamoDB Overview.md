@@ -46,7 +46,7 @@ DynamoDB supports two types of primary keys:
 ## Operations and Bulk Actions
 
 - **Import/Export to S3**: Native feature for bulk operations without consuming table capacity. Supported formats: DynamoDB JSON, Ion, and CSV (import only).
-- **Scanning vs. Querying**: 
+- **Scanning vs. Querying**:
     - **Query**: Efficiently retrieves items using PK and optional SK filters.
     - **Scan**: Reads every item in the table (expensive and slow; use filters and page limits to minimize impact).
 

@@ -21,7 +21,7 @@ tags: [aws, sap-c02, shield, security, practice-questions]
 > 2. AWS WAF
 > 3. AWS Shield Advanced
 > 4. AWS Inspector
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[Shield|AWS Shield Advanced]] provides DDoS cost protection to safeguard against scaling charges resulting from DDoS-related usage spikes on protected resources such as EC2, ELB, and CloudFront.
@@ -32,7 +32,7 @@ tags: [aws, sap-c02, shield, security, practice-questions]
 > 2. AWS Inspector
 > 3. AWS WAF
 > 4. AWS Systems Manager
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** [[Shield|AWS Shield Advanced]] provides 24/7 access to the AWS Shield Response Team (SRT) for assistance during attacks and offers more sophisticated detection and mitigation capabilities than the Standard tier.

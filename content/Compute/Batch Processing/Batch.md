@@ -3,7 +3,7 @@ tags: [compute, aws, sap-c02, aws-batch]
 ---
 # AWS Batch
 
-AWS Batch enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS. 
+AWS Batch enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS.
 
 ## Architectural Patterns
 - **Job Definitions & Queues:** Defines how a job runs (Docker image, vCPUs, memory, IAM role). Jobs are submitted to queues with assigned priorities.

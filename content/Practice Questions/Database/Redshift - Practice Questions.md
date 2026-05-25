@@ -54,7 +54,7 @@ tags: [aws, sap-c02, redshift, database, analytics, practice-questions]
 > 2. Redshift Federated Query
 > 3. Redshift Managed Storage
 > 4. Redshift Data API
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** **Redshift Spectrum** (Option 1) allows you to run Redshift SQL queries directly against exabytes of unstructured data in [[S3 Overview|Amazon S3]]. No loading or transformation is required. Federated Query (Option 2) is for querying external databases like RDS. Managed Storage (Option 3) is for the local cluster data. (See [[Redshift]])

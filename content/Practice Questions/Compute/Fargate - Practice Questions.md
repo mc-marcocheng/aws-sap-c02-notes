@@ -20,7 +20,7 @@ tags: [aws, sap-c02, fargate, practice-questions]
 > 2. Use the default ephemeral storage and **increase its size** in the task definition.
 > 3. Attach an Amazon EBS volume to the Fargate task.
 > 4. Use an Amazon S3 bucket with S3 Select.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[Fargate]] tasks come with a default amount of ephemeral storage (20 GiB). You can increase this up to 200 GiB in the task definition. This is the most cost-effective and highest performance option for non-persistent scratch data. EFS (Option 1) is more expensive and intended for persistent/shared storage. EBS (Option 3) cannot be directly attached to Fargate tasks in the same way it is for EC2.

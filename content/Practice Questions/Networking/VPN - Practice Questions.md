@@ -10,7 +10,7 @@ tags: [aws, sap-c02, vpn, networking, practice-questions]
 > 3. You have to define 5 different static IP addresses in route table.
 > 4. 1 and 2
 > 5. 1, 2 and 3
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** AWS [[VPN|VPN CloudHub]] is specifically designed to provide secure communication between multiple on-premises sites using a hub-and-spoke model. Using redundant [[VPN|customer gateways]] is a best practice for ensuring high availability of the [[VPN|VPN connection]]. Defining 5 static IPs in the route table is not a primary requirement for the connectivity itself, as dynamic routing via BGP is often preferred.
@@ -22,7 +22,7 @@ tags: [aws, sap-c02, vpn, networking, practice-questions]
 > 3. When you create multiple VPN connections, the virtual private gateway can not sends network traffic to the appropriate VPN connection using statically assigned routes.
 > 4. Statically assigned routes cannot be configured in case of more than 1 VPN with the virtual private gateway.
 > 5. None of above
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 5**
 > > **Rationale:** AWS supports multiple [[VPN|VPN connections]] to a single [[VPC Overview|VPC]]. While there are soft limits (e.g., 10 VPN connections per VGW), these can be increased. The [[VPN|VGW]] can correctly route traffic using either static or dynamic (BGP) routing for multiple connections simultaneously.
@@ -33,7 +33,7 @@ tags: [aws, sap-c02, vpn, networking, practice-questions]
 > 2. Add another CGW in a different data center and create another dual-tunnel VPN connection.
 > 3. Add a second VGW in a different Availability Zone, and a CGW in a different data center, and create another dual-tunnel.
 > 4. No changes are necessary: the network architecture is currently highly available.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** In an [[VPN|AWS Site-to-Site VPN]] setup, the [[VPN|VGW]] is a managed service that is already highly available and distributed across multiple Availability Zones. The [[VPN|CGW]], being a physical or software appliance on the customer side, is a single point of failure if only one exists. Adding a second CGW in a geographically separate data center provides the necessary redundancy.
@@ -44,7 +44,7 @@ tags: [aws, sap-c02, vpn, networking, practice-questions]
 > 2. Implement Elastic Load Balancing with an SSL listener that terminates the back-end connection to the application.
 > 3. Configure an IPsec VPN connection, and provide the users with the configuration details. Create a public subnet in your VPC, and place your application servers in it.
 > 4. Configure an SSL VPN solution in a public subnet of your VPC, then install and configure SSL VPN client software on all user computers. Create a private subnet in your VPC and place your application servers in it.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** For remote travelers, an SSL-based [[VPN|Client VPN]] or a [[VPN|Software VPN]] appliance is the most cost-effective and flexible solution. It allows secure access to resources in a private subnet without exposing them to the internet via public IPs or ELBs. [[Direct Connect Overview|Direct Connect]] is too expensive and complex for individual remote users.
@@ -57,7 +57,7 @@ tags: [aws, sap-c02, vpn, networking, practice-questions]
 > 4. Protection of data in transit over the Internet
 > 5. Peer identity authentication between VPN gateway and customer gateway
 > 6. Data integrity protection across the Internet
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3, 4, 5, 6**
 > > **Rationale:** An IPSec-based [[VPN|VPN connection]] provides:
@@ -72,7 +72,7 @@ tags: [aws, sap-c02, vpn, networking, practice-questions]
 > 2. An AWS Storage Gateway for connecting on-premises software applications...
 > 3. An AWS Storage Gateway for connecting on-premises software applications...
 > 4. A VPC with a VPN Gateway back to their on-premises servers, Amazon EC2 for the source-code repository with attached Amazon EBS volumes, Amazon EC2 and Amazon RDS MySQL for the project management system, EIPs for the source code repository and project management system, SQS for a build queue, An Auto Scaling group of EC2 instances for performing builds and S3 for the build output.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** This architecture fulfills all requirements:

@@ -27,7 +27,7 @@ tags: [aws, sap-c02, app-mesh, practice-questions]
 
 > [!question]
 > A company running microservices on Amazon EKS wants to implement circuit breaking to prevent cascading failures when a downstream service becomes unhealthy. They are currently using AWS App Mesh. How should they configure circuit breaking?
-> 
+>
 > 1. Configure circuit breaker settings in the App Mesh Virtual Node's outlier detection policy to eject unhealthy endpoints based on consecutive errors.
 > 2. Implement circuit breaking logic in the application code using a library like Hystrix.
 > 3. Configure the App Mesh Virtual Router to stop routing traffic to unhealthy Virtual Nodes based on health check failures.

@@ -9,7 +9,7 @@ tags: [aws, sap-c02, dynamodb, practice-questions]
 > 2. 4166
 > 3. 5556
 > 4. 2778
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale**:
@@ -25,7 +25,7 @@ tags: [aws, sap-c02, dynamodb, practice-questions]
 > 3. 60 write capacity units
 > 4. 600 write capacity units
 > 5. 3600 write capacity units
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale**:
@@ -41,7 +41,7 @@ tags: [aws, sap-c02, dynamodb, practice-questions]
 > 2. 60
 > 3. 600
 > 4. 150
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale**:
@@ -56,7 +56,7 @@ tags: [aws, sap-c02, dynamodb, practice-questions]
 > 2. 15 Eventual Consistent reads capacity with Item Size of 1KB
 > 3. 5 Strongly Consistent reads capacity with Item Size of 4KB
 > 4. 15 Strongly Consistent reads capacity with Item Size of 1KB
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale**:
@@ -72,11 +72,10 @@ tags: [aws, sap-c02, dynamodb, practice-questions]
 > 2. 45
 > 3. 10
 > 4. 19
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale**:
 > > 1. **RCUs per item**: 3KB is rounded up to the nearest 4KB block, so each strongly consistent read requires **1 RCU**.
 > > 2. **Total RCUs**: 90 reads/sec * 1 RCU/read = **90 RCUs**.
 > > Refer to [[DynamoDB Throughput and Scaling#Read Capacity Units (RCU)|Provisioned Throughput Calculations]].
-

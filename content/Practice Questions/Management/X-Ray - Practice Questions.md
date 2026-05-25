@@ -5,9 +5,9 @@ tags: [aws, sap-c02, x-ray, practice-questions]
 
 > [!question]
 > A company has a serverless application consisting of API Gateway, AWS Lambda, and Amazon DynamoDB. The application is experiencing intermittent slow response times. The architecture team wants to identify the exact component causing the latency. They also want to search for traces corresponding to specific premium user IDs.
-> 
+>
 > Which solution meets these requirements with the LEAST operational overhead?
-> 
+>
 > 1. Enable X-Ray tracing on API Gateway and Lambda. Add the user ID as metadata in the Lambda code. Use the X-Ray console to search for the metadata.
 > 2. Enable X-Ray tracing on API Gateway and Lambda. Add the user ID as an annotation in the Lambda code. Filter traces in the X-Ray console using the annotation.
 > 3. Deploy the X-Ray daemon on an EC2 instance. Configure API Gateway to send logs to the instance. Add the user ID as an annotation in Lambda.
@@ -20,9 +20,9 @@ tags: [aws, sap-c02, x-ray, practice-questions]
 
 > [!question]
 > You are migrating a multi-tier application to Amazon EKS. The application uses X-Ray for distributed tracing. Currently, the application is generating too many traces during peak hours, significantly increasing costs. The development team does not want to redeploy the application code to change tracing behavior.
-> 
+>
 > How can you optimize the X-Ray costs while still retaining statistically significant trace data?
-> 
+>
 > 1. Modify the X-Ray daemon configuration file in the EKS pods to drop traces randomly.
 > 2. Create an EventBridge rule that disables X-Ray during peak hours and enables it during off-peak hours.
 > 3. Configure Centralized Sampling Rules in the X-Ray console to lower the sampling rate.
@@ -35,7 +35,7 @@ tags: [aws, sap-c02, x-ray, practice-questions]
 
 > [!question]
 > A company has an application with components running on EC2, ECS, and Lambda. They have enabled X-Ray tracing but notice that traces from the EC2-based services are missing. The ECS and Lambda traces appear correctly. What is the MOST likely cause?
-> 
+>
 > 1. X-Ray does not support EC2-based applications.
 > 2. The X-Ray daemon is not installed and running on the EC2 instances, and the application is not instrumented with the X-Ray SDK.
 > 3. The EC2 instances do not have an IAM instance profile with `xray:PutTraceSegments` and `xray:PutTelemetryRecords` permissions.

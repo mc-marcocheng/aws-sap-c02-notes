@@ -7,7 +7,7 @@ AWS Network Firewall is a managed, stateful network firewall and intrusion preve
 
 ## Architectural Patterns & Key Facts
 - **Deployment:** Deployed via a firewall endpoint in a dedicated subnet (Firewall Subnet) within your VPC. You use VPC route tables to route traffic through this endpoint (e.g., routing traffic from a private subnet to the firewall, and then to a NAT Gateway or Internet Gateway).
-- **Rule Engine:** 
+- **Rule Engine:**
     - **Stateless Rules**: Evaluated **FIRST**. Good for dropping DDoS/known bad IPs.
     - **Stateful Rules**: Evaluated after stateless rules. Suricata compatible, IPS/IDS, deep packet inspection, protocol identification.
 - **Managed Rules**: **Managed rule groups** from AWS and AWS Marketplace partners are available for common threats and domain filtering.

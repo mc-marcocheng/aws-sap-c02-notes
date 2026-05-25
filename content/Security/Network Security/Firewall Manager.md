@@ -6,7 +6,7 @@ tags: [aws, sap-c02, firewall-manager, security]
 AWS Firewall Manager is a security management service that allows you to centrally configure and manage firewall rules across your accounts and applications in [[Organizations Overview|AWS Organizations]].
 
 ## Architectural Patterns & Key Facts
-- **Prerequisites:** 
+- **Prerequisites:**
   1. Must use [[Organizations Overview|AWS Organizations]] with all features enabled.
   2. Must configure [[Config]] across all accounts.
   3. Must designate a delegated administrator account.

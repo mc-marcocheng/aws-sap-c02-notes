@@ -11,7 +11,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 4. Use Amazon S3 bucket policies to restrict access to the data at rest.
 > 5. Encrypt the data on the client-side before ingesting to Amazon S3 using their own master key
 > 6. Use SSL to encrypt the data while in transit to Amazon S3.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 2, 5**
 > > **Rationale:** AWS S3 supports several methods for encryption at rest: [[S3 Encryption#SSE-KMS (AWS KMS-Managed Keys)|SSE-KMS]], [[S3 Encryption#SSE-C (Customer-Provided Keys)|SSE-C]], and [[S3 Encryption#3. Encryption at Rest (Client-Side)|Client-Side Encryption]]. SSE-S3 is also available but not listed correctly. EC2 key pairs are for SSH access, bucket policies manage access control but don't perform encryption, and SSL protects data in transit, not at rest.
@@ -22,7 +22,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. It is possible to have different encryption keys for different versions of the same object
 > 3. AWS S3 does not allow the user to upload his own keys for server side encryption
 > 4. The SSE-C does not work when versioning is enabled
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** With [[S3 Encryption#SSE-C (Customer-Provided Keys)|SSE-C]], since the customer provides the key with each request, they can choose to use different keys for different versions of the same object. The customer is responsible for tracking which key belongs to which version.
@@ -33,7 +33,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. The admin should use CLI or API to upload the encryption key to the S3 bucket. When making a call to the S3 API mention the encryption key URL in each request
 > 3. S3 does not support client supplied encryption keys for server side encryption
 > 4. The admin should send the keys and encryption algorithm with each API call
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** This describes [[S3 Encryption#SSE-C (Customer-Provided Keys)|SSE-C]]. In this mode, the client must provide the encryption key and the algorithm (e.g., AES256) in the HTTP headers of every request. S3 uses the key to encrypt/decrypt but does not store the key itself.
@@ -44,7 +44,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Configure S3 to rotate the user’s encryption key at regular intervals
 > 3. Configure S3 to store the user’s keys securely with SSL
 > 4. Keep rotating the encryption key manually at the client side
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** Since AWS does not store or manage the keys for [[S3 Encryption#SSE-C (Customer-Provided Keys)|SSE-C]], it cannot perform automatic rotation. The user is responsible for managing, storing, and rotating these keys.
@@ -55,7 +55,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. x-amz-server-side-encryption-customer-key
 > 3. x-amz-server-side-encryption-customer-algorithm
 > 4. x-amz-server-side-encryption-customer-key-MD5
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** The required headers for [[S3 Encryption#SSE-C (Customer-Provided Keys)|SSE-C]] are `x-amz-server-side-encryption-customer-algorithm`, `x-amz-server-side-encryption-customer-key`, and `x-amz-server-side-encryption-customer-key-MD5`. There is no header named `x-amz-server-side-encryption-customer-key-AES-256`.
@@ -66,7 +66,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Manage encryption keys in a Hardware Security Module(HSM) appliance on-premise server with sufficient storage to temporarily store, encrypt, and upload files directly into amazon Glacier.
 > 3. Manage encryption keys in amazon Key Management Service (KMS), upload to amazon simple storage service (s3) with client-side encryption using a KMS customer master key ID and configure Amazon S3 lifecycle policies to store each object using the amazon glacier storage tier.
 > 4. Manage encryption keys in an AWS CloudHSM appliance. Encrypt files prior to uploading on the employee desktop and then upload directly into amazon glacier
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[S3 Encryption#3. Encryption at Rest (Client-Side)|Client-side encryption]] with KMS (CSE-KMS) meets the requirement to encrypt data *before* it leaves the corporate network. Uploading to S3 and using lifecycle policies to move data to Glacier is more flexible and often more cost-efficient for an application-based archiving solution than direct Glacier uploads.
@@ -77,7 +77,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. S3 provides a server side key to decrypt the object
 > 3. The user needs to decrypt the object using their own private key
 > 4. S3 manages encryption and decryption automatically
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** For [[S3 Encryption#SSE-S3 (S3-Managed Keys)|SSE-S3]] and [[S3 Encryption#SSE-KMS (AWS KMS-Managed Keys)|SSE-KMS]], Amazon S3 handles the decryption automatically when an authorized user requests the object. The user receives the unencrypted data.
@@ -88,7 +88,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Content-MD5
 > 3. x-amz-security-token
 > 4. x-amz-server-side-encryption
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** The `x-amz-server-side-encryption` header is used to request server-side encryption. For [[S3 Encryption#SSE-S3 (S3-Managed Keys)|SSE-S3]], it is set to `AES256`. For [[S3 Encryption#SSE-KMS (AWS KMS-Managed Keys)|SSE-KMS]], it is set to `aws:kms`.
@@ -100,7 +100,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 3. Implement Amazon S3 default encryption to make sure that any object being uploaded is encrypted before it is stored.
 > 4. Implement Amazon Inspector to inspect objects uploaded to the S3 bucket to make sure that they are encrypted.
 > 5. Implement S3 bucket policies to deny unencrypted objects from being uploaded to the buckets.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3, 5**
 > > **Rationale:** [[S3 Encryption|S3 Default Encryption]] ensures all objects are encrypted at rest even if the user doesn't specify it. A [[S3 Encryption#1. Encryption in Transit|Bucket Policy]] can also be used to explicitly deny any `PutObject` requests that do not include encryption headers.

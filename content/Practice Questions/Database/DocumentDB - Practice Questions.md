@@ -9,7 +9,7 @@ tags: [aws, sap-c02, documentdb, database, compute, practice-questions]
 > 2. **Amazon DocumentDB (with MongoDB compatibility)**.
 > 3. MongoDB Atlas on AWS.
 > 4. Amazon RDS for PostgreSQL with the JSONB data type.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[DocumentDB]] is a fully managed document database service that is compatible with MongoDB workloads. It provides the required HA, scaling, and management features while allowing the application to use existing MongoDB drivers and tools. While Atlas (Option 3) is a valid third-party solution, DocumentDB is the native AWS managed service.
@@ -20,7 +20,7 @@ tags: [aws, sap-c02, documentdb, database, compute, practice-questions]
 > 2. Enable **automated backups** and set the retention period to 35 days.
 > 3. Use the `mongodump` tool to export data to S3 hourly.
 > 4. Enable MongoDB Change Streams and archive them to Kinesis.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[DocumentDB]] supports automated backups that enable point-in-time recovery (PITR). The backup retention period can be configured between 1 and 35 days.
@@ -31,7 +31,7 @@ tags: [aws, sap-c02, documentdb, database, compute, practice-questions]
 > 2. DocumentDB uses **autoscaling storage** that grows automatically up to 128 TiB.
 > 3. Storage is scaled by adding more instances to the cluster.
 > 4. Storage is fixed at the time of cluster creation based on the selected instance type.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** Similar to Aurora, [[DocumentDB]] features a distributed, fault-tolerant, self-healing storage system that automatically scales up to 128 TiB as your data grows, with no impact on application performance.

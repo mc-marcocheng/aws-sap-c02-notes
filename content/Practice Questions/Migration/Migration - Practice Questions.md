@@ -10,10 +10,10 @@ tags: [aws, sap-c02, migration, practice-questions]
 > 3. Create Dockerfile for the application. Create an AWS OpsWorks stack consisting of a Docker layer that uses the Dockerfile. Create custom recipes to install and configure Amazon Kinesis to publish the logs into Amazon CloudWatch.
 > 4. Create a Dockerfile for the application. Create an AWS Elastic Beanstalk application using the Docker platform and the Dockerfile. Enable logging the Docker configuration to automatically publish the application logs. Enable log file rotation to Amazon S3.
 > 5. Use VM import/Export to import a virtual machine image of the server into AWS as an AMI. Create an Amazon Elastic Compute Cloud (EC2) instance from AMI, and install and configure the Amazon CloudWatch Logs agent. Create a new AMI from the instance. Create an AWS Elastic Beanstalk application using the AMI platform and the new AMI.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4, 5**
-> > **Rationale:** 
+> > **Rationale:**
 > > - **Option 4**: [[EC2 Overview|Elastic Beanstalk]] supports [[ECS|Docker]] containers and can be configured to use `awslogs` for log streaming and rotation to [[S3 Overview|Amazon S3]].
 > > - **Option 5**: Using [[EC2 Overview|AWS VM Import/Export]] allows you to migrate the legacy environment exactly as it is into an [[EC2 Overview|Amazon EC2]] AMI. Installing the [[CloudWatch Logs|Amazon CloudWatch Logs]] agent ensures logs are durably stored, and using this as a custom AMI in [[EC2 Overview|Elastic Beanstalk]] provides a managed deployment environment.
 > > - Option 1 is incorrect because Elastic Beanstalk doesn't support custom executables directly without a specific platform or Docker. Option 2 requires application code changes to use the SDK for S3/CloudWatch. Option 3 adds unnecessary complexity with Kinesis.
@@ -24,7 +24,7 @@ tags: [aws, sap-c02, migration, practice-questions]
 > 2. Sync the application data to Amazon S3 starting a week before the migration, on Friday morning perform a final sync, and copy the entire data set to your AWS file server after the sync completes.
 > 3. Copy the application data to a 1-TB USB drive on Friday and immediately send overnight, with Saturday delivery, the USB drive to AWS Import/Export to be imported as an EBS volume, mount the resulting EBS volume to your AWS file server on Sunday.
 > 4. Leverage the AWS Storage Gateway to create a Gateway-Stored volume. On Friday copy the application data to the Storage Gateway volume. After the data has been copied, perform a snapshot of the volume and restore the volume as an EBS volume to be attached to your AWS file server on Sunday.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** 900GB over 45Mbps takes at least 48 hours, making a full weekend transfer extremely risky. By using a synchronization approach to [[S3 Overview|Amazon S3]] (similar to [[Migration Readiness Assessment|AWS DataSync]] or `aws s3 sync`), you can transfer the bulk of the data ahead of time. The final delta sync (only 5-10% of data) will easily complete within the weekend window, minimizing downtime. [[Storage Gateway|AWS Storage Gateway]] or direct S3 copies over the weekend would still be bottlenecked by the 45Mbps bandwidth for the initial full load.
@@ -37,10 +37,10 @@ tags: [aws, sap-c02, migration, practice-questions]
 > 4. An IP address space that does not conflict with the one on-premises
 > 5. Entries in Amazon Route 53 that allow the Instance to resolve its dependencies’ IP addresses
 > 6. A VM Import of the current virtual machine
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 4, 6**
-> > **Rationale:** 
+> > **Rationale:**
 > > - **1 ([[Direct Connect Overview|AWS Direct Connect]])**: Provides the necessary hybrid connectivity to reach back to on-premises services.
 > > - **4 (Non-conflicting IP space)**: Essential for routing between the [[VPC Overview|Amazon VPC]] and on-premises network without NAT or address collisions.
 > > - **6 ([[EC2 Overview|AWS VM Import/Export]])**: Migrating the VM as-is ensures that all hardcoded configurations and internal dependencies remain intact, as the "tribal knowledge" of how it was configured is lost.
@@ -52,7 +52,7 @@ tags: [aws, sap-c02, migration, practice-questions]
 > 2. Use AWS SMS to create AMIs for each virtual machine and run them in Amazon EC2.
 > 3. Convert each application to a Docker image and deploy to a small Amazon ECS cluster behind an Application Load Balancer.
 > 4. Use VM Import/Export to create AMIs for each virtual machine and run them in single-instance AWS Elastic Beanstalk environments by configuring a custom image.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** [[EC2 Overview|Elastic Beanstalk]] in a single-instance configuration is the most cost-effective for 103 low-traffic apps. It avoids the fixed cost of an [[ELB Overview|Application Load Balancer (ALB)]] for each app. [[ECS|Amazon ECS]] with an ALB would likely be more expensive due to ALB costs per application (or complexity of shared ALB routing). Using custom images (Option 4) or plain [[EC2 Overview|Amazon EC2]] (Option 2) increases management overhead compared to the standard Beanstalk platforms.

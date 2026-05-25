@@ -10,7 +10,7 @@ tags: [aws, sap-c02, athena, analytics, serverless, practice-questions]
 > 3. Partition the data in S3 by year, month, and day.
 > 4. Increase the Athena workgroup query result limit.
 > 5. Use Athena Federated Query to connect to the S3 bucket via a Lambda function.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 3**
 > > **Rationale:** [[Athena]] performance and cost are directly tied to the amount of data scanned. Converting to a columnar format like **Parquet** allows Athena to only read the specific columns requested in the query. **Partitioning** the data (e.g., by date) allows Athena to skip entire directories of data that don't match the query's WHERE clause (partition pruning). S3 Express One Zone (Option 2) is for low-latency request performance, not necessarily for massive scans. Athena Federated Query (Option 5) is for querying external data sources, not optimizing native S3 data.
@@ -21,7 +21,7 @@ tags: [aws, sap-c02, athena, analytics, serverless, practice-questions]
 > 2. Use Data Pipeline to import into DynamoDB
 > 3. Write to S3 and use Amazon Athena to query
 > 4. Import into Redshift cluster
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** Storing CSV reports in [[S3 Overview|S3]] is highly cost-effective. [[Athena]] allows for infrequent SQL querying directly against S3 without the overhead of loading data into a database or data warehouse. [[S3 Lifecycle Management|S3 Lifecycle]] policies can handle the automatic deletion after 30 days.
@@ -32,7 +32,7 @@ tags: [aws, sap-c02, athena, analytics, serverless, practice-questions]
 > 2. Use EMR with Apache Hive
 > 3. Implement Apache Iceberg tables with Athena
 > 4. Use Glue with Delta Lake format
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** Apache Iceberg is a modern open table format that supports ACID transactions and time travel (querying historical versions of data). [[Athena]] has native support for Iceberg, providing these advanced features in a serverless environment.
@@ -43,7 +43,7 @@ tags: [aws, sap-c02, athena, analytics, serverless, practice-questions]
 > 2. AWS Clean Rooms with Athena integration
 > 3. QuickSight embedded dashboards
 > 4. DataSync replication
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** AWS Clean Rooms allows companies and their partners to analyze their collective datasets without sharing or revealing underlying raw data. It integrates with [[Athena]] to allow SQL queries against the collective data while protecting individual privacy.
@@ -54,7 +54,7 @@ tags: [aws, sap-c02, athena, analytics, serverless, practice-questions]
 > 2. Athena for Apache Spark
 > 3. Athena Provisioned Capacity
 > 4. Athena Query Result Reuse
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** While standard [[Athena]] uses on-demand pricing (per TB scanned), **Provisioned Capacity** allows you to dedicate compute resources to your queries. This provides predictable performance and can be more cost-effective for high-volume, consistent workloads compared to the on-demand model.

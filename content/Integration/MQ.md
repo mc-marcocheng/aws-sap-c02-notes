@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, integration, amazon-mq] 
+tags: [aws, sap-c02, integration, amazon-mq]
 ---
 # Amazon MQ
 
@@ -12,7 +12,7 @@ Managed message broker service for **Apache ActiveMQ** and **RabbitMQ**.
 
 ## Deployment Modes
 - **Single-instance:** Used for development or testing; no HA.
-- **Active/Standby:** Provides High Availability (HA) across Availability Zones. 
+- **Active/Standby:** Provides High Availability (HA) across Availability Zones.
   - **ActiveMQ:** Uses a shared **[[EFS]]** volume for data persistence.
   - **RabbitMQ:** Uses a cluster of nodes with data replicated across them.
 

@@ -27,7 +27,7 @@ AWS Lambda is a serverless, event-driven compute service that lets you run code 
 
 ### VPC Integration
 - By default, Lambda runs in a service-owned VPC with internet access but no access to your private resources.
-- **VPC Access**: Configuring Lambda to access your VPC creates **Hyperplane ENIs**. 
+- **VPC Access**: Configuring Lambda to access your VPC creates **Hyperplane ENIs**.
 - > [!important] **Note**: To access the internet from a VPC-connected Lambda, you **must** have a NAT Gateway or NAT Instance in a public subnet.
 
 ### Security

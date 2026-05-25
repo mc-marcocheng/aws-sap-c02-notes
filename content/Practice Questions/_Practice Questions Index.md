@@ -157,4 +157,3 @@ tags: [aws, sap-c02, practice-questions, index]
 - [[S3 vs EBS vs EFS - Practice Questions]]
 - [[Storage Gateway - Practice Questions]]
 - [[Transfer Family - Practice Questions]]
-

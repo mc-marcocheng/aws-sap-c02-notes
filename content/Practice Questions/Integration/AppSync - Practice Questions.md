@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, appsync, practice-questions] 
+tags: [aws, sap-c02, appsync, practice-questions]
 ---
 # AppSync Practice Questions
 

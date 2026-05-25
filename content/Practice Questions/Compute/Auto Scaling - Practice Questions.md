@@ -11,7 +11,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Auto Scaling group name
 > 3. End time
 > 4. Recurrence value
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1. Maximum size**
 > > **Rationale**: When setting up a scheduled scaling activity, specifically a recurring one, you need the ASG name, the recurrence value (cron expression), and optionally an end time. While you *can* specify a new maximum size as part of the scaling action, it is not a *required* parameter for the schedule itself if you are only adjusting desired capacity or if the group limits are already sufficient. However, in the context of the API/CLI, `MinSize`, `MaxSize`, and `DesiredCapacity` are the targets of the scaling, but `Maximum size` is often already defined for the group.
@@ -22,7 +22,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. `as-terminate-instance-in-auto-scaling-group <Instance ID> --update-desired-capacity`
 > 3. `as-terminate-instance-in-auto-scaling-group <Instance ID> --decrement-desired-capacity`
 > 4. `as-terminate-instance-in-auto-scaling-group <Instance ID> --no-decrement-desired-capacity`
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4. `as-terminate-instance-in-auto-scaling-group <Instance ID> --no-decrement-desired-capacity`**
 > > **Rationale**: To replace specific instances with new ones (using the updated Launch Configuration), you must terminate them without decreasing the desired capacity. The `--no-decrement-desired-capacity` flag ensures that the ASG perceives a gap between the desired capacity and the actual count, triggering the launch of new instances using the latest configuration. See [[EC2 Overview]].
@@ -33,7 +33,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. User should increase the desired capacity at 8 AM and decrease it by 7 PM manually
 > 3. User should setup a batch process which launches the EC2 instance at a specific time
 > 4. Setup scheduled actions to scale up or down at a specific time
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4. Setup scheduled actions to scale up or down at a specific time**
 > > **Rationale**: For predictable, time-based traffic patterns, [[Auto Scaling Overview#Scaling Policies|Scheduled Scaling]] is the most efficient and automated approach. It allows you to define specific times to adjust the min, max, or desired capacity.
@@ -44,7 +44,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. It is not possible to change the status once it is marked for replacement
 > 3. Manually add that instance to the Auto Scaling group after reboot to avoid replacement
 > 4. Change the health of the instance to healthy using the Auto Scaling commands
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2. It is not possible to change the status once it is marked for replacement**
 > > **Rationale**: Once an instance is marked as unhealthy and scheduled for replacement by Auto Scaling, its fate is sealed. You cannot manually "clear" the unhealthy status to prevent termination within the ASG lifecycle. See [[ALB Overview]].
@@ -55,7 +55,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Terminates the instance and updates the desired capacity to 1
 > 3. Terminates the instance and updates the desired capacity & minimum size to 1
 > 4. Throws an error
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4. Throws an error**
 > > **Rationale**: Auto Scaling will not allow you to decrement the desired capacity below the minimum size of the group. Since the minimum capacity is 2, attempting to decrement the desired capacity to 1 will result in an error.
@@ -66,7 +66,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Auto Scaling performs the launch and terminate processes in a random order
 > 3. Auto Scaling launches and terminates the instances simultaneously
 > 4. Auto Scaling terminates the instance first and then launches a new instance
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4. Auto Scaling terminates the instance first and then launches a new instance**
 > > **Rationale**: In a standard unhealthy instance replacement, Auto Scaling first terminates the unhealthy instance to free up capacity (or simply as the first step in the replacement flow) and then launches a new instance to maintain the desired capacity.
@@ -77,7 +77,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Auto Scaling will allow the instances to grow more than the maximum size
 > 3. Auto Scaling will keep launching instances till the maximum instance size
 > 4. It is not possible to suspend the terminate process while keeping the launch active
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2. Auto Scaling will allow the instances to grow more than the maximum size**
 > > **Rationale**: The `AZRebalance` process works by first launching a new instance in the under-represented AZ and then terminating an instance in the over-represented AZ. If `Terminate` is suspended, the launch will still occur to balance the zones, but the subsequent termination won't. This can cause the ASG to temporarily grow up to 10% beyond its maximum size. See [[ALB Overview]].
@@ -88,7 +88,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. It is not possible to find the root cause from that instance without triggering scaling
 > 3. Delete Auto Scaling until research is completed
 > 4. Suspend the scaling process until research is completed
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4. Suspend the scaling process until research is completed**
 > > **Rationale**: You can [[Auto Scaling Overview#Standby and Suspension|suspend]] Auto Scaling processes (like `Launch` or `AlarmNotification`) to prevent scaling actions while you investigate the instance. Alternatively, putting the instance in a `Standby` state is also a common practice for troubleshooting. See [[ALB Overview]].
@@ -99,7 +99,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. AWS will receive the alarms but will not execute the Auto Scaling policy
 > 3. Auto Scaling will execute the policy but it will not launch the instances until the process is resumed
 > 4. It is not possible to suspend the AlarmNotification process
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2. AWS will receive the alarms but will not execute the Auto Scaling policy**
 > > **Rationale**: Suspending `AlarmNotification` prevents the ASG from reacting to CloudWatch alarms. The alarms are still triggered in CloudWatch, but the notification to the ASG is ignored, so no scaling policies are executed. See [[ALB Overview]].
@@ -110,7 +110,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Run the command `as-update-auto-scaling-group` to configure one group to span across zones and delete the other group
 > 3. Run the command `as-copy-auto-scaling-group` to join the two groups
 > 4. Run the command `as-merge-auto-scaling-group` to merge the groups
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2. Run the command `as-update-auto-scaling-group` to configure one group to span across zones and delete the other group**
 > > **Rationale**: There is no "merge" or "join" command for ASGs. The procedure is to update one ASG to include the subnets/AZs of the other, and then delete the redundant ASG.
@@ -121,7 +121,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Terminate the instance and launch a new instance
 > 3. Notify the user using SNS for the failed state
 > 4. Notify ELB to stop sending traffic to the impaired instance
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2. Terminate the instance and launch a new instance**
 > > **Rationale**: When an instance fails health checks (marks as impaired), Auto Scaling's primary job is to maintain availability by replacing it. It will terminate the unhealthy instance and launch a replacement. See [[ALB Overview]].
@@ -132,7 +132,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Auto Scaling will suspend the scaling process
 > 3. Auto Scaling will start an instance in a separate region
 > 4. The Auto Scaling group will be terminated automatically
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2. Auto Scaling will suspend the scaling process**
 > > **Rationale**: This is known as **Administrative Suspension**. If an ASG is unable to launch instances for 24 hours (e.g., due to an invalid AMI ID or security group), AWS will automatically suspend the `Launch` process to prevent unnecessary costs or resource exhaustion.
@@ -143,7 +143,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. The scaling should be setup only one week before Christmas
 > 3. Wait till end of November before scheduling the activity
 > 4. It is not advisable to use scheduled based scaling
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3. Wait till end of November before scheduling the activity**
 > > **Rationale**: While scheduled scaling is good for proactive planning, scheduling it too far in advance (e.g., in early summer for Christmas) might not account for architectural changes that happen in the interim. Waiting until closer to the event (e.g., late November) ensures the configuration is still valid and reflects the current state of the application.
@@ -154,7 +154,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Auto Scaling will add two instances on the 1st of the month
 > 3. Auto Scaling will schedule both the processes but execute only one process randomly
 > 4. Auto Scaling will throw an error since there is a conflict in the schedule of two separate Auto Scaling Processes
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4. Auto Scaling will throw an error since there is a conflict in the schedule of two separate Auto Scaling Processes**
 > > **Rationale**: Auto Scaling will not allow you to create scheduled actions that conflict in timing. If two schedules attempt to modify the same capacity settings at the exact same time, it will result in an error or a rejected configuration.
@@ -165,7 +165,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Schedule Actions
 > 3. Replace Unhealthy
 > 4. Availability Zone Re-Balancing
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1. Reboot Instance**
 > > **Rationale**: Auto Scaling manages the lifecycle of instances (Launch, Terminate, Replace), but it does not perform "Reboot" as a standard automated process. If an instance is failing, it replaces it; it doesn't try to reboot it.
@@ -176,7 +176,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Make sure Auto Scaling is configured to launch in both AZs
 > 3. Make sure your AMI is available in both AZs
 > 4. Make sure the maximum size of the Auto Scaling Group is greater than 4
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2. Make sure Auto Scaling is configured to launch in both AZs**
 > > **Rationale**: If the ASG is only configured with subnets in AZ A, it will only launch instances there. To balance across AZs, you must ensure the ASG is configured to use subnets in both AZ A and AZ B. See [[ALB Overview]].
@@ -187,7 +187,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Ensure the application instances are launched in private subnets with the EBS-optimized option enabled
 > 3. Ensure the application instances are launched in public subnets with the associate-public-IP-address=true option enabled
 > 4. Launch application instances in private subnets with an Auto Scaling group and Auto Scaling triggers configured to watch the SQS queue size
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4. Launch application instances in private subnets with an Auto Scaling group and Auto Scaling triggers configured to watch the SQS queue size**
 > > **Rationale**: Scaling based on SQS queue size (e.g., using the `ApproximateNumberOfMessagesVisible` metric) is the standard pattern for worker-based architectures. This ensures that the number of processing instances scales directly with the volume of work in the queue. See [[SQS Overview]]. See [[EC2 Overview]].
@@ -198,7 +198,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Auto Scaling group
 > 3. Auto Scaling policy
 > 4. Auto Scaling tags
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1. Auto Scaling launch configuration**
 > > **Rationale**: The instance type, AMI, and other boot parameters are defined in the [[Auto Scaling Overview#Core Components|Launch Configuration]] (or Launch Template). To change the instance type, you must create a new LC/LT or a new version and associate it with the ASG.
@@ -209,7 +209,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Terminate the Auto Scaling instances with the `as-terminate-instance` command
 > 3. Set the minimum size and desired capacity to 0
 > 4. There is no need to change the capacity. Run the `as-delete-group` command and it will reset all values to 0
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3. Set the minimum size and desired capacity to 0**
 > > **Rationale**: From the CLI, you cannot delete an ASG if it still has running instances. You must first set the capacity to 0, which triggers the termination of the instances, and then you can delete the group.
@@ -220,7 +220,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Schedule Auto Scaling to scale up by 8 AM Thursday and scale down after 6 PM on Friday
 > 3. Schedule a policy which may scale up every day at 8 AM and scales down by 6 PM
 > 4. Configure a batch process to add a instance by 8 AM and remove it by Friday 6 PM
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2. Schedule Auto Scaling to scale up by 8 AM Thursday and scale down after 6 PM on Friday**
 > > **Rationale**: Scheduled scaling allows for recurring actions. In this case, setting specific start and end times for the Thursday-Friday window is the most automated and accurate approach.
@@ -231,7 +231,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. 0
 > 3. 5
 > 4. 2
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1. 3**
 > > **Rationale**: By default, if desired capacity is not specified, Auto Scaling sets it to the minimum capacity. Thus, it will immediately launch 3 instances to meet that minimum requirement.
@@ -242,7 +242,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Increase the maximum limit of the Auto Scaling group
 > 3. Launch an instance manually and register it with ELB on the fly
 > 4. Decrease the minimum limit of the Auto Scaling group
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1. Increase the desired capacity of the Auto Scaling group**
 > > **Rationale**: Increasing the **Desired Capacity** is the direct way to manually trigger the launch of new instances within an ASG. See [[ALB Overview]]. See [[EC2 Overview]].
@@ -254,7 +254,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 3. Modify the Auto scaling policy to use scheduled scaling actions.
 > 4. Modify the Auto scaling group cool down timers.
 > 5. Modify the Auto scaling group termination policy to terminate newest instance first.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1. Modify the Amazon CloudWatch alarm period that triggers your auto scaling scale down policy., 4. Modify the Auto scaling group cool down timers.**
 > > **Rationale**: Frequent scaling (flapping) is often caused by alarms that are too sensitive or cooldowns that are too short. Increasing the **CloudWatch alarm period** (e.g., from 1 minute to 5 minutes) ensures that transient spikes don't trigger scaling. Adjusting the **Cooldown Period** ensures that the system doesn't scale again until the previous action has had time to take effect.
@@ -265,7 +265,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Deploy in three AZs, with Auto Scaling minimum set to handle 50% peak load per zone.
 > 3. Deploy in three AZs, with Auto Scaling minimum set to handle 33% peak load per zone.
 > 4. Deploy in two regions using Weighted Round Robin (WRR), with Auto Scaling minimums set for 50% peak load per region.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2. Deploy in three AZs, with Auto Scaling minimum set to handle 50% peak load per zone.**
 > > **Rationale**: If Auto Scaling cannot launch *new* instances (as per the constraint), you must have enough capacity *already running* to handle the failure. In a 3-AZ setup, if each zone handles 50% of peak load, the total capacity is 150%. If one AZ fails, the remaining two zones (50% + 50%) can handle 100% of the load without needing to launch new instances. Option C is incorrect because 33% + 33% only covers 66% of peak load.
@@ -276,7 +276,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. The user should change the Auto Scaling group from the AWS console to enable detailed monitoring
 > 3. Update the Launch config with CLI to set `InstanceMonitoring.Enabled = true`
 > 4. Create a new Launch Config with detail monitoring enabled and update the Auto Scaling group
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4. Create a new Launch Config with detail monitoring enabled and update the Auto Scaling group**
 > > **Rationale**: Launch Configurations are **immutable**. You cannot update an existing one. You must create a new LC (or Launch Template version) with the desired settings and associate it with the ASG.
@@ -287,7 +287,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. It will fetch the data at every minute as detailed monitoring on EC2 will be enabled by the default launch configuration of Auto Scaling
 > 3. The alarm creation will fail since the user has not enabled detailed monitoring on the EC2 instances
 > 4. The user has to first enable detailed monitoring on the EC2 instances to support alarm monitoring at every minute
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1. It will fetch the data at every minute but the four data points [corresponding to 4 minutes] will not have value since the EC2 basic monitoring metrics are collected every five minutes**
 > > **Rationale**: By default (especially via CLI), basic monitoring (5-minute intervals) is enabled. If you create a 1-minute alarm, it will only receive data points every 5 minutes, resulting in "missing" data for the other 4 minutes. You must enable **Detailed Monitoring** for 1-minute data delivery. See [[EC2 Overview]].
@@ -298,7 +298,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Setup to run 10 instances during the pre-vacation period and only scale up during the office time by launching 10 more instances using the AutoScaling schedule.
 > 3. During the pre-vacation period setup a scenario where the organization has 15 instances running and 5 instances to scale up and down using Auto Scaling based on the network I/O policy.
 > 4. During the pre-vacation period setup 20 instances to run continuously.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2. Setup to run 10 instances during the pre-vacation period and only scale up during the office time by launching 10 more instances using the AutoScaling schedule.**
 > > **Rationale**: This is the most cost-effective and performant balance. It uses scheduled scaling to proactively handle the known daily office-hour spikes during the high-traffic week, while avoiding the cost of running 20 instances 24/7. See [[EC2 Overview]].
@@ -309,7 +309,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Launch an instance which has the highest load distribution
 > 3. Launch an instance in the AZ with the fewest instances
 > 4. Launch an instance in the AZ which has the highest instances
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3. Launch an instance in the AZ with the fewest instances**
 > > **Rationale**: To maintain high availability, Auto Scaling always attempts to distribute instances evenly across Availability Zones. When launching a new instance, it picks the zone with the fewest instances.
@@ -320,7 +320,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Run the command: `as-describe-group-limits`
 > 3. Run the command: `as-max-account-limits`
 > 4. Run the command: `as-list-account-limits`
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1. Run the command: `as-describe-account-limits`**
 > > **Rationale**: The CLI command `describe-account-limits` (or the older `as-describe-account-limits`) returns the limits for the number of ASGs and Launch Configurations in your account for that region.
@@ -331,7 +331,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Delete the Auto Scaling launch configuration after the instances are terminated
 > 3. Release the elastic IP if not required once the instance is terminated
 > 4. Delete the AWS ELB after the instances are terminated
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2. Delete the Auto Scaling launch configuration after the instances are terminated**
 > > **Rationale**: Auto Scaling Launch Configurations (and templates) are free of charge. You only pay for the resources they create (EC2 instances). Deleting the LC itself provides no cost savings.
@@ -342,7 +342,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Desired capacity
 > 3. Preferred capacity
 > 4. Current capacity
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2. Desired capacity**
 > > **Rationale**: Adjusting the **Desired Capacity** is the standard way to manually trigger a scale-up or scale-down event in an ASG.
@@ -353,7 +353,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Terminating:Wait
 > 3. Pending
 > 4. EnteringStandby
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3. Pending**
 > > **Rationale**: When an instance is moved from `InService` to `Standby`, it is technically removed from the ASG's active set. When it is moved back *out* of Standby to become active again, it enters the `Pending` state while it is re-registered with load balancers and prepared for service. (Note: The raw question asks for transition *after leaving steady state in Standby*, implying returning to service).
@@ -364,7 +364,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Detaching
 > 3. Terminating:Wait
 > 4. EnteringStandby
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1. Terminating**
 > > **Rationale**: When an instance is selected for termination (scale-in or unhealthy), it transitions directly into the `Terminating` state.
@@ -375,7 +375,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Use CloudWatch to monitor the data and Auto Scaling to remove the instances using scheduled actions
 > 3. Configure CloudWatch to send a notification to Auto Scaling Launch configuration when the CPU utilization is less than 10% and configure the Auto Scaling policy to remove the instance
 > 4. Configure CloudWatch to send a notification to the Auto Scaling group when the CPU Utilization is less than 10% and configure the Auto Scaling policy to remove the instance
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4. Configure CloudWatch to send a notification to the Auto Scaling group when the CPU Utilization is less than 10% and configure the Auto Scaling policy to remove the instance**
 > > **Rationale**: Dynamic scaling involves CloudWatch alarms sending notifications to the Auto Scaling group, which then executes a defined scaling policy (e.g., "Remove 1 instance"). See [[ALB Overview]]. See [[EC2 Overview]].
@@ -386,7 +386,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. `GroupSumInstances`
 > 3. It is not possible to get a count of all the three metrics together.
 > 4. `GroupInstancesCount`
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1. `GroupTotalInstances`**
 > > **Rationale**: `GroupTotalInstances` is an ASG metric (available with group metrics enabled) that provides the total count of instances in all states (InService, Pending, Terminating) within the group.
@@ -397,7 +397,7 @@ Test your knowledge of Amazon EC2 Auto Scaling with these architect-level practi
 > 2. Use SWF with an Auto Scaling group of activity workers and a decider instance in another Auto Scaling group with min/max=1 Use the decider instance to send emails to customers.
 > 3. Use SWF with an Auto Scaling group of activity workers and a decider instance in another Auto Scaling group with min/max=1 use SES to send emails to customers.
 > 4. Use an SQS queue to manage all process tasks Use an Auto Scaling group of EC2 Instances that poll the tasks and execute them. Use SES to send emails to customers.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3. Use SWF with an Auto Scaling group of activity workers and a decider instance in another Auto Scaling group with min/max=1 use SES to send emails to customers.**
 > > **Rationale**: Simple Workflow Service (SWF) is ideal for long-running, multi-step processes like order fulfillment. Using an ASG for activity workers ensures the processing layer can scale. Using Amazon SES (Simple Email Service) ensures reliable email delivery, which is a standard best practice compared to sending from EC2 directly. See SES Overview.

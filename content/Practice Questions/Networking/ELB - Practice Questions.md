@@ -9,7 +9,7 @@ tags: [aws, sap-c02, elb, networking, practice-questions]
 > 2. File a change request to Implement Cross-Zone support in the application. Use an ELB with a TCP Listener and Cross-Zone Load Balancing enabled, two application servers in different AZs.
 > 3. File a change request to implement Latency Based Routing support in the application. Use Route 53 with Latency Based Routing enabled to distribute load on two application servers in different AZs.
 > 4. File a change request to implement Alias Resource support in the application Use Route 53 Alias Resource Record to distribute load on two application servers in different AZs.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** [[ELB Overview|Elastic Load Balancing]] supports Proxy Protocol version 1 when you use TCP for both front-end and back-end connections. Proxy Protocol provides a human-readable header that includes connection information such as the source IP address, destination IP address, and port numbers. The application servers must be configured to parse this header to know the original client IP.
@@ -20,7 +20,7 @@ tags: [aws, sap-c02, elb, networking, practice-questions]
 > 2. Configure your Web servers with EIPs. Place the Web servers in a Route53 Record Set and configure health checks against all Web servers.
 > 3. Configure ELB with HTTPS listeners, and place the Web servers behind it.
 > 4. Configure your web servers as the origins for a CloudFront distribution. Use custom SSL certificates on your CloudFront distribution.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 2**
 > > **Rationale:** [[ELB Overview|Elastic Load Balancers]] with HTTPS listeners do not support Client-Side certificates (mutual TLS) because they terminate the connection without passing the client certificate. To perform client certificate authentication, you must pass the TCP connection directly to the web servers. This can be done by using a Network Load Balancer (or Classic ELB with TCP listeners) on port 443, OR by using Route 53 with health checks directly against instances with EIPs.
@@ -31,7 +31,7 @@ tags: [aws, sap-c02, elb, networking, practice-questions]
 > 2. Set up one ELB for all platforms to distribute load among multiple instance under it. Each EC2 instance implements all functionality for a particular platform.
 > 3. Set up two ELBs. The first ELB handles SSL certificates for all platforms and the second ELB handles session stickiness for all platforms for each ELB run separate EC2 instance groups to handle the web application for each platform.
 > 4. Assign multiple ELBs to an EC2 instance or group of EC2 instances running the common components of the web application, one ELB for each platform type. Session stickiness and SSL termination are done at the ELBs.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** In a scenario requiring different SSL certificates and distinct session stickiness per platform on common backend components, assigning multiple [[ELB Overview|ELBs]] to the same group of instances is the most cost-effective. Each ELB acts as the entry point for a specific platform, handling its specific SSL termination and sticky session logic, without requiring you to duplicate the entire EC2 compute fleet for each platform. Note: While ALBs support SNI and multiple certificates, they still only support a single stickiness policy.
@@ -42,7 +42,7 @@ tags: [aws, sap-c02, elb, networking, practice-questions]
 > 2. ELB's behavior when sticky sessions are enabled causes ELB to send requests in the same session to the same backend.
 > 3. A faulty browser is not honoring the TTL of the ELB DNS name.
 > 4. The web application uses long polling such as comet or websockets, thereby keeping a connection open to a web server for a long time.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 4**
 > > **Rationale:** If an [[ELB Overview|ELB]] has sticky sessions enabled, existing user sessions will remain tied to their original EC2 instances, meaning newly launched instances won't receive traffic from existing users. Similarly, if the application uses long polling (like websockets), the connections remain open and active with the older instances, preventing load from shifting to the new instances launched by [[Auto Scaling Overview|Auto Scaling]].
@@ -53,7 +53,7 @@ tags: [aws, sap-c02, elb, networking, practice-questions]
 > 2. Check the service limits in Trusted Advisor and adjust as necessary so the forecasted count remains within limits.
 > 3. Change your Auto Scaling configuration to set a desired capacity of 175 prior to the launch of the marketing campaign.
 > 4. Pre-warm your Elastic Load Balancer to match the requests per second anticipated during peak demand.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** Since the traffic will steadily ramp up over 4 weeks, the [[ELB Overview|Elastic Load Balancer]] has plenty of time to scale automatically without needing manual pre-warming (which is meant for sudden, massive spikes). However, scaling up to 175 instances could easily hit account service limits for EC2 instances. Checking [[Trusted Advisor|AWS Trusted Advisor]] and requesting limit increases for EC2 instance capacity ensures Auto Scaling can operate without disruption.
@@ -65,7 +65,7 @@ tags: [aws, sap-c02, elb, networking, practice-questions]
 > 3. Re-configure the load-testing software to re-resolve DNS for each web request.
 > 4. Configure Elastic Load Balancing and Auto Scaling to distribute across us-west-2a and us-west-2b.
 > 5. Use a third-party load-testing service which offers globally distributed test clients.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3, 5**
 > > **Rationale:** [[ELB Overview|Elastic Load Balancers]] scale by creating multiple nodes (IP addresses) in DNS. If a load tester from a single EC2 instance caches a single DNS response and doesn't re-resolve it, it will send all traffic to just one ELB node in one AZ (resulting in traffic only hitting instances in that AZ). To distribute the test properly, you must either re-configure the software to re-resolve the DNS (preventing caching of a single ELB IP), or use a globally distributed load testing service with multiple clients mimicking real-world traffic.
@@ -76,7 +76,7 @@ tags: [aws, sap-c02, elb, networking, practice-questions]
 > 2. Use SSL termination with a SAN SSL certificate on the load balancer, Amazon EC2 with all Amazon EBS volumes using Amazon EBS encryption, and Amazon S3 with server-side encryption with customer-managed keys.
 > 3. Use TCP load balancing on the load balancer, SSL termination on the Amazon EC2 instances, OS-level disk encryption on the Amazon EBS volumes, and Amazon S3 with server-side encryption.
 > 4. Use SSL termination on the load balancer, an SSL listener on the Amazon EC2 instances, Amazon EBS encryption on EBS volumes containing PHI, and Amazon S3 with server-side encryption.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3, 4**
 > > **Rationale:** To maintain encryption in transit for PHI, data must be encrypted all the way to the instances. If you terminate SSL at the load balancer and send unencrypted HTTP to the instances (as in options 1 and 2), you violate the "encryption in transit" requirement. You must either use TCP load balancing to pass the encrypted traffic directly to the instances (Option 3), or terminate SSL at the ELB but re-encrypt it (using an SSL listener on the backend instances) before sending to the EC2 instances (Option 4). Additionally, EBS and S3 encryption handles the "at rest" requirements.
@@ -87,7 +87,7 @@ tags: [aws, sap-c02, elb, networking, practice-questions]
 > 2. Configure the security group of EC2, which allows access to the ELB source security group
 > 3. Configure the EC2 instance so that it only listens on the ELB port
 > 4. Configure the security group of EC2, which allows access only to the ELB listener
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** To restrict access so that an EC2 instance only accepts traffic from an [[ELB Overview|Elastic Load Balancer]], you should configure the Security Group of the EC2 instances to only allow inbound traffic from the Security Group ID associated with the ELB.
@@ -98,7 +98,7 @@ tags: [aws, sap-c02, elb, networking, practice-questions]
 > 2. ELB deregistration check
 > 3. ELB connection draining
 > 4. ELB auto registration Off
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[ELB Overview|Connection Draining]] (also known as Deregistration Delay on modern ELBs) allows the load balancer to complete in-flight requests made while keeping the existing connections open, and preventing any new requests from being sent to instances that are de-registering or unhealthy.
@@ -109,7 +109,7 @@ tags: [aws, sap-c02, elb, networking, practice-questions]
 > 2. An Amazon Route 53 weighted routing policy
 > 3. Elastic Load Balancing cross-zone load balancing
 > 4. An Amazon Route 53 latency routing policy
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** Enabling **Cross-Zone load balancing** allows the [[ELB Overview|Elastic Load Balancer]] to distribute incoming requests evenly across all the backend instances, regardless of the Availability Zone they are in. Without it, the load balancer distributes traffic evenly across AZs first, which can cause uneven instance load if the AZs have different numbers of instances.

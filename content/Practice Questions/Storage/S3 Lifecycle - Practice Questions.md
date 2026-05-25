@@ -9,7 +9,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Delete the object and re-upload it, selecting Glacier as the storage class.
 > 3. None of the above.
 > 4. Create a lifecycle policy that will migrate it after a minimum of 30 days.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** Any object uploaded to [[S3 Overview|Amazon S3]] must first be placed into either the Standard, Reduced Redundancy, or Infrequent Access storage class. Once in S3, the only way to move the object to [[S3 Storage Classes|Glacier]] is through a [[S3 Lifecycle Management|Lifecycle Policy]]. Note: While direct PUT to Glacier is possible via Glacier API, within the S3 ecosystem and common exam scenarios, lifecycle transition is the primary mechanism for migration from Standard.
@@ -20,7 +20,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Store the files in Amazon S3 and create a Lifecycle Policy to remove the files after 6 months.
 > 3. Store the files in Amazon Glacier and create a Lifecycle Policy to remove the files after 6 months.
 > 4. Store the files in Amazon EFS and create a Lifecycle Policy to remove the files after 6 months.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** Store the files in [[S3 Overview|Amazon S3]] and create a [[S3 Lifecycle Management|Lifecycle Policy]] to remove (expire) the files after 6 months. S3 is the most cost-effective and scalable service for document storage compared to EBS or EFS, and its lifecycle management specifically handles automated expiration.
@@ -31,7 +31,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Setup Auto-Scaled workers triggered by queue depth that use spot instances to process messages in SQS. Once data is processed, change the storage class of the S3 objects to Reduced Redundancy Storage.
 > 3. Setup Auto-Scaled workers triggered by queue depth that use spot instances to process messages in SQS. Once data is processed, change the storage class of the S3 objects to Glacier.
 > 4. Use SNS to pass job messages use Cloud Watch alarms to terminate spot worker instances when they become idle. Once data is processed, change the storage class of the S3 object to Glacier.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** This solution replaces on-premises components with AWS equivalents:
@@ -45,7 +45,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Transfer the daily backup files to an EBS volume in AWS and take daily snapshots of the volume.
 > 3. Transfer the daily backup files to S3 and use appropriate bucket lifecycle policies to send to Glacier.
 > 4. Host the backup files on a Storage Gateway with Gateway-Cached Volumes and take daily snapshots.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** This approach meets all requirements:

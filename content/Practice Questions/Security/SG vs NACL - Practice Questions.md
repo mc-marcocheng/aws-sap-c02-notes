@@ -9,10 +9,10 @@ tags: [aws, sap-c02, networking, security, practice-questions]
 > 2. The security group attached to instance B does not allow inbound ICMP traffic
 > 3. The policy linked to the IAM role on instance A is not configured correctly
 > 4. The NACL on subnet B does not allow outbound ICMP traffic
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 4**
-> > **Rationale:** 
+> > **Rationale:**
 > > - **Security Group Inbound Rules**: For a ping to succeed, the target's [[Security Groups vs NACLs#Security Groups (SG)|Security Group]] must allow inbound ICMP traffic.
 > > - **NACL Statelessness**: Since [[Security Groups vs NACLs#Network ACLs (NACL)|Network ACLs]] are stateless, they must explicitly allow both inbound and outbound traffic. If Subnet B's NACL allows inbound ICMP but denies outbound ICMP, the ping response will be blocked.
 > > - *Note*: Local routes in a [[VPC Overview|VPC]] allow communication between all subnets by default, and IAM roles do not control network-level traffic.
@@ -23,10 +23,10 @@ tags: [aws, sap-c02, networking, security, practice-questions]
 > 2. The outbound network ACL needs to be modified to allow outbound traffic.
 > 3. Nothing, it can be accessed from any IP address using SSH.
 > 4. Both the outbound security group and outbound network ACL need to be modified to allow outbound traffic.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** 
+> > **Rationale:**
 > > - **Stateful SGs**: [[Security Groups vs NACLs#Security Groups (SG)|Security Groups]] are stateful. If inbound traffic is allowed, the response is automatically allowed regardless of outbound rules.
 > > - **Stateless NACLs**: [[Security Groups vs NACLs#Network ACLs (NACL)|Network ACLs]] are stateless. Even if inbound traffic is allowed, the return traffic must be explicitly permitted in the outbound rules.
 
@@ -38,7 +38,7 @@ tags: [aws, sap-c02, networking, security, practice-questions]
 > 4. VPC subnet
 > 5. IGW
 > 6. NACL
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 6**
 > > **Rationale:** [[Security Groups vs NACLs#Network ACLs (NACL)|Network ACLs]] (applied at the subnet level) are the primary tool for blocking specific IP addresses because they support **Deny** rules. [[Security Groups vs NACLs#Security Groups (SG)|Security Groups]] only support **Allow** rules.
@@ -50,10 +50,10 @@ tags: [aws, sap-c02, networking, security, practice-questions]
 > 3. Security group can work outside the VPC also while ACL only works within a VPC
 > 4. Network ACL performs stateless filtering and Security group provides stateful filtering
 > 5. Security group can only set Allow rule, while ACL can set Deny rule also
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 4, 5**
-> > **Rationale:** 
+> > **Rationale:**
 > > - **Scope**: [[Security Groups vs NACLs#Security Groups (SG)|Security Groups]] operate at the instance level (ENI), while [[Security Groups vs NACLs#Network ACLs (NACL)|NACLs]] operate at the subnet level.
 > > - **State**: SGs are **stateful** (track connections); NACLs are **stateless**.
 > > - **Rule Types**: SGs support **Allow only**; NACLs support **Allow and Deny**.
@@ -64,7 +64,7 @@ tags: [aws, sap-c02, networking, security, practice-questions]
 > 2. Modify the Network ACLs associated with all public subnets in the VPC to deny access from the IP address block
 > 3. Add a rule to all of the VPC Security Groups to deny access from the IP address block
 > 4. Modify the Windows Firewall settings on all AMIs
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** To block a specific IP range, you must use a [[Security Groups vs NACLs#Network ACLs (NACL)|Network ACL]] because [[Security Groups vs NACLs#Security Groups (SG)|Security Groups]] do not support Deny rules. This is a centralized and immediate way to enforce the block at the subnet boundary.
@@ -75,10 +75,10 @@ tags: [aws, sap-c02, networking, security, practice-questions]
 > 2. Both instances are the same instance class and using the same Key-pair.
 > 3. That the default route is set to a NAT instance or Internet Gateway (IGW).
 > 4. Security groups are set to allow the application host to talk to the database on the right port/protocol
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 4**
-> > **Rationale:** 
+> > **Rationale:**
 > > - **NACLs**: Since subnets are involved, the [[Security Groups vs NACLs#Network ACLs (NACL)|Network ACLs]] of both subnets must allow the traffic in both directions (stateless).
 > > - **Security Groups**: The [[Security Groups vs NACLs#Security Groups (SG)|Security Group]] of the database must allow inbound traffic from the application on the required port.
 > > - *Note*: Internal VPC traffic uses the default "local" route, so NAT/IGW is not required for inter-subnet communication.
@@ -89,7 +89,7 @@ tags: [aws, sap-c02, networking, security, practice-questions]
 > 2. Change the EIP of the NAT instance in the web tier subnet
 > 3. Create 15 Security Group rules to block the attacking IP addresses over port 80
 > 4. Create an inbound NACL associated with the web tier subnet with deny rules to block the attacking IP addresses
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** [[Security Groups vs NACLs#Network ACLs (NACL)|Network ACLs]] are the correct tool for blocking specific malicious IP addresses via **Deny** rules. Since the instances are overloaded, blocking the traffic at the subnet level prevents it from even reaching the EC2 instances.
@@ -100,10 +100,10 @@ tags: [aws, sap-c02, networking, security, practice-questions]
 > 2. Using network ACLs, you can deny access from a specific IP range
 > 3. Keep network ACL rules simple and use a security group to restrict application level access
 > 4. NACLs are associated with a single Availability Zone
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 3**
-> > **Rationale:** 
+> > **Rationale:**
 > > - **Deny Rules**: [[Security Groups vs NACLs#Network ACLs (NACL)|NACLs]] allow explicit deny rules for IP ranges.
 > > - **Best Practice**: It is recommended to keep [[Security Groups vs NACLs#Network ACLs (NACL)|NACLs]] simple (e.g., for broad CIDR blocks) and use [[Security Groups vs NACLs#Security Groups (SG)|Security Groups]] for granular, application-level stateful filtering.
 > > - *Note*: NACLs are associated with subnets, and while a subnet resides in one AZ, a NACL can be associated with multiple subnets across different AZs.
@@ -114,10 +114,10 @@ tags: [aws, sap-c02, networking, security, practice-questions]
 > 2. Configure NACL to explicitly allow or deny communication between the different IP address ranges.
 > 3. Configure a security group for every zone. Configure allow rules only between zones that need to be able to communicate. Use implicit deny all rule.
 > 4. Configure multiple subnets and use routing to limit communication.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 3**
-> > **Rationale:** 
+> > **Rationale:**
 > > - **NACLs**: Can be used to strictly allow/deny traffic between CIDR ranges representing different zones ([[Security Groups vs NACLs#Network ACLs (NACL)|NACL]]).
 > > - **Security Groups**: Use the "Least Privilege" model by only adding **Allow** rules for required traffic. SGs have an implicit "deny all" for anything not explicitly allowed ([[Security Groups vs NACLs#Security Groups (SG)|Security Group]]).
 
@@ -127,7 +127,7 @@ tags: [aws, sap-c02, networking, security, practice-questions]
 > 2. Yes, both must be in the same security group.
 > 3. Yes, the monitoring SG needs outbound ICMP and the application SG needs inbound ICMP.
 > 4. Yes, both SGs need both inbound and outbound ICMP allowed.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** Because [[Security Groups vs NACLs#Security Groups (SG)|Security Groups]] are **stateful**, you only need to allow the initiating traffic (outbound on the source, inbound on the destination). The response traffic is automatically permitted.
@@ -138,7 +138,7 @@ tags: [aws, sap-c02, networking, security, practice-questions]
 > 2. Configure the subnet as the source in the security group.
 > 3. Configure the security group itself as the source and allow traffic on all protocols and ports.
 > 4. Use VPC peering.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** This is known as **Security Group Referencing**. By allowing the SG ID as a source, all instances associated with that [[Security Groups vs NACLs#Security Groups (SG)|Security Group]] can communicate with each other, regardless of their IP addresses.
@@ -149,7 +149,7 @@ tags: [aws, sap-c02, networking, security, practice-questions]
 > 2. Implement security groups and configure outbound rules to only permit traffic to software depots.
 > 3. Move instances to private subnets and add specific routes to the depots.
 > 4. Implement network access control lists to specific destinations.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** Neither [[Security Groups vs NACLs#Security Groups (SG)|Security Groups]] nor [[Security Groups vs NACLs#Network ACLs (NACL)|NACLs]] can filter traffic based on URLs or Domain Names (they operate at Layers 3 and 4). A web proxy (Layer 7) is required for URL-based filtering.
@@ -160,7 +160,7 @@ tags: [aws, sap-c02, networking, security, practice-questions]
 > 2. Immediately to the new instances only.
 > 3. Old instances must be restarted.
 > 4. To all instances, but it may take several minutes.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** Rule changes to a [[Security Groups vs NACLs#Security Groups (SG)|Security Group]] are applied immediately to all associated instances and their Elastic Network Interfaces (ENIs).

@@ -31,8 +31,7 @@ tags: [aws, sap-c02, codecommit, practice-questions]
 > 2. Create an Amazon EventBridge rule that matches `CodeCommit Repository State Change` events and triggers a Step Functions workflow.
 > 3. Use a CloudWatch Alarm to monitor the `RepositoryTagCount` metric.
 > 4. Install a third-party agent on the CodeCommit server to monitor Git hooks.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** [[CodeCommit]] supports **Triggers** which can be configured for specific events like "Push to existing branch" or "Created tag." These triggers can natively send a notification to an [[SNS]] topic or invoke a [[Lambda]] function directly, which can then perform the Slack integration. EventBridge (Option 2) is also valid but Triggers are a more direct, built-in feature for CodeCommit-specific events. (See [[CodeCommit]])
-

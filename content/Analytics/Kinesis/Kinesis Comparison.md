@@ -21,7 +21,7 @@ Understanding the differences between Kinesis Data Streams (KDS) and Kinesis Dat
 ## Kinesis Data Streams (KDS)
 - **Customizable**: Build your own processing logic using KCL or Lambda.
 - **High Performance**: Enhanced fan-out provides dedicated 2MB/s throughput per consumer.
-- **Scaling**: 
+- **Scaling**:
     - **Provisioned**: Manually manage shards.
     - **On-Demand**: AWS manages scaling automatically (up to 200 MB/s).
 

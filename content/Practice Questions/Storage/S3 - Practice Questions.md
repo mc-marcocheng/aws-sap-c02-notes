@@ -21,7 +21,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 3. S3 allows you to store objects or virtually unlimited size
 > 4. S3 allows you to store virtually unlimited amounts of data
 > 5. S3 offers Provisioned IOPS
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 4**
 > > **Rationale:** In [[S3 Overview|Amazon S3]], objects are directly accessible via a URL, and it provides virtually unlimited storage space. The maximum size of an individual object is 5 TB (not unlimited size).
@@ -32,7 +32,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. A single Amazon Glacier vault
 > 3. A single Amazon S3 bucket
 > 4. Multiple instance stores
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** A single [[S3 Overview|Amazon S3]] bucket is cost-efficient, scalable, and provides durable storage where you don't need to know storage capacity requirements in advance.
@@ -43,7 +43,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Upload the files in parallel to S3 using mulipart upload
 > 3. Pack all files into a single archive, upload it to S3, then extract the files in AWS
 > 4. Use AWS Import/Export to transfer the video files
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** Using [[S3 Overview#Multipart Upload|S3 Multipart Upload]] allows uploading a single large object as a set of parts in parallel, which improves throughput and effectively utilizes available network bandwidth.
@@ -54,7 +54,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Amazon S3
 > 3. Amazon EC2 instance store
 > 4. Amazon RDS instance
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[S3 Overview|Amazon S3]] provides highly durable storage for static content. Serving static content directly from S3 offloads this work from the web tier EC2 instances, lowering their overall CPU utilization.
@@ -65,7 +65,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Use Amazon S3 multipart upload
 > 3. Leveraging Amazon CloudFront, use the HTTP POST method to reduce latency.
 > 4. Use Amazon Elastic Block Store Provisioned IOPs and use an Amazon EBS-optimized instance
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[S3 Overview#Multipart Upload|Amazon S3 Multipart Upload]] is recommended for objects larger than 100 MB and is required for objects over 5 GB in a single PUT operation. It significantly improves upload performance by uploading object parts in parallel.
@@ -76,7 +76,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. A success code is inserted into the S3 object metadata.
 > 3. A HTTP 200 result code and MD5 checksum, taken together, indicate that the operation was successful.
 > 4. Amazon S3 is engineered for 99.999999999% durability. Therefore there is no need to confirm that data was inserted.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** A successful upload to [[S3 Overview|Amazon S3]] returns a successful HTTP 200 response. Additionally, you can verify data integrity by comparing the returned ETag header against the calculated MD5 checksum of the uploaded object.
@@ -87,7 +87,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Create an IAM user for each subscribed user and assign the GetObject permission to each IAM user
 > 3. Create an S3 bucket policy that limits access to your private content to only your subscribed users' credentials
 > 4. Create a CloudFront Origin Identity user for your subscribed users and assign the GetObject permission to this user
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** [[S3 Overview#Pre-Signed URLs|Pre-signed URLs]] allow users to download a specific object without requiring AWS security credentials. The URL is valid until an expiration date and time, making it ideal for temporarily sharing private content.
@@ -98,7 +98,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Use CloudFront distributions for static content.
 > 3. Block the IPs of the offending websites in Security Groups.
 > 4. Store photos on an EBS volume of the web server.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** Hotlinking can be prevented by removing public read access from the objects and generating [[S3 Overview#Pre-Signed URLs|pre-signed URLs]] with expiration dates. This ensures only authenticated users of your application can view the photos.
@@ -109,7 +109,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Add a random prefix to the key names.
 > 3. Amazon S3 will automatically manage performance at this scale.
 > 4. Use a predictable naming scheme, such as sequential numbers or date time sequences, in the key names
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** With recent performance improvements, [[S3 Overview|Amazon S3]] scales automatically to support high request rates. It can handle at least 3,500 PUT/COPY/POST/DELETE and 5,500 GET/HEAD requests per second per prefix automatically.
@@ -121,7 +121,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 3. 100 Per Account
 > 4. 500 Per Account
 > 5. 100 Per IAM User
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** By default, you can create up to 100 [[S3 Overview#Buckets|buckets]] per AWS account (this is a soft limit). You can request an increase to a maximum of 1,000 buckets.
@@ -134,7 +134,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 4. The developers do not have access to upload objects to the S3 bucket.
 > 5. The S3 bucket still has the associated default permissions.
 > 6. The pre-signed URL has expired.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3, 6**
 > > **Rationale:** A [[S3 Overview#Pre-Signed URLs|pre-signed URL]] allows temporary access for anyone with the URL, meaning the contractors themselves do not need explicit AWS IAM permissions. However, the creator of the URL must use valid security credentials and the URL must not have expired.

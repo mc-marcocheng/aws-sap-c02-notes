@@ -9,7 +9,7 @@ tags: [aws, sap-c02, route-53, networking, practice-questions]
 > 2. Route 53 Resolver Outbound Endpoints
 > 3. CloudFront
 > 4. AWS App Mesh
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale**: [[Route 53 Resolver]] **Inbound Endpoints** allow DNS queries from your on-premises network to be forwarded to AWS for resolution of Route 53 private hosted zone records or other AWS-internal DNS names. Outbound Endpoints (Option 2) are used for the reverse: allowing VPC resources to resolve on-premises DNS names.
@@ -19,9 +19,9 @@ tags: [aws, sap-c02, route-53, networking, practice-questions]
 > - On-premises servers can resolve AWS private hosted zone records
 > - EC2 instances in all VPCs can resolve on-premises Active Directory DNS records
 > - DNS query logs must be captured for security analysis
-> 
+>
 > Which architecture meets ALL requirements?
-> 
+>
 > 1. Create Route 53 private hosted zones and associate them with all VPCs. Deploy Inbound Endpoints in one region and Outbound Endpoints with forwarding rules shared via AWS RAM across all regions. Enable Route 53 Resolver Query Logging.
 > 2. Deploy BIND DNS servers on EC2 instances in each VPC and configure zone transfers between all regions and on-premises.
 > 3. Use Route 53 public hosted zones with split-horizon DNS and VPC DHCP option sets pointing to on-premises DNS.
@@ -33,7 +33,7 @@ tags: [aws, sap-c02, route-53, networking, practice-questions]
 
 > [!question]
 > A company has an AWS environment with a Route 53 Resolver Outbound Endpoint configured to forward queries for `corp.example.com` to on-premises DNS servers (10.1.1.10 and 10.1.1.11) over a Direct Connect connection. Users report that DNS resolution for `corp.example.com` intermittently fails. The Direct Connect link is healthy. What is the MOST likely cause?
-> 
+>
 > 1. The Route 53 Resolver Outbound Endpoint does not have enough ENIs provisioned for the query volume.
 > 2. The security group on the Outbound Endpoint ENIs does not allow outbound UDP/TCP port 53 traffic, OR the on-premises firewall is blocking inbound DNS from the Outbound Endpoint subnet CIDR.
 > 3. The forwarding rule is configured as a "System" rule instead of a "Forward" rule.

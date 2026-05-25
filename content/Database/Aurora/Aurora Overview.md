@@ -55,7 +55,7 @@ Aurora automatically fails over to a replica if the primary instance fails.
 - Spans multiple AWS Regions.
 - Provides low-latency global reads and disaster recovery.
 - Typical replication latency is under 1 second.
-- **Switchover vs Failover**: 
+- **Switchover vs Failover**:
     - **Switchover**: Planned (zero data loss, ~1 min).
     - **Failover**: Unplanned (RPO ~1s, RTO ~1 min).
 

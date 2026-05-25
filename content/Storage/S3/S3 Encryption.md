@@ -19,7 +19,7 @@ S3 provides multiple options for protecting data at rest and in transit. Underst
 
 ### SSE-KMS (AWS KMS-Managed Keys)
 - **Mechanism**: Keys are managed in AWS [[KMS]].
-- **Pros**: 
+- **Pros**:
     - Separate permissions for the object and the key.
     - Audit trail in [[CloudTrail]] showing when a key was used.
     - Automatic rotation of keys.

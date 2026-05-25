@@ -7,7 +7,7 @@ While the basics of AWS Organizations cover consolidated billing and simple Serv
 
 ## Advanced SCP Strategies
 
-SCPs are JSON policies that define the maximum permissions for member accounts. 
+SCPs are JSON policies that define the maximum permissions for member accounts.
 - **Deny-List Strategy**: The default configuration. `FullAWSAccess` is attached everywhere. You apply explicit `Deny` policies to restrict specific actions (e.g., prevent leaving the organization, prevent disabling [[CloudTrail]]). This is easier to manage but less secure by default.
 - **Allow-List Strategy**: Remove the default `FullAWSAccess` policy and replace it with explicit `Allow` policies detailing exactly what services are permitted. This is highly secure but requires significant administrative overhead to maintain.
 
@@ -75,7 +75,7 @@ Organizations simplifies cross-account access but doesn't grant it directly via 
 > [!exam]
 > **SAP-C02 Scenario: Enforcing Tagging Compliance at Scale**
 > *Scenario:* A company wants to ensure that every [[EC2 Overview|EC2]] instance and [[EBS Overview|EBS]] volume created in any account has a `CostCenter` tag. If the tag is missing, the launch should fail.
-> *Solution:* 
+> *Solution:*
 > 1. Use an **Organizations Tag Policy** to define the allowed values and capitalization for `CostCenter`.
 > 2. Use an **Organizations SCP** to deny `ec2:RunInstances` and `ec2:CreateVolume` if the required tag is not present in the request (`aws:RequestTag/CostCenter`).
 

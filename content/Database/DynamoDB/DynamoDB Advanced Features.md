@@ -21,8 +21,8 @@ Overview of advanced capabilities in Amazon [[DynamoDB Overview|DynamoDB]], incl
 
 ## DynamoDB Streams
 
-- **DynamoDB Streams**: Captures item-level changes. Each record contains the key + old/new image. 
-- **Retention**: 24 hours. 
+- **DynamoDB Streams**: Captures item-level changes. Each record contains the key + old/new image.
+- **Retention**: 24 hours.
 - **Use Case**: Commonly used with [[Lambda]] for event-driven architectures and cross-region replication.
 
 ## Global Tables

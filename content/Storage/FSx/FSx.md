@@ -10,7 +10,7 @@ Amazon FSx provides fully managed third-party file systems with the native compa
 Amazon FSx for NetApp ONTAP is a fully managed service that provides highly reliable, scalable, high-performing, and feature-rich file storage built on NetApp's popular ONTAP file system.
 
 - **Protocols Supported**: NFS, SMB, and iSCSI.
-- **Features**: 
+- **Features**:
   - **Multi-Protocol Access**: Access the same data via SMB (Windows) and NFS (Linux) simultaneously.
   - **Storage Efficiencies**: Native deduplication, compression, and compaction to reduce storage costs.
   - **Snapshots & Clones**: Instantaneous, space-efficient snapshots and FlexClone volumes.

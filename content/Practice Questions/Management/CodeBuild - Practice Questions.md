@@ -12,7 +12,7 @@ tags: [aws, sap-c02, codebuild, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
-> > **Rationale:** [[CodeBuild]] instances deployed in a VPC do not receive public IP addresses. To access the internet (to download dependencies), they must be placed in a private subnet with a route to a NAT Gateway located in a public subnet. 
+> > **Rationale:** [[CodeBuild]] instances deployed in a VPC do not receive public IP addresses. To access the internet (to download dependencies), they must be placed in a private subnet with a route to a NAT Gateway located in a public subnet.
 
 > [!question]
 > A development team is migrating their CI process to AWS CodeBuild. Their application uses database passwords and API keys during the build process. The team wants to ensure these secrets are securely managed and not exposed in the build logs or source code. What is the most secure and operationally efficient way to handle these secrets?
@@ -31,7 +31,7 @@ tags: [aws, sap-c02, codebuild, practice-questions]
 > 2. Enable **S3 Caching** or **Local Caching** in the CodeBuild project configuration for source dependencies and Docker layers.
 > 3. Use an AWS Lambda function to pre-download the dependencies to an EFS volume.
 > 4. Switch to a custom build image that includes all the dependencies pre-installed.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[CodeBuild]] supports **Caching**, which allows you to store reusable fragments of your build environment (like Docker layers, Maven dependencies, or npm modules) in an S3 bucket or locally on the build host. This significantly reduces build times by avoiding expensive downloads. While using a custom image (Option 4) also helps, caching is more flexible for evolving dependencies. (See [[CodeBuild]])

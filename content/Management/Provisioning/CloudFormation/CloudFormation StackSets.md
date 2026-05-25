@@ -13,7 +13,7 @@ AWS CloudFormation StackSets extends the functionality of stacks by enabling you
 
 ## Permission Models
 
-StackSets use **two IAM roles** for operations: 
+StackSets use **two IAM roles** for operations:
 - `AWSCloudFormationStackSetAdministrationRole`: In the administrator account, allows CloudFormation to perform operations on your behalf.
 - `AWSCloudFormationStackSetExecutionRole`: In the target accounts, allows the administration role to perform stack operations.
 - *Note*: When using Service-Managed permissions with AWS Organizations, these roles are created automatically in each account.

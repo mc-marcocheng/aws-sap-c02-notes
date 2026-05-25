@@ -27,7 +27,7 @@ tags: [aws, sap-c02, cloud-map, practice-questions]
 
 > [!question]
 > A company has an ECS service registered with AWS Cloud Map for service discovery. When tasks are stopped due to a deployment, there is a 30-second window where the terminated task's IP is still returned by Cloud Map DNS queries, causing connection errors in upstream services. How can this be resolved?
-> 
+>
 > 1. Reduce the DNS TTL for the Cloud Map namespace to 0 seconds.
 > 2. Configure the Cloud Map service with a custom health check that uses Route 53 health checks to detect terminated tasks faster.
 > 3. Configure the ECS service to use Cloud Map with SRV records and set a low DNS TTL, combined with enabling ECS service discovery health check integration.

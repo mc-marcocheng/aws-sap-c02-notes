@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, step-functions, practice-questions] 
+tags: [aws, sap-c02, step-functions, practice-questions]
 ---
 # Step Functions Practice Questions
 

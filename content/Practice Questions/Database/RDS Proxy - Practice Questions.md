@@ -5,9 +5,9 @@ tags: [aws, sap-c02, database, rds, rds-proxy, practice-questions]
 
 > [!question]
 > A popular e-commerce platform uses an Amazon Aurora MySQL database cluster. During flash sales, a sudden spike in traffic causes thousands of AWS Lambda functions to invoke concurrently. The Aurora cluster experiences performance degradation and connection timeouts due to an excessive number of database connections, even though the database CPU utilization remains relatively low.
-> 
+>
 > Which solution will resolve this issue with the LEAST amount of application code changes?
-> 
+>
 > 1. Increase the instance size of the Aurora database cluster to support more connections.
 > 2. Implement an Amazon SQS queue to decouple the Lambda functions from the database, processing requests asynchronously.
 > 3. Configure Amazon RDS Proxy between the Lambda functions and the Aurora database. Update Lambda connection strings to point to the proxy.
@@ -23,9 +23,9 @@ tags: [aws, sap-c02, database, rds, rds-proxy, practice-questions]
 
 > [!question]
 > A critical financial application relies on an Amazon RDS for PostgreSQL Multi-AZ deployment. The business requirement dictates a maximum Recovery Time Objective (RTO) of 10 seconds in the event of a primary database failure. The application currently experiences up to 60 seconds of downtime during a Multi-AZ failover due to DNS propagation and connection timeout delays.
-> 
+>
 > How can a Solutions Architect minimize the application downtime during a database failover to meet the RTO?
-> 
+>
 > 1. Migrate the database to Amazon DynamoDB to leverage multi-region replication.
 > 2. Implement an Amazon Route 53 health check and a low TTL for the database endpoint.
 > 3. Configure an Amazon RDS Proxy endpoint for the application to connect to.
@@ -41,9 +41,9 @@ tags: [aws, sap-c02, database, rds, rds-proxy, practice-questions]
 
 > [!question]
 > A company wants to improve the security posture of their application by using IAM roles for database authentication instead of managing database passwords in application code. The application currently connects to an Amazon RDS for MySQL instance and has high connection churn.
-> 
+>
 > How should the solutions architect implement this requirement?
-> 
+>
 > 1. Enable IAM Database Authentication on the RDS instance and modify the application to generate authentication tokens.
 > 2. Store database credentials in AWS Secrets Manager and use RDS Proxy to manage the connections, allowing the application to authenticate to the proxy using IAM.
 > 3. Use AWS Lambda as a database proxy to handle IAM authentication and connection pooling.

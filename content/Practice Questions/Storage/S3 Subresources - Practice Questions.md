@@ -9,7 +9,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. You do not need to implement anything since S3 data is automatically replicated between regions
 > 3. Use the S3 copy API to replicate data between two S3 buckets in different facilities within an AWS Region
 > 4. You do not need to implement anything since S3 data is automatically replicated between multiple facilities within an AWS Region
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** Amazon S3 Standard, S3 Standard-IA, and S3 Glacier storage classes automatically replicate data across a minimum of three Availability Zones (AZs) within an AWS Region. Each AZ is a separate "facility" with its own power, cooling, and networking. Therefore, S3 provides high durability and meets the requirement for replication across multiple facilities automatically without further configuration of [[S3 Subresources]].
@@ -20,7 +20,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Enable server access logging for all required Amazon S3 buckets
 > 3. Enable the Requester Pays option to track access via AWS Billing
 > 4. Enable Amazon S3 event notifications for Put and Post.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[S3 Subresources|S3 Access Logs]] provide detailed records for the requests that are made to a bucket. This is ideal for security and access audits as it captures details like the requester, bucket name, request time, request action, response status, and error code. While CloudTrail is used for auditing, "Server Access Logging" is the traditional S3 feature for tracking data-plane access.
@@ -31,7 +31,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Conditional error on object name
 > 3. Index document
 > 4. Conditional redirection on object name
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** When configuring [[S3 Subresources#1. Static Website Hosting|Static Website Hosting]], you can specify an Index document, an Error document, and Routing Rules (which allow for conditional redirection). There is no "Conditional error on object name" parameter in the S3 website configuration.
@@ -42,7 +42,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 2. Create a policy on the abcdfonts bucket to enable access to everyone
 > 3. Add the Content-MD5 header to the request for webfonts in the abcdfonts bucket from the website
 > 4. Configure the abcdfonts bucket to allow cross-origin requests by creating a CORS configuration
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** Browsers implement the Same-Origin Policy, which blocks scripts or assets (like fonts) from being requested from a different domain. To allow `www.companyabcd.com` to access fonts in `abcdfonts.s3.amazonaws.com`, you must enable [[S3 Subresources#2. CORS (Cross-Origin Resource Sharing)|CORS]] on the destination bucket.
@@ -54,7 +54,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > 3. Set the Index Document property to welcome.html
 > 4. Move the index.html page to a welcome subfolder
 > 5. Set the Error Document property to welcome.html
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1 & 3**
 > > **Rationale:** To change the landing page of an S3 static website, you must ensure the file exists in the bucket (Upload `welcome.html`) and then update the **Index Document** property in the [[S3 Subresources#1. Static Website Hosting|Static Website Hosting]] configuration to point to that specific file.

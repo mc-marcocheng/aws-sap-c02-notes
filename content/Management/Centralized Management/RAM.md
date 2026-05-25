@@ -3,14 +3,14 @@ tags: [aws, sap-c02, management, ram]
 ---
 # AWS Resource Access Manager (RAM)
 
-AWS RAM allows you to easily and securely share AWS resources across AWS accounts or within your [[Organizations Overview|AWS Organizations]]. 
+AWS RAM allows you to easily and securely share AWS resources across AWS accounts or within your [[Organizations Overview|AWS Organizations]].
 
 ## Key Features
 - **Resource Sharing:** Allows sharing of specific resources. Commonly shared resources include:
 	- **Transit Gateway**, **Subnets**, **Route 53 Resolver Rules**, **License Manager configs**, **Aurora DB clusters**, **Prefix Lists**, and [[Outposts]].
 - **Organizations Integration:** RAM sharing within an Organization does NOT require acceptance.
 - **Cross-Account Sharing:** Sharing outside an Organization requires the recipient to accept an invitation.
-- **VPC Subnet Sharing:** Allows multiple accounts to deploy resources (like [[EC2 Overview|EC2]], [[RDS Overview|RDS]]) into a single, centrally managed [[VPC Overview|VPC]]. 
+- **VPC Subnet Sharing:** Allows multiple accounts to deploy resources (like [[EC2 Overview|EC2]], [[RDS Overview|RDS]]) into a single, centrally managed [[VPC Overview|VPC]].
     - The account that owns the VPC (Owner) manages the network (subnets, route tables, NACLs).
     - The participant accounts manage their own resources (EC2 instances) deployed in those shared subnets.
 

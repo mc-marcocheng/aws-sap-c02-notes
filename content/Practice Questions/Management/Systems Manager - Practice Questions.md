@@ -5,9 +5,9 @@ tags: [aws, sap-c02, systems-manager, practice-questions]
 
 > [!question]
 > A company manages hundreds of Amazon EC2 instances across multiple AWS accounts in an AWS Organization. The security team mandates that all instances must be scanned for missing patches daily. Furthermore, a centralized report showing the patch compliance status of all instances across all accounts must be generated for auditors.
-> 
+>
 > What is the MOST operationally efficient way to meet these requirements?
-> 
+>
 > 1. Create a cross-account IAM role. Run a Lambda function daily that loops through all accounts, executes `AWS-RunPatchBaseline` via SSM Run Command, and writes the results to DynamoDB.
 > 2. In the management account, configure a Systems Manager Maintenance Window to run `AWS-RunPatchBaseline` with the `Scan` operation. Configure a Resource Data Sync to send compliance data to a central S3 bucket. Use Amazon Athena to query the centralized data.
 > 3. Deploy an AWS Config conformance pack to check for patch compliance. Aggregate the Config rules in an Aggregator in the security account and export the data to S3.
@@ -20,9 +20,9 @@ tags: [aws, sap-c02, systems-manager, practice-questions]
 
 > [!question]
 > A cloud operations team has an AWS Config rule that checks if Amazon EBS volumes are encrypted. If an unencrypted volume is detected, it is marked as non-compliant. The team wants to automatically remediate this by creating an encrypted snapshot, creating a new encrypted volume from the snapshot, and replacing the unencrypted volume.
-> 
+>
 > Which solution implements this automated remediation with the LEAST custom code?
-> 
+>
 > 1. Create an Amazon EventBridge rule that triggers an AWS Step Functions state machine to execute the volume replacement logic using AWS SDK calls.
 > 2. Use an AWS Systems Manager Automation runbook as the remediation action for the AWS Config rule. Use a custom or AWS-provided runbook that performs the encryption and replacement steps.
 > 3. Create a Lambda function that performs the remediation. Attach the Lambda function directly to the EBS volume's resource policy.
@@ -39,7 +39,7 @@ tags: [aws, sap-c02, systems-manager, practice-questions]
 > 2. Use **Patch Baselines** with different auto-approval rules and assign them to the instances using **Patch Groups** (tags).
 > 3. Use AWS Config to trigger a Lambda function that installs patches.
 > 4. Use SSM Run Command to manually execute the `AWS-RunPatchBaseline` document every day.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[Systems Manager Patch Manager & Automation|Patch Manager]] uses **Patch Baselines** to define which patches are approved for installation. By creating different baselines (e.g., one with 0-day approval for critical patches and one with a 7-day delay) and associating them with different **Patch Groups** (defined by resource tags), you can satisfy the different patching requirements for your fleet. (See [[Systems Manager Patch Manager & Automation]])

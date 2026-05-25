@@ -18,7 +18,7 @@ EC2 Placement groups determine how instances are placed on the underlying hardwa
 - **Scope**: Logical grouping within a **single Availability Zone**.
 - **Connectivity**: Can span peered VPCs in the same Region.
 - **Performance**: Provides lowest latency and highest packet-per-second performance.
-- **Recommended**: 
+- **Recommended**:
     - Use instances that support **Enhanced Networking**.
     - Launch all instances at once to ensure capacity.
     - Use the same instance type (homogeneous) for all instances in the group.
@@ -50,7 +50,7 @@ EC2 Placement groups determine how instances are placed on the underlying hardwa
 - **Naming**: Must be unique within your AWS account for the region.
 - **Merging**: Placement groups cannot be merged.
 - **Moving**: To move an existing instance into a placement group, you must create an AMI from the instance and then launch a new instance from that AMI into the group.
-- **Instance Types**: 
+- **Instance Types**:
     - **Cluster**: Only specific instance types (supporting 10Gbps+ network) are recommended.
     - **Spread/Partition**: Not supported for Dedicated Hosts.
 - **Tenancy**: Instances with a tenancy of `host` cannot be launched in placement groups.

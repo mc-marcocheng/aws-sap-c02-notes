@@ -9,7 +9,7 @@ tags: [aws, sap-c02, lambda, compute, practice-questions]
 > 2. Your AWS API Gateway Deployment is bottlenecking on request (de)serialization.
 > 3. You did not request a limit increase on concurrent Lambda function executions.
 > 4. You used Consistent Read requests on DynamoDB and are experiencing semaphore lock.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[API Gateway|AWS API Gateway]] by default throttles at 500 requests per second (RPS) steady-state and 1,000 RPS burst. Since the traffic is 400 RPS, API Gateway is likely not the bottleneck. [[Lambda|AWS Lambda]] has a default regional limit of concurrent executions. **Calculation**: If each request takes 500ms (0.5s), then 1 concurrent execution can handle 2 requests per second. To handle 400 RPS, you need `400 / 2 = 200` concurrent executions. If the concurrency limit is lower than 200 (for example, the default 100 which only supports 200 RPS), throttling will occur. A limit increase is necessary. (See also: [[DynamoDB Overview]])
@@ -20,7 +20,7 @@ tags: [aws, sap-c02, lambda, compute, practice-questions]
 > 2. **Provisioned Concurrency**
 > 3. Lambda Destinations
 > 4. Increase the function memory to 10 GB.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** **Provisioned Concurrency** (Option 2) initializes a specified number of execution environments in advance. This ensures that the application (including the JVM and any initialization code) is already warm when a request arrives, effectively eliminating cold start latency. Reserved Concurrency (Option 1) limits the maximum concurrency for a function but does not keep environments warm. Increasing memory (Option 4) can speed up initialization but doesn't eliminate the cold start itself. (See [[Lambda]])
@@ -31,7 +31,7 @@ tags: [aws, sap-c02, lambda, compute, practice-questions]
 > 2. Configure a Dead Letter Queue (DLQ) on the Lambda function for both success and failure.
 > 3. Use **Lambda Destinations** to route execution results to SQS and SNS based on success/failure.
 > 4. Use S3 Event Notifications to trigger separate Lambda functions for success and failure logging.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** **Lambda Destinations** (Option 3) is a feature for asynchronous invocations that natively handles routing the execution result (payload and metadata) to different AWS services based on whether the execution succeeded or failed. This requires no custom code and is more flexible than DLQs (Option 2), which only support failures. (See [[Lambda]])

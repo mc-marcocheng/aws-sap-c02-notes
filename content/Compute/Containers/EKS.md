@@ -5,7 +5,7 @@ tags: [compute, aws, sap-c02, eks]
 
 ## Architectural Patterns
 - **Integration with AWS:** Integrates natively with [[IAM]] via IAM Roles for Service Accounts (IRSA) or EKS Pod Identity, [[VPC Overview|VPC]] via the Amazon VPC CNI plugin, and [[ELB Overview|ELB]] for load balancing.
-- **Compute Options:** 
+- **Compute Options:**
     - **Managed Node Groups:** AWS manages EC2 instances.
     - **Fargate:** Serverless pods.
     - **Karpenter:** An open-source, flexible, high-performance Kubernetes cluster autoscaler. It provisions right-sized nodes directly in response to unschedulable pods (faster and more efficient than Cluster Autoscaler). AWS-recommended.

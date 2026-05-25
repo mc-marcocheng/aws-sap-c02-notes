@@ -10,7 +10,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 3. Compute-optimized C4
 > 4. Compute-optimized C3
 > 5. Storage-optimized I2
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 3**
 > > **Rationale:**
@@ -24,7 +24,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. An Instance store Paravirtual AMI
 > 3. An Amazon EBS-backed Hardware Virtual Machine AMI
 > 4. An Amazon EBS-backed Paravirtual AMI
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:**
@@ -37,7 +37,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. Change to a larger Instance
 > 3. Use DirectConnect between EC2 and S3
 > 4. Use EBS PIOPS on the local volume
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:**
@@ -52,7 +52,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 4. Add an EBS volume and place into RAID 5
 > 5. Increase the size of the EC2 Instance
 > 6. Put the database behind an Elastic Load Balancer
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 5**
 > > **Rationale:**
@@ -66,7 +66,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. A Cluster Compute Eight Extra Large (cc2.8xlarge) using instance storage
 > 3. High I/O Quadruple Extra Large (hi1.4xlarge) using instance storage
 > 4. A Cluster GPU Quadruple Extra Large (cg1.4xlarge) using four separate 4000 PIOPS EBS volumes in a RAID 0 configuration
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:**
@@ -80,7 +80,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 3. You have not allocated enough EIPs to support the needed network throughput.
 > 4. You are running the proxy in a private subnet and its network throughput is being throttled by an undersized NAT instance.
 > 5. The route table is not configured to direct traffic to the proxy.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 4**
 > > **Rationale:**
@@ -93,7 +93,7 @@ tags: [aws, sap-c02, ec2, compute, practice-questions]
 > 2. i2.8xlarge in us-east-1a, RAID 0 ephemeral, sync replication to an identically configured instance in us-east-1b.
 > 3. c3.8xlarge, AWS Storage Gateway with 3TB and 100,000 IOPS.
 > 4. c3.8xlarge, 4x1TB EBS volumes in RAID 5, snapshots every 15 mins.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:**

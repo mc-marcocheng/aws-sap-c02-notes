@@ -5,7 +5,7 @@ tags: [aws, sap-c02, storage, s3]
 
 S3 Lifecycle configuration provides a way to manage your objects so that they are stored cost-effectively throughout their lifecycle. It allows you to automate transitions between storage classes and manage object expiration.
 
-> [!info] 
+> [!info]
 > Lifecycle configuration enables moving less frequently accessed objects to lower-cost storage classes, archiving data for long-term retention, or permanently deleting objects.
 
 ## Key Concepts

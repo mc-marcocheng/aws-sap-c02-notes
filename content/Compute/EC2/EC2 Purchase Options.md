@@ -37,7 +37,7 @@ Savings Plans provide significant savings (up to 72%) in exchange for a commitme
 ## Spot Instances
 
 > [!important] **Handling Interruptions**
-> Spot instances can be interrupted by AWS with a **2-minute notification**. 
+> Spot instances can be interrupted by AWS with a **2-minute notification**.
 > - **Best Practice**: Use for stateless, fault-tolerant applications (e.g., batch processing, CI/CD, big data).
 > - **Spot Fleet**: Launches a collection of Spot and optionally On-Demand instances to meet target capacity. Supports diversification strategies (e.g., across multiple instance types and AZs) to increase availability.
 

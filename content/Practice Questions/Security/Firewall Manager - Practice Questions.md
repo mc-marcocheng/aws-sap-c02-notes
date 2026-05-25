@@ -9,7 +9,7 @@ tags: [aws, sap-c02, firewall-manager, practice-questions]
 > 2. Create an AWS Config custom rule in every account backed by a Lambda function for remediation using AWS CloudFormation StackSets.
 > 3. Use AWS Firewall Manager to create a Security Group policy that audits for overly permissive rules. Configure the policy to automatically remediate non-compliant resources.
 > 4. Use AWS Systems Manager State Manager to run a daily script across all accounts to remove permissive Security Group rules.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[Firewall Manager|AWS Firewall Manager]] is designed precisely for centralized policy enforcement across [[Organizations Overview|AWS Organizations]]. You can create a Security Group policy to deny specific ports to the internet (`0.0.0.0/0`) and enable automatic remediation. This is much simpler than managing custom Lambda functions and Config rules via StackSets across hundreds of accounts.
@@ -20,7 +20,7 @@ tags: [aws, sap-c02, firewall-manager, practice-questions]
 > 2. Enable AWS Security Hub across all accounts. Create a Security Hub custom action to deploy a WAF WebACL to all ALBs using EventBridge and Lambda.
 > 3. Use AWS Resource Access Manager (RAM) to share a central WAF WebACL with all accounts. Use an SCP to require developers to attach it to their ALBs.
 > 4. Create an AWS Network Firewall policy in the management account and deploy it to all member accounts using Firewall Manager.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** To centrally manage and automatically deploy [[WAF]] across multiple accounts, you must use [[Firewall Manager|AWS Firewall Manager]]. The strict prerequisites for Firewall Manager are: 1) AWS Organizations with all features enabled, 2) [[Config]] enabled on all accounts/regions, and 3) a designated delegated administrator. Once setup, a WAF policy targeting ALBs with auto-remediation will instantly attach the WebACL to new and existing ALBs.

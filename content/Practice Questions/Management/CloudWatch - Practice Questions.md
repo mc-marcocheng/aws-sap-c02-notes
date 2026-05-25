@@ -10,7 +10,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 3. Amazon Simple Queue Service
 > 4. Amazon Route 53
 > 5. Amazon Simple Notification Service
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2, 5**
 > > [[CloudWatch Overview|CloudWatch]] automatically monitors [[RDS Overview|RDS]] metrics such as ReadIOPS and WriteIOPS. To send real-time alerts, you configure a CloudWatch Alarm that triggers an [[SNS]] (Simple Notification Service) topic, which then sends notifications via email or SMS to the operations team.
@@ -21,7 +21,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. Enable access logs on the load balancer.
 > 3. Install the Amazon CloudWatch Logs agent on the load balancer.
 > 4. Enable Amazon CloudWatch metrics on the load balancer.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > [[ELB Overview|Elastic Load Balancing]] access logs provide detailed information about requests sent to your load balancer, including the time the request was received, the client's IP address, latencies, request paths, and server responses. This is the correct tool for connection-level analysis, whereas [[CloudWatch Overview|CloudWatch]] metrics provide aggregate performance data.
@@ -32,7 +32,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. Setup the CloudWatch with Auto Scaling to terminate all the instances
 > 3. Setup a job which terminates all instances after 600 minutes
 > 4. It is not possible to terminate instances automatically
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > [[CloudWatch Overview|CloudWatch Alarms]] can be configured to perform [[EC2 Overview|EC2]] actions, such as terminating or stopping an instance when a specific threshold is met. By monitoring CPU utilization and triggering a termination action when it falls below a threshold (e.g., 5%), you can ensure the instance is removed once the batch process is idle/complete.
@@ -43,7 +43,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. CloudWatch will receive and aggregate the data based on the namespace and metric
 > 3. CloudWatch will give an error since the data will conflict due to two sources
 > 4. CloudWatch will take the data of the server, which sends the data first
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > [[CloudWatch Overview|CloudWatch]] can receive custom metric data from any source (including instances in other regions or on-premises servers) using the `PutMetricData` API. If multiple sources publish to the same [[CloudWatch Overview|Namespace]] and Metric Name with the same dimensions, CloudWatch will aggregate the data points.
@@ -54,7 +54,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. Use the CloudWatch CLI tools to pull the respective metrics from each regional endpoint. Aggregate the data offline & store it for graphing in CloudWatch.
 > 3. Add SNMP traps to each instance and DynamoDB table. Leverage a central monitoring server to capture data from each instance and table.
 > 4. Add a CloudWatch agent to each instance and attach one to each DynamoDB table.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > [[CloudWatch Overview|CloudWatch]] metrics are **regional**. To create a truly global aggregate (e.g., average CPU across all regions), you must retrieve the data from each regional endpoint using the AWS CLI or SDKs and then aggregate it. Note: While [[CloudWatch Overview|CloudWatch Dashboards]] now allow viewing metrics from multiple regions in one view, cross-region *aggregation* into a single metric still requires custom logic.
@@ -65,7 +65,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. Set up auto scaling with CloudWatch alarms using SNS to notify you when you are running too many Instances.
 > 3. Set up CloudWatch billing alerts for all AWS resources used by each project, with a notification occurring when the amount for each resource tagged to a particular project matches the budget.
 > 4. Set up CloudWatch billing alerts for all AWS resources used by each account, with email notifications when it hits 50%, 80% and 90% of its budgeted monthly spend.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > [[CloudWatch Overview|CloudWatch]] Billing Alarms (which integrate with [[Billing and Cost Management|AWS Budgets]]) allow you to monitor your total estimated charges. By setting multiple thresholds (e.g., 50%, 80%, 90%), you get proactive notifications via [[SNS]] as your spending approaches the project's monthly budget.
@@ -76,7 +76,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. Review CloudWatch Metrics graphs to determine which component(s) slowed the system down.
 > 3. Review your ELB access logs in S3 to see if any ELBs in your system saw the latency.
 > 4. Analyze your logs to detect bursts in traffic at that time.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > Historically, [[CloudWatch Overview|CloudWatch]] metric retention was limited to 14 days for high-resolution data. If you are reviewing data from 3 weeks ago, standard metrics might have been deleted or aggregated to a much lower resolution, making it difficult to pinpoint the exact cause of a transient spike compared to [[CloudTrail]] or [[ELB Overview|ELB]] Access Logs stored in [[S3 Overview|S3]].
@@ -87,7 +87,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. Global AWS CloudTrail setup delivering to S3 with an SNS subscription pushing into Lambda.
 > 3. Use a CloudWatch Rule ScheduleExpression to periodically analyze IAM credential logs.
 > 4. CloudWatch Events Rules, which trigger based on all AWS API calls, submitting all events to an AWS Kinesis Stream for arbitrary downstream analysis.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > CloudWatch Events can capture [[CloudTrail]] API calls in near real-time. By using a rule to match all API calls and setting the target to an [[Kinesis Overview|Kinesis Stream]], you can perform sophisticated, real-time analysis using Kinesis Data Analytics or other tools.
@@ -98,7 +98,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. AWS CloudTrail; AWS Config
 > 3. AWS CloudTrail; CloudWatch Events
 > 4. AWS Config; AWS Lambda
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > [[CloudTrail]] is the service for logging and maintaining a durable history of API calls across your AWS account. CloudWatch Events is used to detect those same API calls in near real-time and trigger automated responses.
@@ -109,7 +109,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. **CloudWatch Container Insights**
 > 3. CloudWatch Lambda Insights
 > 4. CloudWatch Logs Insights
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** **CloudWatch Container Insights** (Option 2) is specifically designed to collect, aggregate, and summarize metrics and logs from containerized applications and microservices. it supports Amazon ECS, Amazon EKS, and Kubernetes on EC2. It provides built-in dashboards for viewing resource utilization and health across clusters, nodes, and pods. (See [[CloudWatch Overview]])
@@ -120,7 +120,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. Set a CloudWatch alarm based on EC2 system and instance status checks and have the alarm notify your operations team.
 > 3. Set a CloudWatch alarm based on the CPU utilization of the monitoring instance.
 > 4. Have the monitoring instances post messages to an SQS queue and dequeue them on another instance.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > [[EC2 Overview|EC2]] Status Checks are the simplest way to monitor the health of an instance. "System Status Checks" monitor the AWS systems required for the instance to run, and "Instance Status Checks" monitor the software/network configuration of the instance. A [[CloudWatch Overview|CloudWatch]] alarm on these checks can automatically notify the team via [[SNS]].
@@ -131,7 +131,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. **CloudWatch Metric Math**
 > 3. CloudWatch Logs Insights
 > 4. CloudWatch Composite Alarms
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[CloudWatch Overview|CloudWatch Metric Math]] allows you to perform calculations (like division for error rates) across multiple metrics and create an alarm based on the result. Anomaly Detection (Option 1) is for detecting outliers, not specific percentage thresholds. Logs Insights (Option 3) is for querying log data. Composite Alarms (Option 4) are for grouping existing alarms.
@@ -142,7 +142,7 @@ tags: [aws, sap-c02, cloudwatch, management, practice-questions]
 > 2. Create a script to assume cross-account roles and pull metrics from each account into a central S3 bucket.
 > 3. Deploy a CloudWatch agent on every instance that publishes directly to the management account's namespace.
 > 4. Use an EventBridge event bus to forward all metrics to a central account.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1**
 > > **Rationale:** **CloudWatch Cross-Account Observability** (Option 1) is the native feature that allows you to link multiple "source accounts" to a central "monitoring account." This enables viewing dashboards, metrics, and logs across accounts and regions without custom scripting or agents. (See [[CloudWatch Overview]])

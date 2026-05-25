@@ -9,7 +9,7 @@ tags: [aws, sap-c02, vpc, networking, practice-questions]
 > 2. Use Amazon EBS provisioned IOPS
 > 3. Use VPC endpoints for S3
 > 4. Request a service limit increase
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** Using [[VPC Endpoints]] for [[S3 Overview|Amazon S3]] allows traffic to remain within the AWS network, bypassing public internet bottlenecks. This significantly improves performance for large uploads and reduces latency.
@@ -21,7 +21,7 @@ tags: [aws, sap-c02, vpc, networking, practice-questions]
 > 3. Amazon DynamoDB
 > 4. Amazon Glacier
 > 5. Amazon SQS
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 3**
 > > **Rationale:** Currently, [[VPC Endpoints#Gateway Endpoints|Gateway Endpoints]] only support [[S3 Overview|Amazon S3]] and [[DynamoDB Overview|Amazon DynamoDB]]. Most other services use [[VPC Endpoints#Interface Endpoints (AWS PrivateLink)|Interface Endpoints]].
@@ -33,7 +33,7 @@ tags: [aws, sap-c02, vpc, networking, practice-questions]
 > 3. Interface
 > 4. Virtual
 > 5. Network
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 1, 3**
 > > **Rationale:** AWS supports two types of [[VPC Endpoints]]: **Gateway Endpoints** (for S3 and DynamoDB) and **Interface Endpoints** (powered by [[VPC Endpoints|AWS PrivateLink]]).
@@ -44,7 +44,7 @@ tags: [aws, sap-c02, vpc, networking, practice-questions]
 > 2. Access the data through a VPN connection.
 > 3. Access the data through a NAT Gateway.
 > 4. Access the data through a VPC endpoint for Amazon S3.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** A [[VPC Endpoints|VPC Endpoint]] for [[S3 Overview|Amazon S3]] ensures that traffic between the [[VPC Overview|VPC]] and S3 never leaves the Amazon network, eliminating exposure to the public internet and addressing the security concern.
@@ -55,7 +55,7 @@ tags: [aws, sap-c02, vpc, networking, practice-questions]
 > 2. Two public subnets for ELB and web-servers, two private subnets for RDS and DynamoDB
 > 3. Two public subnets for ELB, two private subnets for the web-servers, two private subnets for RDS and VPC Endpoints for DynamoDB
 > 4. Two public subnets for ELB and web-servers, two private subnets for RDS and VPC Endpoints for DynamoDB
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** To minimize internet exposure:
@@ -69,7 +69,7 @@ tags: [aws, sap-c02, vpc, networking, practice-questions]
 > 2. Use Interface VPC Endpoints with cross-region PrivateLink for S3
 > 3. Set up VPC peering between regions and use Gateway Endpoints
 > 4. Use AWS Direct Connect with public VIF
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** Gateway endpoints do not support cross-region access. As of November 2025, [[VPC Endpoints#Interface Endpoints (AWS PrivateLink)|Interface VPC Endpoints]] support native cross-region connectivity for [[S3 Overview|Amazon S3]], allowing private access to buckets in other regions over the AWS backbone.

@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, integration, step-functions] 
+tags: [aws, sap-c02, integration, step-functions]
 ---
 # AWS Step Functions
 

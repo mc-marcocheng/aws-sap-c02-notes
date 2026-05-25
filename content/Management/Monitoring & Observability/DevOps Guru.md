@@ -7,7 +7,7 @@ AWS DevOps Guru is a Machine Learning (ML) powered service that makes it easy to
 
 ## Key Features
 
-- **Proactive and Reactive Insights:** 
+- **Proactive and Reactive Insights:**
   - *Reactive insights:* Analyze current issues and alert you to the root cause (e.g., increased 5xx errors caused by a recent DynamoDB capacity change).
   - *Proactive insights:* Alert you to impending issues (e.g., memory utilization is trending upwards and will cause an OOM error in 3 days).
 - **Zero Configuration:** No ML expertise required. Just enable it for the entire account, specific [[CloudFormation Overview|CloudFormation]] stacks, or AWS tags.

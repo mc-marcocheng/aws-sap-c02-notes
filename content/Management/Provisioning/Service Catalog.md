@@ -31,11 +31,11 @@ AWS Service Catalog allows organizations to create and manage catalogs of IT ser
 > [!exam]
 > **SAP-C02 Scenario: Self-Service with Least Privilege**
 > *Scenario:* Developers need to be able to provision new EC2 instances for testing. However, security policy dictates that developers cannot have direct EC2 launch permissions (`ec2:RunInstances`) to prevent them from launching unapproved instance types or AMIs.
-> *Solution:* Use **AWS Service Catalog**. 
+> *Solution:* Use **AWS Service Catalog**.
 > 1. Create a CloudFormation template for the approved EC2 setup (Product).
 > 2. Create an IAM role with the necessary permissions to launch the EC2 instance (e.g., `ec2:RunInstances`).
 > 3. Add a **Launch Constraint** to the Product using this IAM role.
-> 4. Grant developers IAM access only to the Service Catalog portfolio. 
+> 4. Grant developers IAM access only to the Service Catalog portfolio.
 > Developers can now launch the approved instances via Service Catalog without needing direct EC2 permissions.
 
 > [!important]

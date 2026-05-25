@@ -1,5 +1,5 @@
 ---
-tags: [aws, sap-c02, integration, eventbridge] 
+tags: [aws, sap-c02, integration, eventbridge]
 ---
 # Amazon EventBridge
 

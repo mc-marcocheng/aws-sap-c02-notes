@@ -12,7 +12,7 @@ AWS Artifact is a self-service audit artifact retrieval portal that provides our
 - **Organizations Integration:** You can accept an agreement on behalf of all accounts within your Organization.
 
 ## SAP-C02 Key Facts & Architectural Patterns
-- **Not for Custom Applications:** AWS Artifact provides compliance reports for the **AWS underlying infrastructure and managed services**, NOT for the customer's applications running on AWS. 
+- **Not for Custom Applications:** AWS Artifact provides compliance reports for the **AWS underlying infrastructure and managed services**, NOT for the customer's applications running on AWS.
 - **NDA Required:** Many reports in AWS Artifact are confidential and require you to accept a Non-Disclosure Agreement (NDA) before downloading.
 
 > [!exam]

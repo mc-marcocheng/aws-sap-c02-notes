@@ -59,7 +59,7 @@ To handle an AZ failure cost-effectively, spread instances across multiple AZs s
 > [!important]
 > Stateless applications are easier to scale and make highly available. Store session state in external services like DynamoDB or ElastiCache.
 
-> [!exam] 
+> [!exam]
 > - **RDS Read Replicas** are for scalability, NOT High Availability (though they can be promoted).
 > - **Elastic IP (EIP)** can be remapped to a standby instance for basic HA, but ELB is preferred for modern architectures.
 

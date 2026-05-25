@@ -5,7 +5,7 @@ tags: [aws, sap-c02, fsx, practice-questions]
 
 > [!question]
 > A media and entertainment company uses a large on-premises NetApp storage array for rendering workloads. They want to burst their rendering capacity into AWS during peak times. The rendering fleet in AWS consists of hundreds of Amazon EC2 Linux instances that need to access the data via NFS, while artists on-premises use Windows workstations via SMB. Both Linux instances and Windows workstations must access the same exact dataset simultaneously. Which AWS storage solution is most appropriate?
-> 
+>
 > 1. Amazon FSx for Windows File Server with an AWS Storage Gateway.
 > 2. Amazon EFS accessed by Linux instances and Amazon EC2 Windows instances acting as SMB gateways.
 > 3. Amazon FSx for NetApp ONTAP.
@@ -13,7 +13,7 @@ tags: [aws, sap-c02, fsx, practice-questions]
 >
 > > [!success]- Answer & Rationale
 > > **Answer: 3**
-> > **Rationale:** 
+> > **Rationale:**
 > > - A is incorrect because FSx for Windows File Server primarily targets SMB workloads and does not provide native, high-performance NFS access for Linux compute clusters simultaneously with SMB.
 > > - B is incorrect because managing EC2 Windows instances as SMB gateways adds significant administrative overhead and performance bottlenecks.
 > > - C is correct because [[FSx#Amazon FSx for NetApp ONTAP]] natively supports multi-protocol access, allowing NFS (for Linux EC2 instances) and SMB (for Windows workstations) to access the same dataset concurrently. It is also fully managed and integrates well with existing NetApp workflows.
@@ -21,7 +21,7 @@ tags: [aws, sap-c02, fsx, practice-questions]
 
 > [!question]
 > A large healthcare organization is migrating hundreds of TBs of Windows file shares to AWS. These shares use complex NTFS permissions and are accessed by thousands of users across multiple departments. The organization requires a highly available solution that can span across Availability Zones. They also want to minimize storage costs by automatically deduplicating redundant files. Which solution should the Solutions Architect recommend?
-> 
+>
 > 1. Amazon EC2 instances running Windows Server in an Auto Scaling group with EBS volumes attached.
 > 2. Amazon FSx for Windows File Server deployed in a Multi-AZ configuration with Data Deduplication enabled.
 > 3. Amazon FSx for NetApp ONTAP in a Single-AZ deployment.

@@ -31,7 +31,7 @@ tags: [aws, sap-c02, eks, practice-questions]
 > 2. **Managed node groups** with a custom AMI.
 > 3. AWS Fargate.
 > 4. Bottlerocket nodes.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[EKS]] **Managed Node Groups** support the use of custom AMIs. This provides the best balance: AWS handles the automated provisioning, updating, and draining of nodes, while the company maintains control over the software stack within the AMI. Self-managed node groups (Option 1) require more manual effort for lifecycle management. Fargate (Option 3) does not support GPU instances.

@@ -43,7 +43,7 @@ tags: [aws, sap-c02, disaster-recovery, practice-questions]
 > 2. Warm Standby: Use Aurora Global Database and S3 CRR. Keep a scaled-down version of the application (e.g., minimum ASG size) running in the secondary region.
 > 3. Multi-Site (Active-Active): Run the application at full capacity in both regions with Route 53 Latency-based routing.
 > 4. Backup and Restore: Use AWS Backup to copy snapshots to a secondary region and restore them in the event of a disaster.
-> 
+>
 > > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** For an RTO of 5 minutes, a **Warm Standby** (Option 2) is required because Pilot Light (Option 1) would take longer than 5 minutes to scale up the compute and network resources. Multi-Site (Option 3) would meet the RTO but is much more expensive. Aurora Global Database provides the required sub-1-minute RPO. (See [[DR Strategies Overview|Disaster Recovery]])
