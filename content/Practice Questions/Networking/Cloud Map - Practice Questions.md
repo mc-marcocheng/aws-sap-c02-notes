@@ -21,7 +21,7 @@ tags: [aws, sap-c02, cloud-map, practice-questions]
 > 3. Use AWS App Mesh and Envoy proxy to intercept static IP traffic and route it via Cloud Map discovery.
 > 4. Use Amazon EventBridge to trigger a Lambda function that updates the IPs.
 >
-> [!success]- Answer & Rationale
+> > [!success]- Answer & Rationale
 > > **Answer: 3**
 > > **Rationale:** [[App Mesh]] uses Envoy proxies that can transparently intercept traffic (even destined for specific IPs or ports) and route it to the correct dynamic endpoints discovered via [[Cloud Map]]. This provides modern service discovery capabilities to legacy applications without code changes.
 

@@ -4,7 +4,7 @@ tags: [aws, sap-c02, vpc, networking, practice-questions]
 # VPC NAT Gateway Practice Questions
 
 > [!question]
-> After launching an instance that you intend to serve as a NAT (Network Address Translation) device in a public subnet you modify your route tables to have the NAT device be the target of internet bound traffic of your private subnet. When you try and make an outbound connection to the Internet from an instance in the private subnet, you are not successful. Which of the following steps could resolve the issue?
+> After launching an instance that you intend to serve as a NAT (Network Address Translation) device in a public subnet, you modify your route tables to have the NAT device be the target of internet bound traffic of your private subnet. When you try and make an outbound connection to the Internet from an instance in the private subnet, you are not successful. Which of the following steps could resolve the issue?
 > 1. Attaching a second Elastic Network interface (ENI) to the NAT instance, and placing it in the private subnet
 > 2. Attaching an Elastic IP address to the instance in the private subnet
 > 3. Attaching a second Elastic Network Interface (ENI) to the instance in the private subnet, and placing it in the public subnet

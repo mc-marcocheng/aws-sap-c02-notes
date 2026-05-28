@@ -71,7 +71,7 @@ tags: [aws, sap-c02, vpc, networking, practice-questions]
 > > **Rationale**: In a /28 (16 IPs), AWS reserves 5, leaving only 11. You already used 7. 11-7 = 4 left. If you used an [[ELB Overview|ELB]] (which scales by adding nodes in subnets), it would consume more IP addresses, leaving insufficient space for doubling the application instances.
 
 > [!question]
-> A user has created a VPC with CIDR 20.0.0.0/16. The user has created public and VPN only subnets along with hardware VPN access to connect to the user’s datacenter. The user wants to make so that all traffic coming to the public subnet follows the organization’s proxy policy. How can the user make this happen?
+> A user has created a VPC with CIDR 20.0.0.0/16. The user has created public and VPN only subnets along with hardware VPN access to connect to the user’s datacenter. The user wants to make sure that all traffic coming to the public subnet follows the organization’s proxy policy. How can the user make this happen?
 > 1. Setting up a NAT with the proxy protocol and configure that the public subnet receives traffic from NAT
 > 2. Setting up a proxy policy in the internet gateway connected with the public subnet
 > 3. It is not possible to setup the proxy policy for a public subnet

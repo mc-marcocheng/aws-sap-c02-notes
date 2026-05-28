@@ -21,7 +21,7 @@ tags: [aws, sap-c02, app-mesh, practice-questions]
 > 3. Use AWS App Mesh Virtual Routers and Virtual Routes to distribute traffic based on weights.
 > 4. Both 1 and 3 are valid, but App Mesh is more suitable for complex service-to-service mesh architectures.
 >
-> [!success]- Answer & Rationale
+> > [!success]- Answer & Rationale
 > > **Answer: 4**
 > > **Rationale:** While ALB weighted target groups can route traffic, [[App Mesh]] is specifically designed for fine-grained internal service-to-service traffic routing (canary deployments) across a microservices architecture using Virtual Routers. Option 4 correctly identifies this nuance.
 

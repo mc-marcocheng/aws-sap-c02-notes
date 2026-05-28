@@ -31,7 +31,7 @@ tags: [aws, sap-c02, database, rds, rds-proxy, practice-questions]
 > 3. Configure an Amazon RDS Proxy endpoint for the application to connect to.
 > 4. Use Amazon Aurora Global Database to provide faster cross-region failover.
 >
-> [!success]- Answer & Rationale
+> > [!success]- Answer & Rationale
 > > **Answer:** C
 > > **Rationale:**
 > > [[RDS Proxy]] significantly reduces failover times (up to 66% faster) for RDS and Aurora databases. When a failover occurs, RDS Proxy detects the new primary instance and automatically routes traffic to it without relying on DNS propagation. It holds application connections open during the failover, preventing connection timeouts and hiding the failover process from the application. This is the most direct way to reduce failover time for an existing RDS instance.

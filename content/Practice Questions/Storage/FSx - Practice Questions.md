@@ -27,7 +27,7 @@ tags: [aws, sap-c02, fsx, practice-questions]
 > 3. Amazon FSx for NetApp ONTAP in a Single-AZ deployment.
 > 4. Amazon S3 integrated with AWS Transfer Family using the SMB protocol.
 >
-> [!success]- Answer & Rationale
+> > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:**
 > > - A is incorrect because managing EC2 instances with EBS for file sharing is not a fully managed solution, does not natively span AZs for HA file sharing without complex clustering (like WSFC), and adds immense administrative overhead.

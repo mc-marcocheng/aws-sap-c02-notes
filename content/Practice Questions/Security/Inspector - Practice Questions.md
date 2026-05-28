@@ -21,7 +21,7 @@ tags: [aws, sap-c02, inspector, practice-questions]
 > 3. Enable Amazon Inspector continuous scanning for ECR. Use an EventBridge rule on finding creation to trigger an SNS topic to email the security team to manually block the deployment.
 > 4. Deploy an inline scanner inside the CI/CD pipeline before pushing to ECR to fail the build if vulnerabilities are found.
 >
-> [!success]- Answer & Rationale
+> > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** [[Inspector|Amazon Inspector]] provides continuous and on-push scanning for Amazon ECR. By capturing the findings via [[EventBridge|Amazon EventBridge]], you can automate remediation (like tagging the image or notifying a webhook). Using a Lambda function to quarantine the image and an EKS admission controller (like OPA Gatekeeper or Kyverno) to block deployment is a robust, automated cloud-native pattern. Option 1 relies on basic scanning (Clair), not Inspector, and deleting images disrupts pipelines. Option 4 adds overhead to the CI/CD pipeline and doesn't handle zero-day continuous scanning once the image is in ECR.
 

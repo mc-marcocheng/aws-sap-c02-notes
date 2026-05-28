@@ -72,10 +72,8 @@ tags: [aws, sap-c02, practice-questions, index]
 - [[CloudFormation - Practice Questions]]
 - [[CloudFormation StackSets - Practice Questions]]
 - [[Service Catalog - Practice Questions]]
-- [[CodeCommit - Practice Questions]]
-- [[CodeBuild - Practice Questions]]
-- [[CodeDeploy - Practice Questions]]
-- [[CodePipeline - Practice Questions]]
+
+## Disaster Recovery
 - [[Disaster Recovery - Practice Questions]]
 - [[High Availability - Practice Questions]]
 - [[Resilience Hub - Practice Questions]]
@@ -138,7 +136,6 @@ tags: [aws, sap-c02, practice-questions, index]
 - [[Security Hub - Practice Questions]]
 - [[Artifact - Practice Questions]]
 - [[Audit Manager - Practice Questions]]
-- [[Backup - Practice Questions]]
 
 ## Storage
 - [[S3 - Practice Questions]]
@@ -156,4 +153,11 @@ tags: [aws, sap-c02, practice-questions, index]
 - [[FSx for Lustre - Practice Questions]]
 - [[Storage Gateway - Practice Questions]]
 - [[Transfer Family - Practice Questions]]
+- [[Backup - Practice Questions]]
 - [[S3 vs EBS vs EFS - Practice Questions]]
+
+## Developer Tools
+- [[CodeCommit - Practice Questions]]
+- [[CodeBuild - Practice Questions]]
+- [[CodeDeploy - Practice Questions]]
+- [[CodePipeline - Practice Questions]]

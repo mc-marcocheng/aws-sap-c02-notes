@@ -31,7 +31,7 @@ tags: [aws, sap-c02, analytics, lake-formation, practice-questions]
 > 3. Implement Apache Ranger on an EC2 instance and configure Amazon EMR and Amazon Athena to use it for authorization.
 > 4. Use Amazon Macie to continuously monitor the S3 buckets and automatically apply tag-based access controls using AWS Config rules.
 >
-> [!success]- Answer & Rationale
+> > [!success]- Answer & Rationale
 > > **Answer:** B
 > > **Rationale:**
 > > [[Lake Formation]] integrates natively with Amazon EMR and Amazon Athena to provide centralized, fine-grained access control. You can register the S3 locations with Lake Formation and define permissions on databases and tables. EMR clusters can be configured with security configurations that leverage Lake Formation for authorization.

@@ -21,7 +21,7 @@ tags: [aws, sap-c02, codecommit, practice-questions]
 > 3. Move the `production` branch to a separate CodeCommit repository and only grant access to the senior engineers.
 > 4. Use Amazon EventBridge to monitor push events to the `production` branch and trigger AWS Step Functions to revert the commit if it wasn't approved.
 >
-> [!success]- Answer & Rationale
+> > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** IAM policies are the native and most efficient way to block direct pushes to specific branches in [[CodeCommit]] by utilizing the `codecommit:References` condition key. Approval Rule Templates natively enforce pull request approval requirements (e.g., minimum number of approvals) before a merge can occur.
 

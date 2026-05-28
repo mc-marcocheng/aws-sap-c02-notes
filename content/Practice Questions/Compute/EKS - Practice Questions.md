@@ -21,7 +21,7 @@ tags: [aws, sap-c02, eks, practice-questions]
 > 3. Disable the Amazon VPC CNI plugin and use kubenet for pod networking.
 > 4. Use NAT Gateway to masquerade pod IP addresses behind the worker node IPs.
 >
-> [!success]- Answer & Rationale
+> > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** Enabling custom networking with the VPC CNI allows pods to receive IP addresses from a secondary CIDR block (such as Carrier Grade NAT ranges), preserving primary subnet IPs for EC2 instances and other AWS resources while maintaining native VPC connectivity.
 

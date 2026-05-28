@@ -31,7 +31,7 @@ tags: [aws, sap-c02, analytics, quicksight, practice-questions]
 > 3. Implement Amazon ElastiCache in front of Amazon Redshift to cache dashboard queries.
 > 4. Convert the Redshift cluster to an Amazon Aurora database for faster read performance.
 >
-> [!success]- Answer & Rationale
+> > [!success]- Answer & Rationale
 > > **Answer:** B
 > > **Rationale:**
 > > Since the data only needs to be updated once per day, changing the dataset to use [[QuickSight]] SPICE (Super-fast, Parallel, In-memory Calculation Engine) is the most efficient and cost-effective solution. SPICE stores data in-memory, providing rapid response times for interactive filtering. A scheduled refresh at midnight fulfills the freshness requirement.

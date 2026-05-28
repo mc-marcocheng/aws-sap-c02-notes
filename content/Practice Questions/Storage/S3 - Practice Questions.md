@@ -18,7 +18,7 @@ tags: [aws, sap-c02, s3, storage, practice-questions]
 > What are characteristics of Amazon S3? Choose 2 answers
 > 1. Objects are directly accessible via a URL
 > 2. S3 should be used to host a relational database
-> 3. S3 allows you to store objects or virtually unlimited size
+> 3. S3 allows you to store objects of virtually unlimited size
 > 4. S3 allows you to store virtually unlimited amounts of data
 > 5. S3 offers Provisioned IOPS
 >

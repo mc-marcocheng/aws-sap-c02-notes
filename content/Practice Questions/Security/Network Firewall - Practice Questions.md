@@ -21,7 +21,7 @@ tags: [aws, sap-c02, network-firewall, practice-questions]
 > 3. Deploy a fleet of EC2 instances running third-party IPS software in an Auto Scaling group within a central VPC. Use AWS Gateway Load Balancer to distribute traffic to the appliances.
 > 4. Enable VPC Flow Logs in all VPCs and use Amazon GuardDuty to perform continuous deep packet inspection on the network traffic.
 >
-> [!success]- Answer & Rationale
+> > [!success]- Answer & Rationale
 > > **Answer: 2**
 > > **Rationale:** The centralized inspection pattern using [[Transit Gateway|AWS Transit Gateway]] and an Inspection VPC hosting [[Network Firewall|AWS Network Firewall]] is the standard, scalable AWS architecture for enterprise deep packet inspection. This avoids the operational overhead and cost of deploying firewalls in every single VPC (Option 1). While Gateway Load Balancer (Option 3) is valid for third-party appliances, AWS Network Firewall is the fully managed, native service. [[GuardDuty|Amazon GuardDuty]] (Option 4) analyzes flow logs (metadata) but does not perform inline blocking or deep packet inspection on the actual payload.
 
