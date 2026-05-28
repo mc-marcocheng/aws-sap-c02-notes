@@ -19,7 +19,7 @@ The AWS Snow Family consists of physical devices used to transport large amounts
 - **AWS OpsHub**: A GUI-based application for managing Snow devices locally. It simplifies unlocking devices, configuring IPs, and monitoring metrics.
 
 ## AWS Snowball Edge Tiers
-1. **Storage Optimized**: Optimized for large-scale data transfer and local storage. (80 TB usable).
+1. **Storage Optimized**: Optimized for large-scale data transfer and local storage. (210 TB usable).
 2. **Compute Optimized**: Provides powerful compute resources for tasks like machine learning, video analysis, and image processing at the edge. (Includes optional GPU).
 
 ## AWS Snowcone
