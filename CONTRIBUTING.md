@@ -77,7 +77,6 @@ All contributions must follow the [Vault Conventions](./VAULT_CONVENTIONS.md). T
 ---
 tags: [aws, sap-c02, <service-tag>]
 ---
-
 # Service Name
 
 Brief introductory paragraph defining the service and its primary use case at the professional level.
@@ -129,7 +128,6 @@ Description of how the service fits into larger architectures.
 ---
 tags: [aws, sap-c02, <service-tag>, practice-questions]
 ---
-
 # Service Name - Practice Questions
 
 > [!question]
@@ -167,7 +165,6 @@ Architecture Patterns synthesize individual service knowledge into exam-ready bl
 ---
 tags: [aws, sap-c02, architecture, <category>]
 ---
-
 # Pattern Name
 
 A brief description of the architecture pattern and when it is typically used in enterprise environments.
@@ -344,7 +341,7 @@ Open the `content/` folder as a vault for the best editing experience with live 
 | Internal link | `[[Service Name]]` |
 | Aliased link | `[[Service Name\|Display Text]]` |
 | Tags (frontmatter) | `tags: [aws, sap-c02, service-tag]` |
-| H1 title | `# Service Name` (one per file) |
+| H1 title | `# Service Name` (one per file, no blank line after frontmatter) |
 | Exam tip | `> [!exam]` callout |
 | Practice Q | `> [!question]` with nested `> > [!success]-` |
 | Footer link | `**Practice:** [[Service - Practice Questions\|Service Practice Questions]]` |
