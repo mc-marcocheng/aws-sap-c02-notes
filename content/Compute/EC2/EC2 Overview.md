@@ -25,7 +25,11 @@ The **Nitro System** is the underlying platform for the latest generation of EC2
 - Nitro instances provide better performance, lower cost, and are required for some features (EBS Multi-Attach io2, Enhanced Networking, Hibernation).
 
 ## Additional Features
-- **EC2 Hibernate**: Saves RAM to EBS root volume. Instance resumes with same process state. Useful for long-initialization apps. Requires encrypted root volume + Nitro.
+- **EC2 Instance Connect**: Provides a simple and secure way to connect to instances using SSH (Linux) or RDP (Windows) without managing persistent SSH keys (supports ED25519).
+- **EC2 Instance Attestation**: Uses NitroTPM to cryptographically verify the identity and software integrity of the EC2 instance (Attestable AMIs).
+- **Host Recovery**: Automatically restarts instances on a new host in the event of an unexpected hardware failure on a Dedicated Host.
+- **EC2 Image Builder**: A fully managed service to automate the creation, management, testing, and deployment of secure AMIs and container images. Pipelines can be configured to automatically apply OS patches.
+- **EC2 Hibernate**: Saves the in-memory state (RAM) to the EBS root volume and shuts down. The instance resumes with the same process state. Useful for long-initialization apps. **Crucial rule**: The instance must be an **encrypted EBS-backed instance** (both the AMI and root volume must be encrypted).
 - **Capacity Reservations**: Guarantees capacity in a specific AZ without a 1/3-year commitment (unlike RIs).
     - **On-Demand Capacity Reservations**: Guarantees capacity for a specific instance type in an AZ.
     - **Capacity Blocks**: Specifically for ML workloads (GPU instances) for a specified duration.
@@ -43,7 +47,8 @@ The **Nitro System** is the underlying platform for the latest generation of EC2
 > [!important] **SAP-C02 Considerations**
 > - **Placement Groups**: Use Cluster, Partition, or Spread for performance or availability requirements. See [[Placement Groups]].
 > - **Enhanced Networking**: Use SR-IOV for higher I/O performance and lower CPU utilization (ENI, ENA, or ixgbevf).
-> - **Elastic IP (EIP)**: Limited per region; use ELBs or Route 53 for scaling instead of many EIPs.
+> - **Elastic Fabric Adapter (EFA)**: A network device used to accelerate High Performance Computing (HPC) and Machine Learning (ML). Provides lower and more consistent latency via OS bypass capabilities compared to standard TCP transports.
+> - **Elastic IP (EIP)**: Limited per region (default 5); use ELBs or Route 53 for scaling instead of many EIPs. Re-map an EIP to rapidly mask instance failures.
 
 ## Accessing EC2
 Instances can be managed via the **AWS Management Console**, **AWS CLI**, **AWS Tools for PowerShell**, or **AWS SDKs**. The **Instance Metadata Service (IMDS)** provides data about the instance (e.g., public IP, IAM role) at `http://169.254.169.254/latest/meta-data/`.
@@ -69,6 +74,11 @@ Instances can be managed via the **AWS Management Console**, **AWS CLI**, **AWS 
 - [[EC2 Purchase Options]]
 - [[Placement Groups]]
 - [[EBS Overview]]
+- [[VPC Overview]]
+
+---
+**Practice:** [[EC2 - Practice Questions|EC2 Practice Questions]]
+[[EBS Overview]]
 - [[VPC Overview]]
 
 ---

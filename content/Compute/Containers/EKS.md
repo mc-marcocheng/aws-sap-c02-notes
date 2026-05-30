@@ -20,7 +20,7 @@ Amazon EKS is a managed service that runs Kubernetes on AWS without needing to i
 - **Cluster Endpoint Access:** The API server endpoint is public by default. For strict security/compliance, configure private access to keep node-to-API communication within the VPC.
 - **AWS Load Balancer Controller:** Manages AWS load balancers for the cluster. Provisions an ALB for Kubernetes `Ingress` and an NLB for services of type `LoadBalancer`.
 
-### Storage (CSI Drivers)
+### Storage (Container Storage Interface (CSI) Drivers)
 - **Amazon EBS CSI:** Manages lifecycle of EBS volumes for persistent block storage. *Not supported on Fargate.*
 - **Amazon EFS CSI:** Allows multiple pods to share a file system. *Supported on Fargate.*
 
