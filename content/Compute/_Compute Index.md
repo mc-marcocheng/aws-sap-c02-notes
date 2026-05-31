@@ -22,6 +22,10 @@ tags: [aws, sap-c02, compute, index]
 ## Lambda
 - [[Lambda]]
 
+## General Compute
+- [[Lightsail]]
+- [[Elastic Beanstalk]]
+
 ## Batch Processing
 - [[Batch]]
 
