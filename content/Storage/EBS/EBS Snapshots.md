@@ -23,7 +23,11 @@ EBS Snapshots are point-in-time, incremental backups of EBS volumes stored in Am
 ### Copying & Sharing
 - **Copying**: Snapshots can be copied across regions for Disaster Recovery.
     - **Note**: Cross-region snapshot copy creates a **full copy** the first time (not incremental). Subsequent copies are incremental.
+    - **Tags**: User-defined tags are *not* automatically copied from the source snapshot to the new snapshot.
 - **Sharing**: You can share snapshots with other AWS accounts or make them public (unencrypted only).
+
+> [!important] AMIs and Snapshots
+> You cannot delete a snapshot of the root device of an EBS volume if it is used by a registered AMI. You must first deregister the AMI before you can delete the snapshot.
 
 ---
 ## 3. EBS Snapshot Archive
