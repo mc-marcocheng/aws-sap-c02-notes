@@ -7,7 +7,7 @@ S3 is designed for 99.999999999% (11 9's) of durability by redundantly storing o
 
 ## 1. Resilience & Durability
 - **Regional Replication**: S3 Standard, IA, and Glacier classes replicate data across at least 3 Availability Zones.
-- **Integrity**: S3 uses checksums to detect data corruption during storage and transit.
+- **Data Integrity**: S3 verifies data integrity during uploads using cyclic redundancy check (CRC) or SHA based checksums stored in metadata. It automatically detects and repairs any data corruption that may occur during upload, storage, or retrieval.
 
 ## 2. Protecting Against Deletion
 
@@ -25,6 +25,7 @@ S3 is designed for 99.999999999% (11 9's) of durability by redundantly storing o
 
 ### S3 Object Lock
 - Provides WORM (Write Once, Read Many) protection.
+- **Requirements**: Works only in versioned buckets. It can now be enabled on **existing** buckets (previously only during bucket creation).
 - **Retention Period**: Specifies a fixed period.
 - **Legal Hold**: Indefinite protection until explicitly removed.
 

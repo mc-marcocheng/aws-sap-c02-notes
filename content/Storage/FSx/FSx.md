@@ -5,9 +5,33 @@ tags: [aws, sap-c02, storage, fsx]
 
 Amazon FSx provides fully managed third-party file systems with the native compatibility and feature sets of workloads. It eliminates the administrative overhead of managing hardware, provisioning capacity, and taking backups.
 
-## Amazon FSx for NetApp ONTAP
+## 1. Amazon FSx for Windows File Server
 
-Amazon FSx for NetApp ONTAP is a fully managed service that provides highly reliable, scalable, high-performing, and feature-rich file storage built on NetApp's popular ONTAP file system.
+A fully managed native Microsoft Windows file system with full support for the SMB protocol, Windows NTFS, and Microsoft Active Directory (AD) integration.
+
+- **Protocols Supported**: SMB.
+- **Features**:
+  - **Native Windows Features**: Full support for NTFS, Windows ACLs, DFS Namespaces (DFS-N) to scale-out storage, and DFS Replication (DFS-R).
+  - **Active Directory Integration**: Integrates seamlessly with AWS Managed Microsoft AD or on-premises AD for access control.
+  - **Multi-AZ**: Supports Multi-AZ and Single-AZ deployments.
+  - **Cost Optimization**: Reduce storage costs by turning on data deduplication. Choose between SSD and HDD storage based on performance needs.
+  - **Migration**: Use Windows RoboCopy to migrate data + metadata (ACLs, ownership).
+- **Use Cases**: Migrating Windows file shares, SQL Server High Availability (FCI) deployments, home directories, ERP workloads, and IIS web serving.
+
+## 2. Amazon FSx for Lustre
+
+A high-performance file system optimized for fast processing of workloads. Lustre is a popular open-source parallel file system. *(Note: See [[FSx for Lustre]] for deep dive)*.
+
+- **Protocols Supported**: POSIX-compliant interface.
+- **Features**:
+  - **Performance**: Provides sub-millisecond access, reading/writing data at hundreds of gigabytes per second and millions of IOPS.
+  - **S3 Integration**: Managed via **Data Repository Associations (DRA)**, FSx transparently presents S3 objects as files and allows you to write results back to S3. Uses FSx as "hot" storage and S3 as "cold".
+  - **Deployment Types**: Supports Scratch (temporary, no replication) and Persistent (long-term, replicated).
+- **Use Cases**: High-performance computing (HPC), machine learning, video processing, financial modeling.
+
+## 3. Amazon FSx for NetApp ONTAP
+
+A highly reliable, scalable, and feature-rich file storage solution built on NetApp's popular ONTAP file system.
 
 - **Protocols Supported**: NFS, SMB, and iSCSI.
 - **Features**:
@@ -15,61 +39,36 @@ Amazon FSx for NetApp ONTAP is a fully managed service that provides highly reli
   - **Storage Efficiencies**: Native deduplication, compression, and compaction to reduce storage costs.
   - **Snapshots & Clones**: Instantaneous, space-efficient snapshots and FlexClone volumes.
   - **SnapMirror & SnapVault**: Native replication to/from on-premises ONTAP or other FSx for ONTAP file systems for disaster recovery and backup.
-  - **Tiering**: Automatically tier infrequently accessed data to a lower-cost capacity pool (similar to [[S3 Overview|S3]]).
+  - **Tiering**: Automatically tier infrequently accessed data to a lower-cost capacity pool (Auto, Snapshot-only, All, None).
+  - **Compliance**: Supports SnapLock for WORM compliance.
 - **Use Cases**: Migrating existing NetApp ONTAP environments, multi-protocol file sharing, EDA workloads, and disaster recovery for on-premises NetApp.
 
-## Amazon FSx for Windows File Server
+## 4. Amazon FSx for OpenZFS
 
-Amazon FSx for Windows File Server provides a fully managed, highly reliable, and scalable file storage that is accessible over the industry-standard Server Message Block (SMB) protocol. It is built on Windows Server.
+A fully managed service that provides high-performance, cost-effective NFS storage built on the OpenZFS file system (powered by AWS Graviton processors).
 
-- **Protocols Supported**: SMB.
+- **Protocols Supported**: NFS (v3, v4, v4.1, v4.2). Accessible from Linux, Windows, and macOS.
 - **Features**:
-  - **Native Windows Features**: Full support for NTFS features, Windows ACLs, DFS Namespaces (DFS-N), and DFS Replication (DFS-R).
-  - **Active Directory Integration**: Integrates seamlessly with AWS Managed Microsoft AD or on-premises AD for access control.
-  - **Multi-AZ**: Supports Multi-AZ deployments for high availability.
-  - **Storage Types**: SSD for latency-sensitive workloads, HDD for throughput-intensive or cost-sensitive workloads.
-  - **Data Deduplication**: Reduces storage costs for typical file shares.
-- **Use Cases**: Migrating Windows file shares, home directories, ERP workloads, and IIS web serving.
+  - **Performance**: Up to 1 million IOPS and 12 GB/s throughput with latencies in hundreds of microseconds.
+  - **Snapshots & Clones**: Instant point-in-time snapshots and data cloning.
+  - **ZFS Efficiencies**: Native Z-Standard compression.
+  - **Deployment**: Now supports Multi-AZ deployments for high availability.
+- **Use Cases**: High-performance NFS workloads, Machine Learning, EDA, and migrating on-premises ZFS without modifying application code.
 
-## Amazon FSx for OpenZFS
+---
 
-Amazon FSx for OpenZFS is a fully managed service that provides high-performance, cost-effective NFS storage built on the OpenZFS file system.
+## SAP-C02 Strategic Scenarios
 
-- **Protocols Supported**: NFS (v3, v4, v4.1, v4.2).
-- **Features**:
-  - **Performance**: Up to 1 million IOPS and 12 GB/s throughput with sub-millisecond latencies.
-  - **Snapshots & Clones**: Instant, zero-copy snapshots and clones, making it ideal for dev/test environments.
-  - **ZFS Efficiencies**: Native ZFS compression and space-efficient snapshots.
-- **Use Cases**: High-performance NFS workloads, Machine Learning, EDA, and rapid development environments.
+> [!exam] High-Speed S3 Processing
+> If a scenario involves compute clusters processing massive amounts of data stored in S3 and requiring sub-millisecond latencies (HPC/Machine Learning), **FSx for Lustre linked to S3 (via DRA)** is the correct architectural pattern.
 
-## Comparison: FSx Variants
-
-| Feature | FSx for ONTAP | FSx for Windows File Server |
-| :--- | :--- | :--- |
-| **Protocols** | NFS, SMB, iSCSI | SMB only |
-| **Primary OS Target** | Linux, Windows, macOS | Windows (Linux via SMB possible but less native) |
-| **On-Prem Replication** | SnapMirror | DFS-R (Distributed File System Replication) |
-| **Block Storage** | Yes (iSCSI LUNs) | No |
-| **Storage Tiering** | Yes (Capacity Pool) | No (Choose SSD or HDD at creation) |
-
-> [!info] High Availability
-> Both FSx for ONTAP and FSx for Windows File Server support Multi-AZ deployments, ensuring data availability even if an entire Availability Zone goes offline.
-
-> [!exam] Migration Strategy
-> If a question mentions an on-premises NetApp appliance that needs to be migrated to AWS while maintaining existing replication workflows, **FSx for ONTAP** with SnapMirror is the definitive answer.
-
-> [!important] Multi-Protocol Requirements
+> [!exam] Multi-Protocol Requirements
 > If a workload requires both Linux servers (using NFS) and Windows servers (using SMB) to read and write to the exact same dataset concurrently, **FSx for ONTAP** is the only FSx service that supports simultaneous multi-protocol access.
 
-## Strategic Scenarios (SAP-C02)
-
-### Scenario 1: On-Premises NetApp Disaster Recovery
-**Requirement**: A company wants to set up a disaster recovery site in AWS with an RPO of less than 15 minutes. The solution must minimize administrative overhead and utilize existing NetApp skill sets.
-**Solution**: Deploy Amazon FSx for NetApp ONTAP in the target AWS Region. Configure NetApp SnapMirror to replicate data asynchronously from the on-premises NetApp cluster to FSx for ONTAP. This provides a native, low-RPO disaster recovery solution without managing underlying infrastructure.
-
-### Scenario 2: Legacy Windows Application Migration
-**Requirement**: A legacy Windows application is being migrated to AWS. It relies heavily on strict NTFS permissions, SMB file shares, and DFS Namespaces. The application needs high availability across multiple AZs.
-**Solution**: Deploy Amazon FSx for Windows File Server in a Multi-AZ configuration. Join the file system to the company's AWS Managed Microsoft AD. Use DFS-N to provide a consistent namespace for the application.
+> [!exam] Migration Strategies
+> - **On-Premises NetApp**: Use **FSx for ONTAP** with SnapMirror for low-RPO disaster recovery or migration.
+> - **Legacy Windows/NTFS**: Use **FSx for Windows File Server**. Utilize **DFS Namespaces (DFS-N)** to group file shares into a common folder structure and scale-out throughput. Use **RoboCopy** to migrate ACLs.
+> - **On-Premises ZFS**: Use **FSx for OpenZFS** to lift-and-shift without changing code.
 
 ## Related Services
 - [[_Storage Index|Storage Index]]

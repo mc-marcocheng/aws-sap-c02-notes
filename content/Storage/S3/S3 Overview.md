@@ -12,37 +12,38 @@ tags: [aws, sap-c02, storage, s3]
 - **Container**: A bucket is a container for objects.
 - **Global Namespace**: Bucket names must be **globally unique** across all AWS accounts.
 - **Regional Service**: While S3 is a global service, each bucket is created in a specific AWS Region.
-- **Limits**: Default limit is 100 buckets per account (expandable to 1,000).
+- **Directory Buckets**: A specialized bucket type mapped to a single Availability Zone, used exclusively by the **S3 Express One Zone** storage class for single-digit millisecond latency.
+- **Limits**: Default limit is 10,000 buckets per account.
 
 ### Objects
 - **Key-Value Store**: Objects are identified by a **Key** (the name) and a **Version ID**.
-- **Metadata**: Set of name-value pairs that describe the object (e.g., Content-Type).
-- **Size**: Individual objects can range from 0 bytes to **5 TB**.
+- **Metadata**: Set of name-value pairs that describe the object (e.g., Content-Type, custom tags). S3 automatically captures and stores metadata in fully managed Apache Iceberg tables (metadata tables) for efficient querying.
+- **Size**: Individual objects can range from 0 bytes to **50 TB**.
 - **Single Upload Limit**: A single PUT operation can upload up to **5 GB**. For larger objects, you **MUST** use Multipart Upload.
 
 ### Strong Consistency
-- **Strong Read-After-Write Consistency**: S3 provides strong consistency for **all operations** (PUT, DELETE, LIST) for both new objects and overwrites.
-- **Immediate Visibility**: Any successful write (new object or overwrite) or delete is immediately visible to all subsequent requests across all AWS Regions.
+- **Strong Read-After-Write Consistency**: S3 provides strong consistency for **all operations** (PUT, DELETE, LIST) for both new objects and overwrites. Any successful write is immediately visible to all subsequent requests.
+- **Exceptions (Eventual Consistency)**: Changes to bucket-level configurations (like Versioning) and Bucket Listing (after a bucket is deleted, it might still briefly appear) are eventually consistent.
 
 ---
-## Operations & Features
+## Advanced Features & Integrations
+
+### S3 Tables (Apache Iceberg Integration)
+- **Function**: S3 Tables provides purpose-built "Table Buckets" designed specifically to store tabular data (e.g., transactions, sensor data) in the **Apache Iceberg format**.
+- **Benefits**: Optimizes analytics workloads with increased TPS and query throughput. S3 automatically performs maintenance (compaction, unreferenced file removal).
+- **Integration**: Can be seamlessly queried using Amazon Athena, EMR, Redshift, and Spark.
+
+### Amazon S3 on Outposts
+- **Function**: Uses S3 APIs to deliver object storage to an on-premises AWS Outposts environment.
+- **Security**: Data is encrypted with SSE-C and SSE-S3 and redundantly stored across Outposts servers.
+- **Data Transfer**: Automate data transfer between Outposts and AWS Regions using **AWS DataSync**.
+
+### S3 Storage Browser
+- An open-source component for integrating a graphical interface into web applications (like React), enabling authorized end-users to interact with S3 data directly (LIST, GET, PUT, COPY, DELETE).
 
 ### Multipart Upload
 - **Recommendation**: Use for objects > 100 MB; **required** for objects > 5 GB.
-- **Benefits**:
-    - **Improved Throughput**: Parallelize uploads.
-    - **Fault Tolerance**: Restart only failed parts.
-    - **Pause/Resume**: Upload parts over time.
-- **Parts**: Supports 1 to 10,000 parts; each part from 5 MB to 5 GB (last part can be < 5 MB).
-
-### S3 Transfer Acceleration
-- Uses **[[CloudFront Overview|CloudFront]]'s** globally distributed edge locations to accelerate data uploads to S3 over an optimized network path.
-- Ideal for customers transferring large objects across continents.
-
-### Pre-Signed URLs
-- Allows users to download or upload objects without AWS credentials.
-- The URL is valid only for a specified duration.
-- **Security**: The pre-signed URL inherits the permissions of the user who generated it.
+- **Benefits**: Improved throughput, fault tolerance, and pause/resume capabilities.
 
 ### S3 Batch Operations
 - Perform large-scale operations (copy, tag, restore, lambda) on billions of objects.
@@ -62,17 +63,16 @@ tags: [aws, sap-c02, storage, s3]
 ## SAP-C02 Exam Strategy
 
 > [!exam]
-> - **Durability vs Availability**: S3 is designed for 11 9's durability. Availability varies by storage class (e.g., S3 Standard is 99.99%).
-> - **Consistency**: S3 provides **strong read-after-write consistency** for all applications.
-> - **Security**: Use **Bucket Policies** for cross-account access and **IAM Policies** for user-level access. Use **S3 Block Public Access** at the account level for maximum security.
-> - **Large Scale Migration**: For petabytes of data, consider **AWS [[Snow Family]]** or **AWS [[DataSync]]**.
+> - **Analytics & Data Lakes**: If a scenario requires querying massive metadata or transactional data directly on S3 with high performance, look for **S3 Tables (Apache Iceberg)**.
+> - **Hybrid Object Storage**: For on-premises object storage using S3 APIs, choose **S3 on Outposts** and sync to the cloud via **DataSync**.
+> - **Consistency**: Remember that S3 data is strongly consistent, but *bucket configurations* are eventually consistent.
 
 ---
 ## Comparison: Single PUT vs. Multipart Upload
 
 | Feature | Single PUT | Multipart Upload |
 | :--- | :--- | :--- |
-| **Max Object Size** | 5 GB | 5 TB |
+| **Max Object Size** | 5 GB | 50 TB |
 | **Max Part Size** | N/A (Full object) | 5 GB |
 | **Parallelism** | No | **Yes** |
 | **Use Case** | Small objects (< 100 MB) | Large objects (> 100 MB) or unstable networks |

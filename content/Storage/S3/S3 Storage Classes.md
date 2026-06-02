@@ -10,9 +10,9 @@ tags: [aws, sap-c02, storage, s3]
 
 | Storage Class | Durability | Availability | AZs | Min Duration | Retrieval Fee | Use Case |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **S3 Express One Zone** | 11 9's | 99.95% | **1** | None | None | Single-digit ms latency, highest performance |
+| **S3 Express One Zone** | 11 9's | 99.95% | **1** | 1 hour | None | Single-digit ms latency, highest performance |
 | **S3 Standard** | 11 9's | 99.99% | ≥3 | None | None | Frequent, high-perf access |
-| **S3 Intelligent-Tiering** | 11 9's | 99.9% | ≥3 | None | None | Unknown/changing patterns |
+| **S3 Intelligent-Tiering** | 11 9's | 99.9% | ≥3 | 30 days | **None** | Unknown/changing patterns |
 | **S3 Standard-IA** | 11 9's | 99.9% | ≥3 | 30 days | Per GB | Long-lived, infrequent |
 | **S3 One Zone-IA** | 11 9's | 99.5% | **1** | 30 days | Per GB | Non-critical, reproducible |
 | **S3 Glacier Instant** | 11 9's | 99.9% | ≥3 | 90 days | Per GB | Millisecond access archive |
@@ -27,7 +27,7 @@ tags: [aws, sap-c02, storage, s3]
 ### S3 Express One Zone
 - **Use Case**: Compute-intensive workloads like ML training, financial modeling, and real-time analytics.
 - **Latency**: Single-digit milliseconds (up to 10x faster than S3 Standard).
-- **Architecture**: Directory buckets mapped to a specific AWS Availability Zone (AZ).
+- **Architecture**: Directory buckets mapped to a specific AWS Availability Zone (AZ). Uses Zonal Endpoints.
 
 ### S3 Standard (Default)
 - **Use Case**: Performance-sensitive data, dynamic websites, content distribution.
@@ -38,10 +38,14 @@ tags: [aws, sap-c02, storage, s3]
 ## Tiering & Infrequent Access
 
 ### S3 Intelligent-Tiering
-- **Function**: Automatically moves objects between access tiers based on access patterns.
-- **Tiers**: Frequent, Infrequent, Archive Instant (and optional Archive/Deep Archive).
-- **Cost**: Monthly monitoring/automation fee per object. **No retrieval fees**.
-- **Ideal For**: Long-lived data with unknown or unpredictable access patterns.
+- **Function**: Automatically moves objects between access tiers based on access patterns without performance impact or operational overhead.
+- **Tiers**: 
+    - **Frequent Access** (Default)
+    - **Infrequent Access** (Moves after 30 days of no access)
+    - **Archive Instant Access** (Moves after 90 days of no access)
+    - **Archive/Deep Archive** (Optional asynchronous capabilities after 90 to 180 days).
+- **Cost**: Monthly monitoring/automation fee per object. **There are NO retrieval fees**.
+- **S3 Tables**: S3 Tables also support Intelligent-Tiering, optimizing costs for tabular data across Frequent, Infrequent, and Archive Instant tiers with no query performance impact.
 
 ### S3 Standard-IA (Infrequent Access)
 - **Use Case**: Backups, DR files, older data accessed occasionally.
@@ -62,16 +66,15 @@ tags: [aws, sap-c02, storage, s3]
 
 ### S3 Glacier Flexible Retrieval
 - **Retrieval Options**:
-    - **Expedited**: 1-5 minutes (Highest cost; use for urgent data).
+    - **Expedited**: 1-5 minutes (Highest cost; use for urgent data. On-Demand or Provisioned capacity).
     - **Standard**: 3-5 hours.
     - **Bulk**: 5-12 hours (**Free**).
-- **Vault Lock**: Enforces WORM (Write Once Read Many) policies for compliance.
 
 ### S3 Glacier Deep Archive
 - **Retrieval Options**:
     - **Standard**: 12 hours.
     - **Bulk**: 48 hours (**Free**).
-- **Cost**: Lowest storage cost in AWS.
+- **Cost**: Lowest storage cost in the cloud.
 - **Ideal For**: Regulatory compliance (7-10 years) where data is rarely accessed.
 
 ---
@@ -90,8 +93,8 @@ tags: [aws, sap-c02, storage, s3]
 
 > [!exam]
 > - **Extreme Performance:** If a scenario mentions ML training or reducing latency to the absolute minimum, choose **S3 Express One Zone**.
-> - **Cost Optimization**: If access patterns are **unpredictable** or **unknown**, use **S3 Intelligent-Tiering**.
-> - **Compliance**: For legal/regulatory requirements with data that cannot be modified or deleted, use **S3 Glacier with Vault Lock** or **S3 Object Lock** in compliance mode.
+> - **Cost Optimization**: If access patterns are **unpredictable** or **unknown** and you want to avoid retrieval fees, use **S3 Intelligent-Tiering**.
+> - **Compliance**: For legal/regulatory requirements with data that cannot be modified or deleted, use **S3 Glacier Vault Lock** or **S3 Object Lock**.
 > - **Performance**: All S3 storage classes (except Flexible/Deep Archive) provide **millisecond first-byte latency**.
 > - **Min Storage Duration Traps**: Deleting objects before the minimum duration (IA: 30 days, Instant/Flexible: 90 days, Deep Archive: 180 days) incurs a pro-rated charge. Watch for scenarios where data is stored and immediately deleted.
 
